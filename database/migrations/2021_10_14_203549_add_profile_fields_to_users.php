@@ -16,7 +16,7 @@ class AddProfileFieldsToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('lastname', 25)->after('name');
             $table->integer('area_code');
-            $table->string('phone_number', 15);
+            $table->string('phone_number', 20);
             $table->json('address');
             $table->string('zip_code');
             $table->timestamp('accept_terms')->nullable();
