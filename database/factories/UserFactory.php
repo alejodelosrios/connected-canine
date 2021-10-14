@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Team;
 use App\Models\User;
+use App\ValueObjects\Address;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
@@ -33,7 +34,13 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'area_code' => $this->faker->randomNumber(3),
             'phone_number' => $this->faker->phoneNumber(),
-            'address' => json_encode($this->faker->address()),
+            'address' => new Address(
+                $this->faker->streetAddress(),
+                $this->faker->streetAddress(),
+                $this->faker->streetName(),
+                $this->faker->streetName()
+            ),
+            'zip_code' => $this->faker->randomNumber(3),
             'accept_terms' => now(),
             'aggreement' => now()
         ];

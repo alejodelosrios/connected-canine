@@ -57,6 +57,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'accept_terms' => 'datetime',
         'aggreement' => 'datetime',
+        'address' => \App\Casts\Address::class,
     ];
 
     /**
