@@ -19,11 +19,12 @@ class Address implements CastsAttributes
      */
     public function get($model, string $key, $value, array $attributes)
     {
+        $address = json_decode($attributes['address']);
         return new AddressVO(
-            $attributes['home_street'],
-            $attributes['home_street_line_2'],
-            $attributes['street_address'],
-            $attributes['street_address_2'],
+            $address->home_street,
+            $address->street_address,
+            $address->home_street_line_2,
+            $address->street_address_2,
         );
     }
 
@@ -42,11 +43,6 @@ class Address implements CastsAttributes
             throw new InvalidArgumentException('The given value is not an Address instance.');
         }
 
-        return [
-            'home_street' => $value->home_street,
-            'home_street_line_two' => $value->home_street_line_2,
-            'street_address' => $value->street_address,
-            'street_address_2' => $value->street_address_2,
-        ];
+        return  $value->toJson();
     }
 }

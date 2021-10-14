@@ -36,8 +36,8 @@ class UserFactory extends Factory
             'phone_number' => $this->faker->phoneNumber(),
             'address' => new Address(
                 $this->faker->streetAddress(),
-                $this->faker->streetAddress(),
                 $this->faker->streetName(),
+                $this->faker->streetAddress(),
                 $this->faker->streetName()
             ),
             'zip_code' => $this->faker->randomNumber(3),
