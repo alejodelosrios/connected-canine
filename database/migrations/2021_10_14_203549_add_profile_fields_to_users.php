@@ -14,11 +14,11 @@ class AddProfileFieldsToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('lastname', 25)->after('name');
-            $table->integer('area_code');
-            $table->string('phone_number', 20);
-            $table->json('address');
-            $table->string('zip_code');
+            $table->string('lastname', 25)->after('name')->nullable();
+            $table->integer('area_code')->nullable();
+            $table->string('phone_number', 20)->nullable();
+            $table->json('address')->nullable();
+            $table->string('zip_code')->nullable();
             $table->timestamp('accept_terms')->nullable();
             $table->timestamp('aggreement')->nullable();
         });
