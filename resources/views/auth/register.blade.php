@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    {{-- <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
@@ -67,5 +67,48 @@
                 </div>
             </form>
         </div>
-    </x-jet-authentication-card>
+    </x-jet-authentication-card> --}}
+
+
+    <section class="mb-8 min-vh-100">
+        <x-hero-section img="dashboard/img/curved-images/curved14.jpg">
+            <x-slot name="title">Welcome!</x-slot>
+            <x-slot name="subtitle">
+                Use these awesome forms to login or create new account in your
+                project for free
+            </x-slot>
+        </x-hero-section>
+
+        <x-auth-card>
+            <x-slot name="title">Register with</x-slot>
+
+            <form role="form text-left">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Name" aria-label="Name"
+                        aria-describedby="email-addon">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Email" aria-label="Email"
+                        aria-describedby="email-addon">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Password" aria-label="Password"
+                        aria-describedby="password-addon">
+                </div>
+                <div class="text-left form-check form-check-info">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms
+                            and Conditions</a>
+                    </label>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="my-4 mb-2 btn bg-gradient-dark w-100">Sign up</button>
+                </div>
+                <p class="mt-3 mb-0 text-sm">Already have an account? <a href="javascript:;"
+                        class="text-dark font-weight-bolder">Sign in</a></p>
+            </form>
+
+        </x-auth-card>
+    </section>
 </x-guest-layout>
