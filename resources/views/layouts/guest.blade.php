@@ -21,7 +21,8 @@
     <link id="pagestyle" href="{{ asset('/dashboard/css/soft-ui-dashboard.css') }}" rel="stylesheet" />
 </head>
 
-<body class="font-sans antialiased bg-light">
+<body class="bg-gray-100 g-sidenav-show">
+    <x-navbar />
     {{ $slot }}
 
     <!-- Core -->
