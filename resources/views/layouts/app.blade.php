@@ -31,7 +31,7 @@
     <!-- Page Heading -->
     <header class="py-3 bg-white shadow-sm d-flex border-bottom">
         <div class="container">
-            {{ $header }}
+            {{ $header ?? '' }}
         </div>
     </header>
 
