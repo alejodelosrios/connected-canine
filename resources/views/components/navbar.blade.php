@@ -1,5 +1,6 @@
- <!-- Navbar -->
- <nav class="top-0 my-3 mt-4 shadow-none navbar navbar-expand-lg position-absolute z-index-3 w-100 navbar-transparent">
+ {{--{{ $home = true ?? "blur blur-rounded shadow py-2 start-0 end-0 mx-4" : "mt-4 shadow-none w-100 navbar-transparent" }}--}}
+<!-- Navbar -->
+<nav {{ $attributes->merge(["class" => "top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3"]) }} >
      <div class="container">
          <x-logo-brand/>
          <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
@@ -15,12 +16,8 @@
              <div class="mx-auto">
                  {{ $navlink ?? '' }}
              </div>
-             <ul class="navbar-nav d-lg-block d-none">
-                 <li class="nav-item">
-                     <a href="https://www.creative-tim.com/product/soft-ui-dashboard-pro"
-                         class="mb-0 btn btn-sm bg-gradient-primary btn-round me-1"
-                         onclick="smoothToPricing('pricing-soft-ui')">Buy Now</a>
-                 </li>
+             <ul class="navbar-nav d-flex">
+                 {{ $buttons ?? '' }}
              </ul>
          </div>
      </div>
