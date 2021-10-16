@@ -25,21 +25,45 @@
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
+    <style>
+        .navbar .navbar-brand {
+            color: black;
+        }
+
+    </style>
+
 </head>
 
 <body class="font-sans antialiased bg-light">
-    <x-jet-banner />
-    @livewire('navigation-menu')
 
-    <!-- Page Heading -->
-    <header class="py-3 bg-white shadow-sm d-flex border-bottom">
-        <div class="container">
-            {{ $header ?? '' }}
+    <div class="container top-0 px-2 mx-auto position-sticky z-index-sticky">
+        <div class="row">
+            <div class="col-12">
+                <x-navbar class="py-2 shadow blur blur-rounded start-0 end-0">
+                    <x-slot name="buttons">
+                        @auth
+
+                        @else
+                            <li class="mb-2 nav-item mx-md-2 mb-md-0">
+                                <a href="{{ route('login') }}"
+                                    class="mb-0 btn btn-sm bg-gradient-primary btn-round me-1">Login</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a href="{{ route('register') }}"
+                                        class="mb-0 btn btn-sm bg-gradient-secondary btn-round me-1">Register</a>
+                                </li>
+                            @endif
+                        @endauth
+
+                    </x-slot>
+                </x-navbar>
+            </div>
         </div>
-    </header>
+    </div>
 
     <!-- Page Content -->
-    <main class="container my-5">
+    <main class="container py-5 my-5">
         {{ $slot }}
     </main>
 

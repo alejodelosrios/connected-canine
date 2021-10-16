@@ -1,10 +1,10 @@
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
-        {{ __('Profile Information') }}
+        {{ __('Create an account') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Update your account\'s profile information and email address.') }}
+        {{ __('Update your account\'s profile information.') }}
     </x-slot>
 
     <x-slot name="form">
@@ -57,9 +57,9 @@
             </div>
         @endif
 
-        <div class="w-md-75">
+        <div class=" row">
             <!-- Name -->
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6 ">
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.name" autocomplete="name" />
@@ -67,7 +67,7 @@
             </div>
 
             <!-- Lastname -->
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
                 <x-jet-input id="lastname" type="text" class="{{ $errors->has('lastname') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.lastname" />
@@ -75,7 +75,7 @@
             </div>
 
             <!-- Email -->
-            <div class="mb-3">
+            <div class="mb-3 col-12-md">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.email" />
@@ -83,7 +83,7 @@
             </div>
 
             <!-- Area code -->
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-3">
                 <x-jet-label for="area_code" value="{{ __('Area code') }}" />
                 <x-jet-input id="area_code" type="text" pattern="[0-9]{2,3}"
                     class="{{ $errors->has('area_code') ? 'is-invalid' : '' }}" wire:model.defer="state.area_code" />
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Phone number -->
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="phone_number" value="{{ __('Phone number') }}" />
                 <x-jet-input id="phone_number" type="tel"
                     class="{{ $errors->has('phone_number') ? 'is-invalid' : '' }}"
@@ -99,29 +99,38 @@
                 <x-jet-input-error for="phone_number" />
             </div>
 
+            <!-- Zip code -->
+            <div class="mb-3 col-12 col-md-3">
+                <x-jet-label for="zip_code" value="{{ __('Zip code') }}" />
+                <x-jet-input id="zip_code" type="zip_code" class="{{ $errors->has('zip_code') ? 'is-invalid' : '' }}"
+                    wire:model.defer="state.zip_code" />
+                <x-jet-input-error for="zip_code" />
+            </div>
+
             <!-- Address -->
-            <div class="mb-3">
+
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="address.home_street" value="{{ __('Home street') }}" />
                 <x-jet-input id="address.home_street" type="text"
                     class="{{ $errors->has('address.home_street') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.address.home_street" />
                 <x-jet-input-error for="address.home_street" />
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="street_address" value="{{ __('Street address') }}" />
                 <x-jet-input id="street_address" type="street_address"
                     class="{{ $errors->has('street_address') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.address.street_address" />
                 <x-jet-input-error for="street_address" />
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="home_street_2" value="{{ __('Home street  2') }}" />
                 <x-jet-input id="home_street_2" type="text"
                     class="{{ $errors->has('home_street_2') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.address.home_street_2" />
                 <x-jet-input-error for="home_street_2" />
             </div>
-            <div class="mb-3">
+            <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="street_address_2" value="{{ __('Street address 2') }}" />
                 <x-jet-input id="street_address_2" type="street_address_2"
                     class="{{ $errors->has('street_address_2') ? 'is-invalid' : '' }}"
@@ -129,13 +138,7 @@
                 <x-jet-input-error for="street_address_2" />
             </div>
 
-            <!-- Zip code -->
-            <div class="mb-3">
-                <x-jet-label for="zip_code" value="{{ __('Zip code') }}" />
-                <x-jet-input id="zip_code" type="zip_code" class="{{ $errors->has('zip_code') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.zip_code" />
-                <x-jet-input-error for="zip_code" />
-            </div>
+
 
         </div>
     </x-slot>
