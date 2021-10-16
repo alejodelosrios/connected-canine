@@ -1,10 +1,6 @@
  {{--{{ $home = true ?? "blur blur-rounded shadow py-2 start-0 end-0 mx-4" : "mt-4 shadow-none w-100 navbar-transparent" }}--}}
 <!-- Navbar -->
-<<<<<<< HEAD
 <nav {{ $attributes->merge(["class" => "top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3 mx-2"]) }} >
-=======
-<nav {{ $attributes->merge(["class" => "top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3"]) }} >
->>>>>>> be9c7db6f867b1690eeaf1fc2873527bbe5d2e3f
      <div class="container">
          <x-logo-brand/>
          <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
