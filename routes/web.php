@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('account', function(){
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('user/profile', UserProfileController::class)->name('user.profile');
 });
