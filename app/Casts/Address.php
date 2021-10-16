@@ -21,10 +21,10 @@ class Address implements CastsAttributes
     {
         $address = json_decode($attributes['address']);
         return new AddressVO(
-            $address->home_street,
-            $address->street_address,
-            $address->home_street_line_2,
-            $address->street_address_2,
+            $address->home_street ?? '',
+            $address->street_address ?? '',
+            $address->home_street_2 ?? '',
+            $address->street_address_2 ?? '',
         );
     }
 
