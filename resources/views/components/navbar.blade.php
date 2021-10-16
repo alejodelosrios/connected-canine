@@ -1,5 +1,5 @@
  <!-- Navbar -->
- <nav class="top-0 my-3 mt-4 shadow-none navbar navbar-expand-lg position-absolute z-index-3 w-100 navbar-transparent">
+ <nav class="mt-4 shadow-none -3 tPop-0 navbar navbar-expand-lg position-absolute z-index-3 w-100 navbar-transparent">
      <div class="container">
          <x-logo-brand/>
          <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
