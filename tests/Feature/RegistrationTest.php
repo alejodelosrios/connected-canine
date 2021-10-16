@@ -45,23 +45,13 @@ class RegistrationTest extends TestCase
 
         $response = $this->post('/register', [
             'name' => 'Test User',
-            'lastname' => 'Lastname',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature(),
-            'area_code' => 123,
-            'phone_number' => $this->faker->phoneNumber(),
-            'home_street' => $this->faker->streetAddress(),
-            'home_street_line_2' => $this->faker->streetAddress(),
-            'street_address' => $this->faker->streetName(),
-            'street_address_2' => $this->faker->streetName(),
-            'zip_code' => $this->faker->randomNumber(3),
-            'accept_terms' => now(),
-            'aggreement' => now()
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('user.profile'));
     }
 }
