@@ -1,8 +1,12 @@
- {{--{{ $home = true ?? "blur blur-rounded shadow py-2 start-0 end-0 mx-4" : "mt-4 shadow-none w-100 navbar-transparent" }}--}}
 <!-- Navbar -->
 <nav {{ $attributes->merge(["class" => "top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3 mx-2"]) }} >
      <div class="container">
-         <x-logo-brand/>
+         {{--<x-logo-brand/>--}}
+        <!-- Logo -->
+        <a class="navbar-brand me-4" href="/">
+            <x-jet-application-mark width="36" />
+            Connected Canine
+        </a>
          <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
              data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
              aria-label="Toggle navigation">
