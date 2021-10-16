@@ -1,3 +1,3 @@
 <x-app-layout>
-    //TODO: MAKE USER-PROFILE VIEW
+    @livewire('profile.update-profile-information-form')
 </x-app-layout>
