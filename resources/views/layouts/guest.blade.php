@@ -22,7 +22,7 @@
 </head>
 
 <body class="bg-gray-100 g-sidenav-show">
-    <x-navbar />
+                <x-navbar class="mt-4 shadow-none w-100 navbar-transparent" />
     {{ $slot }}
 
     <!-- Core -->
@@ -33,6 +33,7 @@
     <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
 
     @stack('scripts')
+
 </body>
 
 </html>
