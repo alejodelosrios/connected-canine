@@ -82,60 +82,67 @@
 
                                 <!-- Settings Dropdown -->
                                 @auth
-                                    <x-jet-dropdown id="settingsDropdown">
-                                        <x-slot name="trigger">
-                                            @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                                <img class="rounded-circle" width="32" height="32"
-                                                    src="{{ Auth::user()->profile_photo_url }}"
-                                                    alt="{{ Auth::user()->name }}" />
-                                            @else
-                                                {{ Auth::user()->name }}
+                                    <div class="d-none d-md-block">
+                                        <x-jet-dropdown id="settingsDropdown">
+                                            <x-slot name="trigger">
+                                                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                                    <img class="rounded-circle" width="32" height="32"
+                                                        src="{{ Auth::user()->profile_photo_url }}"
+                                                        alt="{{ Auth::user()->name }}" />
+                                                @else
+                                                    {{ Auth::user()->name }}
 
-                                                <svg class="ms-2" width="18"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd"
-                                                        d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-                                                        clip-rule="evenodd" />
-                                                </svg>
-                                            @endif
-                                        </x-slot>
+                                                    <svg class="ms-2" width="18" xmlns="http://www.w3.org/2000/svg"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                @endif
+                                            </x-slot>
 
-                                        <x-slot name="content">
-                                            <!-- Account Management -->
-                                            <h6 class="dropdown-header small text-muted">
-                                                {{ __('Manage Account') }}
-                                            </h6>
+                                            <x-slot name="content">
+                                                <!-- Account Management -->
+                                                <h6 class="dropdown-header small text-muted">
+                                                    {{ __('Manage Account') }}
+                                                </h6>
 
-                                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                                {{ __('Profile') }}
-                                            </x-jet-dropdown-link>
-
-                                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                                    {{ __('API Tokens') }}
+                                                <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                                    {{ __('Profile') }}
                                                 </x-jet-dropdown-link>
-                                            @endif
 
-                                            <hr class="dropdown-divider">
+                                                @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                                                    <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
+                                                        {{ __('API Tokens') }}
+                                                    </x-jet-dropdown-link>
+                                                @endif
 
-                                            <!-- Authentication -->
-                                            <x-jet-dropdown-link href="{{ route('logout') }}"
-                                                onclick="event.preventDefault();
-                                                                                                 document.getElementById('logout-form').submit();">
-                                                {{ __('Log out') }}
-                                            </x-jet-dropdown-link>
-                                            <form method="POST" id="logout-form" action="{{ route('logout') }}">
-                                                @csrf
-                                            </form>
-                                        </x-slot>
-                                    </x-jet-dropdown>
+                                                <hr class="dropdown-divider">
+
+                                                <!-- Authentication -->
+                                                <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                                                                                         document.getElementById('logout-form').submit();">
+                                                    {{ __('Log out') }}
+                                                </x-jet-dropdown-link>
+                                                <form method="POST" id="logout-form" action="{{ route('logout') }}">
+                                                    @csrf
+                                                </form>
+                                            </x-slot>
+                                        </x-jet-dropdown>
+                                    </div>
                                 @endauth
                             </ul>
                             <!-- Mobile -->
                             <ul class="d-md-none navbar-nav">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                    <img class="rounded-circle" width="32" height="32"
+                                    <div class="d-flex">
+                                        <img class="rounded-circle me-2" width="32" height="32"
                                         src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                        <h6 class="">
+                                            {{ Auth::user()->name }}
+                                        </h6>
+                                    </div>
                                 @else
                                     <h6 class="">
                                         {{ Auth::user()->name }}
@@ -167,7 +174,7 @@
                                 <!-- Authentication -->
                                 <li>
                                     <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                        document.getElementById('logout-form').submit();">
+                                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Log out') }}
                                     </x-jet-dropdown-link>
                                     <form method="POST" id="logout-form" action="{{ route('logout') }}">
@@ -193,14 +200,6 @@
             </div>
         </div>
     </div>
-
-    {{-- <div class="container top-0 px-2 mx-auto position-sticky z-index-sticky"> --}}
-    {{-- <div class="row"> --}}
-    {{-- <div class="col-12"> --}}
-    {{-- @livewire('navigation-menu') --}}
-    {{-- </div> --}}
-    {{-- </div> --}}
-    {{-- </div> --}}
 
     <!-- Core -->
     <script src="{{ asset('dashboard/js/core/popper.min.js') }}"></script>
