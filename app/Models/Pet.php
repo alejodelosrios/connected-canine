@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pet extends Model
 {
@@ -17,5 +17,9 @@ class Pet extends Model
         'weight',
         'color',
     ];
-    
+
+    public function owner()
+    {
+        return  $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
 }
