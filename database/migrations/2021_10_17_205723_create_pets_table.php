@@ -18,7 +18,7 @@ class CreatePetsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name', 15);
             $table->string('profile_photo_path', 2048)->nullable();
-            $table->date('birthday');
+            $table->timestamp('birthday');
             $table->enum('sex', ['male', 'female']);
             $table->decimal('weight');
             $table->string('color', 50);

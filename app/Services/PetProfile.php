@@ -12,7 +12,7 @@ final class PetProfile implements UpdaterContract
     {
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'birthday' => ['required', 'date_format:m-d-Y'],
+            'birthday' => ['required', 'before:today'],
             'sex' => ['required', 'string', 'in:male,female'],
             'weight' => ['required', 'numeric', 'min:1'],
             'color' => ['required', 'string', 'max:50'],

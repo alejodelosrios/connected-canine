@@ -21,7 +21,7 @@ class Pet extends Model
     ];
 
     protected $casts = [
-        'birthday' => 'datetime:m-d-Y',
+        'birthday' => 'datetime:Y-m-d',
     ];
 
     public function owner()

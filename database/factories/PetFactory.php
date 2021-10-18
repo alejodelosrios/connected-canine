@@ -24,7 +24,7 @@ class PetFactory extends Factory
         return [
             'user_id' => \App\Models\User::factory(),
             'name' => $this->faker->firstName(),
-            'birthday' => now()->subMonths(rand(1, 120)),
+            'birthday' => now()->subMonths(rand(1, 120))->format('Y-m-d'),
             'sex' => $this->faker->randomElement(['male', 'female']),
             'weight' => $this->faker->randomFloat(2, 100, 500),
             'color' => $this->faker->randomElement(['brown', 'white', 'black'])

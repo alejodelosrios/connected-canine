@@ -21,7 +21,7 @@ class PetProfileFormTest extends TestCase
         $component = Livewire::test(PetProfileForm::class, ['pet' => $pet]);
 
         $this->assertEquals($pet->name, $component->state['name']);
-        $this->assertEquals($pet->birthday->format('m-d-Y'), $component->state['birthday']);
+        $this->assertEquals($pet->birthday->format('Y-m-d'), $component->state['birthday']);
         $this->assertEquals($pet->sex, $component->state['sex']);
         $this->assertEquals($pet->weight, $component->state['weight']);
         $this->assertEquals($pet->color, $component->state['color']);
@@ -45,13 +45,7 @@ class PetProfileFormTest extends TestCase
     public function pet_profile_can_be_updated()
     {
         $pet = Pet::factory()->create();
-        $new_data = [
-            'name' => 'other_name',
-            'color' => 'other_color',
-            'birthday' => '01-01-2021',
-            'sex' => $pet->sex == 'male' ? 'female' : 'male',
-            'weight' => 200,
-        ];
+        $new_data = Pet::factory()->make()->toArray();
 
         $this->actingAs(\App\Models\User::factory()->create());
 
@@ -66,7 +60,7 @@ class PetProfileFormTest extends TestCase
         $pet->refresh();
         $this->assertEquals($new_data['name'], $pet->name);
         $this->assertEquals($new_data['color'], $pet->color);
-        $this->assertEquals($new_data['birthday'], $pet->birthday->format('m-d-Y'));
+        $this->assertEquals($new_data['birthday'], $pet->birthday->format('Y-m-d'));
         $this->assertEquals($new_data['sex'], $pet->sex);
         $this->assertEquals($new_data['weight'], $pet->weight);
     }
