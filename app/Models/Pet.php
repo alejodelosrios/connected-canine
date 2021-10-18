@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pet extends Model
 {
     use HasFactory;
+    use HasProfilePhoto;
 
     protected $fillable = [
         'user_id',
@@ -16,6 +18,10 @@ class Pet extends Model
         'sex',
         'weight',
         'color',
+    ];
+
+    protected $casts = [
+        'birthday' => 'datetime:m-d-Y',
     ];
 
     public function owner()
