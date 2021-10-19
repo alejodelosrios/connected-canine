@@ -9,6 +9,7 @@ class PetProfileController extends Controller
 {
     public function __invoke(Pet $pet)
     {
+        $this->authorize('update', $pet);
         return view('pet.profile', compact('pet'));
     }
 }

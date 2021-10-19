@@ -3,6 +3,7 @@
 namespace Tests\Feature\Controllers;
 
 use App\Models\Pet;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -30,5 +31,16 @@ class PetProfileControllerTest extends TestCase
         $response = $this->get(route('pet-profile', $pet));
 
         $response->assertRedirect();
+    }
+
+    /** @test */
+    public function only_owner_can_access_to_update_profile_pet_screen()
+    {
+        $pet = Pet::factory()->create();
+        $this->actingAs(User::factory()->create());
+
+        $response = $this->get(route('pet-profile', $pet));
+
+        $response->assertForbidden();
     }
 }
