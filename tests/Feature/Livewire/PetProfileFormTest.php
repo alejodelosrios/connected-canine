@@ -46,8 +46,7 @@ class PetProfileFormTest extends TestCase
     {
         $pet = Pet::factory()->create();
         $new_data = Pet::factory()->make()->toArray();
-
-        $this->actingAs(\App\Models\User::factory()->create());
+        $this->actingAs($pet->owner);
 
         Livewire::test(PetProfileForm::class, ['pet' => $pet])
             ->set('state.name', $new_data['name'])
