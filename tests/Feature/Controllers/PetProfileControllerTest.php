@@ -13,22 +13,40 @@ class PetProfileControllerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function pet_profile_screen_can_be_rendered()
+    public function add_pet_screen_can_be_rendered()
     {
-        $pet = Pet::factory()->create();
-        $this->actingAs($pet->owner);
+        $this->actingAs(\App\Models\User::factory()->create());
 
-        $response = $this->get(route('pet-profile', $pet));
+        $response = $this->get(route('pet.create'));
 
         $response->assertStatus(200);
     }
 
     /** @test */
-    public function only_auth_user_can_be_access_to_pet_profile()
+    public function only_auth_user_can_access_to_add_pet_screen()
+    {
+        $response = $this->get(route('pet.create'));
+
+        $response->assertRedirect();
+    }
+
+    /** @test */
+    public function pet_update_profile_screen_can_be_rendered()
+    {
+        $pet = Pet::factory()->create();
+        $this->actingAs($pet->owner);
+
+        $response = $this->get(route('pet.update', $pet));
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function only_auth_user_can_be_access_to_pet_update_profile()
     {
         $pet = Pet::factory()->create();
 
-        $response = $this->get(route('pet-profile', $pet));
+        $response = $this->get(route('pet.update', $pet));
 
         $response->assertRedirect();
     }
@@ -39,7 +57,7 @@ class PetProfileControllerTest extends TestCase
         $pet = Pet::factory()->create();
         $this->actingAs(User::factory()->create());
 
-        $response = $this->get(route('pet-profile', $pet));
+        $response = $this->get(route('pet.update', $pet));
 
         $response->assertForbidden();
     }

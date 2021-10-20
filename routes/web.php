@@ -2,6 +2,7 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PetProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,5 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('pet/{pet}/profile', PetProfileController::class)->name('pet-profile');
+    Route::get('pet/add', [PetProfileController::class, 'create'])->name('pet.create');
+    Route::get('/pet/{pet}/edit', [PetProfileController::class, 'update'])->name('pet.update');
 });
