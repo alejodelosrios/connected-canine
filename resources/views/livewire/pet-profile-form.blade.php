@@ -1,4 +1,4 @@
-<x-jet-form-section submit="updateProfileInformation">
+<x-jet-form-section submit="save">
     <x-slot name="title">
         {{ __('Pet Profile Information') }}
     </x-slot>
