@@ -15,7 +15,6 @@ class CreateVeterinariansTable extends Migration
     {
         Schema::create("veterinarians", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("pet_id")->constrained();
             $table->string("vet_clinic");
             $table->string("vet_address")->nullable();
             $table->string("vet_phone_number");

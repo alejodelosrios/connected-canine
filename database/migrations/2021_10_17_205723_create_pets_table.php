@@ -13,16 +13,28 @@ class CreatePetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pets', function (Blueprint $table) {
+        Schema::create("pets", function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('name', 15);
-            $table->string('profile_photo_path', 2048)->nullable();
-            $table->timestamp('birthday');
-            $table->enum('sex', ['male', 'female']);
-            $table->decimal('weight');
-            $table->string('color', 50);
+            $table
+                ->foreignId("user_id")
+                ->constrained()
+                ->onDelete("cascade");
+
+            $table->unsignedBigInteger("veterinarian_id")->nullable();
+            //$table->foreignId("veterinarian_id")->constrained();
+            $table->string("name", 15);
+            $table->string("profile_photo_path", 2048)->nullable();
+            $table->timestamp("birthday");
+            $table->enum("sex", ["male", "female"]);
+            $table->decimal("weight");
+            $table->string("color", 50);
             $table->timestamps();
+
+            $table
+                ->foreign("veterinarian_id")
+                ->references("id")
+                ->on("pets")
+                ->onDelete("set null");
         });
     }
 
@@ -33,6 +45,6 @@ class CreatePetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pets');
+        Schema::dropIfExists("pets");
     }
 }
