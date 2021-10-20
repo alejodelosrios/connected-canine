@@ -23,5 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('profile/pet/{pet}', PetProfileController::class)->name('pet-profile');
+    Route::get('pet/{pet}/profile', PetProfileController::class)->name('pet-profile');
 });
