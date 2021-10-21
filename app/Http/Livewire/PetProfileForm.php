@@ -15,6 +15,7 @@ class PetProfileForm extends Component
     public function mount($pet = null)
     {
         $this->state = $pet?->withoutRelations()->toArray() ?? [];
+
     }
 
     public function save()
@@ -46,5 +47,12 @@ class PetProfileForm extends Component
         return array_key_exists('id', $this->state)
             ? \App\Models\Pet::find($this->state['id'])
             : new \App\Models\Pet;
+    }
+
+    public function deleteProfilePhoto()
+    {
+        $this->pet->deleteProfilePhoto();
+
+        $this->emit('refresh-navigation-menu');
     }
 }
