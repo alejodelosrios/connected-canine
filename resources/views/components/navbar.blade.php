@@ -5,7 +5,7 @@
         <!-- Logo -->
         <a class="navbar-brand me-4" href="/">
             <x-jet-application-mark width="36" />
-            Connected Canine
+            {{ config('app.name', 'Laravel') }}
         </a>
          <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
              data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"

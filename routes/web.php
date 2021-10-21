@@ -1,7 +1,8 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\PetProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('account', function(){
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('pet/add', [PetProfileController::class, 'create'])->name('pet.create');
+    Route::get('/pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
+
     Route::get('user/profile', UserProfileController::class)->name('user.profile');
 });
