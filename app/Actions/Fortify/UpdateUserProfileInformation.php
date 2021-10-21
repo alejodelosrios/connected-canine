@@ -19,7 +19,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
-        Validator::make($input, [
+        $vali= Validator::make($input, [
             'name' => ['required', 'string', 'max:25'],
             'lastname' => ['string', 'max:25'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
@@ -30,8 +30,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'address.home_street_2' => ['numeric', 'digits_between:2,6'],
             'address.street_address' => ['string', 'min:5', 'max:250'],
             'address.street_address_2' => ['string', 'min:5', 'max:250'],
-            'zip_code' => ['string', 'max:6'],
-        ])->validateWithBag('updateProfileInformation');
+            'zip_code' => ['string', 'min:3', 'max:6'],
+        ]);
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);

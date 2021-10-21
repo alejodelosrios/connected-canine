@@ -33,14 +33,14 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'area_code' => $this->faker->randomNumber(3),
-            'phone_number' => $this->faker->phoneNumber(),
+            'phone_number' => $this->faker->randomNumber(9, true),
             'address' => new Address(
-                $this->faker->streetAddress(),
+                $this->faker->randomNumber(4, true),
                 $this->faker->streetName(),
-                $this->faker->streetAddress(),
+                $this->faker->randomNumber(3, true),
                 $this->faker->streetName()
             ),
-            'zip_code' => $this->faker->randomNumber(3),
+            'zip_code' =>  "3023",
             'accept_terms' => now(),
             'aggreement' => now()
         ];
