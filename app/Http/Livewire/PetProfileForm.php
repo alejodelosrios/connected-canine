@@ -43,6 +43,8 @@ class PetProfileForm extends Component
 
     public function getPetProperty()
     {
-        /* return \App\Models\Pet::find($this->state['id']); */
+        return array_key_exists('id', $this->state)
+            ? \App\Models\Pet::find($this->state['id'])
+            : new \App\Models\Pet;
     }
 }
