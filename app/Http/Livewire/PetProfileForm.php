@@ -15,23 +15,19 @@ class PetProfileForm extends Component
     public function mount($pet = null)
     {
         $this->state = $pet?->withoutRelations()->toArray() ?? [];
-
     }
 
     public function save()
     {
         $this->resetErrorBag();
+
         $updater = new Updater;
         $updater->save(
             $this->photo
                 ? array_merge($this->state, ['photo' => $this->photo])
                 : $this->state
         );
-        /*
-        if (isset($this->photo)) {
-            return redirect()->route('dog-pprofile.show');
-        }
- */
+
         $this->emit('saved');
 
         $this->emit('refresh-navigation-menu');
