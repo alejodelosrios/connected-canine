@@ -23,7 +23,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
+
+
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('pet/add', [PetProfileController::class, 'create'])->name('pet.create');
     Route::get('/pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
+
+    Route::get('user/profile', UserProfileController::class)->name('user.profile');
 });

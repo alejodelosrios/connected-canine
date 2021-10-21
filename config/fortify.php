@@ -142,4 +142,8 @@ return [
         ]),
     ],
 
+    'redirects' => [
+        'register' => '/user/profile'
+    ]
+
 ];

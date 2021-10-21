@@ -19,10 +19,17 @@
 
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('/dashboard/css/soft-ui-dashboard.css') }}" rel="stylesheet" />
+
+    <style>
+        .navbar .navbar-brand {
+            color: white;
+        }
+
+    </style>
 </head>
 
 <body class="bg-gray-100 g-sidenav-show">
-                <x-navbar class="mt-4 shadow-none w-100 navbar-transparent" />
+    <x-navbar class="mt-4 shadow-none w-100 navbar-transparent" />
     {{ $slot }}
 
     <!-- Core -->
