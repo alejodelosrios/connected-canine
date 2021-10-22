@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetProfileController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,7 @@ use App\Http\Controllers\PetProfileController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/welcome', function () {
@@ -30,4 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
 
     Route::get('user/profile', UserProfileController::class)->name('user.profile');
+
+    Route::get('register/profile-information', WizardProfileController::class)->name('wizard.profile');
 });
