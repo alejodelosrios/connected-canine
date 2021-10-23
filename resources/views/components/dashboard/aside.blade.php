@@ -67,7 +67,7 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="welcome" title="Insurance">
+            <x-dashboard.nav-link route="insurance" title="Insurance">
                 {{-- //TODO: MAKE INSURANCE SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"

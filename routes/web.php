@@ -37,5 +37,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/pets', [PetController::class, 'index'])->name('pet-index');
 
-    
+    Route::get('/insurances', InsuranceController::class)->name('insurance');
 });
