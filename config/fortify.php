@@ -143,7 +143,7 @@ return [
     ],
 
     'redirects' => [
-        'register' => '/user/profile'
+        'register' => '/register/profile-information'
     ]
 
 ];
