@@ -3,7 +3,7 @@
         <div class="mx-auto col-xl-4 col-lg-5 col-md-7">
             <div class="card z-index-0">
                 <div class="pt-4 text-center card-header">
-                    <h5>{{ $title }}</h5>
+                    <h5>{{ $title ?? ""}}</h5>
                 </div>
 
                 <x-social-auth></x-social-auth>
