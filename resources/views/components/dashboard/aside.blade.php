@@ -41,7 +41,7 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="#" title="Pets">
+            <x-dashboard.nav-link route="pet-index" title="Pets">
                 {{-- //TODO: MAKE PETS-INDEX SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="#" title="Insurance">
+            <x-dashboard.nav-link route="welcome" title="Insurance">
                 {{-- //TODO: MAKE INSURANCE SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="#" title="Emergency Contact">
+            <x-dashboard.nav-link route="welcome" title="Emergency Contact">
                 {{-- //TODO: MAKE EMERGENCY-CONTACT SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
