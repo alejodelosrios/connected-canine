@@ -1,11 +1,9 @@
 <!-- Navbar -->
 <nav {{ $attributes->merge(['class' => 'top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3 mx-2']) }}>
     <div class="container">
-        {{-- <x-logo-brand/> --}}
-        <!-- Logo -->
         <a class="d-flex navbar-brand me-4 align-items-center" href="/">
             <x-jet-application-mark width="36" />
-            <psan class="mx-2">{{ config('app.name', 'Laravel') }}</psan>
+            <span class="mx-2">{{ config('app.name', 'Laravel') }}</span>
         </a>
         <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"

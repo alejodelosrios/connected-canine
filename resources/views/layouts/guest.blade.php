@@ -22,25 +22,14 @@
 
     @livewireStyles
 
-    <script src="{{ mix('js/app.js') }}" defer></script>
-
-    <style>
-        .navbar .navbar-brand {
-            color: white;
-        }
-
-        [x-cloak] {
-            display: none !important;
-        }
-
-    </style>
 </head>
 
 <body class="bg-gray-100 g-sidenav-show">
+    <div class="container top-0 px-2 mx-auto position-sticky z-index-sticky">
 
-    @yield('navbar')
-    @sectionMissing('navbar')
-        <div class="container top-0 px-2 mx-auto position-sticky z-index-sticky">
+        @yield('navbar')
+
+        @sectionMissing('navbar')
             <div class="row">
                 <div class="col-12">
                     <x-navbar class="py-2 shadow blur blur-rounded start-0 end-0">
@@ -138,7 +127,7 @@
                                                     <!-- Authentication -->
                                                     <x-jet-dropdown-link href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
-                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                 document.getElementById('logout-form').submit();">
                                                         {{ __('Log out') }}
                                                     </x-jet-dropdown-link>
                                                     <form method="POST" id="logout-form" action="{{ route('logout') }}">
@@ -192,7 +181,7 @@
                                     <li>
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                        document.getElementById('logout-form').submit();">
+                                                                                        document.getElementById('logout-form').submit();">
                                             {{ __('Log out') }}
                                         </x-jet-dropdown-link>
                                         <form method="POST" id="logout-form" action="{{ route('logout') }}">
@@ -217,13 +206,11 @@
                     </x-navbar>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
 
-
-
-    {{ $slot }}
-
+        {{ $slot }}
+        
+    </div>
 
     @stack('modals')
 
@@ -235,9 +222,6 @@
 
     <!-- Theme JS -->
     <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
-
-    @stack('scripts')
-
 </body>
 
 </html>
