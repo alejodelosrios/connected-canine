@@ -1,9 +1,4 @@
 <x-guest-layout>
-
-    @section('navbar')
-        <x-navbar class="mt-4 shadow-none navbar-transparent" />
-    @endsection
-
     <section class="mb-8 min-vh-100">
         <x-hero-section img="dashboard/img/curved-images/curved14.jpg">
             <x-slot name="title">Welcome!</x-slot>
