@@ -32,5 +32,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('user/profile', UserProfileController::class)->name('user.profile');
 
-    Route::get('register/profile-information', WizardProfileController::class)->name('wizard.profile');
+    Route::get('register/profile-information/{step}', WizardProfileController::class)->name('wizard.profile');
 });
