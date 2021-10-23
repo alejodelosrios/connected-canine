@@ -20,27 +20,41 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="{{ asset('/dashboard/css/soft-ui-dashboard.css') }}" rel="stylesheet" />
 
+    @livewireStyles
+
     <style>
-        .navbar .navbar-brand {
+        .navbar-transparent a.navbar-brand span {
             color: white;
         }
 
     </style>
+    
+    @stack('styles')
+
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
 </head>
 
 <body class="bg-gray-100 g-sidenav-show">
-    <x-navbar class="mt-4 shadow-none w-100 navbar-transparent" />
-    {{ $slot }}
+    <div class="container top-0 px-2 mx-auto position-sticky z-index-sticky">
 
-    <!-- Core -->
-    <script src="{{ asset('dashboard/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('dashboard/js/core/bootstrap.min.js') }}"></script>
+        @yield('navbar')
+
+        @sectionMissing('navbar')
+            <x-navbar class="mt-4 shadow-none navbar-transparent start-0 end-0" />
+
+        @endif
+
+        {{ $slot }}
+
+    </div>
+
+    @stack('modals')
+
+    @livewireScripts
 
     <!-- Theme JS -->
     <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
-
-    @stack('scripts')
-
 </body>
 
 </html>

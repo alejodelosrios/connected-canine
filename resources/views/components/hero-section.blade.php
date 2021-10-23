@@ -7,9 +7,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="mx-auto text-center col-lg-5">
-                <h1 class="mt-5 mb-2 text-white">{{ $title }}</h1>
+                <h1 class="mt-5 mb-2 text-white">{{ $title ?? "" }}</h1>
                 <p class="text-white text-lead">
-                    {{ $subtitle }}.
+                    {{ $subtitle ?? "" }}
                 </p>
             </div>
         </div>

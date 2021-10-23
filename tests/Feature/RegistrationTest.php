@@ -52,6 +52,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('user.profile'));
+        $response->assertRedirect(route('wizard.profile'));
     }
 }

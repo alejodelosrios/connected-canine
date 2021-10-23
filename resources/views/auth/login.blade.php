@@ -1,4 +1,5 @@
 <x-guest-layout>
+
     <section class="mb-8 min-vh-100">
         <x-hero-section img="dashboard/img/curved-images/curved14.jpg">
             <x-slot name="title">Welcome!</x-slot>
@@ -55,25 +56,25 @@
                         </x-jet-button>
                     </div>
                 </div>
-                <p class="mt-3 mb-0 text-sm w-full d-flex justify-content-center">Don't you have an account? <a
+                <p class="w-full mt-3 mb-0 text-sm d-flex justify-content-center">Don't you have an account? <a
                         href="{{ route('register') }}" class="text-dark font-weight-bolder">Sign Up</a></p>
 
             </form>
-            {{--<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>--}}
+            {{-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> --}}
 
-            {{--<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">--}}
-                {{--<div id="liveToast" class="toast" role="alert" aria-live="assertive" ria-atomic="true">--}}
-                    {{--<div class="toast-header">--}}
-                        {{--<img src="..." class="rounded me-2" lt="...">--}}
-                        {{--<strong class="me-auto">Bootstrap</strong>--}}
-                        {{--<small>11 minsgo</small>--}}
-                        {{--<button type="button" class="btn-close" data-bs-dismiss="toast" ria-label="Close"></button>--}}
-                    {{--</div>--}}
-                    {{--<div class="toast-body">--}}
-                        {{--Hello, world! This is toast message.--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            {{-- <div class="bottom-0 p-3 position-fixed end-0" style="z-index: 11"> --}}
+            {{-- <div id="liveToast" class="toast" role="alert" aria-live="assertive" ria-atomic="true"> --}}
+            {{-- <div class="toast-header"> --}}
+            {{-- <img src="..." class="rounded me-2" lt="..."> --}}
+            {{-- <strong class="me-auto">Bootstrap</strong> --}}
+            {{-- <small>11 minsgo</small> --}}
+            {{-- <button type="button" class="btn-close" data-bs-dismiss="toast" ria-label="Close"></button> --}}
+            {{-- </div> --}}
+            {{-- <div class="toast-body"> --}}
+            {{-- Hello, world! This is toast message. --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
 
         </x-auth-card>
     </section>
