@@ -29,13 +29,15 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/welcome', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('pet/add', [PetProfileController::class, 'create'])->name('pet.create');
-    Route::get('/pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
+    Route::get('pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
 
     Route::get('user/profile', UserProfileController::class)->name('user.profile');
 
     Route::get('register/profile-information/{step}', WizardProfileController::class)->name('wizard.profile');
 
-    Route::get('/pets', [PetController::class, 'index'])->name('pet-index');
+    Route::get('pets', [PetController::class, 'index'])->name('pet.index');
 
-    Route::get('/insurances', InsuranceController::class)->name('insurance');
+    Route::get('insurance', InsuranceController::class)->name('insurance');
+
+    Route::get('emergency-contact', EmergencyContactController::class)->name('emergency-contact');
 });

@@ -15,7 +15,8 @@
 
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-            <x-dashboard.nav-link route="welcome" title="Dashboard">
+
+            <x-dashboard.nav-link route="welcome" title="Dashboard" :active="request()->is('welcome')">
                 {{-- //TODO: MAKE DASHBOARD SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +42,8 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="pet-index" title="Pets">
+
+            <x-dashboard.nav-link route="pet.index" title="Pets" :active="request()->is('pets/*') || request()->is('pets')">
                 {{-- //TODO: MAKE PETS-INDEX SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +69,8 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="insurance" title="Insurance">
+
+            <x-dashboard.nav-link route="insurance" title="Insurance" :active="request()->is('insurance')">
                 {{-- //TODO: MAKE INSURANCE SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +96,9 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
-            <x-dashboard.nav-link route="welcome" title="Emergency Contact">
+
+            <x-dashboard.nav-link route="emergency-contact" title="Emergency Contact"
+                :active="request()->is('emergency-contact')">
                 {{-- //TODO: MAKE EMERGENCY-CONTACT SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
@@ -119,6 +124,7 @@
                     </svg>
                 </x-slot>
             </x-dashboard.nav-link>
+
         </ul>
     </div>
 </aside>
