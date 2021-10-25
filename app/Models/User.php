@@ -27,6 +27,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'lastname',
+        'area_code',
+        'phone_number',
+        'address',
+        'accept_terms',
+        'aggreement',
+        'zip_code'
     ];
 
     /**
@@ -48,6 +55,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'accept_terms' => 'datetime',
+        'aggreement' => 'datetime',
+        'address' => \App\Casts\Address::class,
     ];
 
     /**

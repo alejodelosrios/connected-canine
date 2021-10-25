@@ -2,19 +2,22 @@
 
 namespace Tests\Feature;
 
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+use App\ValueObjects\Address;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
-use Tests\TestCase;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
+    use WithFaker;
 
     public function test_registration_screen_can_be_rendered()
     {
-        if (! Features::enabled(Features::registration())) {
+        if (!Features::enabled(Features::registration())) {
             return $this->markTestSkipped('Registration support is not enabled.');
         }
 
@@ -36,7 +39,7 @@ class RegistrationTest extends TestCase
 
     public function test_new_users_can_register()
     {
-        if (! Features::enabled(Features::registration())) {
+        if (!Features::enabled(Features::registration())) {
             return $this->markTestSkipped('Registration support is not enabled.');
         }
 
@@ -49,6 +52,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('wizard.profile'));
     }
 }

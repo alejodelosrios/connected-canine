@@ -2,6 +2,8 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PetProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 })->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('profile/pet/{pet}', PetProfileController::class)->name('pet-profile');
+    Route::get('pet/add', [PetProfileController::class, 'create'])->name('pet.create');
+    Route::get('/pet/{pet}/profile/edit', [PetProfileController::class, 'update'])->name('pet.update');
+
+    Route::get('user/profile', UserProfileController::class)->name('user.profile');
+
+    Route::get('register/profile-information/{step}', WizardProfileController::class)->name('wizard.profile');
 });

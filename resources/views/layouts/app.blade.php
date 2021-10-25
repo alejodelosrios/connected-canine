@@ -22,23 +22,29 @@
 
     @livewireStyles
 
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
 </head>
 
-<body class="font-sans antialiased bg-light">
-    <x-jet-banner />
-    @livewire('navigation-menu')
 
-    <!-- Page Heading -->
-    <header class="py-3 bg-white shadow-sm d-flex border-bottom">
-        <div class="container">
-            {{ $header }}
+<body class="bg-gray-100 g-sidenav-show">
+
+    <x-dashboard.aside />
+
+    <main class="mt-1 main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <x-dashboard.navbar />
+
+        <div class="container py-4">
+
+            {{ $slot }}
+
+            <x-dashboard.footer />
+
         </div>
-    </header>
+    </main>
 
     <!-- Page Content -->
-    <main class="container my-5">
-        {{ $slot }}
-    </main>
+
 
     @stack('modals')
 
@@ -52,6 +58,13 @@
     <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
 
     @stack('scripts')
+
+
+   
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.0.3"></script>
 </body>
 
 </html>

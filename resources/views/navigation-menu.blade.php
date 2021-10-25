@@ -29,34 +29,6 @@
                             </svg>
                         </x-slot>
 
-                        <x-slot name="content">
-                            <!-- Team Management -->
-                            <h6 class="dropdown-header">
-                                {{ __('Manage Team') }}
-                            </h6>
-
-                            <!-- Team Settings -->
-                            <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                {{ __('Team Settings') }}
-                            </x-jet-dropdown-link>
-
-                            @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                    {{ __('Create New Team') }}
-                                </x-jet-dropdown-link>
-                            @endcan
-
-                            <hr class="dropdown-divider">
-
-                            <!-- Team Switcher -->
-                            <h6 class="dropdown-header">
-                                {{ __('Switch Teams') }}
-                            </h6>
-
-                            @foreach (Auth::user()->allTeams() as $team)
-                                <x-jet-switchable-team :team="$team" />
-                            @endforeach
-                        </x-slot>
                     </x-jet-dropdown>
                 @endif
 
@@ -81,7 +53,7 @@
                                 {{ __('Manage Account') }}
                             </h6>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('user.profile') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
 

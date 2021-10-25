@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pet;
-use Illuminate\Http\Request;
-
 class PetProfileController extends Controller
 {
-    public function __invoke(Pet $pet)
+    public function create()
+    {
+        return view('pet.create');
+    }
+
+    public function update(\App\Models\Pet $pet)
     {
         $this->authorize('update', $pet);
-        return view('pet.profile', compact('pet'));
+        return view('pet.update', compact('pet'));
     }
 }
