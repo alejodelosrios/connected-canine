@@ -6,13 +6,13 @@
 
         <div class="container">
             <div class="row mt-lg-n10 mt-md-n11 mt-n10">
-                <div class="mx-auto col-md-8">
+                <x-card class="mx-auto col-md-8">
                     @if ($step == 1)
                         @livewire('profile.update-profile-information-form')
                     @else
                         @livewire('pet-profile-form')
                     @endif
-                </div>
+                </x-card>
             </div>
         </div>
     </section>

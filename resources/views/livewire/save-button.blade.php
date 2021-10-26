@@ -1,4 +1,4 @@
-<div class="d-flex align-items-baseline justify-content-end">
+<div>
     <x-jet-button wire:click="$emit('save')">
         <div wire:loading class="spinner-border spinner-border-sm" role="status">
             <span class="visually-hidden">Loading...</span>
