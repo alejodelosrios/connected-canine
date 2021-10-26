@@ -4,7 +4,7 @@
             @livewire('profile.update-profile-information-form')
             <x-slot name="footer">
                 <div class="d-flex align-items-baseline justify-content-end">
-                    @livewire('save-button')
+                    @livewire('save-button', ['redirect_route_name' => 'user.profile'])
                 </div>
             </x-slot>
         </x-card>
