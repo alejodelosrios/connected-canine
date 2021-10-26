@@ -12,4 +12,11 @@ class PetController extends Controller
             'pets' => auth()->user()->pets
         ]);
     }
+
+    public function details(\App\Models\Pet $pet)
+    {
+        return view('pet.details', [
+            'pet' => $pet
+        ]);
+    }
 }

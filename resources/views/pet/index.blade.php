@@ -34,7 +34,7 @@
                                             class="avatar avatar-sm me-3">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
-                                        <h6 class="mb-0 text-xs">{{ $pet->name }}</h6>
+                                        <a href="{{ route('pet.details', $pet) }}" class="mb-0 text-xs font-weight-bold">{{ $pet->name }}</a>
                                     </div>
                                 </div>
                             </td>
