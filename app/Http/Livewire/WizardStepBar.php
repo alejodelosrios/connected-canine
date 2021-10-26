@@ -36,6 +36,7 @@ class WizardStepBar extends Component
 
     public function go_forward()
     {
+        
         if ($this->step == $this->max_steps) {
             return redirect()->route($this->redirect_route_name);
         }

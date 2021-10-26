@@ -10,7 +10,9 @@
                             {{ __('Cancel') }}
                         </a>
                     </div>
-                    @livewire('save-button')
+                    @livewire('save-button', [
+                    'redirect_route_name' => 'pet.index'
+                    ])
                 </div>
             </x-slot>
         </x-card>
