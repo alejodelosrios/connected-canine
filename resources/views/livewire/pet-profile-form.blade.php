@@ -66,9 +66,14 @@
                 {{-- Sex --}}
                 <div class="mb-3 col-12 col-md-6">
                     <x-jet-label for="sex" value="{{ __('Sex') }}" />
-                    <x-jet-input id="sex" class="{{ $errors->has('sex') ? 'is-invalid' : '' }}"
-                        wire:model.defer="state.sex" />
-                    <x-jet-input-error for="sex" />
+
+                    <div class="form-group">
+                        <select class="form-control {{ $errors->has('sex') ? 'is-invalid' : '' }}" id="sex"
+                            wire:model.defer="state.sex">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
                 </div>
 
                 {{-- Weight --}}
