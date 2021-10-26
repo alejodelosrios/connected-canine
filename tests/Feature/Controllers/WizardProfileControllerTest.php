@@ -14,10 +14,10 @@ class WizardProfileControllerTest extends TestCase
     {
         $this->actingAs($user = \App\Models\User::factory()->create());
 
-        $response = $this->get(route('wizard.profile'));
+        $response = $this->get(route('wizard.profile',1));
 
         $response->assertStatus(200);
-        $response->assertViewIs('wizard.profile');
+        $response->assertViewIs('wizard.profile-wizard-screen');
         $response->assertViewHas(['user' => $user]);
     }
 
@@ -26,7 +26,7 @@ class WizardProfileControllerTest extends TestCase
     {
         $user = \App\Models\User::factory()->create();
 
-        $response = $this->get(route('wizard.profile'));
+        $response = $this->get(route('wizard.profile',1));
 
         $response->assertRedirect();
     }
