@@ -44,7 +44,6 @@
             </x-dashboard.nav-link>
 
              <x-dashboard.nav-link route="user.profile" title="User Profile" :active="request()->is('user/*') || request()->is('user')">
-                {{-- //TODO: MAKE PETS-INDEX SCREEN --}}
                 <x-slot name="icon">
                     <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">

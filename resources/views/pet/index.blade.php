@@ -42,7 +42,8 @@
                                 <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->color }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="text-secondary text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
+                                <span
+                                    class="text-secondary text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span
@@ -58,8 +59,10 @@
                             </td>
                         </tr>
                     @empty
-                        <td colspan="5">No register</td>
-                    @endforelse ($pets as $pet)
+                        <td colspan="5" class="p-4">
+                            {{ __('You have no registered pets') }}
+                        </td>
+                    @endforelse
                 </tbody>
             </table>
         </div>

@@ -1,4 +1,5 @@
 <x-guest-layout>
+{{-- TODO: DEPRECATE - BORRAR --}}
     <style>
         .transition {
             transition: all 1s ease-out;
