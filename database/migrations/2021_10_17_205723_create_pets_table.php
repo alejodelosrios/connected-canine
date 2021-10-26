@@ -20,8 +20,8 @@ class CreatePetsTable extends Migration
                 ->constrained()
                 ->onDelete("cascade");
 
-            $table->unsignedBigInteger("veterinarian_id")->nullable();
-            //$table->foreignId("veterinarian_id")->constrained();
+            //$table->unsignedBigInteger("veterinarian_id")->nullable();
+            $table->foreignId("veterinarian_id")->constrained();
             $table->string("name", 15);
             $table->string("profile_photo_path", 2048)->nullable();
             $table->timestamp("birthday");
@@ -30,11 +30,11 @@ class CreatePetsTable extends Migration
             $table->string("color", 50);
             $table->timestamps();
 
-            $table
-                ->foreign("veterinarian_id")
-                ->references("id")
-                ->on("pets")
-                ->onDelete("set null");
+            //$table
+            //->foreign("veterinarian_id")
+            //->references("id")
+            //->on("pets")
+            //->onDelete("set null");
         });
     }
 
