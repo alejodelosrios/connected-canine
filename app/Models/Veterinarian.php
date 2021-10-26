@@ -10,8 +10,6 @@ class Veterinarian extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["vet_clinic", "vet_address", "vet_phone_number"];
-
     public function pets()
     {
         return $this->hasMany(Pet::class);
