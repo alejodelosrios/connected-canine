@@ -15,7 +15,6 @@ class CreateEmergencyContactsTable extends Migration
     {
         Schema::create("emergency_contacts", function (Blueprint $table) {
             $table->id();
-            $table->foreignId("user_id")->constrained();
             $table->string("name");
             $table->string("lastname");
             $table->string("phone");
