@@ -13,8 +13,11 @@ class AddVerinarianForeingKeyToPetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('pets', function (Blueprint $table) {
-            $table->foreignId("veterinarian_id")->constrained();
+        Schema::table("pets", function (Blueprint $table) {
+            $table
+                ->foreignId("veterinarian_id")
+                ->nullable()
+                ->constrained();
         });
     }
 
@@ -25,8 +28,8 @@ class AddVerinarianForeingKeyToPetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('pets', function (Blueprint $table) {
-            $table->dropColumn('veterinarian_id');
+        Schema::table("pets", function (Blueprint $table) {
+            $table->dropColumn("veterinarian_id");
         });
     }
 }
