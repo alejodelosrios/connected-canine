@@ -17,7 +17,7 @@
         <div class="w-100">
             <!-- Search clinic -->
             <x-jet-label for="search_clinic" value="{{ __('Search clinic') }}" />
-            <form class=" mb-4 relative" autocomplete="off">
+            <div class=" mb-4 relative" autocomplete="off">
                 <div class="input-group">
                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                     <input type="text" class="form-control" wire:model="search" placeholder="Type here to search...">
@@ -30,7 +30,7 @@
                         @endforeach
                     </ul>
                 @endif
-            </form>
+            </div>
 
             {{--@dd($state)--}}
             @if($state !== [])
@@ -91,7 +91,7 @@
 
     <x-slot name="actions">
         <div class="d-flex align-items-baseline">
-            <x-jet-button>
+            <x-jet-button type="submit">
                 <div wire:loading class="spinner-border spinner-border-sm" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>

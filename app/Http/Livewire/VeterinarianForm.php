@@ -30,7 +30,7 @@ class VeterinarianForm extends Component
 
     public function save()
     {
-        //dd($this->state);
+        
         $this->resetErrorBag();
         $updater = new Updater();
         $updater->save($this->state);
@@ -57,8 +57,10 @@ class VeterinarianForm extends Component
 
     public function vet_data($vet)
     {
+
         //dd($vet);
         //dd($this->pet);
+        $this->state["id"] = $vet["id"];
         $this->state["vet_clinic"] = $vet["vet_clinic"];
         //$this->state["vet_contact1"] = $vet["vet_contact1"];
         //$this->state["vet_contact2"] = $vet["vet_contact2"];

@@ -11,7 +11,7 @@ final class Veterinarian implements UpdaterContract
 {
     public function save(array $input)
     {
-        //dd($input);
+
         $pet = Pet::find($input["pet_id"]);
 
         Validator::make($input, [

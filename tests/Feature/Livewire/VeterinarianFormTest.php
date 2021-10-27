@@ -3,12 +3,12 @@
 namespace Tests\Feature\Livewire;
 
 use App\Models\Pet;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Livewire\Livewire;
-use App\Http\Livewire\VeterinarianForm;
-use App\Models\Veterinarian;
 use Tests\TestCase;
+use Livewire\Livewire;
+use App\Models\Veterinarian;
+use App\Http\Livewire\VeterinarianForm;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VeterinarianFormTest extends TestCase
 {
@@ -41,18 +41,17 @@ class VeterinarianFormTest extends TestCase
     {
         $vet = Veterinarian::factory()->create();
         $pet = Pet::factory()->create();
-        $vet_data = $vet->withoutRelations()->toArray();
-        $vet_data["pet_id"] = $pet->id;
 
         $this->actingAs($pet->owner);
 
-        //dd($vet_data);
         Livewire::test(VeterinarianForm::class, ["pet" => $pet])
-            ->call("vet_data", $vet_data)
+            ->set("state.id", $vet->id)
+            ->set("state.pet_id", $pet->id)
             ->call("save");
         //dd($pet);
         //dd($pet->veterianarian_id, $vet->id);
 
-        $this->assertEquals($pet->veterianarian_id, $vet->id);
+        $pet->refresh();
+        $this->assertEquals($vet->id, $pet->veterinarian_id);
     }
 }

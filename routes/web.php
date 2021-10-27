@@ -41,6 +41,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
         "register/profile-information/{step}",
         WizardProfileController::class
     )->name("wizard.profile");
+
     Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name(
         "veterinarian"
     );
