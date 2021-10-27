@@ -1,27 +1,26 @@
+<?php
 
-<?php namespace App\Services;
+namespace App\Services;
 
 use App\Contracts\UpdaterContract;
 use App\Models\Veterinarian as ModelsVeterinarian;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Pet;
 
 final class Veterinarian implements UpdaterContract
 {
     public function save(array $input)
     {
+        //dd($input);
+        $pet = Pet::find($input["pet_id"]);
+
         Validator::make($input, [
-            "vet_clinic" => ["required", "string", "max:255"],
-            "vet_address" => ["nullable", "string", "max:255"],
-            "vet_phone_number" => ["required", "string", "in:male,female"],
+            "id" => ["required", "exists:veterinarians,id"],
         ])->validateWithBag("save");
 
-        ModelsVeterinarian::updateOrCreate(
-            ["id" => $input["id"] ?? ""],
-            [
-                "vet_clinic" => $input["vet_clinic"],
-                "vet_address" => $input["vet_address"],
-                "vet_phone_number" => $input["vet_phone_number"],
-            ]
-        );
+        $veterinarian = ModelsVeterinarian::find($input["id"]);
+        $pet->veterinarian()->associate($veterinarian);
+        //dd($pet);
+        $pet->save();
     }
 }

@@ -47,7 +47,7 @@ class VeterinarianFormTest extends TestCase
         $this->actingAs($pet->owner);
 
         //dd($vet_data);
-        Livewire::test(VeterinarianForm::class)
+        Livewire::test(VeterinarianForm::class, ["pet" => $pet])
             ->call("vet_data", $vet_data)
             ->call("save");
         //dd($pet);

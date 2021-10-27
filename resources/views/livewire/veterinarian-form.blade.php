@@ -39,18 +39,18 @@
                     <x-jet-label for="vet_clinic" value="{{ __('Vet clinic') }}" />
                     <p>{{ $state['vet_clinic'] }}</p>
                 </div>
-                {{--<div class="row">--}}
+                <div class="row">
                     {{--<!-- Vet email -->--}}
                     {{--<div class="mb-3 col-12 col-md-6">--}}
                         {{--<x-jet-label for="vet_email" value="{{ __('Email') }}" />--}}
                         {{--<p>{{ $state['vet_email'] !== null ? $state["vet_email"] : "" }}</p>--}}
                     {{--</div>--}}
-                    {{--<!-- Vet phone number -->--}}
-                    {{--<div class="mb-3 col-12 col-md-6">--}}
-                        {{--<x-jet-label for="vet_phone_number" value="{{ __('Phone number') }}" />--}}
-                        {{--<p>{{ $state['vet_phone_number'] }}</p>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
+                    <!-- Vet phone number -->
+                    <div class="mb-3 col-12 col-md-6">
+                        <x-jet-label for="vet_phone_number" value="{{ __('Phone number') }}" />
+                        <p>{{ $state['vet_phone_number'] }}</p>
+                    </div>
+                </div>
                 {{--<div class="row">--}}
                     {{--<!-- Vet contact 1 -->--}}
                     {{--<div class="mb-3 col-12 col-md-6">--}}
