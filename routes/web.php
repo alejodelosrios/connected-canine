@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\PetProfileController;
@@ -44,4 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     /* wizard */
     Route::get('register/profile-information/{step}', WizardProfileController::class)->name('wizard.profile');
+
+    /* booking */
+    Route::resource('bookings', BookingController::class);
 });
