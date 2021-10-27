@@ -48,8 +48,6 @@ class VeterinarianFormTest extends TestCase
             ->set("state.id", $vet->id)
             ->set("state.pet_id", $pet->id)
             ->call("save");
-        //dd($pet);
-        //dd($pet->veterianarian_id, $vet->id);
 
         $pet->refresh();
         $this->assertEquals($vet->id, $pet->veterinarian_id);
