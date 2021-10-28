@@ -14,10 +14,8 @@ class EmergencyContactForm extends Component
     public function mount()
     {
         $user = Auth::user();
-        if ($user->emergency_contact_id) {
-            $contact = EmergencyContact::find($user->emergency_contact_id);
-            $this->state = $contact->withoutRelations()->toArray();
-        }
+        $contact = EmergencyContact::find($user->emergency_contact_id);
+        $this->state = $contact?->withoutRelations()->toArray() ?? [];
 
         $this->state["user_id"] = $user->id;
     }
