@@ -9,13 +9,17 @@ use Illuminate\Support\Facades\Auth;
 
 class EmergencyContactForm extends Component
 {
+    public $state;
+
     public function mount()
     {
         $user = Auth::user();
-        $contact = EmergencyContact::find($user->emergency_contact_id);
-        $this->state = $contact->withoutRelations()->toArray();
+        if ($user->emergency_contact_id) {
+            $contact = EmergencyContact::find($user->emergency_contact_id);
+            $this->state = $contact->withoutRelations()->toArray();
+        }
 
-        $this->state["user_id"] = Auth::user()->id;
+        $this->state["user_id"] = $user->id;
     }
 
     public function save()
