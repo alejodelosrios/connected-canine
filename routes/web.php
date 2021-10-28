@@ -14,7 +14,6 @@ use App\Http\Controllers\PetProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get("/", function () {
     return view("home");
 })->name("home");
@@ -55,4 +54,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
         "register/profile-information/{step}",
         WizardProfileController::class
     )->name("wizard.profile");
+
+    /* veterinarian */
+    Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name(
+        "veterinarian"
+    );
 });
