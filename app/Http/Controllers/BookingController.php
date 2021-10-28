@@ -25,9 +25,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        return view('booking.create', [
-            'pets' => Auth::user()->pets
-        ]);
+        return view('booking.create');
     }
 
     /**
