@@ -20,6 +20,14 @@ class BookingControllerTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('booking.create');
-        $response->assertViewHas('pets', $user->pets);
+
+    }
+
+    /** @test */
+    public function only_auth_user_can_access_to_booking_screen()
+    {
+        $response = $this->get(route('bookings.create'));
+
+        $response->assertRedirect('login');
     }
 }
