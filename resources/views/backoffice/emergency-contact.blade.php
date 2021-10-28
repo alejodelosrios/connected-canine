@@ -1,3 +1,3 @@
 <x-app-layout>
-//TODO: DESIGN EMERGENCY CONTACT VIEW
+    @livewire('emergency-contact-form')
 </x-app-layout>
