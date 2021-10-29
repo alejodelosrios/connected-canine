@@ -17,15 +17,5 @@ class BookingTest extends TestCase
 
         $this->assertInstanceOf(BelongsToMany::class, $booking->services());
     }
-
-    /** @test */
-    public function a_booking_can_attach_a_service()
-    {
-        $booking = \App\Models\Booking::factory()->create();
-        $service = \App\Models\Service::factory()->create();
-
-        $booking->services()->attach($service->id, ['datetime' => $booking->date]);
-
-        $this->assertEquals($service->id, $booking->services->first()->id);
-    }
+    
 }
