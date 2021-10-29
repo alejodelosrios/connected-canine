@@ -25,6 +25,8 @@ class BookingForm extends Component
         $this->emit('saved');
 
         $this->emit('refresh-navigation-menu');
+
+        return redirect()->route('home')->with('success', 'The reservation has been added successfully');
     }
 
     public function render()
