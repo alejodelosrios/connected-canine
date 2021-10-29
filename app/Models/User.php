@@ -25,16 +25,16 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'lastname',
-        'area_code',
-        'phone_number',
-        'address',
-        'accept_terms',
-        'aggreement',
-        'zip_code'
+        "name",
+        "email",
+        "password",
+        "lastname",
+        "area_code",
+        "phone_number",
+        "address",
+        "accept_terms",
+        "aggreement",
+        "zip_code",
     ];
 
     /**
@@ -43,10 +43,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
+        "password",
+        "remember_token",
+        "two_factor_recovery_codes",
+        "two_factor_secret",
     ];
 
     /**
@@ -55,10 +55,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'accept_terms' => 'datetime',
-        'aggreement' => 'datetime',
-        'address' => \App\Casts\Address::class,
+        "email_verified_at" => "datetime",
+        "accept_terms" => "datetime",
+        "aggreement" => "datetime",
+        "address" => \App\Casts\Address::class,
     ];
 
     /**
@@ -66,12 +66,18 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    protected $appends = ["profile_photo_url"];
 
     public function pets()
     {
         return $this->hasMany(\App\Models\Pet::class);
+    }
+
+    public function emergency_contact()
+    {
+        return $this->belongsTo(
+            EmergencyContact::class,
+            "emergency_contact_id"
+        );
     }
 }

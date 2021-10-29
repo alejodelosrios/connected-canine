@@ -3,9 +3,11 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Pet;
+use App\Models\Veterinarian;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PetTest extends TestCase
 {

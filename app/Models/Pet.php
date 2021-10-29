@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Veterinarian;
 
 class Pet extends Model
 {
@@ -13,21 +14,25 @@ class Pet extends Model
     use HasProfilePhoto;
 
     protected $fillable = [
-        'user_id',
-        'name',
-        'birthday',
-        'sex',
-        'weight',
-        'color',
+        "user_id",
+        "name",
+        "birthday",
+        "sex",
+        "weight",
+        "color",
     ];
 
     protected $casts = [
-        'birthday' => 'datetime:Y-m-d',
+        "birthday" => "datetime:Y-m-d",
     ];
 
     public function owner()
     {
-        return  $this->belongsTo(\App\Models\User::class, 'user_id');
+        return $this->belongsTo(\App\Models\User::class, "user_id");
+    }
+    public function veterinarian()
+    {
+        return $this->belongsTo(Veterinarian::class, "veterinarian_id");
     }
 
     public function bookings()
