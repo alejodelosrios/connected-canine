@@ -11,6 +11,10 @@ class Booking extends Model
     use HasFactory;
     use HasUUID;
 
+    const PENDING = 'pending';
+    const CANCELLED = 'cancelled';
+    const ACCEPTED = 'accepted';
+
     protected $fillable = [
         'pet_id', 'date'
     ];
