@@ -2,11 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Pet;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
-
+use App\Services\BookingService as Updater;
 class BookingComponent extends Component
 {
     public $state = [
@@ -19,15 +17,9 @@ class BookingComponent extends Component
     {
         $this->resetErrorBag();
 
-        Validator::make($this->state, [
-            'pet_id' => ['required', 'exists:pets,id'],
-            'date' => ['required', 'after:today'],
-        ])->validateWithBag('save');
+        $updater = new Updater;
 
-        \App\Models\Booking::create([
-            'pet_id' => $this->state['pet_id'],
-            'date' => $this->state['date'],
-        ]);
+        $updater->save($this->state);
 
         $this->emit('saved');
 
