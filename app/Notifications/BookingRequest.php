@@ -2,7 +2,6 @@
 
 namespace App\Notifications;
 
-use App\Mail\BookingRequest as MailBookingRequest;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -32,7 +31,7 @@ class BookingRequest extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail','database'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -43,7 +42,10 @@ class BookingRequest extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
-        return (new MailBookingRequest($this->booking));
+        return (new MailMessage)
+            ->greeting('Hello, ' . $notifiable->name . '!')
+            ->line('You have requested a reservation for your pet, it was registered with the No. ' . $this->booking->id)
+            ->line('You will be informed in this same way shortly about the approval of your request.');
     }
 
     /**
