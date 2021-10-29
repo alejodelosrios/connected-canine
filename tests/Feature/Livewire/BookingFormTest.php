@@ -2,8 +2,10 @@
 
 namespace Tests\Feature\Livewire;
 
+use App\Models\Pet;
 use Tests\TestCase;
 use Livewire\Livewire;
+use Illuminate\Support\Str;
 use App\Http\Livewire\BookingForm;
 use App\Notifications\BookingRequest;
 use Illuminate\Support\Facades\Notification;
@@ -43,9 +45,9 @@ class BookingFormTest extends TestCase
         $this->assertDatabaseCount('bookings', 1);
 
         Notification::assertSentTo(
-            [$user], BookingRequest::class
+            [$user],
+            BookingRequest::class
         );
-
     }
 
     /**
@@ -60,7 +62,7 @@ class BookingFormTest extends TestCase
         Livewire::test(BookingForm::class)
             ->set('state', [$campo => $value])
             ->call('save')
-            ->assertHasErrors($campo,$error);
+            ->assertHasErrors($campo, $error);
     }
 
     public function invalidDataProvider()
@@ -83,7 +85,47 @@ class BookingFormTest extends TestCase
         $response = Livewire::test(BookingForm::class)
             ->set('state', [$campo => $value])
             ->call('save');
+    }
 
+    /** @test */
+    public function user_cannot_request_a_book_if_there_is_a_pending()
+    {
 
+        $pet = Pet::withoutEvents(function () {
+            return  Pet::factory()->hasBookings()->create();
+        });
+
+        $this->actingAs($pet->owner);
+
+        Livewire::test(BookingForm::class)
+            ->set('state', [
+                'pet_id' => $pet->id,
+                'date' => now()->addDays(3)->format('d-m-Y')
+            ])
+            ->call('save')
+            ->assertHasErrors('pet_id');
+
+        $this->assertDatabaseCount('bookings', 1);
+    }
+
+    /** @test */
+    public function user_can_request_a_book_if_there_is_a_already_passed_booking()
+    {
+
+        $pet = Pet::withoutEvents(function () {
+            return  Pet::factory()->hasBookings(['date' => now()->subDay(7)])->create();
+        });
+
+        $this->actingAs($pet->owner);
+
+        Livewire::test(BookingForm::class)
+            ->set('state', [
+                'pet_id' => $pet->id,
+                'date' => now()->addDays(3)->format('d-m-Y')
+            ])
+            ->call('save')
+            ->assertHasNoErrors();
+
+        $this->assertDatabaseCount('bookings', 2);
     }
 }
