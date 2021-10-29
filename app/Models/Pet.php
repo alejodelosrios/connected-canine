@@ -40,6 +40,11 @@ class Pet extends Model
         return $this->hasMany(\App\Models\Booking::class);
     }
 
+    public function boardingHistory()
+    {
+        return $this->hasOne(\App\Models\BoardingHistory::class);
+    }
+
     public function hasBooking()
     {
         return $this->bookings()
@@ -47,4 +52,6 @@ class Pet extends Model
             ->where('status', '<>', \App\Models\Booking::CANCELLED)
             ->count() >= 1;
     }
+
+
 }

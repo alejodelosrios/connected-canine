@@ -70,4 +70,13 @@ class PetTest extends TestCase
 
         $this->assertFalse($pet->hasBooking());
     }
+
+    /** @test */
+    public function a_pet_can_have_a_boarding_history()
+    {
+        $pet = Pet::factory()->create();
+
+        $this->assertInstanceOf(HasOne::class, $pet->boardingHistory());
+        $this->assertInstanceOf(\App\Models\BoardingHistory::class, $pet->boardingHistory);
+    }
 }
