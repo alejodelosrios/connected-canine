@@ -4,8 +4,6 @@ namespace Tests\Feature\Models;
 
 use App\Models\Pet;
 use Tests\TestCase;
-use Illuminate\Support\Str;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -28,7 +26,7 @@ class PetTest extends TestCase
     {
         //with booking pending
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings(['id' => Str::uuid()])->create();
+            return  Pet::factory()->hasBookings()->create();
         });
 
         $this->assertTrue($pet->hasBooking());
@@ -36,7 +34,6 @@ class PetTest extends TestCase
         //with booking accepted
         $pet = Pet::withoutEvents(function () {
             return  Pet::factory()->hasBookings([
-                'id' => Str::uuid(),
                 'status' => \App\Models\Booking::ACCEPTED
             ])->create();
         });
@@ -49,7 +46,6 @@ class PetTest extends TestCase
     {
         $pet = Pet::withoutEvents(function () {
             return  Pet::factory()->hasBookings([
-                'id' => Str::uuid(),
                 'status' => \App\Models\Booking::CANCELLED
             ])->create();
         });
@@ -67,7 +63,7 @@ class PetTest extends TestCase
 
         //with a reservation already passed
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings(['id' => Str::uuid(), 'date' => now()->subDays(7)])->create();
+            return  Pet::factory()->hasBookings(['date' => now()->subDays(7)])->create();
         });
 
         $this->assertFalse($pet->hasBooking());
