@@ -34,7 +34,8 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-end p-2">
+            <div class="d-flex justify-content-between p-2">
+                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm">Cancel</a>
                 <button class="btn btn-primary btn-sm">Book</button>
             </div>
         </x-card>
