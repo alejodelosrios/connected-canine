@@ -4,14 +4,12 @@ namespace Tests\Feature\Livewire;
 
 use Tests\TestCase;
 use Livewire\Livewire;
-use App\Http\Livewire\BookingComponent;
-use App\Notifications\BookingNotification;
+use App\Http\Livewire\BookingForm;
 use App\Notifications\BookingRequest;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class BookingComponentTest extends TestCase
+class BookingFormTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -21,7 +19,7 @@ class BookingComponentTest extends TestCase
         $user = \App\Models\User::factory()->hasPets()->create();
         $this->actingAs($user);
 
-        Livewire::test(BookingComponent::class)
+        Livewire::test(BookingForm::class)
             ->assertViewHas('pets', $user->pets);
     }
 
@@ -33,7 +31,7 @@ class BookingComponentTest extends TestCase
         $user = \App\Models\User::factory()->hasPets()->create();
         $this->actingAs($user);
 
-        Livewire::test(BookingComponent::class)
+        Livewire::test(BookingForm::class)
             ->set('state', [
                 'pet_id' => $user->pets->first()->id,
                 'date' => now()->addDays(3)->format('d-m-Y')
@@ -59,7 +57,7 @@ class BookingComponentTest extends TestCase
         $user = \App\Models\User::factory()->hasPets()->create();
         $this->actingAs($user);
 
-        Livewire::test(BookingComponent::class)
+        Livewire::test(BookingForm::class)
             ->set('state', [$campo => $value])
             ->call('save')
             ->assertHasErrors($campo,$error);
@@ -82,7 +80,7 @@ class BookingComponentTest extends TestCase
         $user = \App\Models\User::factory()->hasPets()->create();
         $this->actingAs($user);
 
-        $response = Livewire::test(BookingComponent::class)
+        $response = Livewire::test(BookingForm::class)
             ->set('state', [$campo => $value])
             ->call('save');
 

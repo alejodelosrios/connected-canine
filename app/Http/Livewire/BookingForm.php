@@ -5,7 +5,8 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Services\BookingService as Updater;
-class BookingComponent extends Component
+
+class BookingForm extends Component
 {
     public $state = [
         'pet_id' => '',
