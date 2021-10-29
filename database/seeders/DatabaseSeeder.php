@@ -16,5 +16,9 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->hasPets()->create([
             'email' => 'test@test.com'
         ]);
+
+        \App\Models\Service::factory()->create([
+            'name' => 'Dog walking'
+        ]);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -32,5 +33,18 @@ class Pet extends Model
     public function veterinarian()
     {
         return $this->belongsTo(Veterinarian::class, "veterinarian_id");
+    }
+
+    public function bookings()
+    {
+        return $this->hasMany(\App\Models\Booking::class);
+    }
+
+    public function hasBooking()
+    {
+        return $this->bookings()
+            ->where('date', '>=', Carbon::today())
+            ->where('status', '<>', \App\Models\Booking::CANCELLED)
+            ->count() >= 1;
     }
 }
