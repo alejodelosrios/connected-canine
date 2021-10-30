@@ -26,6 +26,7 @@ class MessageForm extends Component
         Mail::to("admin@connected-canine.test")->send(
             new UserMessageSent($this->message)
         );
+        $this->emit("sent");
 
         $this->reset("message");
     }

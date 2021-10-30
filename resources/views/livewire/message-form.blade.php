@@ -1,6 +1,6 @@
 <div class="py-5 ">
     <form wire:submit.prevent="sendMessage" role="form text-left" class="py-6 mx-auto col-12 col-md-4">
-        <x-jet-action-message on="saved">
+        <x-jet-action-message on="sent">
             {{ __('Message sent.') }}
         </x-jet-action-message>
 
@@ -11,8 +11,8 @@
             <div class=" p-2">
                 <h6>Email us with any  questions and  inquires</h6>
                 <div class="mb-3 col-12 ">
-                    <textarea wire:model.defer="message" name="message" id="message" class="form-control  {{ $errors->has('date') ? 'is-invalid' : '' }}"></textarea>
-                    <x-jet-input-error for="date" />
+                    <textarea wire:model.defer="message" name="message" id="message" class="form-control  {{ $errors->has('message') ? 'is-invalid' : '' }}"></textarea>
+                    <x-jet-input-error for="message" />
                 </div>
             </div>
 
