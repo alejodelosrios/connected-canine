@@ -42,7 +42,7 @@
                         Bring your dog at work!</a>
                     <a class="mb-1 me-md-2 btn bg-gradient-secondary " href="#"><i class="fas fa-dog"></i>
                         &nbsp; Book a Dog walk</a>
-                    <a class="mb-1 me-md-2 btn bg-gradient-secondary " href="{{ route('user-message') }}"><i
+                    <a class="mb-1 me-md-2 btn btn-outline-primary " href="{{ route('user-message') }}"><i
                             class="far fa-envelope"></i></i>
                         &nbsp; Message to admin</a>
                 </div>
