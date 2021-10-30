@@ -50,7 +50,10 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     );
 
     /* boarding history */
-    Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class )->name("pet.boarding-history");
+    Route::get(
+        "pets/{pet}/boarding-history",
+        BoardingHistoryController::class
+    )->name("pet.boarding-history");
 
     /* wizard */
     Route::get(
@@ -67,5 +70,5 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::resource("bookings", BookingController::class);
 
     /* message to admin */
-    Route::get("messages", MessageController::class);
+    Route::get("messages", MessageController::class)->name("user-message");
 });
