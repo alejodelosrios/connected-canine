@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
+use App\Http\Controllers\BehaviorController;
 use App\Http\Controllers\PetProfileController;
 
 /*
@@ -14,6 +15,7 @@ use App\Http\Controllers\PetProfileController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get("/", function () {
     return view("home");
 })->name("home");
@@ -33,16 +35,21 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* pets profile*/
     Route::get("pets", [PetController::class, "index"])->name("pet.index");
     Route::get("pets/add", [PetProfileController::class, "create"])->name("pet.create");
-    Route::get("pets/{pet}/profile/edit", [PetProfileController::class,"update",])->name("pet.update");
+    Route::get("pets/{pet}/profile/edit", [PetProfileController::class, "update",])->name("pet.update");
 
     /* pet details */
     Route::get("pets/{pet}/details", [PetController::class, "details"])->name("pet.details");
 
     /* boarding history */
-    Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class )->name("pet.boarding-history");
+    Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class)->name("pet.boarding-history");
+
+    /* behaviors */
+    Route::get("pets/{pet}/behavior-backgroung", [BehaviorController::class, 'background'])->name("pet.behavior.backgroung");
+    Route::get("pets/{pet}/separation-confinement", [BehaviorController::class, 'separationConfinement'])->name("pet.behavior.separation-confinement");
+    Route::get("pets/{pet}/aggression-fear", [BehaviorController::class, 'aggressionFear'])->name("pet.behavior.aggression-fear");
 
     /* wizard */
-    Route::get("register/profile-information/{step}",WizardProfileController::class)->name("wizard.profile");
+    Route::get("register/profile-information/{step}", WizardProfileController::class)->name("wizard.profile");
 
     /* veterinarian */
     Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name("veterinarian");
