@@ -52,6 +52,8 @@ class Pet extends Model
             ->where('status', '<>', \App\Models\Booking::CANCELLED)
             ->count() >= 1;
     }
-
-
+    public function hasBoardingHistory()
+    {
+        return !is_null($this->boardingHistory);
+    }
 }
