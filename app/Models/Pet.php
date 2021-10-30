@@ -47,7 +47,17 @@ class Pet extends Model
 
     public function behaviors()
     {
-        return $this->belongsToMany(\App\Models\Behavior::class);
+        return $this->belongsToMany(\App\Models\Behavior::class)->orderBy('id')->withPivot(['value', 'comments']);
+    }
+
+    public function behavioralBackground()
+    {
+        return $this->behaviors()->where('type', 'background')->get()->pluck('pivot')->sortBy('behavior_id')->pluck(['value']);
+    }
+
+    public function hasBehavioralBackground()
+    {
+        return $this->behavioralBackground()->count() > 0;
     }
 
     public function hasBooking()

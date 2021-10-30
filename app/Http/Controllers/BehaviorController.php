@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pet;
 use Illuminate\Http\Request;
 
 class BehaviorController extends Controller
 {
-    public function background()
+    public function background(Pet $pet)
     {
-        return 'background';
+        return view('pet.behavioral-background', compact('pet'));
     }
 
     public function separationConfinement()

@@ -17,4 +17,9 @@ class Behavior extends Model
     {
         return $this->belongsToMany(\App\Models\Pets::class);
     }
+
+    public function scopeBehavioralBackgroundQuestions($query)
+    {
+        return $query->where('type', 'background')->get();
+    }
 }
