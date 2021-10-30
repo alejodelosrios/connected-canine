@@ -45,6 +45,11 @@ class Pet extends Model
         return $this->hasOne(\App\Models\BoardingHistory::class);
     }
 
+    public function behaviors()
+    {
+        return $this->belongsToMany(\App\Models\Behavior::class);
+    }
+
     public function hasBooking()
     {
         return $this->bookings()

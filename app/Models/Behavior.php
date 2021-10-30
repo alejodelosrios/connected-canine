@@ -12,4 +12,9 @@ class Behavior extends Model
     protected $fillable = [
         'name', 'description', 'type'
     ];
+
+    public function pets()
+    {
+        return $this->belongsToMany(\App\Models\Pets::class);
+    }
 }
