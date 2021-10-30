@@ -11,17 +11,15 @@ class BoardingHistory extends Model
 
     protected $fillable = [
         'pet_id',
-        'attendend',
         'scuffle_event',
         'scuffle_description',
         'forbidden_assistance',
         'accomodations',
         'accomodations_description',
-        'commnets',
+        'comments',
     ];
 
     protected $casts = [
-        'attendend' => 'boolean',
         'scuffle_event' => 'boolean',
         'forbidden_assistance' => 'boolean',
         'accomodations' => 'boolean',

@@ -9,7 +9,13 @@ use App\Services\BoardingHistoryService as Updater;
 class BoardingHistoryForm extends Component
 {
 
-    public $state = [];
+    public $state = [
+        'attended' => false
+    ];
+
+    protected $listeners = [
+        'save' => 'save'
+    ];
 
     public function mount($pet)
     {
@@ -17,12 +23,13 @@ class BoardingHistoryForm extends Component
 
         if ($pet->hasBoardingHistory()) {
             $this->state = $pet->boardingHistory->toArray();
+            $this->state['attended'] = true;
         }
+        $this->state['pet_id'] = $pet->id;
     }
 
     public function save()
     {
-
         $this->resetErrorBag();
 
         $update = new Updater($this->pet);

@@ -21,13 +21,14 @@ class BoardingHistoryFormTest extends TestCase
 
         Livewire::test(BoardingHistoryForm::class, ['pet' => $pet])
             ->set('state', [
-                'attendend' => true,
+                'pet_id' => $pet->id,
+                'attended' => true,
                 'scuffle_event' => true,
                 'scuffle_description' => 'scuffle fake description',
                 'forbidden_assistance' => true,
                 'accomodations' => true,
                 'accomodations_description' => 'accomodation fake description',
-                'commnets' => 'fake comments',
+                'comments' => 'fake comments',
             ])->call('save');
 
         $this->assertDatabaseCount('boarding_histories', 1);
@@ -44,12 +45,12 @@ class BoardingHistoryFormTest extends TestCase
         $boardingHistory = $pet->boardingHistory->toArray();
 
         Livewire::test(BoardingHistoryForm::class, ['pet' => $pet])
-            ->assertSet('state.attendend', $boardingHistory['attendend'])
+            ->assertSet('state.attended', true)
             ->assertSet('state.scuffle_event', $boardingHistory['scuffle_event'])
             ->assertSet('state.scuffle_description', $boardingHistory['scuffle_description'])
             ->assertSet('state.forbidden_assistance', $boardingHistory['forbidden_assistance'])
             ->assertSet('state.accomodations', $boardingHistory['accomodations'])
             ->assertSet('state.accomodations_description', $boardingHistory['accomodations_description'])
-            ->assertSet('state.commnets', $boardingHistory['commnets']);
+            ->assertSet('state.comments', $boardingHistory['comments']);
     }
 }
