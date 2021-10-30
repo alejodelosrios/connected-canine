@@ -50,9 +50,6 @@
 
     @livewireScripts
 
-    <!-- Core -->
-    <script src="{{ asset('dashboard/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset('dashboard/js/core/bootstrap.min.js') }}"></script>
 
     <!-- Theme JS -->
     <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
@@ -60,7 +57,7 @@
     @stack('scripts')
 
 
-   
+
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
