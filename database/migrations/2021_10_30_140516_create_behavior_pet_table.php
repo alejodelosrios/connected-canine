@@ -18,7 +18,7 @@ class CreateBehaviorPetTable extends Migration
             $table->foreignId('behavior_id')->constrained();
             $table->foreignId('pet_id')->constrained();
             $table->string('value');
-            $table->string('comments');
+            $table->string('comments')->nullable();
             $table->timestamps();
         });
     }
