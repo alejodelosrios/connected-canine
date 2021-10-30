@@ -38,6 +38,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* pet details */
     Route::get("pets/{pet}/details", [PetController::class, "details"])->name("pet.details");
 
+    /* boarding history */
+    Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class )->name("pet.boarding-history");
+
     /* wizard */
     Route::get("register/profile-information/{step}",WizardProfileController::class)->name("wizard.profile");
 

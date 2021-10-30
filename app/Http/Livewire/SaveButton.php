@@ -17,7 +17,7 @@ class SaveButton extends Component
 
     public function go_forward()
     {
-        return redirect()->route($this->redirect_route_name);
+        return redirect($this->redirect_route_name);
     }
 
     public function render()

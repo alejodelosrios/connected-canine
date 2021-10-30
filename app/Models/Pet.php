@@ -40,11 +40,20 @@ class Pet extends Model
         return $this->hasMany(\App\Models\Booking::class);
     }
 
+    public function boardingHistory()
+    {
+        return $this->hasOne(\App\Models\BoardingHistory::class);
+    }
+
     public function hasBooking()
     {
         return $this->bookings()
             ->where('date', '>=', Carbon::today())
             ->where('status', '<>', \App\Models\Booking::CANCELLED)
             ->count() >= 1;
+    }
+    public function hasBoardingHistory()
+    {
+        return !is_null($this->boardingHistory);
     }
 }
