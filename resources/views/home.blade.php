@@ -1,7 +1,7 @@
 <x-guest-layout>
     @section('navbar')
-        <x-navbar class="py-2 mt-4 bg-transparent shadow-none start-0 end-0" />
-        {{-- <x-navbar class="py-2 mt-4 shadow blur blur-rounded start-0 end-0" /> --}}
+        {{--<x-navbar class="py-2 mt-4 bg-transparent shadow-none start-0 end-0" />--}}
+         <x-navbar class="py-2 mt-4 shadow blur blur-rounded start-0 end-0" /> 
     @endsection
 
     {{-- @if (session()->has('success')) --}}
@@ -12,21 +12,22 @@
     @push('styles')
         <style type="text/css" media="screen">
             #hero {
-                height: 100vh;
+                {{--height: 100vh;--}}
             }
 
             #header {
-                background-image: linear-gradient(180deg, rgba(55, 167, 148, 1) 0%, rgba(196, 241, 240, 1) 36%, rgba(248, 249, 250, 1) 100%);
-                height: 30vh;
+                {{--background-image: linear-gradient(180deg, rgba(55, 167, 148, 1) 0%, rgba(196, 241, 240, 1) 36%, rgba(248, 249, 250, 1) 100%);--}}
+                {{--height: 30vh;--}}
                 /* Position and center the image to scale nicely on all screens */
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: relative;
+                {{--background-position: center;--}}
+                {{--background-repeat: no-repeat;--}}
+                {{--background-size: cover;--}}
+                {{--position: relative;--}}
+                margin-top: 20vh;
             }
 
             #articles {
-                height: 70vh;
+                {{--height: 70vh;--}}
             }
 
         </style>
@@ -34,14 +35,14 @@
 
     <div id="hero">
         <!-- Hero section -->
-        <div id="header" class="">
+        <div  class="">
             <div class="text-center row align-items-center h-100 justify-content-center">
-                <div class="col-12">
-                    <a class="mb-0 btn bg-gradient-primary " href="{{ route('bookings.create') }}">
+                <div id="header" class="d-flex flex-column flex-md-row justify-content-center">
+                    <a class="mb-1 me-md-2 btn bg-gradient-primary " href="{{ route('bookings.create') }}">
                         Bring your dog at work!</a>
-                    <a class="mb-0 btn bg-gradient-secondary " href="#"><i class="fas fa-dog"></i>
+                    <a class="mb-1 me-md-2 btn bg-gradient-secondary " href="#"><i class="fas fa-dog"></i>
                         &nbsp; Book a Dog walk</a>
-                    <a class="mb-0 btn bg-gradient-secondary " href="{{ route('user-message') }}"><i
+                    <a class="mb-1 me-md-2 btn bg-gradient-secondary " href="{{ route('user-message') }}"><i
                             class="far fa-envelope"></i></i>
                         &nbsp; Message to admin</a>
                 </div>
@@ -79,25 +80,6 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button type="button" class="mb-0 btn btn-outline-primary btn-sm">View
                                             Article</button>
-                                        <div class="mt-2 avatar-group">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -123,25 +105,6 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button type="button" class="mb-0 btn btn-outline-primary btn-sm">View
                                             Article</button>
-                                        <div class="mt-2 avatar-group">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -167,25 +130,6 @@
                                     <div class="d-flex align-items-center justify-content-between">
                                         <button type="button" class="mb-0 btn btn-outline-primary btn-sm">View
                                             Article</button>
-                                        <div class="mt-2 avatar-group">
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Peterson">
-                                                <img alt="Image placeholder" src="../assets/img/team-4.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Nick Daniel">
-                                                <img alt="Image placeholder" src="../assets/img/team-3.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Milly">
-                                                <img alt="Image placeholder" src="../assets/img/team-2.jpg">
-                                            </a>
-                                            <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                                data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                title="Elena Morison">
-                                                <img alt="Image placeholder" src="../assets/img/team-1.jpg">
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
