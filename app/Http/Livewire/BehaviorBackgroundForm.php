@@ -41,7 +41,7 @@ class BehaviorBackgroundForm extends Component
         ])->validateWithBag('save');
 
 
-        $this->pet->behaviors()->sync([
+        $this->pet->behaviors()->syncWithoutDetaching([
             1 => ['value' => $this->state['question1']],
             2 => ['value' => $this->state['question2']],
             3 => ['value' => $this->state['question3']],
