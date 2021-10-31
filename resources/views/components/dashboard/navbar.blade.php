@@ -9,117 +9,176 @@
              <h6 class="mb-0 font-weight-bolder">Dashboard</h6>
          </nav>
          <div class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4" id="navbar">
-             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+             <div class="w-auto ms-md-auto pe-md-3 d-flex align-items-center">
                  <div class="input-group">
                      <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
                      <input type="text" class="form-control" placeholder="Type here...">
                  </div>
              </div>
-             <ul class="navbar-nav justify-content-end">
-                 <li class="nav-item d-flex align-items-center">
-                     <a href="javascript:;" class="px-0 nav-link text-body font-weight-bold">
-                         <i class="fa fa-user me-sm-1"></i>
-                         <span class="d-sm-inline d-none">Sign In</span>
-                     </a>
-                 </li>
-                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                     <a href="javascript:;" class="p-0 nav-link text-body" id="iconNavbarSidenav">
-                         <div class="sidenav-toggler-inner">
-                             <i class="sidenav-toggler-line"></i>
-                             <i class="sidenav-toggler-line"></i>
-                             <i class="sidenav-toggler-line"></i>
-                         </div>
-                     </a>
-                 </li>
-                 <li class="px-3 nav-item d-flex align-items-center">
-                     <a href="javascript:;" class="p-0 nav-link text-body">
-                         <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
-                     </a>
-                 </li>
-                 <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                     <a href="javascript:;" class="p-0 nav-link text-body" id="dropdownMenuButton"
-                         data-bs-toggle="dropdown" aria-expanded="false">
-                         <i class="cursor-pointer fa fa-bell"></i>
-                     </a>
-                     <ul class="px-2 py-3 dropdown-menu dropdown-menu-end me-sm-n4"
-                         aria-labelledby="dropdownMenuButton">
-                         <li class="mb-2">
-                             <a class="dropdown-item border-radius-md" href="javascript:;">
-                                 <div class="py-1 d-flex">
-                                     <div class="my-auto">
-                                         <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3 ">
-                                     </div>
-                                     <div class="d-flex flex-column justify-content-center">
-                                         <h6 class="mb-1 text-sm font-weight-normal">
-                                             <span class="font-weight-bold">New message</span> from Laur
-                                         </h6>
-                                         <p class="mb-0 text-xs text-secondary">
-                                             <i class="fa fa-clock me-1"></i>
-                                             13 minutes ago
-                                         </p>
-                                     </div>
+
+             <div class="pt-3 pb-2 collapse navbar-collapse w-100 py-lg-0" id="navigation">
+                 <div class="w-100 text-end">
+                     <ul class="navbar-nav justify-content-end">
+                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                             <a href="javascript:;" class="p-0 nav-link text-body" id="iconNavbarSidenav">
+                                 <div class="sidenav-toggler-inner">
+                                     <i class="sidenav-toggler-line"></i>
+                                     <i class="sidenav-toggler-line"></i>
+                                     <i class="sidenav-toggler-line"></i>
                                  </div>
                              </a>
                          </li>
-                         <li class="mb-2">
-                             <a class="dropdown-item border-radius-md" href="javascript:;">
-                                 <div class="py-1 d-flex">
-                                     <div class="my-auto">
-                                         <img src="../assets/img/small-logos/logo-spotify.svg"
-                                             class="avatar avatar-sm bg-gradient-dark me-3 ">
-                                     </div>
-                                     <div class="d-flex flex-column justify-content-center">
-                                         <h6 class="mb-1 text-sm font-weight-normal">
-                                             <span class="font-weight-bold">New album</span> by Travis Scott
-                                         </h6>
-                                         <p class="mb-0 text-xs text-secondary">
-                                             <i class="fa fa-clock me-1"></i>
-                                             1 day
-                                         </p>
-                                     </div>
-                                 </div>
+                         <li class="px-3 nav-item d-flex align-items-center">
+                             <a href="javascript:;" class="p-0 nav-link text-body">
+                                 <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
                              </a>
                          </li>
-                         <li>
-                             <a class="dropdown-item border-radius-md" href="javascript:;">
-                                 <div class="py-1 d-flex">
-                                     <div class="my-auto avatar avatar-sm bg-gradient-secondary me-3">
-                                         <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                             xmlns="http://www.w3.org/2000/svg"
-                                             xmlns:xlink="http://www.w3.org/1999/xlink">
-                                             <title>credit-card</title>
-                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                 <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
-                                                     fill-rule="nonzero">
-                                                     <g transform="translate(1716.000000, 291.000000)">
-                                                         <g transform="translate(453.000000, 454.000000)">
-                                                             <path class="color-background"
-                                                                 d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z"
-                                                                 opacity="0.593633743"></path>
-                                                             <path class="color-background"
-                                                                 d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-                                                             </path>
-                                                         </g>
-                                                     </g>
-                                                 </g>
-                                             </g>
-                                         </svg>
-                                     </div>
-                                     <div class="d-flex flex-column justify-content-center">
-                                         <h6 class="mb-1 text-sm font-weight-normal">
-                                             Payment successfully completed
-                                         </h6>
-                                         <p class="mb-0 text-xs text-secondary">
-                                             <i class="fa fa-clock me-1"></i>
-                                             2 days
-                                         </p>
-                                     </div>
-                                 </div>
+                         <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                             <a href="javascript:;" class="p-0 nav-link text-body" id="dropdownMenuButton"
+                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                 <i class="cursor-pointer fa fa-bell"></i>
                              </a>
+                             {{--<ul class="px-2 py-3 dropdown-menu dropdown-menu-end me-sm-n4"--}}
+                                 {{--aria-labelledby="dropdownMenuButton">--}}
+                                 {{--<li class="mb-2">--}}
+                                     {{--<a class="dropdown-item border-radius-md" href="javascript:;">--}}
+                                         {{--<div class="py-1 d-flex">--}}
+                                             {{--<div class="my-auto">--}}
+                                                 {{--<img src="{{ asset("dashboard/img/team-2.jpg") }}" class="avatar avatar-sm me-3 ">--}}
+                                             {{--</div>--}}
+                                             {{--<div class="d-flex flex-column justify-content-center">--}}
+                                                 {{--<h6 class="mb-1 text-sm font-weight-normal">--}}
+                                                     {{--<span class="font-weight-bold">New message</span> from Laur--}}
+                                                 {{--</h6>--}}
+                                                 {{--<p class="mb-0 text-xs text-secondary">--}}
+                                                     {{--<i class="fa fa-clock me-1"></i>--}}
+                                                     {{--13 minutes ago--}}
+                                                 {{--</p>--}}
+                                             {{--</div>--}}
+                                         {{--</div>--}}
+                                     {{--</a>--}}
+                                 {{--</li>--}}
+                                 {{--<li class="mb-2">--}}
+                                     {{--<a class="dropdown-item border-radius-md" href="javascript:;">--}}
+                                         {{--<div class="py-1 d-flex">--}}
+                                             {{--<div class="my-auto avatar avatar-sm bg-gradient-secondary me-3">--}}
+                                                 {{--<i class="far fa-envelope"></i>--}}
+                                             {{--</div>--}}
+                                             {{--<div class="d-flex flex-column justify-content-center">--}}
+                                                 {{--<h6 class="mb-1 text-sm font-weight-normal">--}}
+                                                     {{--<span class="font-weight-bold">New album</span> by Travis Scott--}}
+                                                 {{--</h6>--}}
+                                                 {{--<p class="mb-0 text-xs text-secondary">--}}
+                                                     {{--<i class="fa fa-clock me-1"></i>--}}
+                                                     {{--1 day--}}
+                                                 {{--</p>--}}
+                                             {{--</div>--}}
+                                         {{--</div>--}}
+                                     {{--</a>--}}
+                                 {{--</li>--}}
+                                 {{--<li>--}}
+                                     {{--<a class="dropdown-item border-radius-md" href="javascript:;">--}}
+                                         {{--<div class="py-1 d-flex">--}}
+                                             {{--<div class="my-auto avatar avatar-sm bg-gradient-secondary me-3">--}}
+                                                 {{--<i class="far fa-envelope"></i>--}}
+                                             {{--</div>--}}
+                                             {{--<div class="d-flex flex-column justify-content-center">--}}
+                                                 {{--<h6 class="mb-1 text-sm font-weight-normal">--}}
+                                                     {{--Payment successfully completed--}}
+                                                 {{--</h6>--}}
+                                                 {{--<p class="mb-0 text-xs text-secondary">--}}
+                                                     {{--<i class="fa fa-clock me-1"></i>--}}
+                                                     {{--2 days--}}
+                                                 {{--</p>--}}
+                                             {{--</div>--}}
+                                         {{--</div>--}}
+                                     {{--</a>--}}
+                                 {{--</li>--}}
+                             {{--</ul>--}}
                          </li>
+
+
+
                      </ul>
-                 </li>
-             </ul>
+                 </div>
+                 {{--<ul class="navbar-nav d-flex">--}}
+                     {{--<!-- Desktop -->--}}
+                     {{--<ul class="navbar-nav align-items-baseline d-none d-md-flex">--}}
+                         {{--<!-- Settings Dropdown -->--}}
+                         {{--@auth--}}
+                             {{--<div class="d-none d-md-block">--}}
+                                 {{--<x-jet-dropdown id="settingsDropdown">--}}
+                                     {{--<x-slot name="trigger">--}}
+                                         {{--<img class="rounded-circle" width="32" height="32"--}}
+                                             {{--src="{{ Auth::user()->profile_photo_url }}"--}}
+                                             {{--alt="{{ Auth::user()->name }}" />--}}
+                                     {{--</x-slot>--}}
+
+                                     {{--<x-slot name="content">--}}
+                                         {{--<!-- Account Management -->--}}
+                                         {{--<h6 class="dropdown-header small text-muted">--}}
+                                             {{--{{ __('Manage Account') }}--}}
+                                         {{--</h6>--}}
+
+                                         {{--<x-jet-dropdown-link href="{{ route('user.profile') }}">--}}
+                                             {{--{{ __('Profile') }}--}}
+                                         {{--</x-jet-dropdown-link>--}}
+
+                                         {{--<hr class="dropdown-divider">--}}
+
+                                         {{--<!-- Authentication -->--}}
+                                         {{--<x-jet-dropdown-link href="{{ route('logout') }}"--}}
+                                             {{--onclick="event.preventDefault();--}}
+                                                                                                                                                                                                                                                     {{--document.getElementById('logout-form').submit();">--}}
+                                             {{--{{ __('Log out') }}--}}
+                                         {{--</x-jet-dropdown-link>--}}
+                                         {{--<form method="POST" id="logout-form" action="{{ route('logout') }}">--}}
+                                             {{--@csrf--}}
+                                         {{--</form>--}}
+                                     {{--</x-slot>--}}
+                                 {{--</x-jet-dropdown>--}}
+                             {{--</div>--}}
+                         {{--@endauth--}}
+                     {{--</ul>--}}
+                     {{--<!-- Mobile -->--}}
+                     {{--<ul class="d-md-none navbar-nav">--}}
+
+                         {{--<div class="d-flex">--}}
+                             {{--<img class="rounded-circle me-2" width="32" height="32"--}}
+                                 {{--src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />--}}
+                             {{--<h6 class="">--}}
+                                 {{--{{ Auth::user()->name }}--}}
+                             {{--</h6>--}}
+                         {{--</div>--}}
+
+                         {{--<li>--}}
+                             {{--<h6 class="dropdown-header small text-muted">--}}
+                                 {{--{{ __('Manage Account') }}--}}
+                             {{--</h6>--}}
+                         {{--</li>--}}
+
+                         {{--<li>--}}
+                             {{--<x-jet-dropdown-link href="{{ route('user.profile') }}">--}}
+                                 {{--{{ __('Profile') }}--}}
+                             {{--</x-jet-dropdown-link>--}}
+                         {{--</li>--}}
+
+                         {{--<hr class="dropdown-divider">--}}
+
+                         {{--<!-- Authentication -->--}}
+                         {{--<li>--}}
+                             {{--<x-jet-dropdown-link href="{{ route('logout') }}"--}}
+                                 {{--onclick="event.preventDefault();--}}
+                                                                                                                                    {{--document.getElementById('logout-form').submit();">--}}
+                                 {{--{{ __('Log out') }}--}}
+                             {{--</x-jet-dropdown-link>--}}
+                             {{--<form method="POST" id="logout-form" action="{{ route('logout') }}">--}}
+                                 {{--@csrf--}}
+                             {{--</form>--}}
+                         {{--</li>--}}
+                     {{--</ul>--}}
+                 {{--</ul>--}}
+             </div>
          </div>
      </div>
  </nav>

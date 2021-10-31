@@ -28,9 +28,13 @@ Route::middleware(["auth:sanctum", "verified"])
 
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* profile */
-    Route::get("user/profile", UserProfileController::class)->name("user.profile");
+    Route::get("user/profile", UserProfileController::class)->name(
+        "user.profile"
+    );
     Route::get("insurance", InsuranceController::class)->name("insurance");
-    Route::get("emergency-contact", EmergencyContactController::class)->name("emergency-contact");
+    Route::get("emergency-contact", EmergencyContactController::class)->name(
+        "emergency-contact"
+    );
 
     /* pets profile*/
     Route::get("pets", [PetController::class, "index"])->name("pet.index");
@@ -38,7 +42,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/{pet}/profile/edit", [PetProfileController::class, "update",])->name("pet.update");
 
     /* pet details */
-    Route::get("pets/{pet}/details", [PetController::class, "details"])->name("pet.details");
+    Route::get("pets/{pet}/details", [PetController::class, "details"])->name(
+        "pet.details"
+    );
 
     /* boarding history */
     Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class)->name("pet.boarding-history");
@@ -52,8 +58,13 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("register/profile-information/{step}", WizardProfileController::class)->name("wizard.profile");
 
     /* veterinarian */
-    Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name("veterinarian");
+    Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name(
+        "veterinarian"
+    );
 
     /* booking */
-    Route::resource('bookings', BookingController::class);
+    Route::resource("bookings", BookingController::class);
+
+    /* message to admin */
+    Route::get("messages", MessageController::class)->name("user-message");
 });
