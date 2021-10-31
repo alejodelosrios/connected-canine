@@ -15,11 +15,16 @@ class Behavior extends Model
 
     public function pets()
     {
-        return $this->belongsToMany(\App\Models\Pets::class);
+        return $this->belongsToMany(\App\Models\Pet::class);
     }
 
     public function scopeBehavioralBackgroundQuestions($query)
     {
         return $query->where('type', 'background')->get();
+    }
+
+    public function scopeSeparationConfinementQuestions($query)
+    {
+        return $query->where('type', 'separation_confinement')->get();
     }
 }

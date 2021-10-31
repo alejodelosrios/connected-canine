@@ -12,9 +12,9 @@ class BehaviorController extends Controller
         return view('pet.behavioral-background', compact('pet'));
     }
 
-    public function separationConfinement()
+    public function separationConfinement(Pet $pet)
     {
-        return 'separationConfinement';
+        return view('pet.separation-confinement', compact('pet'));
     }
 
     public function aggressionFear()
