@@ -4,11 +4,7 @@
 
     <div class="container">
         <a class="d-flex navbar-brand me-4 align-items-center" href="/">
-<<<<<<< HEAD
             @if ($background  === "light")
-=======
-            @if ($background ?? '' === "light")
->>>>>>> e3dc05fc02d2c84d28e15565431b67fa84a7e984
                 <img src="{{ asset('img/logo-black-green.png') }}" width="140px" height="47px" alt="">
             @else
                 <img src="{{ asset('img/logo-white.png') }}" width="140px" height="47px" alt="">
