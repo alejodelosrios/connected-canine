@@ -54,17 +54,28 @@ class Pet extends Model
 
     public function behaviors()
     {
-        return $this->belongsToMany(\App\Models\Behavior::class)->orderBy('id')->withPivot(['value', 'comments']);
+        return $this->belongsToMany(\App\Models\Behavior::class)
+            ->orderBy("id")
+            ->withPivot(["value", "comments"]);
     }
 
     public function behavioralBackground()
     {
-        return $this->behaviors()->where('type', 'background')->get()->pluck('pivot')->sortBy('behavior_id')->pluck(['value']);
+        return $this->behaviors()
+            ->where("type", "background")
+            ->get()
+            ->pluck("pivot")
+            ->sortBy("behavior_id")
+            ->pluck(["value"]);
     }
 
     public function separationConfinement()
     {
-        return $this->behaviors()->where('type', 'separation_confinement')->get()->pluck('pivot')->sortBy('behavior_id');
+        return $this->behaviors()
+            ->where("type", "separation_confinement")
+            ->get()
+            ->pluck("pivot")
+            ->sortBy("behavior_id");
     }
 
     public function hasBehavioralBackground()
@@ -87,5 +98,9 @@ class Pet extends Model
     public function hasBoardingHistory()
     {
         return !is_null($this->boardingHistory);
+    }
+    public function hasMedications()
+    {
+        return !is_null($this->medications);
     }
 }
