@@ -32,12 +32,19 @@ class Pet extends Model
     }
     public function veterinarian()
     {
-        return $this->belongsTo(Veterinarian::class, "veterinarian_id");
+        return $this->belongsTo(
+            \App\Models\Veterinarian::class,
+            "veterinarian_id"
+        );
     }
 
     public function bookings()
     {
         return $this->hasMany(\App\Models\Booking::class);
+    }
+    public function medications()
+    {
+        return $this->belongsToMany(\App\Models\Medication::class);
     }
 
     public function boardingHistory()
@@ -73,8 +80,8 @@ class Pet extends Model
     public function hasBooking()
     {
         return $this->bookings()
-            ->where('date', '>=', Carbon::today())
-            ->where('status', '<>', \App\Models\Booking::CANCELLED)
+            ->where("date", ">=", Carbon::today())
+            ->where("status", "<>", \App\Models\Booking::CANCELLED)
             ->count() >= 1;
     }
     public function hasBoardingHistory()

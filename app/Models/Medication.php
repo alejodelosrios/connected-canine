@@ -11,6 +11,6 @@ class Medication extends Model
 
     public function pets()
     {
-        return $this->belongsToMany(Pet::class);
+        return $this->belongsToMany(\App\Models\Pet::class);
     }
 }
