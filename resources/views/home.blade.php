@@ -1,7 +1,6 @@
 <x-guest-layout>
     @section('navbar')
-        {{--<x-navbar class="py-2 mt-4 bg-transparent shadow-none start-0 end-0" />--}}
-         <x-navbar class="py-2 mt-4 shadow blur blur-rounded start-0 end-0" /> 
+        <x-navbar class="py-2 mt-4 shadow blur blur-rounded start-0 end-0" background="light" />
     @endsection
 
     {{-- @if (session()->has('success')) --}}
@@ -12,22 +11,17 @@
     @push('styles')
         <style type="text/css" media="screen">
             #hero {
-                {{--height: 100vh;--}}
+                {{-- height: 100vh; --}}
             }
 
             #header {
-                {{--background-image: linear-gradient(180deg, rgba(55, 167, 148, 1) 0%, rgba(196, 241, 240, 1) 36%, rgba(248, 249, 250, 1) 100%);--}}
-                {{--height: 30vh;--}}
+                {{-- background-image: linear-gradient(180deg, rgba(55, 167, 148, 1) 0%, rgba(196, 241, 240, 1) 36%, rgba(248, 249, 250, 1) 100%); --}} {{-- height: 30vh; --}}
                 /* Position and center the image to scale nicely on all screens */
-                {{--background-position: center;--}}
-                {{--background-repeat: no-repeat;--}}
-                {{--background-size: cover;--}}
-                {{--position: relative;--}}
-                margin-top: 20vh;
+                {{-- background-position: center; --}} {{-- background-repeat: no-repeat; --}} {{-- background-size: cover; --}} {{-- position: relative; --}} margin-top: 20vh;
             }
 
             #articles {
-                {{--height: 70vh;--}}
+                {{-- height: 70vh; --}}
             }
 
         </style>
@@ -35,7 +29,7 @@
 
     <div id="hero">
         <!-- Hero section -->
-        <div  class="">
+        <div class="">
             <div class="text-center row align-items-center h-100 justify-content-center">
                 <div id="header" class="d-flex flex-column flex-md-row justify-content-center">
                     <a class="mb-1 me-md-2 btn bg-gradient-primary " href="{{ route('bookings.create') }}">
