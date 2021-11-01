@@ -43,11 +43,11 @@
                             </td>
                             <td class="align-middle text-center text-sm">
                                 <span
-                                    class="text-secondary text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
+                                    class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span
-                                    class="text-secondary text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
+                                    class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
                             </td>
                             <td class="align-middle">
                                 <a href="{{ route('pet.update', $pet->id) }}"
