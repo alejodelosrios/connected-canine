@@ -10,15 +10,14 @@
                                         <div class="numbers">
                                             <p class="mb-0 text-sm text-capitalize font-weight-bold">Lats 30 days</p>
                                             <h5 class="mb-0 font-weight-bolder">
-                                                $53,000
-                                                <span class="text-sm text-success font-weight-bolder">+55%</span>
+                                                53
                                             </h5>
                                         </div>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <div
-                                            class="text-center shadow icon icon-shape bg-gradient-primary border-radius-md">
-                                            <i class="text-lg ni ni-money-coins opacity-10" aria-hidden="true"></i>
+                                        <div  width="48px" height="48px"
+                                            class="text-center shadow  p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            <img src="{{ asset('img/dog-visits-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -33,15 +32,14 @@
                                         <div class="numbers">
                                             <p class="mb-0 text-sm text-capitalize font-weight-bold">Last 12 months</p>
                                             <h5 class="mb-0 font-weight-bolder">
-                                                2,300
-                                                <span class="text-sm text-success font-weight-bolder">+3%</span>
+                                                230
                                             </h5>
                                         </div>
                                     </div>
                                     <div class="col-4 text-end">
                                         <div
-                                            class="text-center shadow icon icon-shape bg-gradient-primary border-radius-md">
-                                            <i class="text-lg ni ni-world opacity-10" aria-hidden="true"></i>
+                                            class="text-center shadow p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            <img src="{{ asset('img/dog-visits-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -61,15 +59,14 @@
                                         <div class="numbers">
                                             <p class="mb-0 text-sm text-capitalize font-weight-bold">Lats 30 days</p>
                                             <h5 class="mb-0 font-weight-bolder">
-                                                $53,000
-                                                <span class="text-sm text-success font-weight-bolder">+55%</span>
+                                                13
                                             </h5>
                                         </div>
                                     </div>
                                     <div class="col-4 text-end">
                                         <div
-                                            class="text-center shadow icon icon-shape bg-gradient-primary border-radius-md">
-                                            <i class="text-lg ni ni-money-coins opacity-10" aria-hidden="true"></i>
+                                            class="text-center shadow p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            <img src="{{ asset('img/dog-walks-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -84,15 +81,14 @@
                                         <div class="numbers">
                                             <p class="mb-0 text-sm text-capitalize font-weight-bold">Last 12 months</p>
                                             <h5 class="mb-0 font-weight-bolder">
-                                                2,300
-                                                <span class="text-sm text-success font-weight-bolder">+3%</span>
+                                                20
                                             </h5>
                                         </div>
                                     </div>
                                     <div class="col-4 text-end">
                                         <div
-                                            class="text-center shadow icon icon-shape bg-gradient-primary border-radius-md">
-                                            <i class="text-lg ni ni-world opacity-10" aria-hidden="true"></i>
+                                            class="text-center shadow p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            <img src="{{ asset('img/dog-walks-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>
                                 </div>

@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         \App\Models\Service::factory()->create([
             'name' => 'Dog walking'
         ]);
+
+        $this->call([
+            BehavioralBackgroundSeeder::class,
+            BehaviorSeparationConfinementSeeder::class,
+            BehaviorAggressionFearSeeder::class,
+        ]);
     }
 }

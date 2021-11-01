@@ -41,7 +41,7 @@
         @yield('navbar')
 
         @sectionMissing('navbar')
-            <x-navbar class="mt-4 shadow-none navbar-transparent start-0 end-0" />
+            <x-navbar class="mt-4 shadow-none navbar-transparent start-0 end-0" background="dark" />
 
         @endif
 

@@ -1,10 +1,14 @@
+@props(['background'])
 <!-- Navbar -->
 <nav {{ $attributes->merge(['class' => 'top-0 my-3  navbar navbar-expand-lg position-absolute z-index-3 mx-2']) }}>
 
     <div class="container">
         <a class="d-flex navbar-brand me-4 align-items-center" href="/">
-            <x-jet-application-mark width="36" />
-            <span class="mx-2">{{ config('app.name', 'Laravel') }}</span>
+            @if ($background  === "light")
+                <img src="{{ asset('img/logo-black-green.png') }}" width="140px" height="47px" alt="">
+            @else
+                <img src="{{ asset('img/logo-white.png') }}" width="140px" height="47px" alt="">
+            @endif
         </a>
         <button class="shadow-none navbar-toggler ms-2" type="button" data-bs-toggle="collapse"
             data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -47,7 +51,7 @@
                                         <!-- Authentication -->
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
                                             {{ __('Log out') }}
                                         </x-jet-dropdown-link>
                                         <form method="POST" id="logout-form" action="{{ route('logout') }}">
@@ -87,7 +91,7 @@
                         <li>
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                    document.getElementById('logout-form').submit();">
+                                                                                                                                        document.getElementById('logout-form').submit();">
                                 {{ __('Log out') }}
                             </x-jet-dropdown-link>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">

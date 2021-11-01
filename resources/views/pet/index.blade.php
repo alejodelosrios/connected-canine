@@ -4,7 +4,7 @@
 
             <h3 class="text-lg">Pets list</h3>
 
-            <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary " type="button">
+            <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="btn-inner--text mx-1 ">Add pet</span>
                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
             </a>
@@ -43,11 +43,11 @@
                             </td>
                             <td class="align-middle text-center text-sm">
                                 <span
-                                    class="text-secondary text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
+                                    class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span
-                                    class="text-secondary text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
+                                    class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
                             </td>
                             <td class="align-middle">
                                 <a href="{{ route('pet.update', $pet->id) }}"
