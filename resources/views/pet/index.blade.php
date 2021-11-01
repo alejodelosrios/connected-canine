@@ -4,7 +4,7 @@
 
             <h3 class="text-lg">Pets list</h3>
 
-            <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary " type="button">
+            <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="btn-inner--text mx-1 ">Add pet</span>
                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
             </a>
