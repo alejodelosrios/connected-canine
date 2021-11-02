@@ -27,4 +27,9 @@ class Behavior extends Model
     {
         return $query->where('type', 'separation_confinement')->get();
     }
+
+    public function scopeAggressionFearQuestions($query)
+    {
+        return $query->where('type', 'aggression_fear')->get();
+    }
 }

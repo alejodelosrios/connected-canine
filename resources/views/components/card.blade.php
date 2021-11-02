@@ -1,12 +1,12 @@
-<div {{ $attributes->merge(['class' => 'p-4 card z-index-0']) }}>
+<div {{ $attributes->merge(['class' => 'card z-index-0']) }}>
 
     @isset($header)
-        <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1">
+        <div class="p-0 mx-3 mt-3 card-header position-relative z-index-1">
             {{ $header }}
         </div>
     @endisset
 
-    <div class="card-body pt-2">
+    <div class="pt-2 card-body">
         {{ $slot }}
     </div>
 
