@@ -17,8 +17,8 @@ class BehaviorController extends Controller
         return view('pet.separation-confinement', compact('pet'));
     }
 
-    public function aggressionFear()
+    public function aggressionFear(Pet $pet)
     {
-        return 'aggressionFear';
+        return view('pet.aggression-fear', compact('pet'));
     }
 }

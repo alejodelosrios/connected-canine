@@ -1,14 +1,12 @@
 <div x-data>
 
-    <h4 class="mb-5">Behavioral Background</h4>
-
     <form wire:submit.prevent="save" role="form text-left">
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
 
         {{-- Question 01 --}}
-        <div class="mt-5">
+        <div class="mt-3">
             <h6>1) {{ data_get($questions, '0.name') }}</h6>
             <div class=" px-4 {{ $errors->has('question1') ? 'is-invalid border-danger' : '' }}">
 

@@ -32,12 +32,19 @@ class Pet extends Model
     }
     public function veterinarian()
     {
-        return $this->belongsTo(Veterinarian::class, "veterinarian_id");
+        return $this->belongsTo(
+            \App\Models\Veterinarian::class,
+            "veterinarian_id"
+        );
     }
 
     public function bookings()
     {
         return $this->hasMany(\App\Models\Booking::class);
+    }
+    public function medications()
+    {
+        return $this->hasMany(\App\Models\Medication::class);
     }
 
     public function boardingHistory()
@@ -47,17 +54,28 @@ class Pet extends Model
 
     public function behaviors()
     {
-        return $this->belongsToMany(\App\Models\Behavior::class)->orderBy('id')->withPivot(['value', 'comments']);
+        return $this->belongsToMany(\App\Models\Behavior::class)
+            ->orderBy("id")
+            ->withPivot(["value", "comments"]);
     }
 
     public function behavioralBackground()
     {
-        return $this->behaviors()->where('type', 'background')->get()->pluck('pivot')->sortBy('behavior_id')->pluck(['value']);
+        return $this->behaviors()
+            ->where("type", "background")
+            ->get()
+            ->pluck("pivot")
+            ->sortBy("behavior_id")
+            ->pluck(["value"]);
     }
 
     public function separationConfinement()
     {
-        return $this->behaviors()->where('type', 'separation_confinement')->get()->pluck('pivot')->sortBy('behavior_id');
+        return $this->behaviors()
+            ->where("type", "separation_confinement")
+            ->get()
+            ->pluck("pivot")
+            ->sortBy("behavior_id");
     }
 
     public function hasBehavioralBackground()
@@ -73,12 +91,16 @@ class Pet extends Model
     public function hasBooking()
     {
         return $this->bookings()
-            ->where('date', '>=', Carbon::today())
-            ->where('status', '<>', \App\Models\Booking::CANCELLED)
+            ->where("date", ">=", Carbon::today())
+            ->where("status", "<>", \App\Models\Booking::CANCELLED)
             ->count() >= 1;
     }
     public function hasBoardingHistory()
     {
         return !is_null($this->boardingHistory);
+    }
+    public function hasMedications()
+    {
+        return !is_null($this->medications);
     }
 }

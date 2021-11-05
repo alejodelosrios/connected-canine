@@ -1,7 +1,7 @@
 <aside class="my-3 border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl fixed-start ms-3 "
     id="sidenav-main">
     {{-- Logo Brand --}}
-    <div class="sidenav-header pt-4">
+    <div class="pt-4 sidenav-header">
         {{-- TODO: ADAPT LOGO BRAND FROM JETSTREAM COMPONENT --}}
         <i class="top-0 p-3 cursor-pointer fas fa-times text-secondary opacity-5 position-absolute end-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
@@ -48,9 +48,9 @@
                 <x-slot name="icon">
                     {{--@dump(request()->routeIs("user.profile"))--}}
                     @if (request()->is('user/*') || request()->is('user'))
-                        <img src="{{ asset('img/user-white.png') }}" width="28px" height="28px" alt="">
+                        <img src="{{ asset('img/user-white.png') }}" width="20px" height="20px" alt="">
                     @else
-                        <img src="{{ asset('img/user.png') }}" width="28px" height="28px" alt="">
+                        <img src="{{ asset('img/user.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
@@ -59,9 +59,9 @@
                 :active="request()->is('pets/*') || request()->is('pets')">
                 <x-slot name="icon">
                     @if (request()->is('pets/*') || request()->is('pets'))
-                        <img src="{{ asset('img/pets-white.png') }}" width="28px" height="28px" alt="">
+                        <img src="{{ asset('img/pets-white.png') }}" width="20px" height="20px" alt="">
                     @else
-                    <img src="{{ asset('img/pets.png') }}" width="28px" height="28px" alt="">
+                    <img src="{{ asset('img/pets.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
@@ -70,9 +70,9 @@
                 {{-- //TODO: MAKE INSURANCE SCREEN --}}
                 <x-slot name="icon">
                     @if (request()->is('insurance'))
-                    <img src="{{ asset('img/insurance-white.png') }}" width="28px" height="28px" alt="">
+                    <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
                     @else
-                    <img src="{{ asset('img/insurance.png') }}" width="28px" height="28px" alt="">
+                    <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
@@ -82,9 +82,9 @@
                 {{-- //TODO: MAKE EMERGENCY-CONTACT SCREEN --}}
                 <x-slot name="icon">
                     @if (request()->is('emergency-contact'))
-                    <img src="{{ asset('img/emergency-contact-white.png') }}" width="28px" height="28px" alt="">
+                    <img src="{{ asset('img/emergency-contact-white.png') }}" width="20px" height="20px" alt="">
                     @else
-                    <img src="{{ asset('img/emergency-contact.png') }}" width="28px" height="28px" alt="">
+                    <img src="{{ asset('img/emergency-contact.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
@@ -95,8 +95,8 @@
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                     <div
-                        class="text-center bg-white shadow icon icon-shape border-radius-md me-2 d-flex align-items-center justify-content-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28px" height="28px" viewBox="0 0 24 24">
+                        class="text-center bg-white shadow icon-sm icon icon-shape border-radius-md me-2 d-flex align-items-center justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24">
                             <path
                                 d="M10 9.408l2.963 2.592-2.963 2.592v-1.592h-8v-2h8v-1.592zm-2-4.408v4h-8v6h8v4l8-7-8-7zm6-3c-1.787 0-3.46.474-4.911 1.295l.228.2 1.396 1.221c1.004-.456 2.114-.716 3.287-.716 4.411 0 8 3.589 8 8s-3.589 8-8 8c-1.173 0-2.283-.26-3.288-.715l-1.396 1.221-.228.2c1.452.82 3.125 1.294 4.912 1.294 5.522 0 10-4.477 10-10s-4.478-10-10-10z" />
                         </svg>

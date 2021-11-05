@@ -3,10 +3,11 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Pet;
-use App\Models\Veterinarian;
+use App\Models\Medication;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PetTest extends TestCase
@@ -28,16 +29,20 @@ class PetTest extends TestCase
     {
         //with booking pending
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings()->create();
+            return Pet::factory()
+                ->hasBookings()
+                ->create();
         });
 
         $this->assertTrue($pet->hasBooking());
 
         //with booking accepted
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings([
-                'status' => \App\Models\Booking::ACCEPTED
-            ])->create();
+            return Pet::factory()
+                ->hasBookings([
+                    "status" => \App\Models\Booking::ACCEPTED,
+                ])
+                ->create();
         });
 
         $this->assertTrue($pet->hasBooking());
@@ -47,9 +52,11 @@ class PetTest extends TestCase
     public function it_can_check_if_a_pet_has_a_booking_with_status_cancelled()
     {
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings([
-                'status' => \App\Models\Booking::CANCELLED
-            ])->create();
+            return Pet::factory()
+                ->hasBookings([
+                    "status" => \App\Models\Booking::CANCELLED,
+                ])
+                ->create();
         });
 
         $this->assertFalse($pet->hasBooking());
@@ -65,7 +72,9 @@ class PetTest extends TestCase
 
         //with a reservation already passed
         $pet = Pet::withoutEvents(function () {
-            return  Pet::factory()->hasBookings(['date' => now()->subDays(7)])->create();
+            return Pet::factory()
+                ->hasBookings(["date" => now()->subDays(7)])
+                ->create();
         });
 
         $this->assertFalse($pet->hasBooking());
@@ -77,6 +86,21 @@ class PetTest extends TestCase
         $pet = Pet::factory()->create();
 
         $this->assertInstanceOf(HasOne::class, $pet->boardingHistory());
-        $this->assertInstanceOf(\App\Models\BoardingHistory::class, $pet->boardingHistory);
+        $this->assertInstanceOf(
+            \App\Models\BoardingHistory::class,
+            $pet->boardingHistory
+        );
+    }
+
+    /** @test */
+    public function a_pet_can_have_medications()
+    {
+        $pet = Pet::factory()->create();
+
+        $this->assertInstanceOf(BelongsToMany::class, $pet->medications());
+        $this->assertInstanceOf(
+            "Illuminate\Database\Eloquent\Collection",
+            $pet->medications
+        );
     }
 }
