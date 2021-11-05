@@ -44,7 +44,7 @@ class Pet extends Model
     }
     public function medications()
     {
-        return $this->belongsToMany(\App\Models\Medication::class);
+        return $this->hasMany(\App\Models\Medication::class);
     }
 
     public function boardingHistory()

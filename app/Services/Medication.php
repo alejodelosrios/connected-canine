@@ -11,6 +11,8 @@ final class Medication implements UpdaterContract
 {
     public function save(array $input)
     {
+        $pet = Pet::find($input["pet_id"]);
+
         Validator::make($input, [
             "name" => ["required", "string", "max:255"],
             "status" => ["required"],
@@ -26,18 +28,22 @@ final class Medication implements UpdaterContract
             ["id" => $input["id"] ?? ""],
             [
                 "name" => $input["name"],
+                "status" => $input["status"],
+                "frequency" => $input["frequency"],
+                "time_block" => $input["time_block"],
+                "purpose" => $input["purpose"],
+                "prescription" => $input["prescription"],
+                "dosage" => $input["dosage"],
+                "instructions" => $input["instructions"],
             ]
         );
 
-        $pet = Pet::find($input["pet_id"]);
-        $pet->medications()->attach($medication->id, [
-            "status" => $input["status"],
-            "frequency" => $input["frequency"],
-            "time_block" => $input["time_block"],
-            "purpose" => $input["purpose"],
-            "prescription" => $input["prescription"],
-            "dosage" => $input["dosage"],
-            "instructions" => $input["instructions"],
-        ]);
+        $pet->medications()->save($medication);
+    }
+
+    public function delete($medication)
+    {
+        $medi = ModelsMedication::find($medication);
+        $medication->delete();
     }
 }

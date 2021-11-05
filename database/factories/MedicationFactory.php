@@ -23,6 +23,21 @@ class MedicationFactory extends Factory
     {
         return [
             "name" => $this->faker->word(),
+            "status" => $this->faker->randomElement(["Active", "Inactive"]),
+            "frequency" => $this->faker->randomElement([
+                "Hourly",
+                "Daily",
+                "Monthly",
+            ]),
+            "time_block" => $this->faker->randomElement([
+                "Morning",
+                "Afternoon",
+                "Evening",
+            ]),
+            "purpose" => $this->faker->sentence(),
+            "prescription" => $this->faker->randomElement(["Yes", "No"]),
+            "dosage" => $this->faker->sentence(),
+            "instructions" => $this->faker->sentence(),
         ];
     }
 }

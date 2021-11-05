@@ -7,11 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medication extends Model
 {
-    protected $fillable = ["name"];
+    protected $fillable = [
+        "name",
+        "status",
+        "frequency",
+        "time_block",
+        "purpose",
+        "prescription",
+        "dosage",
+        "instructions",
+    ];
     use HasFactory;
 
-    public function pets()
+    public function pet()
     {
-        return $this->belongsToMany(\App\Models\Pet::class);
+        return $this->belongsTo(\App\Models\Pet::class, "pet_id");
     }
 }
