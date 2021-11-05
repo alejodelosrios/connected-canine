@@ -2,32 +2,41 @@
 
 namespace App\Http\Livewire;
 
-use App\Services\Medication as Updater;
+use App\Services\Medication as MedicationServiceClass;
 use Livewire\Component;
 
 class MedicationForm extends Component
 {
     public $state;
+    protected MedicationServiceClass $medicationServiceClass;
 
-    public function mount(\App\Models\Pet $pet)
-    {
+    public function mount(
+        \App\Models\Pet $pet,
+        \App\Models\Medication $medication
+    ) {
         $this->pet = $pet;
 
-        if ($pet->hasMedications()) {
-            $this->state = $pet->medications->toArray();
+        if ($medication) {
+            $this->state = $medication->toArray();
         }
         $this->state["pet_id"] = $pet->id;
+    }
+
+    public function __construct($id)
+    {
+        parent::__construct($id);
+        $this->medicationServiceClass = new MedicationServiceClass();
     }
 
     public function save()
     {
         $this->resetErrorBag();
-        $updater = new Updater();
-        $updater->save($this->state);
+        $this->medicationServiceClass->save($this->state);
         $this->emit("saved");
 
         $this->emit("refresh-navigation-menu");
     }
+
     public function render()
     {
         return view("livewire.medication-form");
