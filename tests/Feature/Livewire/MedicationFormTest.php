@@ -59,25 +59,19 @@ class MedicationFormTest extends TestCase
             ])
             ->call("save");
 
-        $this->assertDatabaseCount("medication_pet", 1);
+        $this->assertDatabaseCount("medications", 1);
 
-        $this->assertDatabaseHas("medication_pet", [
-            "status" => true,
-            "frequency" => "Daily",
-            "time_block" => "Morning",
-            "purpose" => "Medication purpose",
-            "prescription" => true,
-            "dosage" => "Medication dosage",
-            "instructions" => "Medication instructions",
+        $this->assertDatabaseHas("medications", [
+            "pet_id" => $pet->id,
         ]);
     }
 
     /** @test */
-    public function it_can_display_on_screen_a_medication_for_a_pet()
+    public function it_can_display_on_update_screen_a_medication_for_a_pet()
     {
-        $medication = Medication::factory()->create();
         $pet = Pet::factory()
-            ->hasAttached($medication, [
+            ->hasMedications(1, [
+                "name" => "Test medication",
                 "status" => true,
                 "frequency" => "Daily",
                 "time_block" => "Morning",
@@ -87,21 +81,58 @@ class MedicationFormTest extends TestCase
                 "instructions" => "Medication instructions",
             ])
             ->create();
+        $medication = $pet->medications->first();
 
         $this->actingAs($pet->owner);
 
-        $pet_medication = $pet->medications->toArray();
+        $response = $this->get(
+            route("pet.medication-update", [$pet, $medication])
+        );
 
-        //dd($pet_medication);
+        $response->assertStatus(200);
 
-        Livewire::test(MedicationForm::class, ["pet" => $pet])
-            ->assertSet("state.name", $medication->name)
-            ->assertSet("state.status", $pet_medication["status"])
-            ->assertSet("state.frequency", $pet_medication["frequency"])
-            ->assertSet("state.time_block", $pet_medication["time_block"])
-            ->assertSet("state.purpose", $pet_medication["purpose"])
-            ->assertSet("state.prescription", $pet_medication["prescription"])
-            ->assertSet("state.dosage", $pet_medication["dosage"])
-            ->assertSet("state.instructions", $pet_medication["instructions"]);
+        $view = $this->view("pet.medication-update", [
+            "pet" => $pet,
+            "medication" => $medication,
+        ]);
+
+        $view->assertSee($medication->name);
+        $view->assertSee($medication->status);
+        $view->assertSee($medication->frequency);
+        $view->assertSee($medication->time_block);
+        $view->assertSee($medication->purpose);
+        $view->assertSee($medication->prescription);
+        $view->assertSee($medication->dosage);
+        $view->assertSee($medication->instructions);
+
+        //Livewire::test(MedicationForm::class, ["pet" => $pet])
+        //->assertSet("state.name", $medication->name)
+        //->assertSet("state.status", $medication->status)
+        //->assertSet("state.frequency", $medication->frequency)
+        //->assertSet("state.time_block", $medication->time_block)
+        //->assertSet("state.purpose", $medication->purpose)
+        //->assertSet("state.prescription", $medication->prescription)
+        //->assertSet("state.dosage", $medication->dosage)
+        //->assertSet("state.instructions", $medication->instructions);
+    }
+
+    /** @test */
+    public function a_medication_can_be_edited()
+    {
+        $pet = Pet::factory()
+            ->hasMedications()
+            ->create();
+        $medication = $pet->medications->first();
+        $this->actingAs($pet->owner);
+
+        Livewire::test(MedicationForm::class, [$pet, $medication])
+            ->set("state", [
+                "pet_id" => $pet->id,
+                "name" => "Other name",
+            ])
+            ->call("save")
+            ->assertSet($medication->name, "Other name");
+        $pet->refresh();
+        //dd($pet->medications->first()->name);
     }
 }
