@@ -13,7 +13,7 @@ class MedicationFormController extends Controller
         \App\Models\Pet $pet,
         \App\Models\Medication $medication
     ) {
-        //$this->authorize("update", $pet);
+        $this->authorize("update", $pet);
         return view("pet.medication-update", compact("pet", "medication"));
     }
 }
