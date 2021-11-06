@@ -13,18 +13,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory()->hasPets()->create([
-            'email' => 'test@test.com'
-        ]);
+        $user = \App\Models\User::factory()
+            ->hasPets()
+            ->create([
+                "email" => "test@test.com",
+            ]);
 
         \App\Models\Service::factory()->create([
-            'name' => 'Dog walking'
+            "name" => "Dog walking",
         ]);
 
         $this->call([
+            PermissionsSeeder::class,
             BehavioralBackgroundSeeder::class,
             BehaviorSeparationConfinementSeeder::class,
             BehaviorAggressionFearSeeder::class,
         ]);
+        $user->assignRole("Admin");
     }
 }
