@@ -3,6 +3,7 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Pet;
+use App\Models\Vaccine;
 use App\Models\Veterinarian;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -74,9 +75,11 @@ class PetTest extends TestCase
     /** @test */
     public function a_pet_can_have_a_boarding_history()
     {
-        $pet = Pet::factory()->create();
+        $pet = Pet::factory()->hasBoardingHistory()->create();
 
         $this->assertInstanceOf(HasOne::class, $pet->boardingHistory());
         $this->assertInstanceOf(\App\Models\BoardingHistory::class, $pet->boardingHistory);
     }
+
+   
 }
