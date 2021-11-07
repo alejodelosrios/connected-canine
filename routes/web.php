@@ -39,12 +39,12 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* pets profile*/
     Route::get("pets", [PetController::class, "index"])->name("pet.index");
     Route::get("pets/add", [PetProfileController::class, "create"])->name("pet.create");
-    Route::get("pets/{pet}/profile", [PetProfileController::class, "update",])->name("pet.update");    
+    Route::get("pets/{pet}/profile", [PetProfileController::class, "update",])->name("pet.update");
 
     /* boarding history */
     Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class)->name("pet.boarding-history");
 
-    /* behaviors */    
+    /* behaviors */
     Route::get("pets/{pet}/behaviors/background", [BehaviorController::class, 'background'])->name("pet.behavior.backgroung");
     Route::get("pets/{pet}/behaviors/separation-confinement", [BehaviorController::class, 'separationConfinement'])->name("pet.behavior.separation-confinement");
     Route::get("pets/{pet}/behaviors/aggression-fear", [BehaviorController::class, 'aggressionFear'])->name("pet.behavior.aggression-fear");
@@ -62,4 +62,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
 
     /* message to admin */
     Route::get("messages", MessageController::class)->name("user-message");
+
+    /* vaccines */
+    Route::get("/pets/{pet}/vaccines", VaccineController::class)->name("vaccines");
 });
