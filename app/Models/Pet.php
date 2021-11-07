@@ -50,6 +50,11 @@ class Pet extends Model
         return $this->belongsToMany(\App\Models\Behavior::class)->orderBy('id')->withPivot(['value', 'comments']);
     }
 
+    public function vaccines()
+    {
+        return $this->hasOne(Vaccine::class);
+    }
+
     public function behavioralBackground()
     {
         return $this->behaviors()->where('type', 'background')->get()->pluck('pivot')->sortBy('behavior_id')->pluck(['value']);

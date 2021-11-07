@@ -81,5 +81,12 @@ class PetTest extends TestCase
         $this->assertInstanceOf(\App\Models\BoardingHistory::class, $pet->boardingHistory);
     }
 
-   
+    /** @test */
+    public function it_has_vaccines()
+    {
+        $pet = Pet::factory()->hasVaccines()->create();
+
+        $this->assertInstanceOf(HasOne::class, $pet->vaccines());
+        $this->assertInstanceOf(\App\Models\Vaccine::class, $pet->vaccines);
+    }
 }
