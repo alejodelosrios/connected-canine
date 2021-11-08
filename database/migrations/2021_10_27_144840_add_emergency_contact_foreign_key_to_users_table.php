@@ -31,7 +31,7 @@ class AddEmergencyContactForeignKeyToUsersTable extends Migration
     public function down()
     {
         Schema::table("users", function (Blueprint $table) {
-            $table->dropColumn("emergency_contact_id");
+            $table->dropForeign(["emergency_contact_id"]);
         });
     }
 }
