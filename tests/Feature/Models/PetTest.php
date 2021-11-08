@@ -3,12 +3,11 @@
 namespace Tests\Feature\Models;
 
 use App\Models\Pet;
-use App\Models\Medication;
 use Tests\TestCase;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class PetTest extends TestCase
 {
@@ -83,7 +82,7 @@ class PetTest extends TestCase
     /** @test */
     public function a_pet_can_have_a_boarding_history()
     {
-        $pet = Pet::factory()->create();
+        $pet = Pet::factory()->hasBoardingHistory()->create();
 
         $this->assertInstanceOf(HasOne::class, $pet->boardingHistory());
         $this->assertInstanceOf(
@@ -102,5 +101,14 @@ class PetTest extends TestCase
             "Illuminate\Database\Eloquent\Collection",
             $pet->medications
         );
+    }
+
+    /** @test */
+    public function it_has_vaccines()
+    {
+        $pet = Pet::factory()->hasVaccines()->create();
+
+        $this->assertInstanceOf(HasOne::class, $pet->vaccines());
+        $this->assertInstanceOf(\App\Models\Vaccine::class, $pet->vaccines);
     }
 }

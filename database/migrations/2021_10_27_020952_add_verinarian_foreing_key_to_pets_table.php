@@ -29,7 +29,7 @@ class AddVerinarianForeingKeyToPetsTable extends Migration
     public function down()
     {
         Schema::table("pets", function (Blueprint $table) {
-            $table->dropColumn("veterinarian_id");
+            $table->dropForeign(["veterinarian_id"]);
         });
     }
 }

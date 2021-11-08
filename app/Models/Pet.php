@@ -59,6 +59,11 @@ class Pet extends Model
             ->withPivot(["value", "comments"]);
     }
 
+    public function vaccines()
+    {
+        return $this->hasOne(Vaccine::class);
+    }
+
     public function behavioralBackground()
     {
         return $this->behaviors()
