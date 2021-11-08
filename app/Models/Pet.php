@@ -78,6 +78,11 @@ class Pet extends Model
             ->sortBy("behavior_id");
     }
 
+    public function aggressionFear()
+    {
+        return $this->behaviors()->where('type', 'aggression_fear')->get()->pluck('pivot')->sortBy('behavior_id');
+    }
+
     public function hasBehavioralBackground()
     {
         return $this->behavioralBackground()->count() > 0;
@@ -88,6 +93,11 @@ class Pet extends Model
         return $this->separationConfinement()->count() > 0;
     }
 
+    public function hasAggressionFear()
+    {
+        return $this->aggressionFear()->count() > 0;
+    }
+
     public function hasBooking()
     {
         return $this->bookings()
@@ -95,6 +105,7 @@ class Pet extends Model
             ->where("status", "<>", \App\Models\Booking::CANCELLED)
             ->count() >= 1;
     }
+
     public function hasBoardingHistory()
     {
         return !is_null($this->boardingHistory);
