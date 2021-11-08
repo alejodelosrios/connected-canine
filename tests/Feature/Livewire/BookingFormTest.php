@@ -5,7 +5,6 @@ namespace Tests\Feature\Livewire;
 use App\Models\Pet;
 use Tests\TestCase;
 use Livewire\Livewire;
-use Illuminate\Support\Str;
 use App\Http\Livewire\BookingForm;
 use App\Notifications\BookingRequest;
 use Illuminate\Support\Facades\Notification;
@@ -111,7 +110,7 @@ class BookingFormTest extends TestCase
     /** @test */
     public function user_can_request_a_book_if_there_is_a_already_passed_booking()
     {
-
+        Notification::fake();
         $pet = Pet::withoutEvents(function () {
             return  Pet::factory()->hasBookings(['date' => now()->subDay(7)])->create();
         });
