@@ -46,11 +46,21 @@
             <x-dashboard.nav-link route="user.profile" title="User Profile"
                 :active="request()->is('user/*') || request()->is('user')">
                 <x-slot name="icon">
-                    {{--@dump(request()->routeIs("user.profile"))--}}
                     @if (request()->is('user/*') || request()->is('user'))
                         <img src="{{ asset('img/user-white.png') }}" width="20px" height="20px" alt="">
                     @else
                         <img src="{{ asset('img/user.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
+
+            <x-dashboard.nav-link route="admin.users-index" title="Employees"
+                :active="request()->is('user/*') || request()->is('user')">
+                <x-slot name="icon">
+                    @if (request()->is('admin/users/*') || request()->is('/admin/users'))
+                        <img src="{{ asset('img/users-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/users.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
