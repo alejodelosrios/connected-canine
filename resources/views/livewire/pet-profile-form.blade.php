@@ -1,5 +1,6 @@
 <div>
     <form wire:submit.prevent="save" role="form text-left">
+
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
@@ -69,6 +70,7 @@
                 <div class="form-group">
                     <select class="form-control {{ $errors->has('sex') ? 'is-invalid' : '' }}" id="sex"
                         wire:model.defer="state.sex">
+                        <option>Choose an option</option>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
                     </select>
