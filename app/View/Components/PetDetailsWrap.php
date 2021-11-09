@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class PetDetailsWrap extends Component
 {
     public $pet;
+    public $title;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($pet)
+    public function __construct($pet, $title = "Non title")
     {
         $this->pet = $pet;
+        $this->title = $title;
     }
 
     /**
