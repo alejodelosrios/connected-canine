@@ -55,9 +55,9 @@
             </x-dashboard.nav-link>
 
             <x-dashboard.nav-link route="admin.users-index" title="Employees"
-                :active="request()->is('user/*') || request()->is('user')">
+                :active="request()->is('admin/users/*') || request()->is('admin/users')">
                 <x-slot name="icon">
-                    @if (request()->is('admin/users/*') || request()->is('/admin/users'))
+                    @if (request()->is('admin/users/*') || request()->is('admin/users'))
                         <img src="{{ asset('img/users-white.png') }}" width="20px" height="20px" alt="">
                     @else
                         <img src="{{ asset('img/users.png') }}" width="20px" height="20px" alt="">
