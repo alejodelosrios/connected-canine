@@ -32,9 +32,9 @@ final class VaccineService implements UpdaterContract
 
         if ($this->isNotAEmptyData($validated)) {
             if (isset($input['proof'])) {
-                $file_name = "proof_" . $this->pet->id . '.' . $input['proof']->extension();
-                Storage::disk('vaccines')->put($file_name, $input['proof']);
-                $validated = array_merge($validated, ['proof' => $file_name]);
+                $path = $input['proof']->store('proofs', 'vaccines');
+                /* Storage::disk('vaccines')->put($file_name, $input['proof']); */
+                $validated = array_merge($validated, ['proof' => $path]);
             }
 
             Vaccine::updateOrCreate(['pet_id' => $this->pet->id], [

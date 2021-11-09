@@ -76,24 +76,26 @@ class VaccineFormTest extends TestCase
             ->set('state.proof', $file)
             ->call('save');
 
-        Storage::disk('vaccines')->assertExists('proof_1.pdf');
+        Storage::disk('vaccines')->assertExists($pet->fresh()->vaccines->proof);
     }
 
     /** @test */
     public function it_can_remove_an_uploaded_proof()
     {
         Storage::fake('vaccines');
-
-        $pet = Pet::factory()->hasVaccines(['proof' => 'proof_1.pdf'])->create();
         $file = UploadedFile::fake()->create('proof.pdf');
-        Storage::disk('vaccines')->put('proof_1.pdf', $file);
-        
+        $path = Storage::disk('vaccines')->put('proofs', $file);
+        $pet = Pet::factory()->hasVaccines(['proof' => $path])->create();
+
+        Storage::disk('vaccines')->assertExists($pet->fresh()->vaccines->proof);
+
         $response = Livewire::test(VaccineForm::class, ['pet' => $pet])
-            ->assertSet('state.proof', 'proof_1.pdf')
+            ->assertSet('state.proof', $pet->fresh()->vaccines->proof)
             ->call('removeProof');
 
+        $pet->refresh();
         $response->assertSet('state.proof', null);;
-        $this->assertNull($pet->refresh()->proof);
-        Storage::assertMissing('proof_1.pdf');
+        $this->assertNull($pet->vaccines->proof);
+        Storage::assertMissing($pet->vaccines->proof);
     }
 }
