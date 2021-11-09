@@ -1,9 +1,9 @@
 <x-app-layout>
     <x-card>
-        <x-pet-details-wrap :pet="$pet" />
-        <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
+        <x-pet-details-wrap :pet="$pet" title="Medications" />
+        <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-end d-flex">
 
-            <h3 class="text-lg">Medications</h3>
+            {{--<h3 class="text-lg">Medications</h3>--}}
 
             <a href="{{ route('pet.medication-create', $pet) }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="btn-inner--text mx-1 ">Add medication</span>

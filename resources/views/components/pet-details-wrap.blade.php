@@ -1,6 +1,3 @@
-@props([
-    'title'=> 'Non Title'
-])
 <div class="py-2">
     <h4>{{ $title }}</h4>
     <div class="py-2 d-flex flex-column flex-md-row flex-md-wrap">
