@@ -87,7 +87,7 @@ class VaccineFormTest extends TestCase
         $pet = Pet::factory()->hasVaccines(['proof' => 'proof_1.pdf'])->create();
         $file = UploadedFile::fake()->create('proof.pdf');
         Storage::disk('vaccines')->put('proof_1.pdf', $file);
-
+        
         $response = Livewire::test(VaccineForm::class, ['pet' => $pet])
             ->assertSet('state.proof', 'proof_1.pdf')
             ->call('removeProof');

@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
+
 use App\Services\VaccineService as Updater;
 
 class VaccineForm extends Component
@@ -20,15 +20,19 @@ class VaccineForm extends Component
         'has_dhhp' => false,
     ];
 
+    protected $listeners = [
+        'save' => 'save'
+    ];
+
     public function mount(Pet $pet)
     {
         $this->pet = $pet;
 
         if (isset($pet->vaccines)) {
             $this->state = [
-                'rabies' => $pet->vaccines->rabies?->format('m/d/Y'),
-                'bordetella' => $pet->vaccines->bordetella?->format('m/d/Y'),
-                'dhhp' => $pet->vaccines->dhhp?->format('m/d/Y'),
+                'rabies' => $pet->vaccines->rabies?->format('Y-m-d'),
+                'bordetella' => $pet->vaccines->bordetella?->format('Y-m-d'),
+                'dhhp' => $pet->vaccines->dhhp?->format('Y-m-d'),
                 'has_rabies' => isset($pet->vaccines->rabies),
                 'has_bordetella' => isset($pet->vaccines->bordetella),
                 'has_dhhp' => isset($pet->vaccines->dhhp),
