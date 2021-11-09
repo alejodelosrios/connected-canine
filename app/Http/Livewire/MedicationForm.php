@@ -35,6 +35,7 @@ class MedicationForm extends Component
         $this->emit("saved");
 
         $this->emit("refresh-navigation-menu");
+        return redirect()->route("pet.medications", $this->pet);
     }
 
     public function render()

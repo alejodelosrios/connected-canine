@@ -1,6 +1,6 @@
 <x-app-layout>
         <x-card>
-            <x-pet-details-wrap :pet="$pet" />
+            <x-pet-details-wrap :pet="$pet" title="Pet Profile"/>
             @livewire('pet-profile-form',['pet'=> $pet])
 
             <x-slot name="footer">
