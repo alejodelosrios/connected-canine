@@ -44,13 +44,13 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/{pet}/profile", [PetProfileController::class, "update",])->name("pet.update");
 
     /* pet medications */
-    Route::get("pets/{pet}/medications", [MedicationController::class,"index",])->name("pet.medications");
-    Route::get("pets/{pet}/medications/{medication}/delete", [MedicationController::class,"delete",])->name("pet.medication-delete");
-    Route::get("pets/{pet}/medications/add", [MedicationFormController::class,"create",])->name("pet.medication-create");
-    Route::get("pets/{pet}/medications/{medication}/update", [MedicationFormController::class,"update",])->name("pet.medication-update");
+    Route::get("pets/{pet}/medications", [MedicationController::class, "index",])->name("pet.medications");
+    Route::get("pets/{pet}/medications/{medication}/delete", [MedicationController::class, "delete",])->name("pet.medication-delete");
+    Route::get("pets/{pet}/medications/add", [MedicationFormController::class, "create",])->name("pet.medication-create");
+    Route::get("pets/{pet}/medications/{medication}/update", [MedicationFormController::class, "update",])->name("pet.medication-update");
 
     /* boarding history */
-    Route::get("pets/{pet}/boarding-history",BoardingHistoryController::class)->name("pet.boarding-history");
+    Route::get("pets/{pet}/boarding-history", BoardingHistoryController::class)->name("pet.boarding-history");
 
     /* behaviors */
     Route::get("pets/{pet}/behaviors/background", [BehaviorController::class, 'background'])->name("pet.behavior.backgroung");
@@ -58,7 +58,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/{pet}/behaviors/aggression-fear", [BehaviorController::class, 'aggressionFear'])->name("pet.behavior.aggression-fear");
 
     /* wizard */
-    Route::get("register/profile-information/{step}",WizardProfileController::class)->name("wizard.profile");
+    Route::get("register/profile-information/{step}", WizardProfileController::class)->name("wizard.profile");
 
     /* veterinarian */
     Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name("veterinarian");
@@ -71,4 +71,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
 
     /* vaccines */
     Route::get("/pets/{pet}/vaccines", VaccineController::class)->name("vaccines");
+
+    Route::get('/pets/{pet}/vaccines/proofs', function (\App\Models\Pet $pet) {
+        return \Illuminate\Support\Facades\Storage::disk('vaccines')->download($pet->vaccines->proof);
+    })->name('vaccine-proof');
+
 });

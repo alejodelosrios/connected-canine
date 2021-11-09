@@ -38,7 +38,6 @@ return [
         'vaccines' => [
             'driver' => 'local',
             'root' => storage_path('app/vaccines'),
-            'url' => env('APP_URL') . '/vaccines/proofs',
         ],
         'public' => [
             'driver' => 'local',

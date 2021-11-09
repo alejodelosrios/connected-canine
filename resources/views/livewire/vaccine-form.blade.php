@@ -22,7 +22,7 @@
         @isset($state['proof'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
-                    <a href="{{ \Illuminate\Support\Facades\Storage::url($state['proof']) }}">{{ $state['proof'] }}</a>
+                    <a href="{{ route('vaccine-proof',$pet) }}">See document</a>
                 </div>
                 <div>
                     <x-jet-button class="mt-3" type="button" wire:click="removeProof">Remove file</x-jet-button>
