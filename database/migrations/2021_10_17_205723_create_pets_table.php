@@ -21,7 +21,7 @@ class CreatePetsTable extends Migration
                 ->onDelete("cascade");
 
             //$table->unsignedBigInteger("veterinarian_id")->nullable();
-            $table->string("name", 15);
+            $table->string("name");
             $table->string("profile_photo_path", 2048)->nullable();
             $table->timestamp("birthday");
             $table->enum("sex", ["male", "female"]);
