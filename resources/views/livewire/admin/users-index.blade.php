@@ -40,8 +40,8 @@
                             </td>
                             <td class="align-middle text-center">
                                 @foreach ($user->pets as $pet)
-                                    <span
-                                        class="badge bg-primary">{{ $pet->name }}</span>
+                                    <a href="{{ route("admin.pet-profile", $pet) }}"
+                                        class="badge bg-primary">{{ $pet->name }}</a>
                                 @endforeach
                             </td>
                         </tr>
