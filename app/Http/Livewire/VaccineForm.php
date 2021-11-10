@@ -36,7 +36,7 @@ class VaccineForm extends Component
                 'has_rabies' => isset($pet->vaccines->rabies),
                 'has_bordetella' => isset($pet->vaccines->bordetella),
                 'has_dhhp' => isset($pet->vaccines->dhhp),
-                'proof' => $pet->vaccines->proof,
+                'proof_file' => $pet->vaccines->proof,
             ];
         }
     }
@@ -62,9 +62,9 @@ class VaccineForm extends Component
     public function removeProof()
     {
         $updater = new Updater($this->pet);
-        $updater->removeProof($this->state['proof']);
+        $updater->removeProof($this->state['proof_file']);
 
         $this->pet->refresh();
-        $this->state['proof'] = $this->pet->vaccines->proof;
+        $this->state['proof_file'] = $this->pet->vaccines->proof;
     }
 }

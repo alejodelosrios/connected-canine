@@ -1,5 +1,5 @@
 <div class="row">
-
+    
     <x-jet-action-message on="saved">
         {{ __('Saved.') }}
     </x-jet-action-message>
@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        @isset($state['proof'])
+        @isset($state['proof_file'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
                     <a href="{{ route('vaccine-proof',$pet) }}">See document</a>

@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use Carbon\Carbon;
 use App\Models\Vaccine;
-use Illuminate\Validation\Rule;
 use App\Contracts\UpdaterContract;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -30,20 +28,16 @@ final class VaccineService implements UpdaterContract
     {
         $validated = Validator::make($input, $this->rules)->validateWithBag('save');
 
-        if ($this->isNotAEmptyData($validated)) {
-            if (isset($input['proof'])) {
-                $path = $input['proof']->store('proofs', 'vaccines');
-                /* Storage::disk('vaccines')->put($file_name, $input['proof']); */
-                $validated = array_merge($validated, ['proof' => $path]);
-            }
-
-            Vaccine::updateOrCreate(['pet_id' => $this->pet->id], [
-                'rabies' => $validated['has_rabies'] ? $validated['rabies'] : null,
-                'bordetella' => $validated['has_bordetella'] ? $validated['bordetella'] : null,
-                'dhhp' => $validated['has_dhhp'] ? $validated['dhhp'] : null,
-                'proof' => $validated['proof'] ?? null,
-            ]);
+        if (isset($input['proof'])) {
+            $path = $input['proof']->store('proofs', 'vaccines');
+            $data['proof'] = $path;
         }
+
+        $data['rabies'] = $validated['has_rabies'] ? $validated['rabies'] : null;
+        $data['bordetella'] = $validated['has_bordetella'] ? $validated['bordetella'] : null;
+        $data['dhhp'] = $validated['has_dhhp'] ? $validated['dhhp'] : null;
+
+        Vaccine::updateOrCreate(['pet_id' => $this->pet->id], $data);
     }
 
     public function removeProof(string $file_name)

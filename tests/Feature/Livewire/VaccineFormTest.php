@@ -8,7 +8,6 @@ use Livewire\Livewire;
 use Illuminate\Http\UploadedFile;
 use App\Http\Livewire\VaccineForm;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VaccineFormTest extends TestCase
@@ -90,11 +89,11 @@ class VaccineFormTest extends TestCase
         Storage::disk('vaccines')->assertExists($pet->fresh()->vaccines->proof);
 
         $response = Livewire::test(VaccineForm::class, ['pet' => $pet])
-            ->assertSet('state.proof', $pet->fresh()->vaccines->proof)
+            ->assertSet('state.proof_file', $pet->fresh()->vaccines->proof)
             ->call('removeProof');
 
         $pet->refresh();
-        $response->assertSet('state.proof', null);;
+        $response->assertSet('state.proof_file', null);;
         $this->assertNull($pet->vaccines->proof);
         Storage::assertMissing($pet->vaccines->proof);
     }
