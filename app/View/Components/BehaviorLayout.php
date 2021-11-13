@@ -6,16 +6,17 @@ use Illuminate\View\Component;
 
 class BehaviorLayout extends Component
 {
+    public $title;
+    public $pet;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct(
-        public string $title,
-        public $pet
-    ) {
-        //
+    public function __construct(string $title, $pet)
+    {
+        $this->title = $title;
+        $this->pet = $pet;
     }
 
     /**
@@ -25,6 +26,6 @@ class BehaviorLayout extends Component
      */
     public function render()
     {
-        return view('layouts.behavior-layout');
+        return view("layouts.behavior-layout");
     }
 }

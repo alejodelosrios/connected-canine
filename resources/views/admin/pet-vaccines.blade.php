@@ -55,7 +55,7 @@
             </table>
 
             <h5 class="mt-4">Proof</h5>
-            @if ($pet->vaccines->proof)
+            @isset ($pet->vaccines->proof)
                 <div class="mt-2  mb-4 d-flex align-items-start">
                     <div class="p-2 border rounded">
                         <a href="{{ route('vaccine-proof', $pet) }}">View document</a>
@@ -63,7 +63,7 @@
                 </div>
             @else
                 <p>There is not proof uploaded</p>
-            @endif
+            @endisset
 
         </div>
     </x-card>
