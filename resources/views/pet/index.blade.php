@@ -30,11 +30,15 @@
                             <td>
                                 <div class="d-flex px-2 py-1">
                                     <div>
-                                        <img src="https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                                            class="avatar avatar-sm me-3">
+                                        @if ($pet->profile_photo_path)
+                                            <img src="{{ $pet->profile_photo_path }}" class="avatar avatar-sm me-3">
+                                        @else
+                                            <img src="{{ asset("img/dog.png")}}" class="avatar avatar-sm me-3">
+                                        @endif
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
-                                        <a href="{{ route('pet.update', $pet) }}" class="mb-0 text-xs font-weight-bold">{{ $pet->name }}</a>
+                                        <a href="{{ route('pet.update', $pet) }}"
+                                            class="mb-0 text-xs font-weight-bold">{{ $pet->name }}</a>
                                     </div>
                                 </div>
                             </td>
@@ -42,12 +46,10 @@
                                 <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->color }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span
-                                    class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
+                                <span class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
                             </td>
                             <td class="align-middle text-center">
-                                <span
-                                    class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
+                                <span class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
                             </td>
                             <td class="align-middle">
                                 <a href="{{ route('pet.update', $pet->id) }}"
