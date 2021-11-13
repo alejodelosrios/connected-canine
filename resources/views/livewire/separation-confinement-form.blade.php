@@ -78,7 +78,7 @@
 
                 <label for="question2_option3">
                     <input type="radio" wire:model="state.question2.value" value="Always" id="question2_option3"
-                        class="mx-2">Alway
+                        class="mx-2">Always
                 </label>
 
             </div>
