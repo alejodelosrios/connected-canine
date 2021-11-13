@@ -11,13 +11,17 @@ final class VaccineService implements UpdaterContract
 {
     public $pet;
     protected $rules = [
-        'has_rabies' => ['required', 'boolean'],
-        'rabies' => ['required_if:has_rabies,true', 'nullable', 'after:today'],
-        'has_bordetella' => ['required', 'boolean'],
-        'bordetella' => ['required_if:has_bordetella,true', 'nullable', 'after:today'],
-        'has_dhhp' => ['required', 'boolean'],
-        'dhhp' => ['required_if:has_dhhp,true', 'nullable', 'after:today'],
-        'proof' => ['nullable', 'file', 'mimes:png,jpg,pdf', 'max:102400']
+        "has_rabies" => ["required", "boolean"],
+        "rabies" => ["required_if:has_rabies,true", "nullable", "after:today"],
+        "has_bordetella" => ["required", "boolean"],
+        "bordetella" => [
+            "required_if:has_bordetella,true",
+            "nullable",
+            "after:today",
+        ],
+        "has_dhhp" => ["required", "boolean"],
+        "dhhp" => ["required_if:has_dhhp,true", "nullable", "after:today"],
+        "proof" => ["nullable", "file", "mimes:png,jpg,pdf", "max:102400"],
     ];
 
     public function __construct($pet)
@@ -27,33 +31,44 @@ final class VaccineService implements UpdaterContract
 
     public function save(array $input)
     {
-        $validated = Validator::make($input, $this->rules)->validateWithBag('save');
+        $validated = Validator::make($input, $this->rules)->validateWithBag(
+            "save"
+        );
 
-        if (isset($input['proof'])) {
-            $path = $input['proof']->store('proofs', 'vaccines');
-            $data['proof'] = $path;
+        if (isset($input["proof"])) {
+            $path = $input["proof"]->store("proofs", "s3");
+            $data["proof"] = $path;
         }
 
-        $data['rabies'] = $validated['has_rabies'] ? $validated['rabies'] : null;
-        $data['bordetella'] = $validated['has_bordetella'] ? $validated['bordetella'] : null;
-        $data['dhhp'] = $validated['has_dhhp'] ? $validated['dhhp'] : null;
+        $data["rabies"] = $validated["has_rabies"]
+            ? $validated["rabies"]
+            : null;
+        $data["bordetella"] = $validated["has_bordetella"]
+            ? $validated["bordetella"]
+            : null;
+        $data["dhhp"] = $validated["has_dhhp"] ? $validated["dhhp"] : null;
 
-        Vaccine::updateOrCreate(['pet_id' => $this->pet->id], $data);
+        Vaccine::updateOrCreate(["pet_id" => $this->pet->id], $data);
     }
 
     public function removeProof(string $file_name)
     {
-        if (Storage::disk('vaccines')->exists($file_name)) {
-            Storage::disk('vaccines')->delete($file_name);
+        if (Storage::disk("s3")->exists($file_name)) {
+            Storage::disk("s3")->delete($file_name);
         }
 
-        $this->pet->vaccines->forceFill([
-            'proof' => null,
-        ])->save();
+        $this->pet->vaccines
+            ->forceFill([
+                "proof" => null,
+            ])
+            ->save();
     }
 
     private function isNotAEmptyData($data)
     {
-        return $data['has_rabies'] || $data['has_bordetella'] || $data['has_dhhp'] || isset($data['proof']);
+        return $data["has_rabies"] ||
+            $data["has_bordetella"] ||
+            $data["has_dhhp"] ||
+            isset($data["proof"]);
     }
 }
