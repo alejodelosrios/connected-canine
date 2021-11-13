@@ -15,7 +15,10 @@ class EmergencyContactForm extends Component
     {
         $user = Auth::user();
         $contact = EmergencyContact::find($user->emergency_contact_id);
-        $this->state = $contact?->withoutRelations()->toArray() ?? [];
+
+        if (!is_null($contact)) {
+            $this->state = $contact->withoutRelations()->toArray() ?? [];
+        };
 
         $this->state["user_id"] = $user->id;
     }

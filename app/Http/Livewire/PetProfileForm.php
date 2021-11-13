@@ -12,15 +12,18 @@ class PetProfileForm extends Component
 
     public $photo;
 
+    public $state = [];
+
     protected $listeners = [
         'next' => 'save',
         'save' => 'save'
     ];
 
-
     public function mount($pet = null)
     {
-        $this->state = $pet?->withoutRelations()->toArray() ?? [];
+        if (!is_null($pet)) {
+            $this->state = $pet->withoutRelations()->toArray();
+        }
     }
 
     public function save()

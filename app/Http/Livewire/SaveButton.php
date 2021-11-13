@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class SaveButton extends Component
 {
-    public string $redirect_route_name = '';
+    public $redirect_route_name = '';
 
     protected $listeners = ['saved' => 'go_forward'];
 

@@ -25,10 +25,14 @@ class BoardingHistoryFactory extends Factory
             'pet_id' => \App\Models\Pet::factory(),
             'attended' => true,
             'scuffle_event' => $this->faker->boolean(),
-            'scuffle_description' => fn ($attribute) => !$attribute['scuffle_event'] ?: $this->faker->text(),
+            'scuffle_description' => function ($attribute) {
+                !$attribute['scuffle_event'] ?: $this->faker->text();
+            },
             'forbidden_assistance' => $this->faker->boolean(),
             'accomodations' => $this->faker->boolean(),
-            'accomodations_description' => fn ($attribute) => !$attribute['accomodations'] ?: $this->faker->text(),
+            'accomodations_description' => function ($attribute) {
+                !$attribute['accomodations'] ?: $this->faker->text();
+            },
             'comments' => $this->faker->boolean() ?: $this->faker->text(),
         ];
     }

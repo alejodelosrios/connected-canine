@@ -2,11 +2,10 @@
 
 namespace Tests\Feature\Controllers;
 
-use App\Models\Medication;
 use App\Models\Pet;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\Medication;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MedicationControllerTest extends TestCase
 {

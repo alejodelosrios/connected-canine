@@ -6,7 +6,6 @@ use App\Models\Pet;
 use Tests\TestCase;
 use Livewire\Livewire;
 use App\Http\Livewire\BoardingHistoryForm;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class BoardingHistoryFormTest extends TestCase

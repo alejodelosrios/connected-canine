@@ -6,7 +6,7 @@ use App\Models\Pet;
 
 class MedicationController extends Controller
 {
-    protected MedicationServiceClass $medicationServiceClass;
+    protected $medicationServiceClass;
 
     public function index(Pet $pet)
     {

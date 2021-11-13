@@ -2,13 +2,11 @@
 
 namespace Tests\Feature\Livewire;
 
-use App\Http\Livewire\MedicationForm;
-use App\Models\Medication;
 use App\Models\Pet;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Livewire\Livewire;
 use Tests\TestCase;
+use Livewire\Livewire;
+use App\Http\Livewire\MedicationForm;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class MedicationFormTest extends TestCase
 {
@@ -31,8 +29,7 @@ class MedicationFormTest extends TestCase
                 "prescription" => true,
                 "dosage" => "Medication dosage",
                 "instructions" => "Medication instructions",
-            ])
-            ->call("save");
+            ])->call("save");
 
         $this->assertDatabaseCount("medications", 1);
 

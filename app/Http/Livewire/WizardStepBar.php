@@ -8,9 +8,9 @@ class WizardStepBar extends Component
 {
     public $step = 1;
 
-    public string $route_name;
+    public $route_name;
 
-    public string $redirect_route_name = 'welcome';
+    public $redirect_route_name = 'welcome';
 
     public $max_steps;
 
@@ -36,7 +36,7 @@ class WizardStepBar extends Component
 
     public function go_forward()
     {
-        
+
         if ($this->step == $this->max_steps) {
             return redirect()->route($this->redirect_route_name);
         }

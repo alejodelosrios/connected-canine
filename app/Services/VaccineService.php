@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 final class VaccineService implements UpdaterContract
 {
+    public $pet;
     protected $rules = [
         'has_rabies' => ['required', 'boolean'],
         'rabies' => ['required_if:has_rabies,true', 'nullable', 'after:today'],
@@ -19,9 +20,9 @@ final class VaccineService implements UpdaterContract
         'proof' => ['nullable', 'file', 'mimes:png,jpg,pdf', 'max:102400']
     ];
 
-    public function __construct(public \App\Models\Pet $pet)
+    public function __construct($pet)
     {
-        //
+        $this->pet = $pet;
     }
 
     public function save(array $input)

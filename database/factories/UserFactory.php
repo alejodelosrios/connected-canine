@@ -32,16 +32,17 @@ class UserFactory extends Factory
             "email_verified_at" => now(),
             //"emergency_contact_id" => \App\Models\EmergencyContact::factory(),
             "password" =>
-                '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             "remember_token" => Str::random(10),
             "area_code" => $this->faker->randomNumber(3),
             "phone_number" => $this->faker->randomNumber(9, true),
-            "address" => new Address(
-                $this->faker->randomNumber(4, true),
-                $this->faker->streetName(),
-                $this->faker->randomNumber(3, true),
-                $this->faker->streetName()
-            ),
+            "address" => function ($attributes) {
+                $home_street = $this->faker->randomNumber(4, true);
+                $street_address = $this->faker->streetName();
+                $home_street_2 = $this->faker->randomNumber(3, true);
+                $street_address_2 = $this->faker->streetName();
+                return new Address($home_street, $street_address, $home_street_2, $street_address_2);
+            },
             "zip_code" => "3023",
             "accept_terms" => now(),
             "aggreement" => now(),

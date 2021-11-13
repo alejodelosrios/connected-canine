@@ -17,6 +17,7 @@ class VaccineFormTest extends TestCase
     /** @test */
     public function it_can_add_vaccine_to_a_pet()
     {
+        $this->withoutExceptionHandling();
         $pet = Pet::factory()->create();
 
         Livewire::test(VaccineForm::class, ['pet' => $pet])
@@ -31,17 +32,6 @@ class VaccineFormTest extends TestCase
             ->call('save');
 
         $this->assertDatabaseCount('vaccines', 1);
-    }
-
-    /** @test */
-    public function it_does_not_add_if_user_does_not_choose_any_vaccine()
-    {
-        $pet = Pet::factory()->create();
-
-        Livewire::test(VaccineForm::class, ['pet' => $pet])
-            ->call('save');
-
-        $this->assertDatabaseCount('vaccines', 0);
     }
 
     /** @test */

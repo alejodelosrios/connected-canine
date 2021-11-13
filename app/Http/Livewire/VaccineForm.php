@@ -30,12 +30,12 @@ class VaccineForm extends Component
 
         if (isset($pet->vaccines)) {
             $this->state = [
-                'rabies' => $pet->vaccines->rabies?->format('Y-m-d'),
-                'bordetella' => $pet->vaccines->bordetella?->format('Y-m-d'),
-                'dhhp' => $pet->vaccines->dhhp?->format('Y-m-d'),
                 'has_rabies' => isset($pet->vaccines->rabies),
                 'has_bordetella' => isset($pet->vaccines->bordetella),
                 'has_dhhp' => isset($pet->vaccines->dhhp),
+                'rabies' => !isset($pet->vaccines->rabies) ?: $pet->vaccines->rabies->format('Y-m-d'),
+                'bordetella' => !isset($pet->vaccines->bordetella) ?: $pet->vaccines->bordetella->format('Y-m-d'),
+                'dhhp' => !isset($pet->vaccines->dhhp) ?: $pet->vaccines->dhhp->format('Y-m-d'),
                 'proof_file' => $pet->vaccines->proof,
             ];
         }

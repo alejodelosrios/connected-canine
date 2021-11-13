@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Models\Pet;
 use App\Contracts\UpdaterContract;
-use App\Models\BoardingHistory;
 use Illuminate\Support\Facades\Validator;
 
 final class BoardingHistoryService implements UpdaterContract
 {
+    public $pet;
+
     //TODO: LOOK FOR BUG - COMMENTS CAN'T SAVE
     protected $rules = [
         'attended' => ['required', 'boolean'],
@@ -24,9 +24,9 @@ final class BoardingHistoryService implements UpdaterContract
         'attended' => "You must choose an option to continue",
     ];
 
-    public function __construct(public Pet $pet)
+    public function __construct($pet)
     {
-        //
+        $this->pet = $pet;
     }
 
     public function save(array $input)

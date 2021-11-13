@@ -7,18 +7,21 @@ use Livewire\Component;
 
 class MedicationForm extends Component
 {
-    public $state;
-    protected MedicationServiceClass $medicationServiceClass;
 
-    public function mount(
-        \App\Models\Pet $pet,
-        \App\Models\Medication $medication
-    ) {
+    public $pet;
+
+    public $state;
+
+    protected $medicationServiceClass;
+
+    public function mount($pet, $medication = null)
+    {
         $this->pet = $pet;
 
-        if ($medication) {
+        if (isset($medication)) {
             $this->state = $medication->toArray();
         }
+
         $this->state["pet_id"] = $pet->id;
     }
 

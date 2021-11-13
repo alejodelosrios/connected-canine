@@ -2,14 +2,12 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\EmergencyContactForm;
-use App\Models\EmergencyContact;
-use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Livewire;
 use Tests\TestCase;
+use App\Models\User;
+use Livewire\Livewire;
+use App\Models\EmergencyContact;
+use App\Http\Livewire\EmergencyContactForm;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class EmergencyContactFormTest extends TestCase
 {
