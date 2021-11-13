@@ -19,11 +19,9 @@ class UpdateProfileInformationForm extends Component
     public $state = [];
 
     protected $listeners = [
-        'next' => 'updateProfileInformation',
-        'save' => 'updateProfileInformation'
+        "next" => "updateProfileInformation",
+        "save" => "updateProfileInformation",
     ];
-
-    
 
     /**
      * The new avatar for the user.
@@ -39,7 +37,9 @@ class UpdateProfileInformationForm extends Component
      */
     public function mount()
     {
-        $this->state = Auth::user()->withoutRelations()->toArray();
+        $this->state = Auth::user()
+            ->withoutRelations()
+            ->toArray();
     }
 
     /**
@@ -48,24 +48,25 @@ class UpdateProfileInformationForm extends Component
      * @param  \Laravel\Fortify\Contracts\UpdatesUserProfileInformation  $updater
      * @return void
      */
-    public function updateProfileInformation(UpdatesUserProfileInformation $updater)
-    {
+    public function updateProfileInformation(
+        UpdatesUserProfileInformation $updater
+    ) {
         $this->resetErrorBag();
 
         $updater->update(
             Auth::user(),
             $this->photo
-                ? array_merge($this->state, ['photo' => $this->photo])
+                ? array_merge($this->state, ["photo" => $this->photo])
                 : $this->state
         );
 
         if (isset($this->photo)) {
-            return redirect()->route('profile.show');
+            return redirect()->route("user.profile");
         }
 
-        $this->emit('saved');
+        $this->emit("saved");
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
     }
 
     /**
@@ -77,7 +78,7 @@ class UpdateProfileInformationForm extends Component
     {
         Auth::user()->deleteProfilePhoto();
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
     }
 
     /**
@@ -97,6 +98,6 @@ class UpdateProfileInformationForm extends Component
      */
     public function render()
     {
-        return view('livewire.update-profile-information-form');
+        return view("livewire.update-profile-information-form");
     }
 }
