@@ -75,5 +75,8 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get('/pets/{pet}/vaccines/proofs', function (\App\Models\Pet $pet) {
         return \Illuminate\Support\Facades\Storage::disk('vaccines')->download($pet->vaccines->proof);
     })->name('vaccine-proof');
+});
 
+Route::get('show-pet/{pet}', function (\App\Models\Pet $pet) {
+    return $pet->toArray();
 });
