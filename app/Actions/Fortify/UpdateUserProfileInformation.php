@@ -19,19 +19,24 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
-        $vali= Validator::make($input, [
+        Validator::make($input, [
             'name' => ['required', 'string', 'max:25'],
-            'lastname' => ['string', 'max:25'],
+            'lastname' => ['required', 'string', 'max:25'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            'area_code' => ['numeric', 'digits_between:2,3'],
-            'phone_number' => ['numeric', 'digits_between:8,20'],
-            'address.home_street' => ['numeric', 'digits_between:2,6'],
-            'address.home_street_2' => ['numeric', 'digits_between:2,6'],
-            'address.street_address' => ['string', 'min:5', 'max:250'],
-            'address.street_address_2' => ['string', 'min:5', 'max:250'],
-            'zip_code' => ['string', 'min:3', 'max:6'],
-        ]);
+            'area_code' => ['required', 'numeric', 'digits_between:2,3'],
+            'phone_number' => ['required', 'numeric', 'digits_between:8,20'],
+            'address.home_street' => ['required', 'numeric', 'digits_between:2,6'],
+            'address.home_street_2' => ['nullable', 'numeric', 'digits_between:2,6'],
+            'address.street_address' => ['required', 'string', 'min:5', 'max:250'],
+            'address.street_address_2' => ['nullable', 'string', 'min:5', 'max:250'],
+            'zip_code' => ['required', 'string', 'min:3', 'max:6'],
+        ], [], [
+            'address.home_street' => 'home street',
+            'address.home_street_2' => 'home street 2',
+            'address.street_address' => 'street address',
+            'address.street_address_2' => 'street address 2'
+        ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
             $user->updateProfilePhoto($input['photo']);

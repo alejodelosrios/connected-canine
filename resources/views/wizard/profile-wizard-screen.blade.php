@@ -8,7 +8,7 @@
             <div class="row mt-lg-n10 mt-md-n11 mt-n10">
                 <x-card class="mx-auto col-md-8">
                     @if ($step == 1)
-                        @livewire('profile.update-profile-information-form')
+                        @livewire('update-profile-information-form')
                     @else
                         @livewire('pet-profile-form')
                     @endif
