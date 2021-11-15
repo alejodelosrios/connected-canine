@@ -9,7 +9,7 @@
 
                 <div class="mt-2">
                     @if ($pet->profile_photo_path)
-                        <img src="{{ $pet->profile_photo_path }}" class="rounded-circle" height="80px" width="80px">
+                        <img src="{{ $pet->profile_photo_url }}" class="rounded-circle" height="80px" width="80px">
                     @endif
                 </div>
             </div>
