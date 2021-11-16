@@ -82,4 +82,8 @@ class User extends Authenticatable
             "emergency_contact_id"
         );
     }
+    public function insurance()
+    {
+        return $this->hasOne(Insurance::class);
+    }
 }
