@@ -52,7 +52,7 @@
                  image="rolls-over" />
          </div>
          <div class="p-1 col h-100">
-             <x-dog-option value="Cassually greets" key="question22_option15" wire:model="state.question22.value"
+             <x-dog-option value="Casually greets" key="question22_option15" wire:model="state.question22.value"
                  image="cassually-greets" />
          </div>
      </div>

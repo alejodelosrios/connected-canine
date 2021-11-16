@@ -15,27 +15,27 @@ class BehavioralBackgroundSeeder extends Seeder
     public function run()
     {
         Behavior::factory()->create([
-            'name' => 'How often does your dog  come when called',
-            'description' => 'come when called',
-            'type' => 'background'
+            "name" => "How often does your dog  come when called",
+            "description" => "come when called",
+            "type" => "background",
         ]);
 
         Behavior::factory()->create([
-            'name' => 'How often does your urinate or deficate indoors',
-            'description' => 'urinate or deficate indoors',
-            'type' => 'background'
+            "name" => "How often does your urinate or deficate indoors",
+            "description" => "urinate or deficate indoors",
+            "type" => "background",
         ]);
 
         Behavior::factory()->create([
-            'name' => 'Thunder',
-            'description' => 'appear distessed',
-            'type' => 'background'
+            "name" => "Thunder",
+            "description" => "appear distessed",
+            "type" => "background",
         ]);
 
         Behavior::factory()->create([
-            'name' => 'Vaccums',
-            'description' => 'appear distessed',
-            'type' => 'background'
+            "name" => "Vacuums",
+            "description" => "appear distessed",
+            "type" => "background",
         ]);
     }
 }

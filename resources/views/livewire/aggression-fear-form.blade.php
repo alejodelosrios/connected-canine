@@ -6,7 +6,7 @@
         </x-jet-action-message>
 
         {{-- Question 01 --}}
-        <h6 class="mt-2 text-sm">1) How relaxed or stressed is your dog when un familiar people..</h6>
+        <h6 class="mt-2 text-sm">1) How relaxed or stressed is your dog with familiar people do the following</h6>
         <div class="row row-cols-1 row-cols-md-2 px-md-4">
             <div class="mt-4 col">
                 <x-question-t1 key="question1" wire:model="state.question1">
@@ -62,7 +62,7 @@
         </div>
 
         {{-- Question 03 --}}
-        <h6 class="mt-5 text-sm">3) how relaxed or stressed is your dog when unfamiliar person who is a...</h6>
+        <h6 class="mt-5 text-sm">3) How relaxed or stressed is your dog when an unfamiliar person is a...</h6>
         <div class="row row-cols-1 row-cols-md-2 px-md-4">
             <div class="mt-4 col">
                 <x-question-t1 key="question10" wire:model="state.question10">
@@ -82,7 +82,7 @@
         </div>
 
         {{-- Question 04 --}}
-        <h6 class="mt-5 text-sm ">4) How relaxed or stressed is your dog unfamiliar dogs...</h6>
+        <h6 class="mt-5 text-sm ">4) How relaxed or stressed is your dog when unfamiliar dogs...</h6>
         <div class="row row-cols-1 row-cols-md-2 px-md-4">
             <div class="mt-4 col">
                 <x-question-t1 key="question13" wire:model="state.question13">

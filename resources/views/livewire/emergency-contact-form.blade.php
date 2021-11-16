@@ -28,7 +28,7 @@
             </div>
             <!-- Emergency contact lastname -->
             <div class="mb-3">
-                <x-jet-label for="lastname" value="{{ __('Lastname') }}" />
+                <x-jet-label for="lastname" value="{{ __('Last Name') }}" />
                 <x-jet-input id="lastname" type="text" class="{{ $errors->has('lastname') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.lastname" autocomplete="lastname" />
                 <x-jet-input-error for="lastname" />
