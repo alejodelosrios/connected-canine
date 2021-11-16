@@ -13,14 +13,18 @@ class AddProfileFieldsToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('lastname', 25)->after('name')->nullable();
-            $table->integer('area_code')->nullable();
-            $table->string('phone_number', 20)->nullable();
-            $table->json('address')->nullable();
-            $table->string('zip_code')->nullable();
-            $table->timestamp('accept_terms')->nullable();
-            $table->timestamp('aggreement')->nullable();
+        Schema::table("users", function (Blueprint $table) {
+            $table
+                ->string("lastname", 25)
+                ->after("name")
+                ->nullable();
+            $table->integer("area_code")->nullable();
+            $table->string("phone_number", 20)->nullable();
+            $table->string("state", 80)->nullable();
+            $table->json("address")->nullable();
+            $table->string("zip_code")->nullable();
+            $table->timestamp("accept_terms")->nullable();
+            $table->timestamp("aggreement")->nullable();
         });
     }
 
@@ -31,15 +35,15 @@ class AddProfileFieldsToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table("users", function (Blueprint $table) {
             $table->dropColumn([
-                'lastname',
-                'area_code',
-                'phone_number',
-                'address',
-                'accept_terms',
-                'aggreement',
-                'zip_code'
+                "lastname",
+                "area_code",
+                "phone_number",
+                "address",
+                "accept_terms",
+                "aggreement",
+                "zip_code",
             ]);
         });
     }
