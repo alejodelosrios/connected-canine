@@ -1,20 +1,20 @@
  <nav class="px-0 mx-4 shadow-none navbar navbar-main navbar-expand-lg border-radius-xl" id="navbarBlur"
      navbar-scroll="true">
      <div class="px-3 py-1 container-fluid">
-         <nav aria-label="breadcrumb">
-             <ol class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb me-sm-6 me-5">
-                 <li class="text-sm breadcrumb-item"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                 <li class="text-sm breadcrumb-item text-dark active" aria-current="page">Dashboard</li>
-             </ol>
-             <h6 class="mb-0 font-weight-bolder">Dashboard</h6>
-         </nav>
+         {{--<nav aria-label="breadcrumb">--}}
+             {{--<ol class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb me-sm-6 me-5">--}}
+                 {{--<li class="text-sm breadcrumb-item"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>--}}
+                 {{--<li class="text-sm breadcrumb-item text-dark active" aria-current="page">Dashboard</li>--}}
+             {{--</ol>--}}
+             {{--<h6 class="mb-0 font-weight-bolder">Dashboard</h6>--}}
+         {{--</nav>--}}
          <div class="mt-2 collapse navbar-collapse mt-sm-0 me-md-0 me-sm-4" id="navbar">
-             <div class="w-auto ms-md-auto pe-md-3 d-flex align-items-center">
-                 <div class="input-group">
-                     <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
-                     <input type="text" class="form-control" placeholder="Type here...">
-                 </div>
-             </div>
+             {{--<div class="w-auto ms-md-auto pe-md-3 d-flex align-items-center">--}}
+                 {{--<div class="input-group">--}}
+                     {{--<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>--}}
+                     {{--<input type="text" class="form-control" placeholder="Type here...">--}}
+                 {{--</div>--}}
+             {{--</div>--}}
 
              <div class="pt-3 pb-2 collapse navbar-collapse w-100 py-lg-0" id="navigation">
                  <div class="w-100 text-end">
