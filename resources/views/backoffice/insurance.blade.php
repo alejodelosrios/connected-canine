@@ -1,3 +1,3 @@
 <x-app-layout>
-//TODO: DESIGN INSURANCE VIEW
+    @livewire('insurance-form')
 </x-app-layout>
