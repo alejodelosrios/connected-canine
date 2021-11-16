@@ -34,6 +34,11 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
         "user.profile"
     );
     Route::get("insurance", InsuranceController::class)->name("insurance");
+    Route::get("/insurance/proofs", function (\App\Models\User $user) {
+        return \Illuminate\Support\Facades\Storage::disk("s3")->download(
+            $user->insurance->proof
+        );
+    })->name("insurance-proof");
     Route::get("emergency-contact", EmergencyContactController::class)->name(
         "emergency-contact"
     );
