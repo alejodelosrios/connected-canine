@@ -25,10 +25,9 @@ final class InsuranceService implements UpdaterContract
             $path = $input["proof"]->store("insurance-proofs", "s3");
             $user = Auth::user();
             $data["proof"] = $path;
-            $data["user_id"] = $user->id;
         }
 
-        Insurance::updateOrCreate($data);
+        $user->insurance()->updateOrCreate($data);
     }
 
     public function removeProof(string $file_name)
