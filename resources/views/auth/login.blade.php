@@ -4,8 +4,6 @@
         <x-hero-section img="dashboard/img/curved-images/curved14.jpg">
             <x-slot name="title">Welcome!</x-slot>
             <x-slot name="subtitle">
-                Use these awesome forms to login or create new account in your
-                project for free
             </x-slot>
         </x-hero-section>
 
@@ -24,13 +22,13 @@
                 @csrf
                 <div class="mb-3">
                     <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email"
-                        :value="old('email')" required />
+                        :value="old('email')" placeholder="Email" required />
                     <x-jet-input-error for="email"></x-jet-input-error>
                 </div>
 
                 <div class="mb-3">
                     <x-jet-input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                        type="password" name="password" required autocomplete="current-password" />
+                        type="password" name="password" required autocomplete="current-password"  placeholder="Password"/>
                     <x-jet-input-error for="password"></x-jet-input-error>
                 </div>
 
