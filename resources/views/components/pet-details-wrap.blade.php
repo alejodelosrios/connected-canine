@@ -8,7 +8,7 @@
             class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/veterinarian')) active @endif">Veterinarian</a>
         <a href="{{ route('admin.pet-vaccines', $pet) }}"
             class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/vaccines')) active @endif">Vaccines</a>
-        <a href="{{ route('pet.behavior.backgroung', $pet) }}" class="mx-1 btn btn-primary btn-sm">Health & Behavior</a>
+        <a href="{{ route('admin.behavior.background', $pet) }}" class="mx-1 btn btn-primary btn-sm">Health & Behavior</a>
         <a href="{{ route('admin.pet-medications', $pet) }}"
             class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/medications') || request()->is('admin/pets/*/medications/*/details')) active @endif">Medications</a>
     @else

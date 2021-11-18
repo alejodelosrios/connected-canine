@@ -1,6 +1,6 @@
 <div x-data>
     <form wire:submit.prevent="save" role="form text-left">
-
+        @csrf
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
@@ -10,41 +10,47 @@
             <h6 class="text-sm">1) {{ data_get($questions, '0.name') }}</h6>
             <div class="px-0 px-md-4 {{ $errors->has('question1') ? 'is-invalid border-danger' : '' }}">
 
-                <div class="row" >
+                <div class="row">
                     <div class="p-1 col-6 col-md-3 h-100">
-                        <x-dog-option value="Attempts Escape" key="question1_option1"
-                            wire:model="state.question1.value" image="attempts-scape"/>
+                        <x-dog-option value="Attempts Escape" key="question1_option1" wire:model="state.question1.value"
+                            image="attempts-scape" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Whines" key="question1_option2" wire:model="state.question1.value" image="whines" />
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Whines" key="question1_option2" wire:model="state.question1.value"
+                            image="whines" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Trembles" key="question1_option3" wire:model="state.question1.value" image="trembles"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Trembles" key="question1_option3" wire:model="state.question1.value"
+                            image="trembles" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Urinates" key="question1_option4" wire:model="state.question1.value" image="urinates"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Urinates" key="question1_option4" wire:model="state.question1.value"
+                            image="urinates" />
                     </div>
                 </div>
 
                 <div class="row" style="min-height:150px">
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Barks" key="question1_option5" wire:model="state.question1.value" image="barks"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Barks" key="question1_option5" wire:model="state.question1.value"
+                            image="barks" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Defecates" key="question1_option6" wire:model="state.question1.value" image="defecates"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Defecates" key="question1_option6" wire:model="state.question1.value"
+                            image="defecates" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Destroys things" key="question1_option7"
-                            wire:model="state.question1.value" image="destroys-things"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Destroys things" key="question1_option7" wire:model="state.question1.value"
+                            image="destroys-things" />
                     </div>
 
-                    <div class="p-1 col-6 col-md-3 h-100" >
-                        <x-dog-option value="Paces" key="question1_option8" wire:model="state.question1.value" image="paces"/>
+                    <div class="p-1 col-6 col-md-3 h-100">
+                        <x-dog-option value="Paces" key="question1_option8" wire:model="state.question1.value"
+                            image="paces" />
                     </div>
                 </div>
 
@@ -64,7 +70,8 @@
 
             <h6 class="mb-3 text-sm">2) {{ data_get($questions, '1.name') }}</h6>
 
-            <div class="d-flex flex-column flex-md-row gap-md-4  {{ $errors->has('question2.value') ? 'is-invalid border-danger' : '' }}">
+            <div
+                class="d-flex flex-column flex-md-row gap-md-4  {{ $errors->has('question2.value') ? 'is-invalid border-danger' : '' }}">
 
                 <label for="question2_option1">
                     <input type="radio" wire:model="state.question2.value" value="Never" id="question2_option1"
@@ -92,7 +99,7 @@
                 <textarea rows="5" :disabled="!$refs.occasionally.checked"
                     class="form-control {{ $errors->has('question2.comments') ? 'is-invalid' : '' }}"
                     wire:model="state.question2.comments" id="question2_option4"
-                    placeholder="e.g., only when I'm not around, only when there are no other people or dogs around, etc." /></textarea>
+                    placeholder="e.g., only when I'm not around, only when there are no other people or dogs around, etc."></textarea>
                 <x-jet-input-error for="question2.comments" />
 
             </div>

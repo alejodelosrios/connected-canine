@@ -24,7 +24,7 @@ class BehaviorBackgroundForm extends Component
         if ($pet->hasBehavioralBackground()) {
             $behaviors_values = $pet->behavioralBackground()->toArray();
         }
-
+        
         $this->state = array_combine($this->state, $behaviors_values);
     }
 
