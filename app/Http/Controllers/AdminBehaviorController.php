@@ -14,7 +14,10 @@ class AdminBehaviorController extends Controller
         return view('admin.behavioral-background', [
             'behaviors_values' => $pet->behavioralBackground()->toArray(),
             'questions' => Behavior::BehavioralBackgroundQuestions(),
-            'pet' => $pet
+            'data' => [
+                'pet' => $pet,
+                'title' => 'Behavior Background'
+            ]
         ]);
     }
 
@@ -43,7 +46,10 @@ class AdminBehaviorController extends Controller
         return view('admin.separation-confinement', [
             'behaviors_values' => $behaviors_values,
             'questions' => Behavior::SeparationConfinementQuestions(),
-            'pet' => $pet
+            'data' => [
+                'pet' => $pet,
+                'title' => 'Separation Confinement'
+            ]
         ]);
     }
 
@@ -85,14 +91,16 @@ class AdminBehaviorController extends Controller
                     $behaviors_values[$behavior["behavior_id"] - 6] = $behavior["value"];
                 }
             }
-
         }
 
 
         return view('admin.aggression-fear',  [
             'behaviors_values' => $behaviors_values,
             'questions' => Behavior::AggressionFearQuestions(),
-            'pet' => $pet
+            'data' => [
+                'pet' => $pet,
+                'title' => 'Aggression Fear'
+            ]
         ]);
     }
 }

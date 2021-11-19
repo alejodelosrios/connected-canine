@@ -1,6 +1,4 @@
-<x-admin-behavior-layout :pet="$pet">
-    <x-slot name="title">Separation Confinement</x-slot>
-
+<x-admin-behavior-layout :data="$data">
     <div>
         <div>
 
@@ -74,10 +72,11 @@
                         @endisset
                 </div>
             </div>
-
         </div>
-    </div>
 
-    <x-slot name="footer"></x-slot>
+    </div>
+</div>
+
+<x-slot name="footer"></x-slot>
 
 </x-admin-behavior-layout>

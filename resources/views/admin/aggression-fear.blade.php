@@ -1,5 +1,4 @@
-<x-admin-behavior-layout :pet="$pet">
-    <x-slot name="title">Aggression Fear</x-slot>
+<x-admin-behavior-layout :data="$data">
 
     {{-- Question 01 --}}
     <h5 class="mt-2 text-sm">

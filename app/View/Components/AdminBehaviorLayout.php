@@ -7,6 +7,7 @@ use Illuminate\View\Component;
 class AdminBehaviorLayout extends Component
 {
     public $title;
+
     public $pet;
 
     /**
@@ -14,10 +15,11 @@ class AdminBehaviorLayout extends Component
      *
      * @return void
      */
-    public function __construct($pet)
+    public function __construct($data)
     {
+        $this->title = $data['title'];
 
-        $this->pet = $pet;
+        $this->pet = $data['pet'];
     }
 
     /**

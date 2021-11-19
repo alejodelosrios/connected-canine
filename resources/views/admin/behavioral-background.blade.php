@@ -1,4 +1,4 @@
-<x-admin-behavior-layout title="Behavior Background" :pet="$pet">
+<x-admin-behavior-layout :data="$data">
 
     <div>
 
