@@ -1,4 +1,4 @@
-<x-admin-behavior-layout  :pet="$pet">
+<x-admin-behavior-layout :pet="$pet">
     <x-slot name="title">Separation Confinement</x-slot>
 
     <div>
@@ -14,16 +14,18 @@
                 <div class="px-0 px-md-4">
 
                     <div class="row">
-                        @forelse($behaviors_values[0] as $behaviors)
-                            <div class="p-1 col-6 col-md-3 h-100">
-                                <x-dog-option :value="$behaviors" key="question1_option{{ $loop->index }}"
-                                    image="{{ \Illuminate\Support\Str::of($behaviors)->kebab() }}" readonly="true" />
-                            </div>
-                        @empty
+                        @isset($behaviors_values[0])
+                            @foreach ($behaviors_values[0] as $behaviors)
+                                <div class="p-1 col-6 col-md-3 h-100">
+                                    <x-dog-option :value="$behaviors" key="question1_option{{ $loop->index }}"
+                                        image="{{ \Illuminate\Support\Str::of($behaviors)->kebab() }}" readonly="true" />
+                                </div>
+                            @endforeach
+                        @else
                             <div class="p-1 h-100">
                                 No answer
                             </div>
-                        @endforelse
+                        @endisset
                     </div>
 
                     <div class="my-2">
@@ -65,7 +67,7 @@
                     </label>
 
                     <div class="form-control {{ $errors->has('question2.comments') ? 'is-invalid' : '' }}">
-                        @if ($behaviors_values[2] === 'Occasionally')
+                        @if (isset($behaviors_values[2]) && $behaviors_values[2] === 'Occasionally')
                             {{ $behaviors_values[3] }}
                         @else
                             No answer
