@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Please fill info about your emergency contact.  This is going to be useful for administrators when necessary.') }}
+        {{ __('Please provide an emergency contact.') }}
     </x-slot>
 
     <x-slot name="form">
