@@ -29,6 +29,7 @@ class VeterinarianForm extends Component
 
     public function save()
     {
+        $this->state["pet_id"] = $this->pet->id;
         $this->resetErrorBag();
         $updater = new Updater();
         $updater->save($this->state);

@@ -16,10 +16,6 @@ class CreateVeterinariansTable extends Migration
         Schema::create("veterinarians", function (Blueprint $table) {
             $table->id();
             $table->string("vet_clinic");
-            $table->string("vet_contact1")->nullable();
-            $table->string("vet_contact2")->nullable();
-            $table->string("vet_email")->nullable();
-            $table->string("vet_website")->nullable();
             $table->string("vet_address")->nullable();
             $table->string("vet_city")->nullable();
             $table->string("vet_state")->nullable();
