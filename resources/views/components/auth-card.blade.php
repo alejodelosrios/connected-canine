@@ -6,7 +6,7 @@
                     <h5>{{ $title ?? ""}}</h5>
                 </div>
 
-                <x-social-auth></x-social-auth>
+                {{--<x-social-auth></x-social-auth>--}}
 
                 <div class="card-body">
                     {{ $slot }}
