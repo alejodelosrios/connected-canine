@@ -20,8 +20,6 @@ final class Medication implements UpdaterContract
             "time_block" => ["required", "string", "max:50"],
             "purpose" => ["required", "string", "max:255"],
             "prescription" => ["required"],
-            "dosage" => ["required", "string", "max:255"],
-            "instructions" => ["required", "string", "max:255"],
         ])->validateWithBag("save");
 
         $medication = ModelsMedication::updateOrCreate(
@@ -33,8 +31,6 @@ final class Medication implements UpdaterContract
                 "time_block" => $input["time_block"],
                 "purpose" => $input["purpose"],
                 "prescription" => $input["prescription"],
-                "dosage" => $input["dosage"],
-                "instructions" => $input["instructions"],
             ]
         );
 

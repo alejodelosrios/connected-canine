@@ -12,10 +12,10 @@
                         </th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Time block</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                            Dosage</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                            Instructions</th>
+                        {{--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+                            {{--Dosage</th>--}}
+                        {{--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+                            {{--Instructions</th>--}}
                         <th class="text-end text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Actions</th>
                     </tr>
@@ -37,14 +37,14 @@
                                 <span
                                     class=" text-xs font-weight-bold text-capitalize">{{ $medication->time_block }}</span>
                             </td>
-                            <td class="align-middle text-center text-sm">
-                                <span
-                                    class=" text-xs font-weight-bold text-capitalize">{{ $medication->dosage }}</span>
-                            </td>
-                            <td class="align-middle text-center text-sm">
-                                <span
-                                    class=" text-xs font-weight-bold text-capitalize">{{ $medication->instructions }}</span>
-                            </td>
+                            {{--<td class="align-middle text-center text-sm">--}}
+                                {{--<span--}}
+                                    {{--class=" text-xs font-weight-bold text-capitalize">{{ $medication->dosage }}</span>--}}
+                            {{--</td>--}}
+                            {{--<td class="align-middle text-center text-sm">--}}
+                                {{--<span--}}
+                                    {{--class=" text-xs font-weight-bold text-capitalize">{{ $medication->instructions }}</span>--}}
+                            {{--</td>--}}
                             <td class="text-end align-middle">
                                 <a href="{{ route('admin.pet-medication-details', [$pet, $medication]) }}"
                                     class="text-secondary font-weight-bold text-xs pe-3" data-toggle="tooltip"

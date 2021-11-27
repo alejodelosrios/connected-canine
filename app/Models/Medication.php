@@ -14,8 +14,6 @@ class Medication extends Model
         "time_block",
         "purpose",
         "prescription",
-        "dosage",
-        "instructions",
     ];
     use HasFactory;
 

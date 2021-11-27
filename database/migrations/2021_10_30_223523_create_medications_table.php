@@ -25,8 +25,6 @@ class CreateMedicationsTable extends Migration
             $table->string("time_block")->nullable();
             $table->string("purpose")->nullable();
             $table->boolean("prescription")->nullable();
-            $table->string("dosage")->nullable();
-            $table->string("instructions")->nullable();
             $table->timestamps();
         });
     }
