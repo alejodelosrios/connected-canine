@@ -8,33 +8,16 @@
                 <p>{{ $vet->vet_clinic }}</p>
             </div>
             <div class="row">
-                <!-- Vet email -->
+                <!-- Vet address -->
                 <div class="mb-3 col-12 col-md-6">
-                    <x-jet-label for="vet_email" value="{{ __('Email') }}" />
-                    <p>{{ $vet->vet_email }}</p>
+                    <x-jet-label for="vet_address" value="{{ __('Address') }}" />
+                    <p>{{ $vet->vet_address }}</p>
                 </div>
                 <!-- Vet phone number -->
                 <div class="mb-3 col-12 col-md-6">
                     <x-jet-label for="vet_phone_number" value="{{ __('Phone number') }}" />
                     <p>{{ $vet->vet_phone_number }}</p>
                 </div>
-            </div>
-            <div class="row">
-                <!-- Vet contact 1 -->
-                <div class="mb-3 col-12 col-md-6">
-                    <x-jet-label for="vet_contact1" value="{{ __('Contact 1') }}" />
-                    <p>{{ $vet->vet_contact1 }}</p>
-                </div>
-                <!-- Vet contact 2 -->
-                <div class="mb-3 col-12 col-md-6">
-                    <x-jet-label for="vet_contact2" value="{{ __('Contact 2') }}" />
-                    <p>{{ $vet->vet_contact2 }}</p>
-                </div>
-            </div>
-            <!-- Vet address -->
-            <div class="mb-3">
-                <x-jet-label for="vet_address" value="{{ __('Address') }}" />
-                <p>{{ $vet->vet_address }}</p>
             </div>
             <div class="row">
                 <!-- Vet city -->
@@ -48,15 +31,10 @@
                     <p>{{ $vet->vet_zip_code }}</p>
                 </div>
             </div>
-            <!-- Vet website -->
-            <div class="mb-3">
-                <x-jet-label for="vet_website" value="{{ __('Website') }}" />
-                <p>{{ $vet->vet_website }}</p>
+        @else
+            <div class="my-3">
+                <p>There is not a veterinarian assigned to this pet</p>
             </div>
-            @else
-                <div class="my-3">
-                    <p>There is not a veterinarian assigned to this pet</p>
-                </div>
             @endif
 
         </x-card>
