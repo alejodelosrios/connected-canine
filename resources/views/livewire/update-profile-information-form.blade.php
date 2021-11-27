@@ -68,7 +68,7 @@
             <!-- Email -->
             <div class="mb-3 col-12-md">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}"
+                <x-jet-input :disabled=true id="email" type="email" class="{{ $errors->has('email') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.email" />
                 <x-jet-input-error for="email" />
             </div>
