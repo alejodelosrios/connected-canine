@@ -6,7 +6,7 @@
         <i class="top-0 p-3 cursor-pointer fas fa-times text-secondary opacity-5 position-absolute end-0 d-none d-xl-none"
             aria-hidden="true" id="iconSidenav"></i>
         <a class="ps-4" href="{{ route('home') }}" target="_blank">
-            <img src="{{ asset('img/logo-black-green.png') }}" width="140px" height="47px" alt="">
+            <img src="{{ asset('img/logo-black-green.svg') }}" width="140px" height="47px" alt="">
             {{-- <x-jet-application-mark width="36" /> --}}
             {{-- <span class="ms-1 font-weight-bold">{{ config('app.name') }}</span> --}}
         </a>
