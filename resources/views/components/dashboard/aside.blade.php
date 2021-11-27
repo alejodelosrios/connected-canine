@@ -17,7 +17,7 @@
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
 
-            <x-dashboard.nav-link route="welcome" title="Dashboard" :active="request()->is('welcome')">
+            <x-dashboard.nav-link route="dashboard" title="Dashboard" :active="request()->is('dashboard')">
                 <x-slot name="icon">
                     <svg width="24px" height="24px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink">
