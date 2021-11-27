@@ -4,7 +4,7 @@
 
     <div class="container">
         <a class="d-flex navbar-brand me-4 align-items-center" href="/">
-            @if ($background  === "light")
+            @if ($background === 'light')
                 <img src="{{ asset('img/logo-black-green.svg') }}" width="140px" height="47px" alt="">
             @else
                 <img src="{{ asset('img/logo-white.svg') }}" width="140px" height="47px" alt="">
@@ -42,6 +42,12 @@
                                             {{ __('Manage Account') }}
                                         </h6>
 
+                                        @role('Admin')
+                                            <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                                {{ __('Dashboard') }}
+                                            </x-jet-dropdown-link>
+                                        @endrole
+
                                         <x-jet-dropdown-link href="{{ route('user.profile') }}">
                                             {{ __('Profile') }}
                                         </x-jet-dropdown-link>
@@ -51,7 +57,7 @@
                                         <!-- Authentication -->
                                         <x-jet-dropdown-link href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                     document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                             document.getElementById('logout-form').submit();">
                                             {{ __('Log out') }}
                                         </x-jet-dropdown-link>
                                         <form method="POST" id="logout-form" action="{{ route('logout') }}">
@@ -80,6 +86,12 @@
                         </li>
 
                         <li>
+
+                            @role('Admin')
+                                <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                    {{ __('Dashboard') }}
+                                </x-jet-dropdown-link>
+                            @endrole
                             <x-jet-dropdown-link href="{{ route('user.profile') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
@@ -91,7 +103,7 @@
                         <li>
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                        document.getElementById('logout-form').submit();">
+                                                                                                                                                        document.getElementById('logout-form').submit();">
                                 {{ __('Log out') }}
                             </x-jet-dropdown-link>
                             <form method="POST" id="logout-form" action="{{ route('logout') }}">
