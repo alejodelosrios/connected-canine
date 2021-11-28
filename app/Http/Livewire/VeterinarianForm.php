@@ -58,13 +58,9 @@ class VeterinarianForm extends Component
     {
         $this->state["id"] = $vet["id"];
         $this->state["vet_clinic"] = $vet["vet_clinic"];
-        $this->state["vet_contact1"] = $vet["vet_contact1"];
-        $this->state["vet_contact2"] = $vet["vet_contact2"];
-        $this->state["vet_email"] = $vet["vet_email"];
         $this->state["vet_city"] = $vet["vet_city"];
         $this->state["vet_address"] = $vet["vet_address"];
         $this->state["vet_zip_code"] = $vet["vet_zip_code"];
-        $this->state["vet_website"] = $vet["vet_website"];
         $this->state["vet_phone_number"] = $vet["vet_phone_number"];
         $this->state["pet_id"] = $this->pet->id;
         $this->search = "";
