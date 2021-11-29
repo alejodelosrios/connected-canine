@@ -15,16 +15,30 @@ final class Veterinarian implements UpdaterContract
 
         if (!isset($input["id"])) {
             $veterinarian["vet_clinic"] = $input["vet_clinic"];
+            $veterinarian["vet_city"] = $input["vet_city"];
+            $veterinarian["vet_address"] = $input["vet_address"];
+            $veterinarian["vet_zip_code"] = $input["vet_zip_code"];
             $veterinarian["vet_phone_number"] = $input["vet_phone_number"];
-            $veterinarian = $pet->veterinarian()->updateOrCreate($veterinarian);
+
+            $vet = $pet->veterinarian()->create($veterinarian);
         } else {
             Validator::make($input, [
                 "id" => ["required", "exists:veterinarians,id"],
             ])->validateWithBag("save");
 
-            $veterinarian = ModelsVeterinarian::find($input["id"]);
+            $vet = ModelsVeterinarian::find($input["id"]);
+            if ($vet) {
+                $vet->id = $input["id"];
+                $vet->vet_clinic = $input["vet_clinic"];
+                $vet->vet_city = $input["vet_city"];
+                $vet->vet_address = $input["vet_address"];
+                $vet->vet_zip_code = $input["vet_zip_code"];
+                $vet->vet_phone_number = $input["vet_phone_number"];
+
+                $vet->save();
+            }
         }
-        $pet->veterinarian()->associate($veterinarian);
+        $pet->veterinarian()->associate($vet);
         $pet->save();
     }
 }
