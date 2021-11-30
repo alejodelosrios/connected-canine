@@ -20,6 +20,7 @@ class Pet extends Model
         "sex",
         "weight",
         "color",
+        "question",
     ];
 
     protected $casts = [
@@ -85,7 +86,11 @@ class Pet extends Model
 
     public function aggressionFear()
     {
-        return $this->behaviors()->where('type', 'aggression_fear')->get()->pluck('pivot')->sortBy('behavior_id');
+        return $this->behaviors()
+            ->where("type", "aggression_fear")
+            ->get()
+            ->pluck("pivot")
+            ->sortBy("behavior_id");
     }
 
     public function hasBehavioralBackground()

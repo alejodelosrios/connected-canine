@@ -15,8 +15,8 @@ class PetProfileForm extends Component
     public $state = [];
 
     protected $listeners = [
-        'next' => 'save',
-        'save' => 'save'
+        "next" => "save",
+        "save" => "save",
     ];
 
     public function mount($pet = null)
@@ -30,34 +30,34 @@ class PetProfileForm extends Component
     {
         $this->resetErrorBag();
 
-        $updater = new Updater;
+        $updater = new Updater();
         $updater->save(
             $this->photo
-                ? array_merge($this->state, ['photo' => $this->photo])
+                ? array_merge($this->state, ["photo" => $this->photo])
                 : $this->state
         );
 
-        $this->emit('saved');
+        $this->emit("saved");
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
     }
 
     public function render()
     {
-        return view('livewire.pet-profile-form');
+        return view("livewire.pet-profile-form");
     }
 
     public function getPetProperty()
     {
-        return array_key_exists('id', $this->state)
-            ? \App\Models\Pet::find($this->state['id'])
-            : new \App\Models\Pet;
+        return array_key_exists("id", $this->state)
+            ? \App\Models\Pet::find($this->state["id"])
+            : new \App\Models\Pet();
     }
 
     public function deleteProfilePhoto()
     {
         $this->pet->deleteProfilePhoto();
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
     }
 }

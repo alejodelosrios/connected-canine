@@ -27,6 +27,7 @@ class CreatePetsTable extends Migration
             $table->enum("sex", ["male", "female"]);
             $table->decimal("weight");
             $table->string("color", 50);
+            $table->string("question");
             $table->timestamps();
 
             //$table
