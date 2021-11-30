@@ -16,7 +16,7 @@
                             <input class="form-check-input {{ $errors->has('pet_id') ? 'is-invalid' : '' }}"
                                 type="radio" name="pet_id" id="{{ $pet->id }}" value="{{ $pet->id }}"
                                 wire:model="state.pet_id">
-                            <label class="custom-control-label text-lg"
+                            <label class="text-lg custom-control-label"
                                 for="{{ $pet->id }}">{{ $pet->name }}</label>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
 
             </div>
 
-            <div class=" p-2">
+            <div class="p-2 ">
                 <h6>Choose a date</h6>
                 <div class="mb-3 col-12 ">
                     <x-jet-input id="date" type="date" class="{{ $errors->has('date') ? 'is-invalid' : '' }}"
@@ -34,8 +34,8 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-between p-2">
-                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm">Cancel</a>
+            <div class="p-2 d-flex justify-content-between">
+                <a href="{{ route('welcome') }}" class="btn btn-outline-primary btn-sm">Cancel</a>
                 <button class="btn btn-primary btn-sm">Book</button>
             </div>
         </x-card>
