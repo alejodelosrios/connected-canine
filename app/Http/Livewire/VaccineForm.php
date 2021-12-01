@@ -28,16 +28,22 @@ class VaccineForm extends Component
     {
         $this->pet = $pet;
 
+
         if (isset($pet->vaccines)) {
             $this->state = [
-                'has_rabies' => isset($pet->vaccines->rabies),
-                'has_bordetella' => isset($pet->vaccines->bordetella),
-                'has_dhhp' => isset($pet->vaccines->dhhp),
-                'rabies' => !isset($pet->vaccines->rabies) ?: $pet->vaccines->rabies->format('Y-m-d'),
-                'bordetella' => !isset($pet->vaccines->bordetella) ?: $pet->vaccines->bordetella->format('Y-m-d'),
-                'dhhp' => !isset($pet->vaccines->dhhp) ?: $pet->vaccines->dhhp->format('Y-m-d'),
+                'has_rabies' => $pet->vaccines->has_rabies,
+                'has_bordetella' => $pet->vaccines->has_bordetella,
+                'has_dhhp' => $pet->vaccines->has_dhhp,
                 'proof_file' => $pet->vaccines->proof,
             ];
+
+            if (auth()->user()->hasRole('Admin')) {
+                $this->state = array_merge($this->state, [
+                    'rabies' => !isset($pet->vaccines->rabies) ? null : $pet->vaccines->rabies->format('Y-m-d'),
+                    'bordetella' => !isset($pet->vaccines->bordetella) ? null : $pet->vaccines->bordetella->format('Y-m-d'),
+                    'dhhp' => !isset($pet->vaccines->dhhp) ? null : $pet->vaccines->dhhp->format('Y-m-d')
+                ]);
+            }
         }
     }
 

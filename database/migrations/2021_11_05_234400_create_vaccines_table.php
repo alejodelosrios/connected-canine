@@ -19,6 +19,9 @@ class CreateVaccinesTable extends Migration
             $table->date('rabies')->nullable()->default(null);
             $table->date('bordetella')->nullable()->default(null);
             $table->date('dhhp')->nullable()->default(null);
+            $table->boolean('has_rabies')->default(false);
+            $table->boolean('has_bordetella')->default(false);
+            $table->boolean('has_dhhp')->default(false);
             $table->string('proof')->nullable();
             $table->timestamps();
         });

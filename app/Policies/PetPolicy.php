@@ -13,6 +13,10 @@ class PetPolicy
 
     public function update(User $user, Pet $pet)
     {
+        if (auth()->user()->isAdmin()) {
+            return true;
+        }
+        
         return $user->id == $pet->owner->id;
     }
 }

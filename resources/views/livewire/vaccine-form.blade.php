@@ -1,5 +1,5 @@
 <div class="row">
-    
+
     <x-jet-action-message on="saved">
         {{ __('Saved.') }}
     </x-jet-action-message>
@@ -30,7 +30,7 @@
             </div>
         @else
             <div class="mt-4 mb-2 ">
-                <input wire:model="state.proof"
+                <input wire:model.defer="state.proof"
                     class="form-control form-control-lg {{ $errors->has('proof') ? 'is-invalid' : '' }}"
                     id="vaccine_proof" type="file">
                 <x-jet-input-error for="proof" />
