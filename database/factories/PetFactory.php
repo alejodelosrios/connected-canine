@@ -31,6 +31,7 @@ class PetFactory extends Factory
             "sex" => $this->faker->randomElement(["male", "female"]),
             "weight" => $this->faker->randomFloat(2, 100, 500),
             "color" => $this->faker->randomElement(["brown", "white", "black"]),
+            "question" => $this->faker->randomElement(["yes", "no"]),
         ];
     }
 }

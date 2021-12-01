@@ -81,7 +81,7 @@
             <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="weight" value="{{ __('Weight') }}" />
                 <x-jet-input id="weight" type="number" class="{{ $errors->has('weight') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.weight" />
+                    wire:model.defer="state.weight" placeholder="Lbs"/>
                 <x-jet-input-error for="weight" />
             </div>
 
@@ -92,6 +92,21 @@
                     wire:model.defer="state.color" />
                 <x-jet-input-error for="color" />
             </div>
+
+            {{-- Question --}}
+            <div class="mb-3 col-12 col-md-6">
+            </div>
+            <div class="mb-3 col-12 col-md-6">
+                <x-jet-label for="question" value="{{ __('Is your dog neutered or spayed?') }}" />
+                <div class="form-group">
+                    <select class="form-control {{ $errors->has('question') ? 'is-invalid' : '' }}" id="question"
+                        wire:model.defer="state.question">
+                        <option value="neutered">Neutered</option>
+                        <option value="spayed">Spayed</option>
+                    </select>
+                </div>
+            </div>
+
         </div>
 
     </form>
