@@ -86,4 +86,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Insurance::class);
     }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('Admin');
+    }
 }
