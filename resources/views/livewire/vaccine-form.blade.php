@@ -13,7 +13,8 @@
                 </x-vaccines-input>
             </div>
             <div class="rounded col">
-                <x-vaccines-input vaccine="dhhp" :value="$state['dhhp'] ?? ''">DHHP <br>(distemper, hepatitis, parainflienza
+                <x-vaccines-input vaccine="dhhp" :value="$state['dhhp'] ?? ''">DHHP <br>(distemper, hepatitis,
+                    parainflienza
                     and parvovirus)
                 </x-vaccines-input>
             </div>
@@ -22,7 +23,7 @@
         @isset($state['proof_file'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
-                    <a href="{{ route('vaccine-proof',$pet) }}">See document</a>
+                    <a href="{{ route('vaccine-proof', $pet) }}">See document</a>
                 </div>
                 <div>
                     <x-jet-button class="mt-3" type="button" wire:click="removeProof">Remove file</x-jet-button>
@@ -39,8 +40,10 @@
 
         <p class="px-2 text-sm">
             Dogs are required to have up-to-date vaccines to visit your office. Please upload the records or email them
-            to ibfo@connectedcanine.com
+            to info@connectedcanine.com
         </p>
+        <p class="px-2 text-sm">We can help by requesting veterinary records on your behalf if you e-mail ust
+            info@connectedcanine.com.</p>
 
     </form>
 </div>
