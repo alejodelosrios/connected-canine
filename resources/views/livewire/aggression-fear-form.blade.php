@@ -6,7 +6,7 @@
         </x-jet-action-message>
 
         {{-- Question 01 --}}
-        <h6 class="mt-2 text-sm">1) How relaxed or stressed is your dog with familiar people do the following</h6>
+        <h6 class="mt-2 text-sm">1) How relaxed or stressed is your dog when unfamiliar people do the following</h6>
         <div class="row row-cols-1 row-cols-md-2 px-md-4">
             <div class="mt-4 col">
                 <x-question-t1 key="question1" wire:model="state.question1">

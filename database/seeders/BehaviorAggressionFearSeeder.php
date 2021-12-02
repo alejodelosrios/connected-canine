@@ -17,56 +17,56 @@ class BehaviorAggressionFearSeeder extends Seeder
         //01
         Behavior::factory()->create([
             "name" => "Reach out to pet your dog",
-            "description" => "Dog behavior vs behavior of unfamiliar peopel",
+            "description" => "Dog behavior vs behavior of unfamiliar people",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => "Approach your dog while resting",
-            "description" => "Dog behavior vs behavior of unfamiliar peopel",
+            "description" => "Dog behavior vs behavior of unfamiliar people",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => " Approach you",
-            "description" => "Dog behavior vs behavior of unfamiliar peopel",
+            "description" => "Dog behavior vs behavior of unfamiliar people",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => " Enter your home",
-            "description" => "Dog behavior vs behavior of unfamiliar peopel",
+            "description" => "Dog behavior vs behavior of unfamiliar people",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => "Are seen through a window",
-            "description" => "Dog behavior vs behavior of unfamiliar peopel",
+            "description" => "Dog behavior vs behavior of unfamiliar people",
             "type" => "aggression_fear",
         ]);
 
         // 02
         Behavior::factory()->create([
             "name" => "Is on leash",
-            "description" => "Behavior when unfamiliar peaople approach",
+            "description" => "Behavior when unfamiliar people approach",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => "Is off leash",
-            "description" => "Behavior when unfamiliar peaople approach",
+            "description" => "Behavior when unfamiliar people approach",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => "Has food",
-            "description" => "Behavior when unfamiliar peaople approach",
+            "description" => "Behavior when unfamiliar people approach",
             "type" => "aggression_fear",
         ]);
 
         Behavior::factory()->create([
             "name" => "Has a toy",
-            "description" => "Behavior when unfamiliar peaople approach",
+            "description" => "Behavior when unfamiliar people approach",
             "type" => "aggression_fear",
         ]);
 
