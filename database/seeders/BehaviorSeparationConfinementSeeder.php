@@ -24,7 +24,7 @@ class BehaviorSeparationConfinementSeeder extends Seeder
 
         Behavior::factory()->create([
             "name" =>
-                "Can your pet be created without vocalizing or otherwise acting distressed?",
+                "Can your dog be crated without vocalizing or otherwise acting distressed?",
             "description" => "pet can be crated",
             "type" => "separation_confinement",
         ]);

@@ -94,7 +94,7 @@
             <div class="my-2">
 
                 <label for="question2_option4" :class="{'text-muted': !$refs.occasionally.checked}"
-                    class="my-2">{{ __('If you selected "Ocassionally", what are de circumstances surrounding times when your acts distressed?') }}</label>
+                    class="my-2">{{ __('If you selected "Occasionally", what are de circumstances surrounding times when your dog acts distressed?') }}</label>
 
                 <textarea rows="5" :disabled="!$refs.occasionally.checked"
                     class="form-control {{ $errors->has('question2.comments') ? 'is-invalid' : '' }}"
