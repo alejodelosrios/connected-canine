@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <section class="mb-8 min-vh-100">
-        <x-hero-section img="dashboard/img/curved-images/curved14.jpg">
+        <x-hero-section img="img/jack-russel-staring-at-laptop.jpg">
             <x-slot name="title">Welcome!</x-slot>
             <x-slot name="subtitle">
             </x-slot>
