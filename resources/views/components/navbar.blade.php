@@ -43,7 +43,7 @@
                                         </h6>
 
                                         @role('Admin')
-                                            <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                            <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
                                                 {{ __('Admin panel') }}
                                             </x-jet-dropdown-link>
                                         @endrole
@@ -88,7 +88,7 @@
                         <li>
 
                             @role('Admin')
-                                <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
                                     {{ __('Admin Panel') }}
                                 </x-jet-dropdown-link>
                             @endrole

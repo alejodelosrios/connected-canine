@@ -8,25 +8,53 @@ use App\Http\Controllers\AdminBehaviorController;
 //
 
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
+    /* Home */
+    Route::get("home", function () {
+        return view("dashboard");
+    })->name("dashboard");
+
     /* Users index */
     Route::get("users", UserListController::class)->name("users-index");
 
     /* Pet profile info  */
-    Route::get("pets/{pet}/profile", [AdminPetDetailsController::class, "index",])->name("pet-profile");
+    Route::get("pets/{pet}/profile", [
+        AdminPetDetailsController::class,
+        "index",
+    ])->name("pet-profile");
 
     /* Pet veterinarian  */
-    Route::get("pets/{pet}/veterinarian", [AdminPetDetailsController::class, "veterinarian",])->name("pet-veterinarian");
+    Route::get("pets/{pet}/veterinarian", [
+        AdminPetDetailsController::class,
+        "veterinarian",
+    ])->name("pet-veterinarian");
 
     /* Pet vaccines  */
-    Route::get("pets/{pet}/vaccines", [AdminPetDetailsController::class, "vaccines",])->name("pet-vaccines");
+    Route::get("pets/{pet}/vaccines", [
+        AdminPetDetailsController::class,
+        "vaccines",
+    ])->name("pet-vaccines");
 
     /* Pet medications  */
-    Route::get("pets/{pet}/medications", [AdminPetDetailsController::class, "medications",])->name("pet-medications");
-    Route::get("pets/{pet}/medications/{medication}/details", [AdminPetDetailsController::class, "medicationDetails",])->name("pet-medication-details");
+    Route::get("pets/{pet}/medications", [
+        AdminPetDetailsController::class,
+        "medications",
+    ])->name("pet-medications");
+    Route::get("pets/{pet}/medications/{medication}/details", [
+        AdminPetDetailsController::class,
+        "medicationDetails",
+    ])->name("pet-medication-details");
 
     /* Pet behaviors  */
-    Route::get("pets/{pet}/behaviors/background", [AdminBehaviorController::class, "background",])->name("behavior.background");
-    Route::get("pets/{pet}/behaviors/boarding-history", [AdminBehaviorController::class, "boardingHistory",])->name("boarding-history");
-    Route::get("pets/{pet}/behaviors/separation-confinement", [AdminBehaviorController::class, "separationConfinement",])->name("behavior.separation-confinement");
-    Route::get("pets/{pet}/behaviors/aggression-fear", [AdminBehaviorController::class, "aggressionFear",])->name("behavior.aggression-fear");
+    Route::get("pets/{pet}/behaviors/background", [
+        AdminBehaviorController::class,
+        "background",
+    ])->name("behavior.background");
+    Route::get("pets/{pet}/behaviors/separation-confinement", [
+        AdminBehaviorController::class,
+        "separationConfinement",
+    ])->name("behavior.separation-confinement");
+    Route::get("pets/{pet}/behaviors/aggression-fear", [
+        AdminBehaviorController::class,
+        "aggressionFear",
+    ])->name("behavior.aggression-fear");
 });
