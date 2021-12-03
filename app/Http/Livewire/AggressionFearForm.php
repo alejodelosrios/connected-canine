@@ -76,9 +76,11 @@ class AggressionFearForm extends Component
         for ($id = 1; $id < 26; $id++) {
             //Is not a multiple selection questions
             if ($id != 22 && $id != 23) {
-                $answers[$id + 6] = [
-                    "value" => $this->state["question" . $id],
-                ];
+                if (array_key_exists("question" . $id, $this->state)) {
+                    $answers[$id + 6] = [
+                        "value" => $this->state["question" . $id]
+                    ];
+                }
             }
         }
 
@@ -129,14 +131,14 @@ class AggressionFearForm extends Component
             "question2" => ["required"],
             "question3" => ["required"],
             "question4" => ["required"],
-            "question5" => ["required"],
+
             "question6" => ["required"],
             "question7" => ["required"],
             "question8" => ["required"],
             "question9" => ["required"],
             "question10" => ["required"],
             "question11" => ["required"],
-            "question12" => ["required"],
+
             "question13" => ["required"],
             "question14" => ["required"],
             "question15" => ["required"],
@@ -162,14 +164,14 @@ class AggressionFearForm extends Component
             "question2" => "question",
             "question3" => "question",
             "question4" => "question",
-            "question5" => "question",
+
             "question6" => "question",
             "question7" => "question",
             "question8" => "question",
             "question9" => "question",
             "question10" => "question",
             "question11" => "question",
-            "question12" => "question",
+
             "question13" => "question",
             "question14" => "question",
             "question15" => "question",

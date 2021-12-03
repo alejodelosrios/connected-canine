@@ -28,8 +28,8 @@
                     {{ data_get($questions, '3.name') }}
                 </x-question-t1>
             </div>
-            <div class="mt-4 col">
-                <x-question-t1 key="question5" wire:model="state.question5">
+            <div class="mt-4 col" style="display:none">
+                <x-question-t1 key="question5">
                     {{ data_get($questions, '4.name') }}
                 </x-question-t1>
             </div>
@@ -62,7 +62,7 @@
         </div>
 
         {{-- Question 03 --}}
-        <h6 class="mt-5 text-sm">3) How relaxed or stressed is your dog when an unfamiliar person is a...</h6>
+        <h6 class="mt-5 text-sm">3) How relaxed or distressed is your dog when approached by an unfamiliar person who is a…</h6>
         <div class="row row-cols-1 row-cols-md-2 px-md-4">
             <div class="mt-4 col">
                 <x-question-t1 key="question10" wire:model="state.question10">
@@ -74,8 +74,8 @@
                     {{ data_get($questions, '10.name') }}
                 </x-question-t1>
             </div>
-            <div class="mt-4 col">
-                <x-question-t1 key="question12" wire:model="state.question12">
+            <div class="mt-4 col" style="display:none">
+                <x-question-t1 key="question12" >
                     {{ data_get($questions, '11.name') }}
                 </x-question-t1>
             </div>
