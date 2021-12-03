@@ -79,7 +79,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
 
     /* boarding history */
     Route::get(
-        "pets/{pet}/boarding-history",
+        "pets/{pet}/behaviors/boarding-history",
         BoardingHistoryController::class
     )->name("pet.boarding-history");
 

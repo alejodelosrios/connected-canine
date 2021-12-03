@@ -26,6 +26,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
 
     /* Pet behaviors  */
     Route::get("pets/{pet}/behaviors/background", [AdminBehaviorController::class, "background",])->name("behavior.background");
+    Route::get("pets/{pet}/behaviors/boarding-history", [AdminBehaviorController::class, "boardingHistory",])->name("boarding-history");
     Route::get("pets/{pet}/behaviors/separation-confinement", [AdminBehaviorController::class, "separationConfinement",])->name("behavior.separation-confinement");
     Route::get("pets/{pet}/behaviors/aggression-fear", [AdminBehaviorController::class, "aggressionFear",])->name("behavior.aggression-fear");
 });

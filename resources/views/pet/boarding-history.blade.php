@@ -1,18 +1,18 @@
-<x-app-layout>
-    <x-card>
-        @livewire('boarding-history-form',['pet' => $pet])
+<x-behavior-layout title="Doggie Daycare History" :pet="$pet">
 
-        <x-slot name="footer">
-            <div class="d-flex align-items-baseline justify-content-end">
-                <div>
-                    <a href="{{ route('pet.details', $pet) }}" class="btn btn-secondary mx-2">
-                        {{ __('Cancel') }}
-                    </a>
-                </div>
-                @livewire('save-button', [
-                'redirect_route_name' => route('pet.details', $pet)
-                ])
+    @livewire('boarding-history-form', ['pet'=> $pet])
+
+    <x-slot name="footer">
+        <div class="d-flex align-items-baseline justify-content-end">
+            <div>
+                <a href="{{ route('pet.update', $pet) }}" class="mx-2 btn btn-secondary">
+                    {{ __('Cancel') }}
+                </a>
             </div>
-        </x-slot>
-    </x-card>
-</x-app-layout>
+            @livewire('save-button', [
+            'redirect_route_name' => route('pet.boarding-history', $pet)
+            ])
+        </div>
+    </x-slot>
+</x-behavior-layout>
+

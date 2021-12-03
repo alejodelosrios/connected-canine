@@ -25,6 +25,7 @@ class AdminBehaviorController extends Controller
     {
 
         $behaviors_values = $pet->separationConfinement()->toArray();
+
         foreach ($behaviors_values as $behavior) {
             if ($behavior['behavior_id'] == 5) {
                 if (strlen($behavior['value']) > 0) {
@@ -100,6 +101,19 @@ class AdminBehaviorController extends Controller
             'data' => [
                 'pet' => $pet,
                 'title' => 'Aggression Fear'
+            ]
+        ]);
+    }
+
+    public function boardingHistory(Pet $pet)
+    {
+        $values = $pet->boardingHistory->toArray();
+        return view('admin.boarding-history',  [
+            'behaviors_values' => $values,
+            'attended' => array_key_exists('attended', $values) ? $values['attended'] : false,
+            'data' => [
+                'pet' => $pet,
+                'title' => 'Boarding History'
             ]
         ]);
     }
