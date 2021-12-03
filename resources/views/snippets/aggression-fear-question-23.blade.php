@@ -19,7 +19,7 @@
         </div>
         <div class="p-1 col h-100">
             <x-dog-option value="Lunges" key="question23_option6" wire:model="state.question23.value"
-                image="attempts-scape" />
+                image="lunges" />
         </div>
         <div class="p-1 col h-100">
             <x-dog-option value="Retreats" key="question23_option7" wire:model="state.question23.value"
