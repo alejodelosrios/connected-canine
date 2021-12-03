@@ -16,7 +16,7 @@
                                     </div>
                                     <div class="col-4 text-end">
                                         <div  width="48px" height="48px"
-                                            class="text-center shadow  p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            class="text-center shadow  p-2 icon-shape bg-secondary border-radius-md">
                                             <img src="{{ asset('img/dog-visits-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-4 text-end">
                                         <div
-                                            class="text-center shadow p-2 icon-shape bg-gradient-primary border-radius-md">
+                                            class="text-center shadow p-2 icon-shape bg-secondary border-radius-md">
                                             <img src="{{ asset('img/dog-visits-white.png') }}" width="24px" height="24px" alt="">
                                         </div>
                                     </div>

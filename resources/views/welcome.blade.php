@@ -32,7 +32,7 @@
         <div class="">
             <div class="text-center row align-items-center h-100 justify-content-center">
                 <div id="header" class="d-flex flex-column flex-md-row justify-content-center">
-                    <a class="mb-1 me-md-2 btn bg-gradient-primary " href="{{ route('bookings.create') }}">
+                    <a class="mb-1 me-md-2 btn bg-primary text-white " href="{{ route('bookings.create') }}">
                         Bring your dog at work!</a>
                     {{--<a class="mb-1 me-md-2 btn bg-gradient-secondary " href="#"><i class="fas fa-dog"></i>--}}
                         {{--&nbsp; Book a Dog walk</a>--}}

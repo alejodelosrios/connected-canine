@@ -114,12 +114,12 @@
                 @else
                     <li class="mb-2 nav-item mx-md-2 mb-md-0">
                         <a href="{{ route('login') }}"
-                            class="mb-0 btn btn-sm bg-gradient-primary btn-round me-1">Login</a>
+                            class="text-white mb-0 btn btn-sm bg-primary btn-round me-1">Login</a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{ route('register') }}"
-                            class="mb-0 btn btn-sm bg-gradient-secondary btn-round me-1">Register</a>
+                            class="text-white mb-0 btn btn-sm bg-secondary btn-round me-1">Register</a>
                     </li>
                 @endauth
             </ul>
