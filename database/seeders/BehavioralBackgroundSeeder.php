@@ -21,7 +21,7 @@ class BehavioralBackgroundSeeder extends Seeder
         ]);
 
         Behavior::factory()->create([
-            "name" => "How often does your urinate or deficate indoors",
+            "name" => "How often does your dog urinate or deficate indoors",
             "description" => "urinate or deficate indoors",
             "type" => "background",
         ]);

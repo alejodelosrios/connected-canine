@@ -53,7 +53,7 @@
 
         {{-- Question 03 --}}
         <div class="mt-5">
-            <h6>3) Is your pet frightened, vocalize or otherwise appear distressed the following?</h6>
+            <h6>3) Is your dog frightened, vocal or otherwise appear distressed the following?</h6>
         </div>
 
         <div class="px-5 mt-4 d-flex {{ $errors->has('question3') ? 'is-invalid border-danger' : '' }}">
