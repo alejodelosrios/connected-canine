@@ -12,10 +12,12 @@ class InsuranceForm extends Component
 {
     use WithFileUploads;
     public $state;
+    public $user;
 
     public function mount()
     {
         $user = Auth::user();
+        $this->user = $user;
 
         if (isset($user->insurance)) {
             $this->state = [

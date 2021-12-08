@@ -28,19 +28,13 @@ Route::middleware(["auth:sanctum", "verified"])
     })
     ->name("welcome");
 
-//Route::middleware(["auth:sanctum", "verified"])
-//->get("/dashboard", function () {
-//return view("dashboard");
-//})
-//->name("dashboard");
-
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* profile */
     Route::get("user/profile", UserProfileController::class)->name(
         "user.profile"
     );
     Route::get("insurance", InsuranceController::class)->name("insurance");
-    Route::get("/insurance/proofs", function (\App\Models\User $user) {
+    Route::get("/{user}/insurance/proofs", function (\App\Models\User $user) {
         return \Illuminate\Support\Facades\Storage::disk("s3")->download(
             $user->insurance->proof
         );

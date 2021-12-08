@@ -16,12 +16,12 @@
             {{ __('Saved.') }}
         </x-jet-action-message>
 
-
+                                           {{--@dd($user)--}}
         <div class="w-100">
             @isset($state['proof_file'])
                 <div class="gap-2 d-flex align-items-center">
                     <div class="p-2 border rounded flex-fill">
-                        <a href="{{ route('insurance-proof') }}">See document</a>
+                        <a href="{{ route('insurance-proof', $user) }}">See document</a>
                     </div>
                     <div>
                         <x-jet-button class="mt-3" type="button" wire:click="removeProof">Remove file
