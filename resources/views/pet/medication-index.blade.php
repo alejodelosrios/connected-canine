@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-card>
         <x-pet-details-wrap :pet="$pet" title="Medical" />
+
+        @livewire('medical-history-form', ['pet'=>$pet])
+
         <div class="p-0 mx-3 mt-3 card-header position-relative z-index-1 justify-content-end d-flex">
 
             {{--<h3 class="text-lg">Medications</h3>--}}
@@ -45,19 +48,19 @@
                             </td>
                             <td class="text-sm text-center align-middle">
                                 <span
-                                    class="text-xs  font-weight-bold text-capitalize">{{ $medication->time_block }}</span>
+                                    class="text-xs font-weight-bold text-capitalize">{{ $medication->time_block }}</span>
                             </td>
                             <td class="text-sm text-center align-middle">
                                 <span
-                                    class="text-xs  font-weight-bold text-capitalize">{{ $medication->purpose }}</span>
+                                    class="text-xs font-weight-bold text-capitalize">{{ $medication->purpose }}</span>
                             </td>
                             {{--<td class="text-sm text-center align-middle">--}}
                                 {{--<span--}}
-                                    {{--class="text-xs  font-weight-bold text-capitalize">{{ $medication->dosage }}</span>--}}
+                                    {{--class="text-xs font-weight-bold text-capitalize">{{ $medication->dosage }}</span>--}}
                             {{--</td>--}}
                             {{--<td class="text-sm text-center align-middle">--}}
                                 {{--<span--}}
-                                    {{--class="text-xs  font-weight-bold text-capitalize">{{ $medication->instructions }}</span>--}}
+                                    {{--class="text-xs font-weight-bold text-capitalize">{{ $medication->instructions }}</span>--}}
                             {{--</td>--}}
                             <td class="align-middle text-end">
                                 <a href="{{ route('pet.medication-update', [$pet, $medication]) }}"

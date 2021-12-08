@@ -124,4 +124,12 @@ class Pet extends Model
     {
         return !is_null($this->medications);
     }
+
+    public function medicalConditions(): array
+    {
+        if (!is_null($this->medical_conditions)) {
+            return explode(',', $this->medical_conditions);
+        }
+        return [];
+    }
 }
