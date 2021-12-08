@@ -9,7 +9,7 @@ class MedicalHistoryForm extends Component
 {
     public $contidtions = [
         'Chronic diarrhea',
-        'Chronic vvomiting',
+        'Chronic vomiting',
         'Oral viral papilloma',
         'Any contagious infectious disease',
         'Urinary or fecal incontinence'
