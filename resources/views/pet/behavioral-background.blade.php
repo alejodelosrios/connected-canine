@@ -10,7 +10,7 @@
                 </a>
             </div>
             @livewire('save-button', [
-            'redirect_route_name' => route('pet.behavior.separation-confinement', $pet)
+            'redirect_route_name' => route('pet.behavior.backgroung', $pet)
             ])
         </div>
     </x-slot>

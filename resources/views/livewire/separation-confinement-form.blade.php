@@ -73,19 +73,35 @@
             <div
                 class="d-flex flex-column flex-md-row gap-md-4  {{ $errors->has('question2.value') ? 'is-invalid border-danger' : '' }}">
 
+
                 <label for="question2_option1">
                     <input type="radio" wire:model="state.question2.value" value="Never" id="question2_option1"
                         class="mx-2" required>Never
                 </label>
 
                 <label for="question2_option2">
-                    <input x-ref="occasionally" type="radio" wire:model="state.question2.value" value="Occasionally"
-                        id="question2_option2" class="mx-2">Occasionally
+                    <input type="radio" wire:model="state.question2.value" value="Not Often" id="question2_option2"
+                        class="mx-2" required>Not Often
                 </label>
 
                 <label for="question2_option3">
-                    <input type="radio" wire:model="state.question2.value" value="Always" id="question2_option3"
+                    <input x-ref="occasionally" type="radio" wire:model="state.question2.value" value="Occasionally"
+                        id="question2_option3" class="mx-2">Occasionally
+                </label>
+
+                <label for="question2_option4">
+                    <input type="radio" wire:model="state.question2.value" value="Often" id="question2_option4"
+                        class="mx-2">Often
+                </label>
+
+                <label for="question2_option5">
+                    <input type="radio" wire:model="state.question2.value" value="Always" id="question2_option5"
                         class="mx-2">Always
+                </label>
+
+                <label for="question2_option6">
+                    <input type="radio" wire:model="state.question2.value" value="Not sure" id="question2_option6"
+                        class="mx-2">Not sure
                 </label>
 
             </div>

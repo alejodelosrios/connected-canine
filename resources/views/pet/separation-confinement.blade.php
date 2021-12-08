@@ -4,13 +4,13 @@
         <x-slot name="footer">
             <div class="d-flex align-items-baseline justify-content-end">
                 <div>
-                    <a href="{{ route('pet.behavior.backgroung', $pet) }}" class="mx-2 btn btn-secondary">
+                    <a href="{{ route('pet.update', $pet) }}" class="mx-2 btn btn-secondary">
                         {{ __('Cancel') }}
                     </a>
                 </div>
                 @livewire('save-button', [
-                    'redirect_route_name' => route('pet.behavior.aggression-fear', $pet)
+                    'redirect_route_name' => route('pet.behavior.separation-confinement', $pet)
                 ])
             </div>
-        </x-slot>    
+        </x-slot>
 </x-behavior-layout >
