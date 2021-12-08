@@ -12,7 +12,7 @@
 
                 <div class="row">
                     <div class="p-1 col-6 col-md-3 h-100">
-                        <x-dog-option value="Attempts Escape" key="question1_option1" wire:model="state.question1.value"
+                        <x-dog-option value="Attempts scape" key="question1_option1" wire:model="state.question1.value"
                             image="attempts-scape" />
                     </div>
 
