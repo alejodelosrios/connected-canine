@@ -24,9 +24,11 @@ class AdminBehaviorController extends Controller
     public function separationConfinement(Pet $pet)
     {
 
-        $behaviors_values = $pet->separationConfinement()->toArray();
+        $values = $pet->separationConfinement()->toArray();
 
-        foreach ($behaviors_values as $behavior) {
+        $behaviors_values = [];
+
+        foreach ($values as $behavior) {
             if ($behavior['behavior_id'] == 5) {
                 if (strlen($behavior['value']) > 0) {
                     $behaviors_values[0] = explode(',', $behavior['value']);
