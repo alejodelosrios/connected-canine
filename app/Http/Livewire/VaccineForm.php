@@ -57,7 +57,7 @@ class VaccineForm extends Component
         $this->resetErrorBag();
 
         $updater = new Updater($this->pet);
-
+        
         $updater->save($this->state);
 
         $this->emit('saved');

@@ -88,6 +88,10 @@ final class VaccineService implements UpdaterContract
             }
         }
 
+        if (isset($input["proof"])) {
+            $data["proof"] = $input["proof"];
+        }
+
         return $data;
     }
 }
