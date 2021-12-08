@@ -71,20 +71,20 @@
             </div>
 
             {{-- Medication dosage --}}
-            <div class="mb-3 col-12">
-                <x-jet-label for="dosage" value="{{ __('Medication dosage') }}" />
-                <textarea wire:model.defer="state.dosage" name="dosage" id="dosage"
-                    class="form-control  {{ $errors->has('dosage') ? 'is-invalid' : '' }}"></textarea>
-                <x-jet-input-error for="dosage" />
-            </div>
+            {{--<div class="mb-3 col-12">--}}
+                {{--<x-jet-label for="dosage" value="{{ __('Medication dosage') }}" />--}}
+                {{--<textarea wire:model.defer="state.dosage" name="dosage" id="dosage"--}}
+                    {{--class="form-control  {{ $errors->has('dosage') ? 'is-invalid' : '' }}"></textarea>--}}
+                {{--<x-jet-input-error for="dosage" />--}}
+            {{--</div>--}}
 
             {{-- Medication instructions --}}
-            <div class="mb-3 col-12">
-                <x-jet-label for="instructions" value="{{ __('Medication instructions') }}" />
-                <textarea wire:model.defer="state.instructions" name="instructions" id="instructions"
-                    class="form-control  {{ $errors->has('instructions') ? 'is-invalid' : '' }}"></textarea>
-                <x-jet-input-error for="instructions" />
-            </div>
+            {{--<div class="mb-3 col-12">--}}
+                {{--<x-jet-label for="instructions" value="{{ __('Medication instructions') }}" />--}}
+                {{--<textarea wire:model.defer="state.instructions" name="instructions" id="instructions"--}}
+                    {{--class="form-control  {{ $errors->has('instructions') ? 'is-invalid' : '' }}"></textarea>--}}
+                {{--<x-jet-input-error for="instructions" />--}}
+            {{--</div>--}}
 
         </div>
 
