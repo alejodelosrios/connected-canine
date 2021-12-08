@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 final class InsuranceService implements UpdaterContract
 {
     protected $rules = [
-        "proof" => ["nullable", "file", "mimes:png,jpg,pdf", "max:102400"],
+        "proof" => ["required", "file", "mimes:png,jpg,pdf", "max:102400"],
     ];
 
     public function save(array $input)
@@ -21,13 +21,11 @@ final class InsuranceService implements UpdaterContract
             "save"
         );
 
-        if (isset($input["proof"])) {
-            $path = $input["proof"]->store("insurance-proofs", "s3");
-            $user = Auth::user();
-            $data["proof"] = $path;
-        }
+        $path = $input["proof"]->store("insurance-proofs", "s3");
+        $user = Auth::user();
+        $data["proof"] = $path;
 
-        $user->insurance()->updateOrCreate($data);
+        $user->insurance()->updateOrCreate(["user_id" => $user->id], $data);
     }
 
     public function removeProof(string $file_name)
@@ -36,7 +34,8 @@ final class InsuranceService implements UpdaterContract
             Storage::disk("s3")->delete($file_name);
         }
 
-        $this->user->insurance
+        $user = Auth::user();
+        $user->insurance
             ->forceFill([
                 "proof" => null,
             ])

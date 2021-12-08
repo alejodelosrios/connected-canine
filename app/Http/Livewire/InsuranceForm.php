@@ -41,6 +41,8 @@ class InsuranceForm extends Component
         $this->emit("saved");
 
         $this->emit("refresh-navigation-menu");
+
+        return redirect()->route("insurance");
     }
 
     public function removeProof()
