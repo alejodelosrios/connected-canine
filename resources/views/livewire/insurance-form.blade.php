@@ -15,8 +15,6 @@
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
-
-                                           {{--@dd($user)--}}
         <div class="w-100">
             @isset($state['proof_file'])
                 <div class="gap-2 d-flex align-items-center">
