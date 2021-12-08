@@ -23,12 +23,12 @@
 
     <label class="mx-2" for="{{ $key }}_option4">
         <input type="radio" {{ $attributes->whereStartsWith('wire:') }} value="Somewhat stressed"
-            id="{{ $key }}_option4" class="mx-2"><span>Somewhat stressed</span>
+            id="{{ $key }}_option4" class="mx-2"><span>Somewhat distressed</span>
     </label>
 
     <label class="mx-2" for="{{ $key }}_option5">
         <input type="radio" {{ $attributes->whereStartsWith('wire:') }} value="Very stressed"
-            id="{{ $key }}_option5" class="mx-2"><span>Very stressed</span>
+            id="{{ $key }}_option5" class="mx-2"><span>Very distressed</span>
     </label>
 </div>
 <x-jet-input-error for="{{ $key }}" />
