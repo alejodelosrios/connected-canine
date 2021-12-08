@@ -14,8 +14,8 @@ class AddMedicalHistoryFieldToPetsTable extends Migration
     public function up()
     {
         Schema::table('pets', function (Blueprint $table) {
-            $table->string('allergies');
-            $table->string('medical_conditions');
+            $table->string('allergies')->nullable();
+            $table->string('medical_conditions')->nullable();
         });
     }
 
