@@ -4,9 +4,9 @@
     </x-slot>
 
     <x-slot name="description">
-        All employees who bring their pet into the office are required to maintain liability coverage of at least $100k
-        that covers them in case their pet is involved in an incident. Often homeowners and renters policies already
-        include this coverage.
+        All employees who bring their pet into the office are required to
+        maintain liability coverage of at least $100k that covers them in case their pet is involved in an
+        incident. Often homeowners and renters policies already include this coverage.
     </x-slot>
 
     <x-slot name="form">
