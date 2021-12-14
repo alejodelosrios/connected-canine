@@ -29,6 +29,17 @@
                         {{--</x-slot>--}}
                 {{--</x-dashboard.nav-link>--}}
             {{--@endrole--}}
+            <x-dashboard.nav-link route="bookings.create" title="Reservations"
+                :active="request()->is('bookings/*') || request()->is('bookings')">
+                <x-slot name="icon">
+                    @if (request()->is('bookings/*') || request()->is('bookings'))
+                        <img src="{{ asset('img/calendar-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/calendar.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
+
             <x-dashboard.nav-link route="user.profile" title="User Profile"
                 :active="request()->is('user/*') || request()->is('user')">
                 <x-slot name="icon">

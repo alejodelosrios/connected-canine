@@ -9,30 +9,31 @@ use App\Services\BookingService as Updater;
 class BookingForm extends Component
 {
     public $state = [
-        'pet_id' => '',
-        'date' => ''
+        "pet_id" => "",
+        "date" => "",
     ];
-
 
     public function save()
     {
         $this->resetErrorBag();
 
-        $updater = new Updater;
+        $updater = new Updater();
 
         $updater->save($this->state);
 
-        $this->emit('saved');
+        $this->emit("saved");
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
 
-        return redirect()->route('home')->with('success', 'The reservation has been added successfully');
+        return redirect()
+            ->route("welcome")
+            ->with("success", "The reservation has been added successfully");
     }
 
     public function render()
     {
-        return view('livewire.booking-component', [
-            'pets' => Auth::user()->pets
+        return view("livewire.booking-component", [
+            "pets" => Auth::user()->pets,
         ]);
     }
 }

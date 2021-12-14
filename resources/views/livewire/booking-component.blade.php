@@ -1,18 +1,26 @@
-<div class="py-5 ">
-    <form wire:submit.prevent="save" role="form text-left" class="py-6 mx-auto col-12 col-md-4">
-        <x-jet-action-message on="saved">
-            {{ __('Saved.') }}
-        </x-jet-action-message>
+    {{-- <form wire:submit.prevent="save" role="form text-left" class="py-6 mx-auto col-12 col-md-4"> --}}
 
+    <x-jet-form-section submit="save">
+        <x-slot name="title">
+            {{ __('Bookings') }}
+        </x-slot>
 
-        <x-card>
-            <h3>Booking</h3>
+        <x-slot name="description">
+            Select a date to bring yout dog to work!
+        </x-slot>
+
+        <x-slot name="form">
+
+            <x-jet-action-message on="saved">
+                {{ __('Saved.') }}
+            </x-jet-action-message>
 
             <div class="p-2">
                 <h6>Choose a your pet</h6>
                 @foreach ($pets as $pet)
-                    <div class="mb-3 border rounded-lg px-2 pt-2 {{ $errors->has('pet_id') ? 'is-invalid border-danger' : '' }}">
-                        <div class="form-check"  >
+                    <div
+                        class="mb-3 border rounded-lg px-2 pt-2 {{ $errors->has('pet_id') ? 'is-invalid border-danger' : '' }}">
+                        <div class="form-check">
                             <input class="form-check-input {{ $errors->has('pet_id') ? 'is-invalid' : '' }}"
                                 type="radio" name="pet_id" id="{{ $pet->id }}" value="{{ $pet->id }}"
                                 wire:model="state.pet_id">
@@ -38,6 +46,10 @@
                 <a href="{{ route('welcome') }}" class="btn btn-outline-primary btn-sm">Cancel</a>
                 <button class="btn btn-primary btn-sm">Book</button>
             </div>
-        </x-card>
-    </form>
-</div>
+        </x-slot>
+
+        <x-slot name="actions">
+
+        </x-slot>
+
+    </x-jet-form-section>
