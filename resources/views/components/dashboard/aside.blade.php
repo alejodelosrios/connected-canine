@@ -63,17 +63,17 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
-            <x-dashboard.nav-link route="emergency-contact" title="Emergency Contact"
-                :active="request()->is('emergency-contact')">
-                {{-- //TODO: MAKE EMERGENCY-CONTACT SCREEN --}}
-                <x-slot name="icon">
-                    @if (request()->is('emergency-contact'))
-                        <img src="{{ asset('img/emergency-contact-white.png') }}" width="20px" height="20px" alt="">
-                    @else
-                        <img src="{{ asset('img/emergency-contact.png') }}" width="20px" height="20px" alt="">
-                    @endif
-                </x-slot>
-            </x-dashboard.nav-link>
+            {{--<x-dashboard.nav-link route="emergency-contact" title="Emergency Contact"--}}
+                {{--:active="request()->is('emergency-contact')">--}}
+                {{--[> //TODO: MAKE EMERGENCY-CONTACT SCREEN <]--}}
+                {{--<x-slot name="icon">--}}
+                    {{--@if (request()->is('emergency-contact'))--}}
+                        {{--<img src="{{ asset('img/emergency-contact-white.png') }}" width="20px" height="20px" alt="">--}}
+                    {{--@else--}}
+                        {{--<img src="{{ asset('img/emergency-contact.png') }}" width="20px" height="20px" alt="">--}}
+                    {{--@endif--}}
+                {{--</x-slot>--}}
+            {{--</x-dashboard.nav-link>--}}
             @role('Admin')
                 <x-dashboard.nav-link route="admin.users-index" title="Participants"
                     :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">

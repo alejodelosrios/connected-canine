@@ -39,9 +39,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
             $user->insurance->proof
         );
     })->name("insurance-proof");
-    Route::get("emergency-contact", EmergencyContactController::class)->name(
-        "emergency-contact"
-    );
+    //Route::get("emergency-contact", EmergencyContactController::class)->name(
+    //"emergency-contact"
+    //);
 
     /* pets profile*/
     Route::get("pets", [PetController::class, "index"])->name("pet.index");
