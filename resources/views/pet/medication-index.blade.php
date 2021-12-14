@@ -1,12 +1,19 @@
 <x-app-layout>
-    <x-card>
-        <x-pet-details-wrap :pet="$pet" title="Medical" />
 
-        @livewire('medical-history-form', ['pet'=>$pet])
+    <x-pet-details-wrap :pet="$pet" title="Medical" />
+
+
+    @livewire('veterinarian-form', ['pet'=>$pet])
+
+    <hr class="my-6">
+
+    @livewire('medical-history-form', ['pet'=>$pet])
+
+    <x-card class="p-4 my-6">
 
         <div class="p-0 mx-3 mt-3 card-header position-relative z-index-1 justify-content-end d-flex">
 
-            {{--<h3 class="text-lg">Medications</h3>--}}
+            {{-- <h3 class="text-lg">Medications</h3> --}}
 
             <a href="{{ route('pet.medication-create', $pet) }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="mx-1 btn-inner--text ">Add medication</span>
@@ -18,17 +25,20 @@
             <table class="table mb-0 align-items-center">
                 <thead>
                     <tr>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id
+                        </th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Frequency
                         </th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Time block</th>
-                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Purpose</th>
-                        {{--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
-                            {{--Dosage</th>--}}
-                        {{--<th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
-                            {{--Instructions</th>--}}
+                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                            Purpose
+                        </th>
+                        {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> --}}
+                        {{-- Dosage</th> --}}
+                        {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> --}}
+                        {{-- Instructions</th> --}}
                         <th class="text-end text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Actions</th>
                     </tr>
@@ -54,25 +64,27 @@
                                 <span
                                     class="text-xs font-weight-bold text-capitalize">{{ $medication->purpose }}</span>
                             </td>
-                            {{--<td class="text-sm text-center align-middle">--}}
-                                {{--<span--}}
-                                    {{--class="text-xs font-weight-bold text-capitalize">{{ $medication->dosage }}</span>--}}
-                            {{--</td>--}}
-                            {{--<td class="text-sm text-center align-middle">--}}
-                                {{--<span--}}
-                                    {{--class="text-xs font-weight-bold text-capitalize">{{ $medication->instructions }}</span>--}}
-                            {{--</td>--}}
+                            {{-- <td class="text-sm text-center align-middle"> --}}
+                            {{-- <span --}}
+                            {{-- class="text-xs font-weight-bold text-capitalize">{{ $medication->dosage }}</span> --}}
+                            {{-- </td> --}}
+                            {{-- <td class="text-sm text-center align-middle"> --}}
+                            {{-- <span --}}
+                            {{-- class="text-xs font-weight-bold text-capitalize">{{ $medication->instructions }}</span> --}}
+                            {{-- </td> --}}
                             <td class="align-middle text-end">
                                 <a href="{{ route('pet.medication-update', [$pet, $medication]) }}"
                                     class="text-xs text-secondary font-weight-bold pe-3" data-toggle="tooltip"
-                                    data-original-title="Edit medication" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Edit medication" data-container="body" data-animation="true">
+                                    data-original-title="Edit medication" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Edit medication" data-container="body"
+                                    data-animation="true">
                                     Edit
                                 </a>
                                 <a href="{{ route('pet.medication-delete', [$pet, $medication]) }}"
                                     class="text-xs text-secondary font-weight-bold pe-3" data-toggle="tooltip"
-                                    data-original-title="Delete medication" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    title="Delete medication" data-container="body" data-animation="true">
+                                    data-original-title="Delete medication" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Delete medication" data-container="body"
+                                    data-animation="true">
                                     Delete
                                 </a>
                             </td>
@@ -86,4 +98,5 @@
             </table>
         </div>
     </x-card>
+
 </x-app-layout>

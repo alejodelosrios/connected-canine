@@ -20,7 +20,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/{pet}/profile", [AdminPetDetailsController::class,"index",])->name("pet-profile");
 
     /* Pet veterinarian  */
-    Route::get("pets/{pet}/veterinarian", [AdminPetDetailsController::class,"veterinarian",])->name("pet-veterinarian");
+    /* Route::get("pets/{pet}/veterinarian", [AdminPetDetailsController::class,"veterinarian",])->name("pet-veterinarian"); */
 
     /* Pet vaccines  */
     Route::get("pets/{pet}/vaccines", [AdminPetDetailsController::class,"vaccines",])->name("pet-vaccines");

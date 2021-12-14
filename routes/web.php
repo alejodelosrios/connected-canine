@@ -98,9 +98,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     )->name("wizard.profile");
 
     /* veterinarian */
-    Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name(
+    /* Route::get("/pet/{pet}/veterinarian", VeterinarianController::class)->name(
         "veterinarian"
-    );
+    ); */
 
     /* booking */
     Route::resource("bookings", BookingController::class);
