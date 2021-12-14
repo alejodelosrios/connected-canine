@@ -8,7 +8,7 @@
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="numbers">
-                                            <p class="mb-0 text-sm text-capitalize font-weight-bold">Lats 30 days</p>
+                                            <p class="mb-0 text-sm text-capitalize font-weight-bold">Last 30 days</p>
                                             <h5 class="mb-0 font-weight-bolder">
                                                 53
                                             </h5>

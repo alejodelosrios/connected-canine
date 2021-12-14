@@ -17,18 +17,18 @@
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
 
-            @role('Admin')
-                <x-dashboard.nav-link route="admin.dashboard" title="Home" :active="request()->is('admin/home')">
-                    <x-slot name="icon">
-                        <x-slot name="icon">
-                            @if (request()->is('admin/home'))
-                                <img src="{{ asset('img/home-white.png') }}" width="20px" height="20px" alt="">
-                            @else
-                                <img src="{{ asset('img/home.png') }}" width="20px" height="20px" alt="">
-                            @endif
-                        </x-slot>
-                </x-dashboard.nav-link>
-            @endrole
+            {{--@role('Admin')--}}
+                {{--<x-dashboard.nav-link route="admin.dashboard" title="Home" :active="request()->is('admin/home')">--}}
+                    {{--<x-slot name="icon">--}}
+                        {{--<x-slot name="icon">--}}
+                            {{--@if (request()->is('admin/home'))--}}
+                                {{--<img src="{{ asset('img/home-white.png') }}" width="20px" height="20px" alt="">--}}
+                            {{--@else--}}
+                                {{--<img src="{{ asset('img/home.png') }}" width="20px" height="20px" alt="">--}}
+                            {{--@endif--}}
+                        {{--</x-slot>--}}
+                {{--</x-dashboard.nav-link>--}}
+            {{--@endrole--}}
             <x-dashboard.nav-link route="user.profile" title="User Profile"
                 :active="request()->is('user/*') || request()->is('user')">
                 <x-slot name="icon">
@@ -75,7 +75,7 @@
                 </x-slot>
             </x-dashboard.nav-link>
             @role('Admin')
-                <x-dashboard.nav-link route="admin.users-index" title="Employees"
+                <x-dashboard.nav-link route="admin.users-index" title="Participants"
                     :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">
                     <x-slot name="icon">
                         @if (request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*'))
