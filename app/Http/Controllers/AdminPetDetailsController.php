@@ -13,8 +13,13 @@ class AdminPetDetailsController extends Controller
 
     public function veterinarian(Pet $pet)
     {
-        $vet = $pet->veterinarian;
-        return view("admin.pet-veterinarian", compact("vet", "pet"));
+        $allergies = $pet->allergies;
+        $medical_conditions = $pet->medicalConditions();
+        dd($allergies, $medical_conditions);
+        return view("admin.pet-veterinarian", [
+            'pet' => $pet,
+            'vet' => $pet->veterinarian,
+        ]);
     }
 
     public function vaccines(Pet $pet)
@@ -24,6 +29,7 @@ class AdminPetDetailsController extends Controller
 
     public function medications(Pet $pet)
     {
+        
         return view("admin.pet-medications", compact("pet"));
     }
 
