@@ -8,7 +8,7 @@
         </x-hero-section>
 
         <x-auth-card>
-            <x-slot name="title">Login with</x-slot>
+            <x-slot name="title">Login</x-slot>
 
             <x-jet-validation-errors class="mb-3 rounded-0" />
 
@@ -22,7 +22,7 @@
                 @csrf
                 <div class="mb-3">
                     <x-jet-input class="{{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email"
-                        :value="old('email')" placeholder="Email" required />
+                        :value="old('email')" placeholder="Company Email" required />
                     <x-jet-input-error for="email"></x-jet-input-error>
                 </div>
 
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <p class="w-full mt-3 mb-0 text-sm d-flex justify-content-center">Don't you have an account? <a
-                        href="{{ route('register') }}" class="text-dark font-weight-bolder">Sign Up</a></p>
+                        href="{{ route('register') }}" class="text-dark font-weight-bolder ms-2">Sign Up</a></p>
 
             </form>
             {{-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> --}}
