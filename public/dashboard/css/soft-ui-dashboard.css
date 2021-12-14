@@ -11,7 +11,7 @@
     --bs-pink: #d63384;
     --bs-red: #f56565;
     --bs-orange: #fd7e14;
-    --bs-yellow: #fbd38d;
+    --bs-yellow: #ffc000;
     --bs-green: #81e6d9;
     --bs-teal: #20c997;
     --bs-cyan: #0dcaf0;
@@ -2699,9 +2699,9 @@ progress {
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #e293d3;
+    border-color: #FCC000;
     outline: 0;
-    box-shadow: 0 0 0 2px #e9aede;
+    box-shadow: 0 0 0 2px #FCC000;
 }
 
 .form-control::-webkit-date-and-time-value {
@@ -3582,7 +3582,7 @@ fieldset:disabled .btn {
     color: #fff;
     background-color: #dd3f4d;
     border-color: #dd3f4d;
-    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77,0.5);
+    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77, 0.5);
 }
 
 .btn-check:checked + .btn-primary,
@@ -3600,7 +3600,7 @@ fieldset:disabled .btn {
 .btn-primary:active:focus,
 .btn-primary.active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77,0.5);
+    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77, 0.5);
 }
 
 .btn-primary:disabled,
@@ -25376,6 +25376,6 @@ pre[class*="language-"] {
     color: white;
     background-color: #dd3f4d !important;
     border-color: #dd3f4d !important;
-    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77,0.5);
+    box-shadow: 0 0 0 0.2rem rgba(221, 63, 77, 0.5);
 }
 /*# sourceMappingURL=dashboard-free.css.map */
