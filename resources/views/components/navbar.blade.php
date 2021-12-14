@@ -32,8 +32,9 @@
                             <div class="d-none d-md-block">
                                 <x-jet-dropdown id="settingsDropdown">
                                     <x-slot name="trigger">
-                                        <img class="rounded-circle" width="32" height="32"
-                                            src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                        Manage Account
+                                        {{--<img class="rounded-circle" width="32" height="32"--}}
+                                            {{--src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />--}}
                                     </x-slot>
 
                                     <x-slot name="content">
