@@ -4,7 +4,7 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Please search the veterinarian on the  DB or include one.') }}
+        {{ __('Please Identify Your Veterinarian') }}
     </x-slot>
 
     <x-slot name="form">
