@@ -12,6 +12,10 @@ final class VaccineService implements UpdaterContract
 {
     public $pet;
 
+    protected $messages = [
+        'after' => 'Expiration must be in the future.',
+    ];
+
     public function __construct($pet)
     {
         $this->pet = $pet;
@@ -21,7 +25,7 @@ final class VaccineService implements UpdaterContract
     {
         $input = $this->prepareToValidate($input);
 
-        $validated = Validator::make($input, $this->rules($input))
+        $validated = Validator::make($input, $this->rules($input), $this->messages)
             ->validateWithBag("save");
 
         if (isset($input["proof"])) {
