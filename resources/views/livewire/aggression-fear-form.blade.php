@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="col-8">
-               <div class="row">
+                <div class="row">
                     <p class="col text-center">Very relaxed</p>
                     <p class="col text-center">Somewhat relaxed</p>
                     <p class="col text-center">Neutral</p>
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="col-8">
-               <div class="row">
+                <div class="row">
                     <p class="col text-center">Very relaxed</p>
                     <p class="col text-center">Somewhat relaxed</p>
                     <p class="col text-center">Neutral</p>
@@ -229,21 +229,21 @@
         {{-- Question 08 --}}
         <div class="mt-5">
             <h6 class="text-sm">8) {{ data_get($questions, '23.name') }}</h6>
-            <div class="px-0 px-md-4 col-6 {{ $errors->has('question24') ? 'is-invalid border-danger' : '' }}">
+            <div class="px-0 px-md-4 col-6 ">
                 <x-jet-input class="flex-fill {{ $errors->has('question24') ? 'is-invalid' : '' }}"
                     wire:model="state.question24" pattern="[0-9]" placeholder="If never, enter 0" />
+                <x-jet-input-error for="question24" class="px-0 px-md-4" />
             </div>
-            <x-jet-input-error for="question24" class="px-0 px-md-4" />
         </div>
 
         {{-- Question 09 --}}
         <div class="mt-5">
             <h6 class="text-sm">9) {{ data_get($questions, '24.name') }}</h6>
-            <div class="px-0 px-md-4 col-6 {{ $errors->has('question25') ? 'is-invalid border-danger' : '' }}">
-                <x-jet-input class="flex-fill {{ $errors->has('question24') ? 'is-invalid' : '' }}"
+            <div class="px-0 px-md-4 col-6">
+                <x-jet-input class="flex-fill {{ $errors->has('question25') ? 'is-invalid' : '' }}"
                     wire:model="state.question25" pattern="[0-9]" placeholder="If never, enter 0" />
+                <x-jet-input-error for="question25" class="px-0 px-md-4" />
             </div>
-            <x-jet-input-error for="question25" class="px-0 px-md-4" />
         </div>
 
     </form>

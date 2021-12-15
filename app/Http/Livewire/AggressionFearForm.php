@@ -14,6 +14,11 @@ class AggressionFearForm extends Component
         "question23" => ["value" => [], "comments" => ""],
     ];
 
+    protected $messages = [
+        'question24.required' => 'Please enter a number',
+        'question25.required' => 'Please enter a number'
+    ];
+
     public $pet;
 
     protected $listeners = [
@@ -68,7 +73,7 @@ class AggressionFearForm extends Component
         $validate = Validator::make(
             $this->state,
             $this->rules(),
-            [],
+            $this->messages,
             $this->customAttributes()
         )->validateWithBag("save");
 
@@ -185,8 +190,8 @@ class AggressionFearForm extends Component
             "question22.comments" => "question",
             "question23.value" => "question",
             "question23.comments" => "question",
-            "question24" => "question",
-            "question25" => "question",
+            "question24" => "answer",
+            "question25" => "answer",
         ];
     }
 }
