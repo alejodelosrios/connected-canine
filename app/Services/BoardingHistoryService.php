@@ -20,8 +20,10 @@ final class BoardingHistoryService implements UpdaterContract
         'comments' => ['nullable', 'string']
     ];
 
-    protected $custom_messages = [
-        'attended' => "You must choose an option to continue",
+    protected $messages = [
+        'required_if' => "Choose an option",
+        'scuffle_description.required_if' => "Description required",
+        'accomodations_description.required_if' => "Explanation required",
     ];
 
     public function __construct($pet)
@@ -31,7 +33,7 @@ final class BoardingHistoryService implements UpdaterContract
 
     public function save(array $input)
     {
-        $validated = Validator::make($input, $this->rules, $this->custom_messages)->validateWithBag('save');
+        $validated = Validator::make($input, $this->rules, $this->messages)->validateWithBag('save');
 
         if ($validated['attended']) {
             $this->pet->boardingHistory()->updateOrCreate(['pet_id' => $input['pet_id']], $validated);

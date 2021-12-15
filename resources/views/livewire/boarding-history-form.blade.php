@@ -8,8 +8,8 @@
         <div class="mt-5">
             <h6>1) Has your dog ever attended doggie daycare before?</h6>
             <div class=" px-4 {{ $errors->has('attended') ? 'is-invalid border-danger' : '' }}">
-                <label for="attended_true"><input type="radio" wire:model="state.attended" value="1"
-                        id="attended_true" class="mx-2" x-ref="attended_true">Yes</label>
+                <label for="attended_true"><input type="radio" wire:model="state.attended" value="1" id="attended_true"
+                        class="mx-2" x-ref="attended_true">Yes</label>
                 <label for="attended_false"><input type="radio" wire:model="state.attended" value="0"
                         id="attended_false" class="mx-2">No</label>
             </div>
@@ -32,19 +32,20 @@
                     <span :class="$refs.attended_true.checked || 'text-muted'">Yes</span>
                 </label>
                 <label :class="$refs.attended_true.checked || 'text-muted'" for="scuffle_event_false"><input
-                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.scuffle_event"
-                        value="0" id="scuffle_event_false" class="mx-2">No</label>
+                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.scuffle_event" value="0"
+                        id="scuffle_event_false" class="mx-2">No</label>
             </div>
             <x-jet-input-error for="scuffle_event" />
         </div>
         <div class="mt-3">
             <h6 :class="{'text-muted': !$refs.scuffle_event_true.checked || !$refs.attended_true.checked}">
                 If yes, please describe what you know about the event(s)?</h6>
-            <div class="{{ $errors->has('scuffle_description') ? 'is-invalid border-danger' : '' }}">
+            <div>
                 <textarea :disabled="!$refs.scuffle_event_true.checked || !$refs.attended_true.checked" row="4"
-                    wire:model="state.scuffle_description" class="col-12 col-md-7"></textarea>
+                    wire:model="state.scuffle_description"
+                    class="col-12 col-md-7 {{ $errors->has('scuffle_description') ? 'is-invalid border-danger' : '' }}"></textarea>
+                <x-jet-input-error for="scuffle_description" />
             </div>
-            <x-jet-input-error for="scuffle_description" />
         </div>
 
         {{-- Question 03 : forbidden_assistance --}}
@@ -70,12 +71,11 @@
                 doggie daycare or boarding facility for behavioral reasons?</h6>
             <div class="px-4 {{ $errors->has('accomodations') ? 'is-invalid border-danger' : '' }}">
                 <label :class="!$refs.attended_true.checked && 'text-muted'" for="accomodations_true"><input
-                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.accomodations"
-                        value="1" id="accomodations_true" class="mx-2"
-                        x-ref="accomodations_true">Yes</label>
+                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.accomodations" value="1"
+                        id="accomodations_true" class="mx-2" x-ref="accomodations_true">Yes</label>
                 <label :class="!$refs.attended_true.checked && 'text-muted'" for="accomodations_false"><input
-                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.accomodations"
-                        value="0" id="accomodations_false" class="mx-2">No</label>
+                        :disabled="!$refs.attended_true.checked" type="radio" wire:model="state.accomodations" value="0"
+                        id="accomodations_false" class="mx-2">No</label>
             </div>
             <x-jet-input-error for="accomodations" />
         </div>
@@ -89,8 +89,8 @@
                     :class="{'text-muted': !$refs.accomodations_true.checked || !$refs.attended_true.checked}"
                     :disabled="!$refs.accomodations_true.checked || !$refs.attended_true.checked" row="4"
                     wire:model="state.accomodations_description"></textarea>
+                <x-jet-input-error for="accomodations_description" />
             </div>
-            <x-jet-input-error for="accomodations_description" />
         </div>
 
         {{-- Question 04 : comments --}}
