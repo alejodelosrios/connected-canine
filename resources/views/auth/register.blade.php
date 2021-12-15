@@ -3,8 +3,8 @@
         <x-hero-section img="/img/jack-russel-staring-at-laptop.jpg">
             <x-slot name="title">Welcome!</x-slot>
             <x-slot name="subtitle">
-                Use these awesome forms to login or create new account in your
-                project for free
+                {{--Use these awesome forms to login or create new account in your--}}
+                {{--project for free--}}
             </x-slot>
         </x-hero-section>
 
