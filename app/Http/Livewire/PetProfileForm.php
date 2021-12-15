@@ -24,6 +24,10 @@ class PetProfileForm extends Component
         if (!is_null($pet)) {
             $this->state = $pet->withoutRelations()->toArray();
         }
+        
+        if (!array_key_exists('question', $this->state)) {
+            $this->state['question'] = 'neutered';
+        }
     }
 
     public function save()
