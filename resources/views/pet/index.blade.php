@@ -33,7 +33,7 @@
                                         @if ($pet->profile_photo_path)
                                             <img src="{{ $pet->profile_photo_url }}" class="avatar avatar-sm me-3">
                                         @else
-                                            <img src="{{ asset("img/dog.png")}}" class="avatar avatar-sm me-3">
+                                            <img src="{{ asset("img/pets.png")}}" class="avatar avatar-sm me-3">
                                         @endif
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
