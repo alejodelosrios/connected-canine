@@ -60,7 +60,9 @@ class SeparationConfinementForm extends Component
             'question1.value' => ['nullable', 'array'],
             'question1.comments' => ['nullable', 'string'],
             'question2.value' => ['required', 'string'],
-            'question2.comments' => ['required_if:question2.value,Occasionally', 'nullable', 'string', 'min:5'],
+            'question2.comments' => ['required_if:question2.value,Occasionally,Often,Not Often', 'nullable', 'string', 'min:5'],
+        ],[
+            'question2.comments.required_if'=> 'Description required'
         ])->validateWithBag('save');
 
 

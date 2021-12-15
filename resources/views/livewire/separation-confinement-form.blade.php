@@ -80,7 +80,7 @@
                 </label>
 
                 <label for="question2_option2">
-                    <input type="radio" wire:model="state.question2.value" value="Not Often" id="question2_option2"
+                    <input x-ref="notoften" type="radio" wire:model="state.question2.value" value="Not Often" id="question2_option2"
                         class="mx-2" required>Not Often
                 </label>
 
@@ -90,7 +90,7 @@
                 </label>
 
                 <label for="question2_option4">
-                    <input type="radio" wire:model="state.question2.value" value="Often" id="question2_option4"
+                    <input x-ref="often" type="radio" wire:model="state.question2.value" value="Often" id="question2_option4"
                         class="mx-2">Often
                 </label>
 
@@ -109,10 +109,10 @@
 
             <div class="my-2">
 
-                <label for="question2_option4" :class="{'text-muted': !$refs.occasionally.checked}"
-                    class="my-2">{{ __('If you selected "Occasionally", what are de circumstances surrounding times when your dog acts distressed?') }}</label>
+                <label for="question2_option4" :class="{'text-muted': !$refs.occasionally.checked && !$refs.notoften.checked && !$refs.often.checked}"
+                    class="my-2">{{ __('If you selected “Not Often”, “Occasionally”, or “Often”, what are the circumstances surrounding times when your dog acts distressed?') }}</label>
 
-                <textarea rows="5" :disabled="!$refs.occasionally.checked"
+                <textarea rows="5" :disabled="!$refs.occasionally.checked && !$refs.notoften.checked && !$refs.often.checked"
                     class="form-control {{ $errors->has('question2.comments') ? 'is-invalid' : '' }}"
                     wire:model="state.question2.comments" id="question2_option4"
                     placeholder="e.g., only when I'm not around, only when there are no other people or dogs around, etc."></textarea>
