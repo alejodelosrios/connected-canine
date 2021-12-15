@@ -73,7 +73,7 @@
                 </div>
                 <!-- Vet zipcode -->
                 <div class="mb-3 col-12 col-md-6">
-                    <x-jet-label for="vet_zip_code" value="{{ __('Zipcode') }}" />
+                    <x-jet-label for="vet_zip_code" value="{{ __('Zip code') }}" />
                     <x-jet-input id="vet_zip_code" type="text"
                         class="{{ $errors->has('vet_zip_code') ? 'is-invalid' : '' }}"
                         wire:model.defer="state.vet_zip_code" autocomplete="vet_zip_code" />
