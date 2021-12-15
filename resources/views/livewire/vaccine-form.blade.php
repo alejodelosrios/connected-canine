@@ -42,7 +42,7 @@
             Dogs are required to have up-to-date vaccines to visit your office. Please upload the records or email them
             to info@connectedcanine.com
         </p>
-        <p class="px-2 text-sm">We can help by requesting veterinary records on your behalf if you e-mail ust
+        <p class="px-2 text-sm">We can help by requesting veterinary records on your behalf if you e-mail us At
             info@connectedcanine.com.</p>
 
     </form>
