@@ -9,7 +9,7 @@
         </x-hero-section>
 
         <x-auth-card>
-            <x-slot name="title">Register with</x-slot>
+            <x-slot name="title">Register</x-slot>
 
             <form method="POST" action="{{ route('register') }}" role="form text-left">
                 @csrf
