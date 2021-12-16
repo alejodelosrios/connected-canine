@@ -40,7 +40,7 @@
 
                 {{-- Weight --}}
                 <div class="mb-3 col-12 col-md-6">
-                    <x-jet-label for="weight" value="{{ __('Weight') }}" />
+                    <x-jet-label for="weight" value="{{ __('Weight (lbs)') }}" />
                     <p>
                         {{ $pet->weight }}
                     </p>

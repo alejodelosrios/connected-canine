@@ -79,7 +79,7 @@
 
             {{-- Weight --}}
             <div class="mb-3 col-12 col-md-6">
-                <x-jet-label for="weight" value="{{ __('Weight') }}" />
+                <x-jet-label for="weight" value="{{ __('Weight (lbs)') }}" />
                 <x-jet-input id="weight" type="number" class="{{ $errors->has('weight') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.weight" placeholder="Lbs"/>
                 <x-jet-input-error for="weight" />
