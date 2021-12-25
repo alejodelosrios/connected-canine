@@ -13,12 +13,19 @@
 
             <form method="POST" action="{{ route('register') }}" role="form text-left">
                 @csrf
-                {{-- NAME INPUT --}}
+                {{-- FIRSTNAME INPUT --}}
                 <div class="mb-3">
                     <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
-                        :value="old('name')" required autofocus autocomplete="name" placeholder="Name" aria-label="Name"
-                        aria-describedby="email-addon">
+                        :value="old('name')" required autofocus autocomplete="name" placeholder="First name" aria-label="First name"
+                        aria-describedby="firstname-addon">
                     <x-jet-input-error for="name"></x-jet-input-error>
+                </div>
+                {{-- LASTNAME INPUT --}}
+                <div class="mb-3">
+                    <input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}" type="text" name="lastname"
+                        :value="old('lastname')" required autofocus autocomplete="lastname" placeholder="Last name" aria-label="Last name"
+                        aria-describedby="lastname-addon">
+                    <x-jet-input-error for="lastname"></x-jet-input-error>
                 </div>
                 {{-- EMAIL INPUT --}}
                 <div class="mb-3">

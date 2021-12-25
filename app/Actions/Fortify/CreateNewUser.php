@@ -23,19 +23,15 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             "name" => ["required", "string", "max:255"],
-            "email" => [
-                "required",
-                "string",
-                "email",
-                "max:255",
-                "unique:users",
-            ],
+            "lastname" => ["required", "string", "max:25"],
+            "email" => ["required", "string", "email", "max:255", "unique:users",],
             "password" => $this->passwordRules(),
             "terms" => ["required", "accepted"],
         ])->validate();
 
         return User::create([
             "name" => $input["name"],
+            "lastname" => $input["lastname"],
             "email" => $input["email"],
             "password" => Hash::make($input["password"]),
             "accept_terms" => now(),

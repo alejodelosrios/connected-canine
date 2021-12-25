@@ -14,8 +14,7 @@ class AddProfileFieldsToUsers extends Migration
     public function up()
     {
         Schema::table("users", function (Blueprint $table) {
-            $table
-                ->string("lastname", 25)
+            $table->string("lastname", 25)
                 ->after("name")
                 ->nullable();
             $table->integer("area_code")->nullable();
