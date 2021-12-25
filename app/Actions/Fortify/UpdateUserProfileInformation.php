@@ -55,6 +55,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             [
                 "address.home_street" => "home street",
                 "address.street_address" => "street address",
+                'name' => 'first name',
+                'lastname' => 'last name'
             ]
         )->validateWithBag("updateProfileInformation");
 
