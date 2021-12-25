@@ -5,11 +5,11 @@
     - [x] Full name entered on prior page pulls through to the first name field. Please add fields “First name” and “Last name” on the prior page.
     - [x] Error message under “Last name”, make “lastname” two words
     - [x] Consolidate “Area code” and “Phone number” into one field titled “Phone Number”. Input structure should be (###) ###-####. Automate the required format as users begin typing. Require users to enter 10 digits.
-    - [ ] Change “Address” to “Home Address”.
-      - [ ] Home Address field should allow street names to be entered.
-      - [ ] Change name of “Address 2” to “Apartment, suite, unit, etc. (optional)”. Remove error message.
-      - [ ] Change Zip code error message to “The zip code must be 5 digits”.
-      - [ ] Change “State/Province/Region” to “State”. Include a drop down menu list of abbreviated US states and reduce the field’s size.
+    - [x] Change “Address” to “Home Address”.
+      - [x] Home Address field should allow street names to be entered.
+      - [x] Change name of “Address 2” to “Apartment, suite, unit, etc. (optional)”. Remove error message.
+      - [x] Change Zip code error message to “The zip code must be 5 digits”.
+      - [x] Change “State/Province/Region” to “State”. Include a drop down menu list of abbreviated US states and reduce the field’s size.
     - [ ] Change background to the following pic (file attached).
 
 2. Pet Profile

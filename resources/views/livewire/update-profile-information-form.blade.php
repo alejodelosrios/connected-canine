@@ -18,7 +18,7 @@
             <div class="mb-3 col-12 col-md-6">
                 <x-jet-label for="lastname" value="{{ __('Last name') }}" />
                 <x-jet-input id="lastname" type="text" class="{{ $errors->has('lastname') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.lastname" required/>
+                    wire:model.defer="state.lastname" required />
                 <x-jet-input-error for="lastname" />
             </div>
 
@@ -50,13 +50,13 @@
             <div class="mb-3 col-12 col-md-4">
                 <x-jet-label for="zip_code" value="{{ __('Zip code') }}" />
                 <x-jet-input id="zip_code" type="zip_code" class="{{ $errors->has('zip_code') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.zip_code" />
+                    wire:model.defer="state.zip_code" min="5" max="5" />
                 <x-jet-input-error for="zip_code" />
             </div>
 
             {{-- State --}}
             <div class="mb-3 col-12 col-md-4">
-                <x-jet-label for="state" value="{{ __('State/Province/Region') }}" />
+                <x-jet-label for="state" value="{{ __('State') }}" />
 
                 <x-jet-input id="state" type="state" class="{{ $errors->has('state') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.state" />
@@ -65,14 +65,14 @@
 
             <!-- Address -->
             <div class="mb-3 col-12">
-                <x-jet-label for="address.home_street" value="{{ __('Address') }}" />
+                <x-jet-label for="address.home_street" value="{{ __('Home address') }}" />
                 <x-jet-input id="address.home_street" type="text"
                     class="{{ $errors->has('address.home_street') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.address.home_street" />
                 <x-jet-input-error for="address.home_street" />
             </div>
             <div class="mb-3 col-12">
-                <x-jet-label for="street_address" value="{{ __('Address 2') }}" />
+                <x-jet-label for="street_address" value="{{ __('Apartment, suite, unit, etc. (optional)') }}" />
                 <x-jet-input id="street_address" type="street_address"
                     class="{{ $errors->has('address.street_address') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.address.street_address" />

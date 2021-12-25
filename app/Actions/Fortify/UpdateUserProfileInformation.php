@@ -42,19 +42,21 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 ],
                 "address.home_street" => [
                     "required",
-                    "numeric",
-                    "digits_between:2,6",
-                ],
-                "address.street_address" => [
-                    "required",
                     "string",
                     "min:5",
                     "max:250",
                 ],
-                "zip_code" => ["required", "string", "min:3", "max:6"],
+                "address.street_address" => [
+                    "nullable",
+                    "string",
+                    "max:250",
+                ],
+                "zip_code" => ["required", "digits:5"],
                 "state" => ["required", "string", "min:3", "max:80"],
             ],
-            [],
+            [
+                'zip_code.*' => 'The zip code must be 5 digits'
+            ],
             [
                 "address.home_street" => "home street",
                 "address.street_address" => "street address",
