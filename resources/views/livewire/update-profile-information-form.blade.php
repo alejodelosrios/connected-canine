@@ -51,7 +51,7 @@
         <div class=" row">
             <!-- Name -->
             <div class="mb-3 col-12 col-md-6 ">
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('First name') }}" />
                 <x-jet-input id="name" type="text" class="{{ $errors->has('name') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.name" autocomplete="name" />
                 <x-jet-input-error for="name" />
@@ -59,7 +59,7 @@
 
             <!-- Lastname -->
             <div class="mb-3 col-12 col-md-6">
-                <x-jet-label for="lastname" value="{{ __('Last Name') }}" />
+                <x-jet-label for="lastname" value="{{ __('Last name') }}" />
                 <x-jet-input id="lastname" type="text" class="{{ $errors->has('lastname') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.lastname" />
                 <x-jet-input-error for="lastname" />
