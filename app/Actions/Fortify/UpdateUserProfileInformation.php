@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use Illuminate\Support\Str;
 use App\ValueObjects\Address;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
@@ -19,6 +20,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
+
+        $input['phone_number'] = Str::of($input['phone_number'])->replaceMatches('/[^0-9]++/', '')->__toString();
+
         Validator::make(
             $input,
             [
@@ -31,11 +35,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                     Rule::unique("users")->ignore($user->id),
                 ],
                 "photo" => ["nullable", "mimes:jpg,jpeg,png", "max:1024"],
-                "area_code" => ["required", "numeric", "digits_between:2,3"],
                 "phone_number" => [
                     "required",
                     "numeric",
-                    "digits_between:8,20",
+                    "digits:10",
                 ],
                 "address.home_street" => [
                     "required",
@@ -75,7 +78,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                     "name" => $input["name"],
                     "email" => $input["email"],
                     "lastname" => $input["lastname"],
-                    "area_code" => $input["area_code"],
                     "phone_number" => $input["phone_number"],
                     "state" => $input["state"],
                     "address" => new Address(

@@ -17,8 +17,7 @@ class AddProfileFieldsToUsers extends Migration
             $table->string("lastname", 25)
                 ->after("name")
                 ->nullable();
-            $table->integer("area_code")->nullable();
-            $table->string("phone_number", 20)->nullable();
+            $table->string("phone_number", 10)->nullable();
             $table->string("state", 80)->nullable();
             $table->json("address")->nullable();
             $table->string("zip_code")->nullable();

@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -31,7 +32,6 @@ class User extends Authenticatable
         "email",
         "password",
         "lastname",
-        "area_code",
         "phone_number",
         "address",
         "accept_terms",
@@ -90,5 +90,12 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->hasRole('Admin');
+    }
+
+    public function getPhoneNumberAttribute($value)
+    {
+        $number = str_split($value, 3);
+        $format = "(?) ?-??";
+        return Str::of($format)->replaceArray('?', $number);
     }
 }

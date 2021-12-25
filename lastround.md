@@ -4,7 +4,7 @@
     - [x] Change “Name” to “First name” and make the “N” in last name lowercase.
     - [x] Full name entered on prior page pulls through to the first name field. Please add fields “First name” and “Last name” on the prior page.
     - [x] Error message under “Last name”, make “lastname” two words
-    - [ ] Consolidate “Area code” and “Phone number” into one field titled “Phone Number”. Input structure should be (###) ###-####. Automate the required format as users begin typing. Require users to enter 10 digits.
+    - [x] Consolidate “Area code” and “Phone number” into one field titled “Phone Number”. Input structure should be (###) ###-####. Automate the required format as users begin typing. Require users to enter 10 digits.
     - [ ] Change “Address” to “Home Address”.
       - [ ] Home Address field should allow street names to be entered.
       - [ ] Change name of “Address 2” to “Apartment, suite, unit, etc. (optional)”. Remove error message.
