@@ -14,7 +14,7 @@
 
 2. Pet Profile
    - [x] Add the following title above the photo: “Pet Profile”.
-   - [ ] Remove the word “photo”.
+   - [x] Remove the word “photo”.
    - [ ] Change “Select a New Photo” to “Add Your Pup’s Photo!”.
    - [ ] Change background to the following pic. Blaine Bowers (HMG) can provide the original.
    

@@ -16,8 +16,6 @@
                                         reader.readAsDataURL($refs.photo.files[0]);
                                 " />
 
-            <x-jet-label for="photo" value="{{ __('Photo') }}" />
-
             {{-- Current Profile Photo --}}
             <div class="mt-2" x-show="! photoPreview">
                 <img src="{{ $this->pet->profile_photo_url }}" class="rounded-circle" height="80px" width="80px">
