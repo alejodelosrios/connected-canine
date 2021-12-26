@@ -36,7 +36,7 @@
   
 6. Pets— Behavior Background—Separation And Confinemen
     - [x] Top of page should read “Separation And Confinement”.
-    - [ ] Error message for Q2. If a user fails to respond, the error message should read “ Your response is required.”.
+    - [x] Error message for Q2. If a user fails to respond, the error message should read “ Your response is required.”.
 
 7. Pets— Behavior Background—Aggression and Fear
    - [ ] Change icons showing the following behaviors Attaching the original file for reference. Also, please try to maintain the image quality.

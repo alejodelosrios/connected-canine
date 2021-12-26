@@ -60,9 +60,14 @@ class SeparationConfinementForm extends Component
             'question1.value' => ['nullable', 'array'],
             'question1.comments' => ['nullable', 'string'],
             'question2.value' => ['required', 'string'],
-            'question2.comments' => ['required_if:question2.value,Occasionally,Often,Not Often', 'nullable', 'string', 'min:5'],
-        ],[
-            'question2.comments.required_if'=> 'Description required'
+            'question2.comments' => ['required_if:question2.value,Occasionally,Often,Not Often', 'nullable', 'string'],
+        ], [
+            'question1.value.array' => 'Invalid option',
+            'question1.comments.string' => 'Invalid option',
+            'question2.value.required' => 'Your response is required.',
+            'question2.value.string' => 'Invalid option',
+            'question2.comments.required_if' => 'Description required.',
+            'question2.comments.string' => 'Invalid option',
         ])->validateWithBag('save');
 
 
@@ -75,10 +80,10 @@ class SeparationConfinementForm extends Component
             $this->pet->behaviors()->detach(5);
         }
 
-
+        $options = ['Occasionally', 'Often', 'Not Often'];
         $this->pet->behaviors()->syncWithoutDetaching([6 => [
             'value' => $this->state['question2']['value'],
-            'comments' => $this->state['question2']['value'] == 'Occasionally'
+            'comments' => in_array($this->state['question2']['value'], $options)
                 ? $this->state['question2']['comments']
                 : ' '
         ]]);
