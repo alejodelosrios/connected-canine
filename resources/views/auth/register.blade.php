@@ -15,43 +15,43 @@
                 @csrf
                 {{-- FIRSTNAME INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
+                    <x-jet-input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
                         :value="old('name')" required autofocus autocomplete="name" placeholder="First name"
-                        aria-label="First name" aria-describedby="firstname-addon">
+                        aria-label="First name" aria-describedby="firstname-addon" />
                     <x-jet-input-error for="name"></x-jet-input-error>
                 </div>
                 {{-- LASTNAME INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}" type="text"
+                    <x-jet-input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}" type="text"
                         name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname"
-                        placeholder="Last name" aria-label="Last name" aria-describedby="lastname-addon">
+                        placeholder="Last name" aria-label="Last name" aria-describedby="lastname-addon" />
                     <x-jet-input-error for="lastname"></x-jet-input-error>
                 </div>
                 {{-- EMAIL INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
+                    <x-jet-input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
                         name="email" :value="old('email')" required placeholder="Email" aria-label="Email"
-                        aria-describedby="email-addon">
+                        aria-describedby="email-addon" />
                     <x-jet-input-error for="email"></x-jet-input-error>
                 </div>
                 {{-- PASSWWORD INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
+                    <x-jet-input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
                         name="password" required autocomplete="new-password" placeholder="Password"
-                        aria-label="Password" aria-describedby="password-addon">
+                        aria-label="Password" aria-describedby="password-addon" />
                     <x-jet-input-error for="password"></x-jet-input-error>
                 </div>
                 {{-- CONFIRM PASSWORD INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control" type="password" name="password_confirmation" required
+                    <x-jet-input class="form-control" type="password" name="password_confirmation" required
                         autocomplete="new-password" placeholder="Confirm Password" aria-label="Confirm Password"
-                        aria-describedby="password-addon">
+                        aria-describedby="password-addon" />
                     <x-jet-input-error for="password_confirmation"></x-jet-input-error>
                 </div>
                 {{-- ACCEPT_TERMS --}}
                 <div class="text-left form-check form-check-info">
                     <input id="terms" name="terms" class="form-check-input" type="checkbox">
-                    <label class="form-check-label" for="terms">
+                    <label class="form-check-label {{ $errors->has('terms') ? 'is-invalid' : '' }}" for="terms">
                         I agree to the <a href="{{ route('terms.show') }}" class="text-dark font-weight-bolder">Terms
                             of Use</a> and <a href="{{ route('policy.show') }}"
                             class="text-dark font-weight-bolder">Privacy Policy</a>

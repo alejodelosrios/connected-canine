@@ -30,7 +30,9 @@ class CreateNewUser implements CreatesNewUsers
                 "password" => $this->passwordRules(),
                 "terms" => ["required", "accepted"],
             ],
-            [],
+            [
+                'terms.*' => 'Please indicate that you have read and agree to the Terms of Use and Privacy Policy'
+            ],
             [
                 'name' => 'first name',
                 'lastname' => ' last name'
