@@ -42,7 +42,7 @@
    - [ ] Change icons showing the following behaviors Attaching the original file for reference. 
    - [x] Also, please try to maintain the image quality.
      **Se corrigio la proporcionalidad, pero la calidad de imagen viene dada por los recortes hechos.** 
-   - [ ] Change page title in upper left from “Aggression & Fear” to “Aggression And Fear”.
+   - [x] Change page title in upper left from “Aggression & Fear” to “Aggression And Fear”.
 
 8. Pets— Vet & Medical
    - [ ] Question prompt should read: “Does your dog currently have any of the following medical conditions? Check all that apply”

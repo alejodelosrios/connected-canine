@@ -1,4 +1,4 @@
-<x-behavior-layout title="Aggression & Fear" :pet="$pet">
+<x-behavior-layout title="Aggression and Fear" :pet="$pet">
 
     @livewire('aggression-fear-form', ['pet'=> $pet])
 
