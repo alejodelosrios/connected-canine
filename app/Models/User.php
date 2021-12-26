@@ -94,8 +94,11 @@ class User extends Authenticatable
 
     public function getPhoneNumberAttribute($value)
     {
-        $number = str_split($value, 3);
-        $format = "(?) ?-??";
-        return Str::of($format)->replaceArray('?', $number);
+        if ($value) {
+            $number = str_split($value, 3);
+            $format = "(?) ?-??";
+            return Str::of($format)->replaceArray('?', $number);
+        }
+        return '';
     }
 }
