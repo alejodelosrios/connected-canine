@@ -3,7 +3,7 @@
     <x-dashboard.stats />
 </div>
 <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
-    <h3 class="text-lg">Users list</h3>
+    <h3 class="text-lg">{{ __('Participants') }}</h3>
 </div>
 
 <div class="table-responsive">

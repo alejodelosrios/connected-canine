@@ -63,7 +63,7 @@
 
 # ADMIN PLATFORM
 - [x] Change landing page after login from *admin/home* to *admin/user*.
-- [ ] Reword “Users list” to *“Participants”* on *admin/user* view
+- [x] Reword “Users list” to *“Participants”* on *admin/user* view
 
 # EMPLOYEE PLATFORM
 - [ ] Consolidate content in “Insurance” tab under “User Profile”.
