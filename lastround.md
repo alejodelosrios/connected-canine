@@ -31,7 +31,7 @@
    - [x] Remove the word “Photo” above the photo.
 
 5. Pets—Behavior Background—Doggy Daycare
-    - [ ] Change every instance of “Doggie” to “Doggy”.
+    - [x] Change every instance of “Doggie” to “Doggy”.
     - [ ] Question #4—Capitalize “H” in “Has your dog ever...”.
 6. Pets— Behavior Background—Separation And Confinemen
     - [ ] Top of page should read “Separation And Confinement”.

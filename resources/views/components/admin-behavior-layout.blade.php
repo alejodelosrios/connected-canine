@@ -14,7 +14,7 @@
                     class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/behaviors/background')) active @endif">Behavioral Background</a>
 
                 <a href="{{ route('admin.boarding-history', $pet) }}"
-                    class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/behaviors/boarding-history')) active @endif">Doggie Daycare History</a>
+                    class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/behaviors/boarding-history')) active @endif">Doggy Daycare History</a>
 
                 <a href="{{ route('admin.behavior.separation-confinement', $pet) }}"
                     class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/pets/*/behaviors/separation-confinement')) active @endif">Separation and Confinement</a>

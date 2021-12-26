@@ -1,4 +1,4 @@
-<x-behavior-layout title="Doggie Daycare History" :pet="$pet">
+<x-behavior-layout title="Doggy Daycare History" :pet="$pet">
 
     @livewire('boarding-history-form', ['pet'=> $pet])
 

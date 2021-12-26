@@ -1,10 +1,10 @@
 <x-admin-behavior-layout :data="$data">
 
-    <h4 class="mb-5">Doggie Daycare and Boarding History</h4>
+    <h4 class="mb-5">Doggy Daycare and Boarding History</h4>
 
     {{-- Question 01 : attended --}}
     <div class="mt-5">
-        <h6>1) Has your dog ever attended doggie daycare before?</h6>
+        <h6>1) Has your dog ever attended doggy daycare before?</h6>
         <div class="px-4">
             <label>
                 @if (array_key_exists('attended', $behaviors_values))
@@ -42,7 +42,7 @@
     {{-- Question 03 : forbidden_assistance --}}
     <div class="mt-5">
         <h6 :class="{'text-muted': !$refs.attended_true.checked}">
-            3) Has your dog ever been asked not to come back to doggie daycare for behavioral reasons?
+            3) Has your dog ever been asked not to come back to doggy daycare for behavioral reasons?
         </h6>
         <div class="px-4">
             @if (array_key_exists('forbidden_assistance', $behaviors_values))
@@ -60,7 +60,7 @@
     {{-- Question 04 : accomodations --}}
     <div class="mt-5">
         <h6 :class="!$refs.attended_true.checked && 'text-muted'">
-            4) has your dog ever need special accommodations in a doggie daycare or boarding facility for behavioral
+            4) has your dog ever need special accommodations in a doggy daycare or boarding facility for behavioral
             reasons?
         </h6>
         <div class="px-4">
@@ -81,7 +81,7 @@
     {{-- Question 04 : comments --}}
     <div class="mt-5">
         <h6 :class="!$refs.attended_true.checked && 'text-muted'">
-            Anything to add about doggie daycare or boarding:
+            Anything to add about doggy daycare or boarding:
         </h6>
         <div class="px-4">
             @if (array_key_exists('comments', $behaviors_values) && $attended)
