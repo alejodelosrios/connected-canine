@@ -58,7 +58,7 @@
    - [x] In instances when a user has only one pet, the pet should automatically be selected.
   
   # OTHER NOTES
-- [ ] Reword every instance of “Agreement” to “Terms of Use”
+- [x] Reword every instance of “Agreement” to “Terms of Use”
 
 
 # ADMIN PLATFORM
