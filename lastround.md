@@ -52,10 +52,10 @@
      - [x] In Frequency dropdown, add “Weekly".
 
 9. Reservations
-   - [ ] Change title shown on page and in address bar from “Bookings” to “Reservations”.
-   - [ ] Should read “Choose your pet”.
-   - [ ] If user fails to select a pet, error message should read “Select Your Pet”.
-   - [ ] In instances when a user has only one pet, the pet should automatically be selected.
+   - [x] Change title shown on page and in address bar from “Bookings” to “Reservations”.
+   - [x] Should read “Choose your pet”.
+   - [x] If user fails to select a pet, error message should read “Select Your Pet”.
+   - [x] In instances when a user has only one pet, the pet should automatically be selected.
   
   # OTHER NOTES
 - [ ] Reword every instance of “Agreement” to “Terms of Use”

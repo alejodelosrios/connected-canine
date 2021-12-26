@@ -1,6 +1,6 @@
 <x-jet-form-section submit="save">
     <x-slot name="title">
-        {{ __('Bookings') }}
+        {{ __('Reservations') }}
     </x-slot>
 
     <x-slot name="description">
@@ -14,7 +14,7 @@
         </x-jet-action-message>
 
         <div class="p-2">
-            <h6>Choose a your pet</h6>
+            <h6>{{ __('Choose your pet') }}</h6>
             @foreach ($pets as $pet)
                 <div
                     class="mb-3 border rounded-lg px-2 pt-2 {{ $errors->has('pet_id') ? 'is-invalid border-danger' : '' }}">

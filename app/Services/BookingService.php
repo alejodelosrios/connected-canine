@@ -12,18 +12,11 @@ final class BookingService implements UpdaterContract
 
     //TODO: CHECK FOR CUSTOM MESSAGGE DISLAY
     protected $custom_message = [
-
-        'pet_id' => [
-            'required' => 'You must choose a pet!',
-            'exists' => 'The chosen pet does not appear in our records!!',
-            'unique' => 'The chosen pet already has an approved reservation or pending approval!',
-        ],
-
-        'date' => [
-            'required' => 'You must choose a date!',
-            'after' => 'You must choose a date later than today!!',
-        ],
-
+        'pet_id.required' => 'Select Your Pet',
+        'pet_id.exists' => 'The chosen pet does not appear in our records',
+        'pet_id.unique' => 'The chosen pet already has an approved reservation or pending approval',
+        'date.required' => 'Date is required',
+        'date.after' => 'The date must be after today',
     ];
 
     public function save(array $input)

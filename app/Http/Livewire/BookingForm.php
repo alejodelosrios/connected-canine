@@ -13,6 +13,14 @@ class BookingForm extends Component
         "date" => "",
     ];
 
+    public function mount()
+    {
+        $pets = Auth::user()->pets;
+        if ($pets->count() === 1) {
+            $this->state['pet_id'] = $pets->first()->id;
+        }
+    }
+
     public function save()
     {
         $this->resetErrorBag();
