@@ -20,7 +20,7 @@
    
 3. Registration — Welcome page
    - [ ] Since only clients should have access to login, please specify “Company Email”. We discussed granting access to only approved users based on their e-mail domain so as we gain clients I will allow access to approved domains.
-   - [ ] Change “I agree the Terms and Conditions” to “I agree to the Terms of Use and Privacy Policy”
+   - [x] Change “I agree the Terms and Conditions” to “I agree to the Terms of Use and Privacy Policy”
    - [ ] If users don’t select the “I agree” box, show an error message in red font such as “Please indicate that you have read and agree to the Terms of Use and Privacy Policy”.
    - [ ] Terms of Use link.
    - [ ] Privacy Policy link.

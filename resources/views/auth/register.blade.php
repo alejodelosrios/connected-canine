@@ -3,8 +3,8 @@
         <x-hero-section img="/img/jack-russel-staring-at-laptop.jpg">
             <x-slot name="title">Welcome!</x-slot>
             <x-slot name="subtitle">
-                {{--Use these awesome forms to login or create new account in your--}}
-                {{--project for free--}}
+                {{-- Use these awesome forms to login or create new account in your --}}
+                {{-- project for free --}}
             </x-slot>
         </x-hero-section>
 
@@ -16,15 +16,15 @@
                 {{-- FIRSTNAME INPUT --}}
                 <div class="mb-3">
                     <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
-                        :value="old('name')" required autofocus autocomplete="name" placeholder="First name" aria-label="First name"
-                        aria-describedby="firstname-addon">
+                        :value="old('name')" required autofocus autocomplete="name" placeholder="First name"
+                        aria-label="First name" aria-describedby="firstname-addon">
                     <x-jet-input-error for="name"></x-jet-input-error>
                 </div>
                 {{-- LASTNAME INPUT --}}
                 <div class="mb-3">
-                    <input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}" type="text" name="lastname"
-                        :value="old('lastname')" required autofocus autocomplete="lastname" placeholder="Last name" aria-label="Last name"
-                        aria-describedby="lastname-addon">
+                    <input class="form-control {{ $errors->has('lastname') ? 'is-invalid' : '' }}" type="text"
+                        name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname"
+                        placeholder="Last name" aria-label="Last name" aria-describedby="lastname-addon">
                     <x-jet-input-error for="lastname"></x-jet-input-error>
                 </div>
                 {{-- EMAIL INPUT --}}
@@ -52,8 +52,9 @@
                 <div class="text-left form-check form-check-info">
                     <input id="terms" name="terms" class="form-check-input" type="checkbox">
                     <label class="form-check-label" for="terms">
-                        I agree the <a href="{{ route('terms.show') }}" class="text-dark font-weight-bolder">Terms
-                            and Conditions</a>
+                        I agree to the <a href="{{ route('terms.show') }}" class="text-dark font-weight-bolder">Terms
+                            of Use</a> and <a href="{{ route('policy.show') }}"
+                            class="text-dark font-weight-bolder">Privacy Policy</a>
                     </label>
                     <x-jet-input-error for="terms"></x-jet-input-error>
                 </div>
