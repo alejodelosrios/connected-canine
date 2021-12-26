@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="save" role="form text-left">
+    <form wire:submit.prevent="save" role="form">
 
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}

@@ -8,8 +8,10 @@
             <div class="row mt-lg-n10 mt-md-n11 mt-n10">
                 <x-card class="mx-auto col-md-8">
                     @if ($step == 1)
+                        <h4 class="py-2">User Profile</h4>
                         @livewire('update-profile-information-form')
                     @else
+                        <h4 class="py-2">Pet Profile</h4>
                         @livewire('pet-profile-form')
                     @endif
                 </x-card>
