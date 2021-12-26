@@ -26,7 +26,7 @@
    - [x] Privacy Policy link.
   
 4. Contact Connected Canine
-   - [ ] Add period after “help”.
+   - [x] Add period after “help”.
    - [ ] After users complete the initial registration fields and click next, they should be sent to the following page: pet-profile.
    - [ ] Remove the word “Photo” above the photo.
 

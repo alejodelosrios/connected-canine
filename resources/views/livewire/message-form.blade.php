@@ -9,7 +9,7 @@
             <h3>Reach Out, We Don’t Bite</h3>
 
             <div class=" p-2">
-                <h6>Email us with any questions or comments. We’re here to help</h6>
+                <h6>Email us with any questions or comments. We’re here to help.</h6>
                 <div class="mb-3 col-12 ">
                     <textarea wire:model.defer="message" name="message" id="message" class="form-control  {{ $errors->has('message') ? 'is-invalid' : '' }}"></textarea>
                     <x-jet-input-error for="message" />
