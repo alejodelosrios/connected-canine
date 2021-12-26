@@ -36,7 +36,6 @@ class AddProfileFieldsToUsers extends Migration
         Schema::table("users", function (Blueprint $table) {
             $table->dropColumn([
                 "lastname",
-                "area_code",
                 "phone_number",
                 "address",
                 "accept_terms",

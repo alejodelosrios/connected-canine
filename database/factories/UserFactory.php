@@ -31,7 +31,7 @@ class UserFactory extends Factory
             "password" =>
             '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             "remember_token" => Str::random(10),
-            "phone_number" => '(555) 8888-9999',
+            "phone_number" => '1234567890',
             "address" => function ($attributes) {
                 $home_street = $this->faker->randomNumber(4, true);
                 $street_address = $this->faker->streetName();
