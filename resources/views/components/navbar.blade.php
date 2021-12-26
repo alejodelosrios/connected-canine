@@ -43,12 +43,6 @@
                                             {{ __('Manage Account') }}
                                         </h6>
 
-                                        @role('Admin')
-                                            <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                                                {{ __('Admin panel') }}
-                                            </x-jet-dropdown-link>
-                                        @endrole
-
                                         <x-jet-dropdown-link href="{{ route('user.profile') }}">
                                             {{ __('Profile') }}
                                         </x-jet-dropdown-link>
@@ -87,12 +81,6 @@
                         </li>
 
                         <li>
-
-                            @role('Admin')
-                                <x-jet-dropdown-link href="{{ route('admin.dashboard') }}">
-                                    {{ __('Admin Panel') }}
-                                </x-jet-dropdown-link>
-                            @endrole
                             <x-jet-dropdown-link href="{{ route('user.profile') }}">
                                 {{ __('Profile') }}
                             </x-jet-dropdown-link>
