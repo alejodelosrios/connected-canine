@@ -47,9 +47,9 @@
 8. Pets— Vet & Medical
    - [x] Question prompt should read: “Does your dog currently have any of the following medical conditions? Check all that apply”
    - Add Medication
-     - [ ] Change title at top left to “Medicine”.
-     - [ ] Why are error messages showing?.
-     - [ ] In Frequency dropdown, add “Weekly".
+     - [x] Change title at top left to “Medicine”.
+     - [x] Why are error messages showing?.
+     - [x] In Frequency dropdown, add “Weekly".
 
 9. Reservations
    - [ ] Change title shown on page and in address bar from “Bookings” to “Reservations”.

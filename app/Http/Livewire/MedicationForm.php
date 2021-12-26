@@ -18,6 +18,13 @@ class MedicationForm extends Component
     {
         $this->pet = $pet;
 
+        $this->state = [
+            'frequency' => 'hourly',
+            'status' => '1',
+            'time_block' => 'morning',
+            'prescription' => '1'
+        ];
+
         if (isset($medication)) {
             $this->state = $medication->toArray();
         }
