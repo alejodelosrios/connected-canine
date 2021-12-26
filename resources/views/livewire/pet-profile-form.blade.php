@@ -27,7 +27,7 @@
             </div>
 
             <x-jet-secondary-button class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                {{ __('Select A New Photo') }}
+                {{ __('Add Your Pup’s Photo!') }}
             </x-jet-secondary-button>
 
             @if ($this->pet->profile_photo_path)
