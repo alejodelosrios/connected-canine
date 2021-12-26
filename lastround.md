@@ -78,7 +78,7 @@
    ** Deberia indicar las condiciones bajo las que se genero el error, no he podido reproducirlo, sin embargo me parece que es cuando se intenta hacer una reservacion de una mascota que ya tiene una pendiente**
 2. Employee Portal
    - [ ] Section: **Pets-index**: Users should be able to clearly see the “edit” link here. Should show if a dog’s name is up to 10 characters.
-   - [ ] Section: **Behavior Background**: Align “Occasionally” with selection bubble.
+   - [x] Section: **Behavior Background**: Align “Occasionally” with selection bubble.
    - [ ] Change so “No” is not selected by default.
    - [ ] Please fix so it’s usable. Also, people correct the icons to match the behaviors as shown on the attached file as previously mention.
 

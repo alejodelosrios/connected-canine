@@ -1,6 +1,6 @@
 <div x-data>
 
-    <form wire:submit.prevent="save" role="form text-left">
+    <form wire:submit.prevent="save" role="form text-left" class="mb-4">
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
@@ -88,7 +88,7 @@
 
         <div class="px-5 mt-4 d-flex {{ $errors->has('question3') ? 'is-invalid border-danger' : '' }}">
             <h6>{{ data_get($questions, '2.name') }}</h6>
-            <div class="px-4 ">
+            <div class="px-md-4 ">
 
                 <label for="question3_option1" style="cursor:pointer">
                     <input type="radio" wire:model="state.question3" value="Never" id="question3_option1"
@@ -125,7 +125,7 @@
 
         <div class="px-5 mt-2 d-flex {{ $errors->has('question4') ? 'is-invalid border-danger' : '' }}">
             <h6>{{ data_get($questions, '3.name') }}</h6>
-            <div class="px-4 ">
+            <div class="px-md-4 ">
 
                 <label for="question4_option1" style="cursor:pointer">
                     <input type="radio" wire:model="state.question4" value="Never" id="question4_option1"
