@@ -10,7 +10,7 @@ class BoardingHistoryForm extends Component
 {
 
     public $state = [
-        'attended' => false
+        'attended' => null
     ];
 
     protected $listeners = [
