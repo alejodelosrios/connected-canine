@@ -1,4 +1,4 @@
-<x-behavior-layout title="Separation Confinement" :pet="$pet">
+<x-behavior-layout title="Separation and Confinement" :pet="$pet">
         @livewire('separation-confinement-form', ['pet'=> $pet])
 
         <x-slot name="footer">
