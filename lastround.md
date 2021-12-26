@@ -75,12 +75,12 @@
 # MOBILE VERSION
 1. Admin Portal
    - [ ] Section: **Take Your Dog To Work**:  Not sure why I’m receiving an error message when trying to make a reservation using this profile.
-   ** Deberia indicar las condiciones bajo las que se genero el error, no he podido reproducirlo, sin embargo me parece que es cuando se intenta hacer una reservacion de una mascota que ya tiene una pendiente**
+   **Deberia indicar las condiciones bajo las que se genero el error, no he podido reproducirlo, sin embargo me parece que es cuando se intenta hacer una reservacion de una mascota que ya tiene una pendiente**
 2. Employee Portal
    - [ ] Section: **Pets-index**: Users should be able to clearly see the “edit” link here. Should show if a dog’s name is up to 10 characters.
    - [x] Section: **Behavior Background**: Align “Occasionally” with selection bubble.
    - [x] Change so “No” is not selected by default.
    - [ ] Please fix so it’s usable. Also, people correct the icons to match the behaviors as shown on the attached file as previously mention.
 
-
+No se hizo los cambios de las imagenes pq no encontre como descargarlas.
 
