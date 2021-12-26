@@ -62,7 +62,7 @@
 
 
 # ADMIN PLATFORM
-- [ ] Change landing page after login from *admin/home* to *admin/user*.
+- [x] Change landing page after login from *admin/home* to *admin/user*.
 - [ ] Reword “Users list” to *“Participants”* on *admin/user* view
 
 # EMPLOYEE PLATFORM

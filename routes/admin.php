@@ -9,9 +9,7 @@ use App\Http\Controllers\AdminBehaviorController;
 
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* Home */
-    Route::get("home", function () {
-        return view("dashboard");
-    })->name("dashboard");
+    /* Route::get("home", function () {return view("dashboard");})->name("dashboard"); */
 
     /* Users index */
     Route::get("users", UserListController::class)->name("users-index");
