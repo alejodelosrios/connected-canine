@@ -45,13 +45,8 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
 
     /* pets profile*/
     Route::get("pets", [PetController::class, "index"])->name("pet.index");
-    Route::get("pets/add", [PetProfileController::class, "create"])->name(
-        "pet.create"
-    );
-    Route::get("pets/{pet}/profile", [
-        PetProfileController::class,
-        "update",
-    ])->name("pet.update");
+    Route::get("pets/add", [PetProfileController::class, "create"])->name("pet.create");
+    Route::get("pets/{pet}/profile", [PetProfileController::class,"update",])->name("pet.update");
 
     /* pet medications */
     Route::get("pets/{pet}/medications", [

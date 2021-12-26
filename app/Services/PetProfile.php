@@ -39,5 +39,7 @@ final class PetProfile implements UpdaterContract
         if (isset($input["photo"])) {
             $pet->updateProfilePhoto($input["photo"]);
         }
+
+        return $pet;
     }
 }

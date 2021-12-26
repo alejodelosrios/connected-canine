@@ -27,8 +27,8 @@
   
 4. Contact Connected Canine
    - [x] Add period after “help”.
-   - [ ] After users complete the initial registration fields and click next, they should be sent to the following page: pet-profile.
-   - [ ] Remove the word “Photo” above the photo.
+   - [x] After users complete the initial registration fields and click next, they should be sent to the following page: pet-profile.
+   - [x] Remove the word “Photo” above the photo.
 
 5. Pets—Behavior Background—Doggy Daycare
     - [ ] Change every instance of “Doggie” to “Doggy”.

@@ -13,7 +13,7 @@ class WizardProfileController extends Controller
             'step' => $step,
             'config' => [
                 'route_name' => 'wizard.profile',
-                'redirect_route_name' => 'pet.index',
+                'redirect_route_name' => 'pet.update',
                 'max_steps' => 2,
             ]
         ]);

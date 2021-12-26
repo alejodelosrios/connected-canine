@@ -24,7 +24,7 @@ class PetProfileForm extends Component
         if (!is_null($pet)) {
             $this->state = $pet->withoutRelations()->toArray();
         }
-        
+
         if (!array_key_exists('question', $this->state)) {
             $this->state['question'] = 'neutered';
         }
@@ -35,13 +35,13 @@ class PetProfileForm extends Component
         $this->resetErrorBag();
 
         $updater = new Updater();
-        $updater->save(
+        $pet = $updater->save(
             $this->photo
                 ? array_merge($this->state, ["photo" => $this->photo])
                 : $this->state
         );
 
-        $this->emit("saved");
+        $this->emit("saved", ['pet_id' => $pet->id]);
 
         $this->emit("refresh-navigation-menu");
     }
