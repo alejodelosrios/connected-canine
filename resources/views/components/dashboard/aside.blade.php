@@ -17,18 +17,18 @@
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
 
-            {{--@role('Admin')--}}
-                {{--<x-dashboard.nav-link route="admin.dashboard" title="Home" :active="request()->is('admin/home')">--}}
-                    {{--<x-slot name="icon">--}}
-                        {{--<x-slot name="icon">--}}
-                            {{--@if (request()->is('admin/home'))--}}
-                                {{--<img src="{{ asset('img/home-white.png') }}" width="20px" height="20px" alt="">--}}
-                            {{--@else--}}
-                                {{--<img src="{{ asset('img/home.png') }}" width="20px" height="20px" alt="">--}}
-                            {{--@endif--}}
-                        {{--</x-slot>--}}
-                {{--</x-dashboard.nav-link>--}}
-            {{--@endrole--}}
+            {{-- @role('Admin') --}}
+            {{-- <x-dashboard.nav-link route="admin.dashboard" title="Home" :active="request()->is('admin/home')"> --}}
+            {{-- <x-slot name="icon"> --}}
+            {{-- <x-slot name="icon"> --}}
+            {{-- @if (request()->is('admin/home')) --}}
+            {{-- <img src="{{ asset('img/home-white.png') }}" width="20px" height="20px" alt=""> --}}
+            {{-- @else --}}
+            {{-- <img src="{{ asset('img/home.png') }}" width="20px" height="20px" alt=""> --}}
+            {{-- @endif --}}
+            {{-- </x-slot> --}}
+            {{-- </x-dashboard.nav-link> --}}
+            {{-- @endrole --}}
             <x-dashboard.nav-link route="bookings.create" title="Reservations"
                 :active="request()->is('bookings/*') || request()->is('bookings')">
                 <x-slot name="icon">
@@ -51,7 +51,7 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
-             <x-dashboard.nav-link route="user.profile" title="User Profile"
+            <x-dashboard.nav-link route="user.profile" title="User Profile"
                 :active="request()->is('user/*') || request()->is('user')">
                 <x-slot name="icon">
                     @if (request()->is('user/*') || request()->is('user'))
@@ -73,17 +73,6 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
-            {{--<x-dashboard.nav-link route="emergency-contact" title="Emergency Contact"--}}
-                {{--:active="request()->is('emergency-contact')">--}}
-                {{--[> //TODO: MAKE EMERGENCY-CONTACT SCREEN <]--}}
-                {{--<x-slot name="icon">--}}
-                    {{--@if (request()->is('emergency-contact'))--}}
-                        {{--<img src="{{ asset('img/emergency-contact-white.png') }}" width="20px" height="20px" alt="">--}}
-                    {{--@else--}}
-                        {{--<img src="{{ asset('img/emergency-contact.png') }}" width="20px" height="20px" alt="">--}}
-                    {{--@endif--}}
-                {{--</x-slot>--}}
-            {{--</x-dashboard.nav-link>--}}
             @role('Admin')
                 <x-dashboard.nav-link route="admin.users-index" title="Participants"
                     :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">
@@ -96,6 +85,17 @@
                     </x-slot>
                 </x-dashboard.nav-link>
             @endrole
+
+            <x-dashboard.nav-link route="user-message" title="Contact Us" :active="request()->is('messages')">
+                <x-slot name="icon">
+                    @if (request()->is('messages'))
+                        <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
+
             <hr class="mt-4 horizontal dark">
 
             <li class="nav-item ">

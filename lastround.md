@@ -69,7 +69,8 @@
 - [ ] Consolidate content in “Insurance” tab under “User Profile”.
 - [x] Move “User Profile” tab below “Pets”
 - [ ] Add “Participants” tab below “User Profile. Users should be able to see which of their peers are also participating but they shouldn’t be able to access the pet’s profile. See below.
-- [ ] Add “Contact Us” below “Participants”. The “Contact Us” tab takes users to https://poc-connected-canine.herokuapp.com/messages
+- [x] Add “Contact Us” below “Participants”. The “Contact Us” tab takes users to https://poc-connected-canine.herokuapp.com/messages
+- [ ] Add icon to "Contact Us
 
 # MOBILE VERSION
 1. Admin Portal
