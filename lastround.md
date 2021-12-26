@@ -32,7 +32,7 @@
 
 5. Pets—Behavior Background—Doggy Daycare
     - [x] Change every instance of “Doggie” to “Doggy”.
-    - [ ] Question #4—Capitalize “H” in “Has your dog ever...”.
+    - [x] Question #4—Capitalize “H” in “Has your dog ever...”.
 6. Pets— Behavior Background—Separation And Confinemen
     - [ ] Top of page should read “Separation And Confinement”.
     - [ ] Error message for Q2. If a user fails to respond, the error message should read “ Your response is required.”.

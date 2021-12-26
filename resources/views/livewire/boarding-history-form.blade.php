@@ -66,7 +66,7 @@
         {{-- Question 04 : accomodations --}}
         <div class="mt-5">
             <h6 :class="!$refs.attended_true.checked && 'text-muted'">
-                4) has your dog ever need special accommodations in a
+                4) Has your dog ever need special accommodations in a
                 doggy daycare or boarding facility for behavioral reasons?</h6>
             <div class="px-4 {{ $errors->has('accomodations') ? 'is-invalid border-danger' : '' }}">
                 <label :class="!$refs.attended_true.checked && 'text-muted'" for="accomodations_true"><input
