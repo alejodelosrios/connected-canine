@@ -8,22 +8,20 @@
             <div class="col-4"></div>
             <div class="col-8">
                 <div class="row">
-                    <div class="col">
-                        <img src="{{ asset('img/behaviors/whines.png') }}" alt="" style="width:100%; height:64px" />
+                    <div class="col text-center">
+                        <img src="{{ asset('img/behaviors/whines.png') }}" style="width:auto; height:64px; max-width:100%;" />
                     </div>
-                    <div class="col ">
-                        <img src="{{ asset('img/behaviors/tucks-tail.png') }}" alt=""
-                            style="width:100%; height:64px" />
+                    <div class="col text-center ">
+                        <img src="{{ asset('img/behaviors/tucks-tail.png') }}" style="width:auto; height:64px; max-width:100%;" />
                     </div>
-                    <div class="col">
-                        <img src="{{ asset('img/behaviors/growls.png') }}" alt="" style="width:100%; height:64px" />
+                    <div class="col text-center">
+                        <img src="{{ asset('img/behaviors/growls.png') }}" style="width:auto; height:64px; max-width:100%;" />
                     </div>
-                    <div class="col">
-                        <img src="{{ asset('img/behaviors/raises-back-hair.png') }}" alt=""
-                            style="width:100%; height:64px" />
+                    <div class="col text-center">
+                        <img src="{{ asset('img/behaviors/raises-back-hair.png') }}" style="width:auto; height:64px; max-width:100%;" />
                     </div>
-                    <div class="col"><img src="{{ asset('img/behaviors/lunges.png') }}" alt=""
-                            style="width:100%; height:64px" />
+                    <div class="col text-center">
+                        <img src="{{ asset('img/behaviors/lunges.png') }}" style="width:auto; height:64px; max-width:100%;" />
                     </div>
                 </div>
             </div>

@@ -39,7 +39,9 @@
     - [x] Error message for Q2. If a user fails to respond, the error message should read “ Your response is required.”.
 
 7. Pets— Behavior Background—Aggression and Fear
-   - [ ] Change icons showing the following behaviors Attaching the original file for reference. Also, please try to maintain the image quality.
+   - [ ] Change icons showing the following behaviors Attaching the original file for reference. 
+   - [x] Also, please try to maintain the image quality.
+     **Se corrigio la proporcionalidad, pero la calidad de imagen viene dada por los recortes hechos.** 
    - [ ] Change page title in upper left from “Aggression & Fear” to “Aggression And Fear”.
 
 8. Pets— Vet & Medical
