@@ -14,7 +14,8 @@
 
         <div class="w-100">
             <h6>
-                Does your currently have any of the following medical conditions? Check all tha apply.
+                Does your dog currently have any of the following
+                medical conditions? Check all that apply
             </h6>
             <div>
                 @foreach ($contidtions as $condition)

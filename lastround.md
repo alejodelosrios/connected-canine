@@ -45,7 +45,7 @@
    - [x] Change page title in upper left from “Aggression & Fear” to “Aggression And Fear”.
 
 8. Pets— Vet & Medical
-   - [ ] Question prompt should read: “Does your dog currently have any of the following medical conditions? Check all that apply”
+   - [x] Question prompt should read: “Does your dog currently have any of the following medical conditions? Check all that apply”
    - Add Medication
      - [ ] Change title at top left to “Medicine”.
      - [ ] Why are error messages showing?.
