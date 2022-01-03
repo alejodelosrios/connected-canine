@@ -17,7 +17,7 @@
             </div>
 
             <div class="d-flex justify-content-between p-2">
-                <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm">Back</a>
+                <a href="{{ route('pet.index') }}" class="btn btn-outline-primary btn-sm">Back</a>
                 <button class="btn btn-primary btn-sm">Send Email</button>
             </div>
         </x-card>
