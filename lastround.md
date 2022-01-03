@@ -56,6 +56,7 @@
    - [x] Question prompt should read: “Does your dog currently have any of the following medical conditions? Check all that apply”
    
    - Add Medication
+     
      - [x] Change title at top left to “Medicine”.
      - [x] Why are error messages showing?.
      - [x] In Frequency dropdown, add “Weekly".
@@ -83,11 +84,9 @@
 
 - [ ] Add “Participants” tab below “User Profile. Users should be able to see which of their peers are also participating but they shouldn’t be able to access the pet’s profile. See below.
   
-  **<mark>They are asking for deleting the visits stats. But in the last revision, we moved it there</mark>**
+  **<mark>They are asking for deleting the visits stats. But in the last revision, we moved it there at their request</mark>**
   
   ![Screen Shot 2022-01-03 at 10.05.01.png](/Users/alejodelosrios/Desktop/Screen%20Shot%202022-01-03%20at%2010.05.01.png)
-  
-  
 
 - [x] Add “Contact Us” below “Participants”. The “Contact Us” tab takes users to https://poc-connected-canine.herokuapp.com/messages
 
@@ -103,5 +102,3 @@
    - [x] Section: **Behavior Background**: Align “Occasionally” with selection bubble.
    - [x] Change so “No” is not selected by default.
    - [ ] Please fix so it’s usable. Also, people correct the icons to match the behaviors as shown on the attached file as previously mention.
-
-
