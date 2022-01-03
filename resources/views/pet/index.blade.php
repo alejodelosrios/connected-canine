@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color
+                        <th class="d-none d-sm-block text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color
                         </th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Sex</th>
@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td class="d-none d-sm-block ">
                                 <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->color }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
