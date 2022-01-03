@@ -42,7 +42,7 @@
                                     </div>
                                 </div>
                             </td>
-                            <td class="d-none d-sm-block ">
+                            <td class="d-none d-sm-table-cell ">
                                 <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->color }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
