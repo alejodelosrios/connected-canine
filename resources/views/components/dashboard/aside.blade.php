@@ -89,9 +89,9 @@
             <x-dashboard.nav-link route="user-message" title="Contact Us" :active="request()->is('messages')">
                 <x-slot name="icon">
                     @if (request()->is('messages'))
-                        <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
+                        <img src="{{ asset('img/contact-us-white.png') }}" width="20px" height="20px" alt="">
                     @else
-                        <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
+                        <img src="{{ asset('img/contact-us.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
