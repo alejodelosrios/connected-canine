@@ -99,8 +99,8 @@
                 <div class="form-group">
                     <select class="form-control {{ $errors->has('question') ? 'is-invalid' : '' }}" id="question"
                         wire:model.defer="state.question">
-                        <option value="neutered">Neutered</option>
-                        <option value="spayed">Spayed</option>
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
                     </select>
                 </div>
             </div>
