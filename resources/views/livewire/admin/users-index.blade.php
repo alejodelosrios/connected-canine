@@ -1,8 +1,10 @@
-
 <div>
-    <div class="my-5">
-        <x-dashboard.stats />
-    </div>
+
+    @role('Admin')
+        <div class="my-5">
+            <x-dashboard.stats />
+        </div>
+    @endrole
     <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
         <h3 class="text-lg">{{ __('Participants') }}</h3>
     </div>
@@ -42,9 +44,13 @@
                         </td>
                         <td class="align-middle text-center">
                             @foreach ($user->pets as $pet)
-                                <a href="{{ route('admin.pet-profile', $pet) }}"
-                                    class="badge bg-primary">{{ $pet->name }}</a>
-                                @endforeach
+                                @role('Admin')
+                                    <a href="{{ route('admin.pet-profile', $pet) }}"
+                                        class="badge bg-primary">{{ $pet->name }}</a>
+                                @else
+                                    <p class="badge bg-primary">{{ $pet->name }}</p>
+                                @endrole
+                            @endforeach
                         </td>
                     </tr>
                 @empty

@@ -73,18 +73,16 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
-            @role('Admin')
-                <x-dashboard.nav-link route="admin.users-index" title="Participants"
-                    :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">
-                    <x-slot name="icon">
-                        @if (request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*'))
-                            <img src="{{ asset('img/users-white.png') }}" width="20px" height="20px" alt="">
-                        @else
-                            <img src="{{ asset('img/users.png') }}" width="20px" height="20px" alt="">
-                        @endif
-                    </x-slot>
-                </x-dashboard.nav-link>
-            @endrole
+            <x-dashboard.nav-link route="admin.users-index" title="Participants"
+                :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">
+                <x-slot name="icon">
+                    @if (request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*'))
+                        <img src="{{ asset('img/users-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/users.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
 
             <x-dashboard.nav-link route="user-message" title="Contact Us" :active="request()->is('messages')">
                 <x-slot name="icon">
