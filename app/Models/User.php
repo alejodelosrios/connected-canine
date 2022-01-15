@@ -89,7 +89,7 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->hasRole('Admin');
+        return $this->hasRole("Admin");
     }
 
     public function getPhoneNumberAttribute($value)
@@ -97,8 +97,20 @@ class User extends Authenticatable
         if ($value) {
             $number = str_split($value, 3);
             $format = "(?) ?-??";
-            return Str::of($format)->replaceArray('?', $number);
+            return Str::of($format)->replaceArray("?", $number);
         }
-        return '';
+        return "";
+    }
+    public function getFullNameAttribute()
+    {
+        return $this->name . " " . $this->lastname;
+    }
+    public function getRoleNameAttribute()
+    {
+        $roles = $this->getRoleNames();
+        if ($roles->contains("Admin")) {
+            return "Admin";
+        }
+        return "Employee";
     }
 }

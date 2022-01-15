@@ -13,33 +13,37 @@
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th class="d-none d-md-table-cell text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Id</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Name</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                        Lastname
+                        Role
                     </th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                    <th class="d-none d-md-table-cell text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Email</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                         Pets</th>
-                    <th class="text-secondary opacity-7"></th>
                 </tr>
             </thead>
             <tbody>
                 @forelse ($users as $user)
                     <tr>
-                        <td class="align-middle text-center text-sm">
+                        <td class="d-none d-md-table-cell align-middle text-center text-sm">
                             <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $user->id }}</p>
                         </td>
                         <td class="align-middle text-center text-sm">
-                            <span class=" text-xs font-weight-bold text-capitalize">{{ $user->name }}</span>
+                                @role('Admin')
+                                    <a href="{{ route('user.profile', $user) }}"
+                                        class="text-xs font-weight-bold text-capitalize">{{ $user->fullName }}</a>
+                                @else
+                                    <p class="text-xs font-weight-bold text-capitalize">{{ $user->fullName }}</p>
+                                @endrole
                         </td>
                         <td class="align-middle text-center">
-                            <span class=" text-xs font-weight-bold">{{ $user->lastname }}</span>
+                            <span class=" text-xs font-weight-bold">{{ $user->roleName }}</span>
                         </td>
-                        <td class="align-middle text-center">
+                        <td class="d-none d-md-table-cell align-middle text-center">
                             <span class=" text-xs font-weight-bold">{{ $user->email }}</span>
                         </td>
                         <td class="align-middle text-center">

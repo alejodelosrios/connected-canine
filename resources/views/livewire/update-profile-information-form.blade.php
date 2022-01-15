@@ -5,6 +5,17 @@
             {{ __('Saved.') }}
         </x-jet-action-message>
 
+        @role('Admin')
+            <div class="mt-2 text-end">
+                <x-jet-button type="button" wire:click="makeUserAdmin">
+                    @if ($role == 'Admin')
+                        {{ __('Remove Admin role') }}
+                    @else
+                        {{ __('Assign Admin role') }}
+                    @endif
+                </x-jet-button>
+            </div>
+        @endrole
         <div class=" row">
             <!-- Name -->
             <div class="mb-3 col-12 col-md-6 ">

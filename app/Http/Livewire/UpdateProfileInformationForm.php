@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
@@ -17,6 +18,7 @@ class UpdateProfileInformationForm extends Component
      * @var array
      */
     public $state = [];
+    public $role;
 
     protected $listeners = [
         "next" => "updateProfileInformation",
@@ -24,22 +26,14 @@ class UpdateProfileInformationForm extends Component
     ];
 
     /**
-     * The new avatar for the user.
-     *
-     * @var mixed
-     */
-    public $photo;
-
-    /**
      * Prepare the component.
      *
      * @return void
      */
-    public function mount()
+    public function mount($user)
     {
-        $this->state = Auth::user()
-            ->withoutRelations()
-            ->toArray();
+        $this->role = $user->roleName;
+        $this->state = $user->withoutRelations()->toArray();
     }
 
     /**
@@ -53,30 +47,9 @@ class UpdateProfileInformationForm extends Component
     ) {
         $this->resetErrorBag();
 
-        $updater->update(
-            Auth::user(),
-            $this->photo
-                ? array_merge($this->state, ["photo" => $this->photo])
-                : $this->state
-        );
-
-        if (isset($this->photo)) {
-            return redirect()->route("user.profile");
-        }
+        $updater->update(Auth::user(), $this->state);
 
         $this->emit("saved");
-
-        $this->emit("refresh-navigation-menu");
-    }
-
-    /**
-     * Delete user's profile photo.
-     *
-     * @return void
-     */
-    public function deleteProfilePhoto()
-    {
-        Auth::user()->deleteProfilePhoto();
 
         $this->emit("refresh-navigation-menu");
     }
@@ -99,5 +72,12 @@ class UpdateProfileInformationForm extends Component
     public function render()
     {
         return view("livewire.update-profile-information-form");
+    }
+
+    public function makeUserAdmin()
+    {
+        $user = User::find($this->state["id"]);
+        $user->roles()->toggle(1);
+        $this->role = $user->roleName;
     }
 }

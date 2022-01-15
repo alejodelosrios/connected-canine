@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()
             ->hasPets()
             ->create([
+                "name" => "Connected",
+                "latname" => "Admin",
                 "email" => "test@test.com",
             ]);
 
