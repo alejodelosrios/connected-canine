@@ -28,7 +28,7 @@
         }
 
     </style>
-    
+
     @stack('styles')
 
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -54,7 +54,7 @@
     @livewireScripts
 
     <!-- Theme JS -->
-    <script src="{{ asset('dashboard/js/soft-ui-dashboard.min') }}.js"></script>
+    <script src="{{ asset('dashboard/js/soft-ui-dashboard.min.js') }}"></script>
 </body>
 
 </html>

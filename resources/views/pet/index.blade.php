@@ -54,7 +54,7 @@
                             <td class="align-middle">
                                 <a href="{{ route('pet.update', $pet->id) }}"
                                     class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                                    data-original-title="Edit user" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-original-title="Edit user" data-bs-placement="top"
                                     title="Edit pet profile" data-container="body" data-animation="true">
                                     Edit
                                 </a>
