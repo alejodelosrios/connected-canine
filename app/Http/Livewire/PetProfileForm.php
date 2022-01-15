@@ -25,8 +25,8 @@ class PetProfileForm extends Component
             $this->state = $pet->withoutRelations()->toArray();
         }
 
-        if (!array_key_exists('question', $this->state)) {
-            $this->state['question'] = 'neutered';
+        if (!array_key_exists("question", $this->state)) {
+            $this->state["question"] = "no";
         }
     }
 
@@ -41,7 +41,7 @@ class PetProfileForm extends Component
                 : $this->state
         );
 
-        $this->emit("saved", ['pet_id' => $pet->id]);
+        $this->emit("saved", ["pet_id" => $pet->id]);
 
         $this->emit("refresh-navigation-menu");
     }
