@@ -9,9 +9,7 @@ use App\Services\BoardingHistoryService as Updater;
 class BoardingHistoryForm extends Component
 {
 
-    public $state = [
-        'attended' => null
-    ];
+    public $state = [];
 
     protected $listeners = [
         'save' => 'save'
@@ -23,8 +21,12 @@ class BoardingHistoryForm extends Component
 
         if ($pet->hasBoardingHistory()) {
             $this->state = $pet->boardingHistory->toArray();
-            $this->state['attended'] = true;
         }
+
+        if (array_key_exists('attended', $this->state) && data_get($this->state, 'attended') == false) {
+            $this->state = ['attended' => 0];
+        }
+
         $this->state['pet_id'] = $pet->id;
     }
 

@@ -9,7 +9,6 @@ final class BoardingHistoryService implements UpdaterContract
 {
     public $pet;
 
-    //TODO: LOOK FOR BUG - COMMENTS CAN'T SAVE
     protected $rules = [
         'attended' => ['required', 'boolean'],
         'scuffle_event' => ['required_if:attended,true', 'boolean'],
@@ -35,8 +34,6 @@ final class BoardingHistoryService implements UpdaterContract
     {
         $validated = Validator::make($input, $this->rules, $this->messages)->validateWithBag('save');
 
-        if ($validated['attended']) {
-            $this->pet->boardingHistory()->updateOrCreate(['pet_id' => $input['pet_id']], $validated);
-        }
+        $this->pet->boardingHistory()->updateOrCreate(['pet_id' => $input['pet_id']], $validated);
     }
 }
