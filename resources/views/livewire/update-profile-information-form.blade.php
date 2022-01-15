@@ -58,7 +58,7 @@
             <div class="mb-3 col-12 col-md-4">
                 <x-jet-label for="state" value="{{ __('State') }}" />
 
-                <x-jet-input id="state" type="state" class="{{ $errors->has('state') ? 'is-invalid' : '' }}"
+                <x-jet-input id="state" max="2" type="state" class="{{ $errors->has('state') ? 'is-invalid' : '' }}"
                     wire:model.defer="state.state" />
                 <x-jet-input-error for="state" />
             </div>

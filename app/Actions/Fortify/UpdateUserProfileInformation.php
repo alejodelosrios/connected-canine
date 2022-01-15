@@ -20,8 +20,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update($user, array $input)
     {
-
-        $input['phone_number'] = Str::of($input['phone_number'])->replaceMatches('/[^0-9]++/', '')->__toString();
+        $input["phone_number"] = Str::of($input["phone_number"])
+            ->replaceMatches("/[^0-9]++/", "")
+            ->__toString();
 
         Validator::make(
             $input,
@@ -35,33 +36,25 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                     Rule::unique("users")->ignore($user->id),
                 ],
                 "photo" => ["nullable", "mimes:jpg,jpeg,png", "max:1024"],
-                "phone_number" => [
-                    "required",
-                    "numeric",
-                    "digits:10",
-                ],
+                "phone_number" => ["required", "numeric", "digits:10"],
                 "address.home_street" => [
                     "required",
                     "string",
                     "min:5",
                     "max:250",
                 ],
-                "address.street_address" => [
-                    "nullable",
-                    "string",
-                    "max:250",
-                ],
+                "address.street_address" => ["nullable", "string", "max:250"],
                 "zip_code" => ["required", "digits:5"],
-                "state" => ["required", "string", "min:3", "max:80"],
+                "state" => ["required", "string", "size:2"],
             ],
             [
-                'zip_code.*' => 'The zip code must be 5 digits'
+                "zip_code.*" => "The zip code must be 5 digits",
             ],
             [
                 "address.home_street" => "home street",
                 "address.street_address" => "street address",
-                'name' => 'first name',
-                'lastname' => 'last name'
+                "name" => "first name",
+                "lastname" => "last name",
             ]
         )->validateWithBag("updateProfileInformation");
 
