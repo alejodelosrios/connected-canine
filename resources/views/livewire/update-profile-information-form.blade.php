@@ -6,15 +6,17 @@
         </x-jet-action-message>
 
         @role('Admin')
-            <div class="mt-2 text-end">
-                <x-jet-button type="button" wire:click="makeUserAdmin">
-                    @if ($role == 'Admin')
-                        {{ __('Remove Admin role') }}
-                    @else
-                        {{ __('Assign Admin role') }}
-                    @endif
-                </x-jet-button>
-            </div>
+            @if ($state['id'] !== 1)
+                <div class="mt-2 text-end">
+                    <x-jet-button type="button" wire:click="makeUserAdmin">
+                        @if ($role == 'Admin')
+                            {{ __('Remove Admin role') }}
+                        @else
+                            {{ __('Assign Admin role') }}
+                        @endif
+                    </x-jet-button>
+                </div>
+            @endif
         @endrole
         <div class=" row">
             <!-- Name -->
