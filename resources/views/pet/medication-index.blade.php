@@ -10,7 +10,7 @@
     @livewire('medical-history-form', ['pet'=>$pet])
 
     <x-card class="p-4 my-6">
-
+        <h4>Medication</h4>
         <div class="p-0 mx-3 mt-3 card-header position-relative z-index-1 justify-content-end d-flex">
 
             {{-- <h3 class="text-lg">Medications</h3> --}}
