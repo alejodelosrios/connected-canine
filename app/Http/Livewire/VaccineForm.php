@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
 use App\Services\VaccineService as Updater;
 
 class VaccineForm extends Component
@@ -27,7 +26,6 @@ class VaccineForm extends Component
     public function mount(Pet $pet)
     {
         $this->pet = $pet;
-
 
         if (isset($pet->vaccines)) {
             $this->state = [
@@ -57,7 +55,7 @@ class VaccineForm extends Component
         $this->resetErrorBag();
 
         $updater = new Updater($this->pet);
-        
+
         $updater->save($this->state);
 
         $this->emit('saved');

@@ -36,8 +36,6 @@ class MedicationFactory extends Factory
             ]),
             "purpose" => $this->faker->sentence(),
             "prescription" => $this->faker->randomElement(["Yes", "No"]),
-            "dosage" => $this->faker->sentence(),
-            "instructions" => $this->faker->sentence(),
         ];
     }
 }

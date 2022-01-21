@@ -30,15 +30,10 @@ Route::middleware(["auth:sanctum", "verified"])
 
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* profile */
-    Route::get(
-        "participants/profile/{user?}",
-        UserProfileController::class
-    )->name("user.profile");
+    Route::get("participants/profile/{user?}", UserProfileController::class)->name("user.profile");
     Route::get("insurance", InsuranceController::class)->name("insurance");
-    Route::get("/{user}/insurance/proofs", function (\App\Models\User $user) {
-        return \Illuminate\Support\Facades\Storage::disk("s3")->download(
-            $user->insurance->proof
-        );
+    Route::get("participants/profile/{user}/insurance", function (\App\Models\User $user) {
+        return response()->file(storage_path('app') . "/" . $user->insurance->proof);
     })->name("insurance-proof");
     //Route::get("emergency-contact", EmergencyContactController::class)->name(
     //"emergency-contact"
@@ -110,13 +105,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("messages", MessageController::class)->name("user-message");
 
     /* vaccines */
-    Route::get("/pets/{pet}/vaccines", VaccineController::class)->name(
-        "vaccines"
-    );
+    Route::get("/pets/{pet}/vaccines", VaccineController::class)->name("vaccines");
 
     Route::get("/pets/{pet}/vaccines/proofs", function (\App\Models\Pet $pet) {
-        return \Illuminate\Support\Facades\Storage::disk("s3")->download(
-            $pet->vaccines->proof
-        );
+        return response()->file(storage_path('app') . "/" . $pet->vaccines->proof);
     })->name("vaccine-proof");
 });

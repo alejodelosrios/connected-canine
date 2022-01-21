@@ -2,9 +2,7 @@
 
 namespace App\Services;
 
-use App\Models\Vaccine;
 use App\Contracts\UpdaterContract;
-use App\Models\Insurance;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -17,11 +15,9 @@ final class InsuranceService implements UpdaterContract
 
     public function save(array $input)
     {
-        $validated = Validator::make($input, $this->rules)->validateWithBag(
-            "save"
-        );
+        Validator::make($input, $this->rules)->validateWithBag("save");
 
-        $path = $input["proof"]->store("insurance-proofs", "s3");
+        $path = $input["proof"]->store("insurance-proofs");
         $user = Auth::user();
         $data["proof"] = $path;
 
@@ -30,16 +26,14 @@ final class InsuranceService implements UpdaterContract
 
     public function removeProof(string $file_name)
     {
-        if (Storage::disk("s3")->exists($file_name)) {
-            Storage::disk("s3")->delete($file_name);
+        if (Storage::exists($file_name)) {
+            Storage::delete($file_name);
         }
 
         $user = Auth::user();
-        $user->insurance
-            ->forceFill([
-                "proof" => null,
-            ])
-            ->save();
+        $user->insurance->forceFill([
+            "proof" => null,
+        ])->save();
     }
 
     private function isNotAEmptyData($data)

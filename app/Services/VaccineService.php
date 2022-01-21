@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use App\Contracts\UpdaterContract;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Filesystem\Filesystem;
 
 final class VaccineService implements UpdaterContract
 {
@@ -29,7 +30,7 @@ final class VaccineService implements UpdaterContract
             ->validateWithBag("save");
 
         if (isset($input["proof"])) {
-            $path = $input["proof"]->store("proofs", "s3");
+            $path = $input["proof"]->store("proofs");
             $validated["proof"] = $path;
         }
 
@@ -38,8 +39,8 @@ final class VaccineService implements UpdaterContract
 
     public function removeProof(string $file_name)
     {
-        if (Storage::disk("s3")->exists($file_name)) {
-            Storage::disk("s3")->delete($file_name);
+        if (Storage::exists($file_name)) {
+            Storage::delete($file_name);
         }
 
         $this->pet->vaccines
