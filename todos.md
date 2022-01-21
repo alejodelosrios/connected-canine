@@ -4,6 +4,6 @@
    
    - [x] Designate admins.
    - [ ] Delete a user.
-   - [ ] Create accounts using domains.
+   - [x] Create accounts using domains.
    - [ ] Edit the veterinarian database.
-   - [ ] Admins can access uploaded files.
+   - [x] Admins can access uploaded files.
