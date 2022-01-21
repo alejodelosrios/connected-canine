@@ -15,8 +15,8 @@
                 @csrf
                 {{-- FIRSTNAME INPUT --}}
                 <div class="mb-3">
-                    <x-jet-input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
-                        :value="old('name')" required autofocus autocomplete="name" placeholder="First name"
+                    <x-jet-input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text"
+                        name="name" :value="old('name')" required autofocus autocomplete="name" placeholder="First name"
                         aria-label="First name" aria-describedby="firstname-addon" />
                     <x-jet-input-error for="name"></x-jet-input-error>
                 </div>
@@ -29,15 +29,17 @@
                 </div>
                 {{-- EMAIL INPUT --}}
                 <div class="mb-3">
-                    <x-jet-input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email"
+                    <x-jet-input class="form-control {{ $errors->has('email') || $errors->has('domain') ? 'is-invalid' : '' }}" type="email"
                         name="email" :value="old('email')" required placeholder="Email" aria-label="Email"
                         aria-describedby="email-addon" />
+                    <x-jet-input-error for="domain"></x-jet-input-error>
                     <x-jet-input-error for="email"></x-jet-input-error>
+
                 </div>
                 {{-- PASSWWORD INPUT --}}
                 <div class="mb-3">
-                    <x-jet-input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password"
-                        name="password" required autocomplete="new-password" placeholder="Password"
+                    <x-jet-input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                        type="password" name="password" required autocomplete="new-password" placeholder="Password"
                         aria-label="Password" aria-describedby="password-addon" />
                     <x-jet-input-error for="password"></x-jet-input-error>
                 </div>
