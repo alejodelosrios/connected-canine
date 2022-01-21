@@ -7,8 +7,6 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="ps-4" href="{{ route('welcome') }}" target="_blank">
             <img src="{{ asset('img/logo-black-green.svg') }}" width="140px" height="47px" alt="">
-            {{-- <x-jet-application-mark width="36" /> --}}
-            {{-- <span class="ms-1 font-weight-bold">{{ config('app.name') }}</span> --}}
         </a>
     </div>
 
@@ -16,19 +14,7 @@
 
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
-
-            {{-- @role('Admin') --}}
-            {{-- <x-dashboard.nav-link route="admin.dashboard" title="Home" :active="request()->is('admin/home')"> --}}
-            {{-- <x-slot name="icon"> --}}
-            {{-- <x-slot name="icon"> --}}
-            {{-- @if (request()->is('admin/home')) --}}
-            {{-- <img src="{{ asset('img/home-white.png') }}" width="20px" height="20px" alt=""> --}}
-            {{-- @else --}}
-            {{-- <img src="{{ asset('img/home.png') }}" width="20px" height="20px" alt=""> --}}
-            {{-- @endif --}}
-            {{-- </x-slot> --}}
-            {{-- </x-dashboard.nav-link> --}}
-            {{-- @endrole --}}
+            {{-- Bookings --}}
             <x-dashboard.nav-link route="bookings.create" title="Reservations"
                 :active="request()->is('bookings/*') || request()->is('bookings')">
                 <x-slot name="icon">
@@ -39,7 +25,7 @@
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
-
+            {{-- Pets Profile --}}
             <x-dashboard.nav-link route="pet.index" title="Pets"
                 :active="request()->is('pets/*') || request()->is('pets')">
                 <x-slot name="icon">
@@ -50,7 +36,7 @@
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
-
+            {{-- User Profile --}}
             <x-dashboard.nav-link route="user.profile" title="User Profile"
                 :active="request()->is('user/*') || request()->is('user')">
                 <x-slot name="icon">
@@ -61,17 +47,7 @@
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
-
-            {{-- <x-dashboard.nav-link route="insurance" title="Insurance" :active="request()->is('insurance')">
-                <x-slot name="icon">
-                    @if (request()->is('insurance'))
-                        <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
-                    @else
-                        <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
-                    @endif
-                </x-slot>
-            </x-dashboard.nav-link> --}}
-
+            {{-- Participants --}}
             <x-dashboard.nav-link route="admin.users-index" title="Participants"
                 :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">
                 <x-slot name="icon">
@@ -82,7 +58,7 @@
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
-
+            {{-- Contact Us --}}
             <x-dashboard.nav-link route="user-message" title="Contact Us" :active="request()->is('messages')">
                 <x-slot name="icon">
                     @if (request()->is('messages'))
@@ -93,8 +69,20 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
+            {{-- Accounts --}}
+            @role('Admin')
+                <x-dashboard.nav-link route="admin.accounts" title="Accounts" :active="request()->is('accounts')">
+                    <x-slot name="icon">
+                        @if (request()->is('accounts'))
+                            <img src="{{ asset('img/users-white.png') }}" width="20px" height="20px" alt="">
+                        @else
+                            <img src="{{ asset('img/users.png') }}" width="20px" height="20px" alt="">
+                        @endif
+                    </x-slot>
+                </x-dashboard.nav-link>
+            @endrole
             <hr class="mt-4 horizontal dark">
-
+            {{-- Logout --}}
             <li class="nav-item ">
                 <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

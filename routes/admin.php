@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AdminBehaviorController;
 use App\Http\Controllers\AdminPetDetailsController;
 
@@ -43,4 +44,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/{pet}/behaviors/separation-confinement", [AdminBehaviorController::class, "separationConfinement",])->name("behavior.separation-confinement");
     Route::get("pets/{pet}/behaviors/aggression-fear", [AdminBehaviorController::class, "aggressionFear",])->name("behavior.aggression-fear");
     Route::get("pets/{pet}/behaviors/boarding-history", [AdminBehaviorController::class, "aggressionFear",])->name("boarding-history");
+
+    /* Accounts  */
+    Route::get("accounts/index", [AccountController::class, 'index'])->name("accounts");
 });
