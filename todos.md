@@ -1,0 +1,9 @@
+# Desktop Revision
+
+1. Profile Information
+   
+   - [x] Designate admins.
+   - [ ] Delete a user.
+   - [ ] Create accounts using domains.
+   - [ ] Edit the veterinarian database.
+   - [ ] Admins can access uploaded files.
