@@ -74,8 +74,6 @@ class MedicationFormTest extends TestCase
                 "time_block" => "Morning",
                 "purpose" => "Medication purpose",
                 "prescription" => true,
-                "dosage" => "Medication dosage",
-                "instructions" => "Medication instructions",
             ])
             ->create();
         $medication = $pet->medications->first();
@@ -128,8 +126,7 @@ class MedicationFormTest extends TestCase
                 "name" => "Other name",
             ])
             ->call("save")
-            ->assertSet($medication->name, "Other name");
+            ->assertSet('state.name', "Other name");
         $pet->refresh();
-        //dd($pet->medications->first()->name);
     }
 }

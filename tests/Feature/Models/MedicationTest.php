@@ -2,11 +2,11 @@
 
 namespace Tests\Feature\Models;
 
-use App\Models\Medication;
-use App\Models\Pet;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\Medication;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class MedicationTest extends TestCase
 {
@@ -17,10 +17,6 @@ class MedicationTest extends TestCase
     {
         $medication = Medication::factory()->create();
 
-        $this->assertInstanceOf(BelongsToMany::class, $medication->pets());
-        $this->assertInstanceOf(
-            "Illuminate\Database\Eloquent\Collection",
-            $medication->pets
-        );
+        $this->assertInstanceOf(BelongsTo::class, $medication->pet());
     }
 }

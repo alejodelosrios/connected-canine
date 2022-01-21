@@ -6,8 +6,8 @@ use App\Models\Pet;
 use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class PetTest extends TestCase
 {
@@ -96,7 +96,7 @@ class PetTest extends TestCase
     {
         $pet = Pet::factory()->create();
 
-        $this->assertInstanceOf(BelongsToMany::class, $pet->medications());
+        $this->assertInstanceOf(HasMany::class, $pet->medications());
         $this->assertInstanceOf(
             "Illuminate\Database\Eloquent\Collection",
             $pet->medications

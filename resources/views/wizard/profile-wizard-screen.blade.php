@@ -9,7 +9,7 @@
                 <x-card class="mx-auto col-md-8">
                     @if ($step == 1)
                         <h4 class="py-2">User Profile</h4>
-                        @livewire('update-profile-information-form')
+                        @livewire('update-profile-information-form',['user'=>$user])
                     @else
                         <h4 class="py-2">Pet Profile</h4>
                         @livewire('pet-profile-form')

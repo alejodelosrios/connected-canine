@@ -12,6 +12,7 @@ class WizardProfileControllerTest extends TestCase
     /** @test */
     public function wizard_profile_screen_can_be_rendered()
     {
+        $this->withoutExceptionHandling();
         $this->actingAs($user = \App\Models\User::factory()->create());
 
         $response = $this->get(route('wizard.profile',1));

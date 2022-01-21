@@ -24,17 +24,4 @@ class UserTest extends TestCase
 
         $this->assertInstanceOf(\App\Models\Pet::class, $user->pets->first());
     }
-
-    /** @test */
-    public function a_user_belongs_to_an_emergency_contact()
-    {
-        $user = User::factory()->create();
-
-        $this->assertInstanceOf(BelongsTo::class, $user->emergency_contact());
-
-        $this->assertInstanceOf(
-            EmergencyContact::class,
-            $user->emergency_contact
-        );
-    }
 }

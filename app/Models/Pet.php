@@ -6,7 +6,6 @@ use Carbon\Carbon;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Veterinarian;
 
 class Pet extends Model
 {

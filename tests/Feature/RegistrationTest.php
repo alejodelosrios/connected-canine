@@ -3,10 +3,9 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
-use App\ValueObjects\Address;
+use App\Models\Role;
 use Laravel\Fortify\Features;
 use Laravel\Jetstream\Jetstream;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -14,6 +13,12 @@ class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
     use WithFaker;
+
+    public function setup(): void
+    {
+        parent::setup();
+        Role::create(['name' => 'Employee']);
+    }
 
     public function test_registration_screen_can_be_rendered()
     {
@@ -44,7 +49,8 @@ class RegistrationTest extends TestCase
         }
 
         $response = $this->post('/register', [
-            'name' => 'Test User',
+            'name' => 'Test',
+            'lastname' => 'User',
             'email' => 'test@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
@@ -52,6 +58,6 @@ class RegistrationTest extends TestCase
         ]);
 
         $this->assertAuthenticated();
-        $response->assertRedirect(route('wizard.profile',1));
+        $response->assertRedirect(route('wizard.profile', 1));
     }
 }

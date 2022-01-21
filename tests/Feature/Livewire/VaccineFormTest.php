@@ -17,8 +17,8 @@ class VaccineFormTest extends TestCase
     /** @test */
     public function it_can_add_vaccine_to_a_pet()
     {
-        $this->withoutExceptionHandling();
         $pet = Pet::factory()->create();
+        $this->actingAs($pet->owner);
 
         Livewire::test(VaccineForm::class, ['pet' => $pet])
             ->set('state', [
@@ -38,6 +38,7 @@ class VaccineFormTest extends TestCase
     public function vaccine_expiration_dates_must_be_after_today()
     {
         $pet = Pet::factory()->create();
+        $this->actingAs($pet->owner);
 
         $response = Livewire::test(VaccineForm::class, ['pet' => $pet])
             ->set('state', [
@@ -51,40 +52,5 @@ class VaccineFormTest extends TestCase
             ->call('save');
 
         $response->assertHasErrors(['rabies', 'bordetella', 'dhhp']);
-    }
-
-    /** @test */
-    public function it_can_upload_proof()
-    {
-        Storage::fake('vaccines');
-
-        $pet = Pet::factory()->create();
-        $file = UploadedFile::fake()->create('proof.pdf');
-
-        Livewire::test(VaccineForm::class, ['pet' => $pet])
-            ->set('state.proof', $file)
-            ->call('save');
-
-        Storage::disk('vaccines')->assertExists($pet->fresh()->vaccines->proof);
-    }
-
-    /** @test */
-    public function it_can_remove_an_uploaded_proof()
-    {
-        Storage::fake('vaccines');
-        $file = UploadedFile::fake()->create('proof.pdf');
-        $path = Storage::disk('vaccines')->put('proofs', $file);
-        $pet = Pet::factory()->hasVaccines(['proof' => $path])->create();
-
-        Storage::disk('vaccines')->assertExists($pet->fresh()->vaccines->proof);
-
-        $response = Livewire::test(VaccineForm::class, ['pet' => $pet])
-            ->assertSet('state.proof_file', $pet->fresh()->vaccines->proof)
-            ->call('removeProof');
-
-        $pet->refresh();
-        $response->assertSet('state.proof_file', null);;
-        $this->assertNull($pet->vaccines->proof);
-        Storage::assertMissing($pet->vaccines->proof);
     }
 }

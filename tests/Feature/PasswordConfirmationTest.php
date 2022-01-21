@@ -13,17 +13,16 @@ class PasswordConfirmationTest extends TestCase
 
     public function test_confirm_password_screen_can_be_rendered()
     {
-        $user = Features::hasTeamFeatures()
-                        ? User::factory()->withPersonalTeam()->create()
-                        : User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($user)->get('/user/confirm-password');
 
         $response->assertStatus(200);
     }
 
-    public function test_password_can_be_confirmed()
+    public function password_can_be_confirmed()
     {
+
         $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/user/confirm-password', [

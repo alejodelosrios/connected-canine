@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
+use Tests\TestCase;
 use App\Models\User;
+use Livewire\Livewire;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Laravel\Jetstream\Http\Livewire\UpdateProfileInformationForm;
-use Livewire\Livewire;
-use Tests\TestCase;
 
 class ProfileInformationTest extends TestCase
 {
@@ -24,7 +24,11 @@ class ProfileInformationTest extends TestCase
 
     public function test_profile_information_can_be_updated()
     {
-        $this->actingAs($user = User::factory()->create());
+        $user = User::factory()->create([
+            'name' => 'Test Name',
+            'email' => 'test@example.com',
+        ]);
+        $this->actingAs($user);
 
         $componet = Livewire::test(UpdateProfileInformationForm::class)
             ->set('state.name', 'Test Name')
