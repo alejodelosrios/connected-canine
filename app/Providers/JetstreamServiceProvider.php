@@ -2,9 +2,16 @@
 
 namespace App\Providers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Laravel\Fortify\Fortify;
+use Illuminate\Validation\Rule;
+use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Hash;
 use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Jetstream\Jetstream;
+use Illuminate\Support\Facades\Validator;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -33,6 +40,32 @@ class JetstreamServiceProvider extends ServiceProvider
             \Laravel\Fortify\Contracts\LoginResponse::class,
             \App\Http\Responses\LoginResponse::class
         );
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->email)->first();
+
+            $input['domain'] = Str::after($request->email, '@');
+            if ($input['domain'] <> "connectedcanine.com") {
+                Validator::make(
+                    $input,
+                    [
+                        "domain" => Rule::exists('accounts')->where(function ($query) use ($input) {
+                            return $query->where('domain', $input['domain'])->where('deleted_at', null)->count() > 0;
+                        })
+                    ],
+                    [
+                        'domain.*' => 'The domain you are trying to register is suspended or not subscribed'
+                    ]
+                )->validate();
+            }
+
+            if (
+                $user &&
+                Hash::check($request->password, $user->password)
+            ) {
+                return $user;
+            }
+        });
     }
 
     /**
