@@ -62,8 +62,7 @@
                 </x-slot>
             </x-dashboard.nav-link>
 
-            <x-dashboard.nav-link route="insurance" title="Insurance" :active="request()->is('insurance')">
-                {{-- //TODO: MAKE INSURANCE SCREEN --}}
+            {{-- <x-dashboard.nav-link route="insurance" title="Insurance" :active="request()->is('insurance')">
                 <x-slot name="icon">
                     @if (request()->is('insurance'))
                         <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
@@ -71,7 +70,7 @@
                         <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
                     @endif
                 </x-slot>
-            </x-dashboard.nav-link>
+            </x-dashboard.nav-link> --}}
 
             <x-dashboard.nav-link route="admin.users-index" title="Participants"
                 :active="request()->is('admin/users/*') || request()->is('admin/users') || request()->is('admin/pets/*/*')">

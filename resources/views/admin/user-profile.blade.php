@@ -1,6 +1,7 @@
 <x-app-layout>
     <div class="p-4">
         <x-card>
+
             <x-user-details-wrap :user="$user" title="User Profile"/>
             @livewire('update-profile-information-form', [ "user" => $user ])
             <x-slot name="footer">

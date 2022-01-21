@@ -31,8 +31,8 @@ Route::middleware(["auth:sanctum", "verified"])
 Route::middleware(["auth:sanctum", "verified"])->group(function () {
     /* profile */
     Route::get("participants/profile/{user?}", UserProfileController::class)->name("user.profile");
-    Route::get("insurance", InsuranceController::class)->name("insurance");
-    Route::get("participants/profile/{user}/insurance", function (\App\Models\User $user) {
+    Route::get("participant/profile/{user}/insurance", InsuranceController::class)->name("insurance");
+    Route::get("participant/profile/{user}/insurance/preview", function (\App\Models\User $user) {
         return response()->file(storage_path('app') . "/" . $user->insurance->proof);
     })->name("insurance-proof");
     //Route::get("emergency-contact", EmergencyContactController::class)->name(
@@ -44,10 +44,7 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("pets/add", [PetProfileController::class, "create"])->name(
         "pet.create"
     );
-    Route::get("pets/{pet}/profile", [
-        PetProfileController::class,
-        "update",
-    ])->name("pet.update");
+    Route::get("pets/{pet}/profile", [PetProfileController::class,"update",])->name("pet.update");
 
     /* pet medications */
     Route::get("pets/{pet}/medications", [

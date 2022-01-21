@@ -14,6 +14,10 @@ class InsuranceForm extends Component
     public $state;
     public $user;
 
+    protected $listeners = [
+        "save"
+    ];
+
     public function mount()
     {
         $user = Auth::user();
@@ -42,7 +46,7 @@ class InsuranceForm extends Component
 
         $this->emit("refresh-navigation-menu");
 
-        return redirect()->route("insurance");
+        return redirect()->route("insurance",$this->user);
     }
 
     public function removeProof()
@@ -52,5 +56,6 @@ class InsuranceForm extends Component
 
         $this->user->refresh();
         $this->state["proof_file"] = $this->user->insurance->proof;
+        return redirect()->route("insurance",$this->user);
     }
 }

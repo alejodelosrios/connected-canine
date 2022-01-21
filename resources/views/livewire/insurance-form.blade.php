@@ -9,7 +9,7 @@
         incident. Often homeowners and renters policies already include this coverage.
     </x-slot>
 
-    <x-slot name="form">
+    <x-slot name="no_card_body">
 
         <x-jet-action-message on="saved">
             {{ __('Saved.') }}
@@ -41,14 +41,5 @@
         </div>
     </x-slot>
 
-    <x-slot name="actions">
-        <div class="d-flex align-items-baseline">
-            <x-jet-button type="submit">
-                <div wire:loading class="spinner-border spinner-border-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                {{ __('Save') }}
-            </x-jet-button>
-        </div>
-    </x-slot>
+
 </x-jet-form-section>

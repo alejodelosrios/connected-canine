@@ -12,18 +12,33 @@
         </x-jet-section-title>
     </div>
     <div class="col-md-8">
-        <div class="card shadow-sm">
-            <form wire:submit.prevent="{{ $submit }}">
-                <div class="card-body">
-                {{ $form }}
-                </div>
 
-                @if (isset($actions))
-                    <div class="card-footer d-flex justify-content-end">
-                        {{ $actions }}
+
+        @isset($form)
+            <div class="card shadow-sm">
+                <form wire:submit.prevent="{{ $submit }}">
+                    <div class="card-body">
+                        {{ $form }}
                     </div>
-                @endif
-            </form>
-        </div>
+                </form>
+            </div>
+        @endisset
+
+        @isset($no_card_body)
+            <div>
+                <form wire:submit.prevent="{{ $submit }}">
+                    <div>
+                        {{ $no_card_body }}
+                    </div>
+                </form>
+            </div>
+        @endisset
+
+        @if (isset($actions))
+            <div class="card-footer d-flex justify-content-end">
+                {{ $actions }}
+            </div>
+        @endif
+
     </div>
 </div>
