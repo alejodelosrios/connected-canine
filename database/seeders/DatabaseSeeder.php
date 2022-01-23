@@ -17,10 +17,14 @@ class DatabaseSeeder extends Seeder
             ->hasPets()
             ->create([
                 "name" => "Connected",
-                "latname" => "Admin",
+                "lastname" => "Admin",
                 "email" => "test@test.com",
             ]);
 
+        \App\Models\Account::factory()->create([
+            "name" => "Admin",
+            "domain" => "test.com",
+        ]);
         \App\Models\Service::factory()->create([
             "name" => "Dog walking",
         ]);
