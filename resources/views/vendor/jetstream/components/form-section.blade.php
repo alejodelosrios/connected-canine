@@ -20,6 +20,12 @@
                     <div class="card-body">
                         {{ $form }}
                     </div>
+
+                    @if (isset($actions))
+                        <div class="card-footer d-flex justify-content-end">
+                            {{ $actions }}
+                        </div>
+                    @endif
                 </form>
             </div>
         @endisset
@@ -30,15 +36,15 @@
                     <div>
                         {{ $no_card_body }}
                     </div>
+
+                    @if (isset($actions))
+                        <div class="card-footer d-flex justify-content-end">
+                            {{ $actions }}
+                        </div>
+                    @endif
                 </form>
             </div>
         @endisset
-
-        @if (isset($actions))
-            <div class="card-footer d-flex justify-content-end">
-                {{ $actions }}
-            </div>
-        @endif
 
     </div>
 </div>
