@@ -59,6 +59,7 @@
                             @endforeach
                         </td>
                     </tr>
+
                 @empty
                     <td colspan="5" class="p-4">
                         {{ __('There are not users') }}
@@ -66,5 +67,6 @@
                 @endforelse
             </tbody>
         </table>
+        {{ $users->links() }}
     </div>
 </div>

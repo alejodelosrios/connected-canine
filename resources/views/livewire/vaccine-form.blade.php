@@ -4,21 +4,37 @@
         {{ __('Saved.') }}
     </x-jet-action-message>
     <form wire:submit="save" role="form text-left" class="mx-auto col-md-10">
-        <div class="mb-4 row rows-col-1 rows-col-lg-3">
-            <div class="rounded col">
-                <x-vaccines-input vaccine="rabies" :value="$state['rabies'] ?? ''"><br>Rabies<br><br></x-vaccines-input>
+
+        <p class="px-2 text-sm">
+            All dogs are required to be current on the following vaccinations:
+        </p>
+        <ul class="px-2 text-sm">
+            <li>Rabies</li>
+            <li>Bordetella</li>
+            <li>DHHP (distemper, hepatitis, parainfluenza, and parvovirus)</li>
+        </ul>
+        <p class="px-2 text-sm">
+            Please upload vaccination records from your veterinarian's office, rescue group, or breeder.
+        </p>
+
+        @role('Admin')
+            <div class="mb-4 row rows-col-1 rows-col-lg-3">
+                <div class="rounded col">
+                    <x-vaccines-input vaccine="rabies" :value="$state['rabies'] ?? ''"><br>Rabies<br><br></x-vaccines-input>
+                </div>
+                <div class="rounded col">
+                    <x-vaccines-input vaccine="bordetella" :value="$state['bordetella'] ?? ''"><br>Bordetella<br><br>
+                    </x-vaccines-input>
+                </div>
+                <div class="rounded col">
+                    <x-vaccines-input vaccine="dhhp" :value="$state['dhhp'] ?? ''">DHHP <br>(distemper, hepatitis,
+                        parainflienza
+                        and parvovirus)
+                    </x-vaccines-input>
+                </div>
             </div>
-            <div class="rounded col">
-                <x-vaccines-input vaccine="bordetella" :value="$state['bordetella'] ?? ''"><br>Bordetella<br><br>
-                </x-vaccines-input>
-            </div>
-            <div class="rounded col">
-                <x-vaccines-input vaccine="dhhp" :value="$state['dhhp'] ?? ''">DHHP <br>(distemper, hepatitis,
-                    parainflienza
-                    and parvovirus)
-                </x-vaccines-input>
-            </div>
-        </div>
+        @endrole
+
 
         @isset($state['proof_file'])
             <div class="gap-2 d-flex align-items-center">
@@ -38,10 +54,6 @@
             </div>
         @endisset
 
-        <p class="px-2 text-sm">
-            Dogs are required to have up-to-date vaccines to visit your office. Please upload the records or email them
-            to info@connectedcanine.com
-        </p>
         <p class="px-2 text-sm">We can help by requesting veterinary records on your behalf if you e-mail us At
             info@connectedcanine.com.</p>
 

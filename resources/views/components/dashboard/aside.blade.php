@@ -68,9 +68,22 @@
                     @endif
                 </x-slot>
             </x-dashboard.nav-link>
+            {{-- Office Policy --}}
+            <x-dashboard.nav-link route="terms.show" title="Office Policy" :active="request()->is('terms-of-service')">
+                <x-slot name="icon">
+                    @if (request()->is('terms-of-service'))
+                        <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
+
 
             {{-- Accounts --}}
             @role('Admin')
+
+                <hr class="mt-4 horizontal dark">
                 <x-dashboard.nav-link route="admin.accounts" title="Accounts" :active="request()->is('accounts')">
                     <x-slot name="icon">
                         @if (request()->is('accounts'))
@@ -81,6 +94,8 @@
                     </x-slot>
                 </x-dashboard.nav-link>
             @endrole
+
+
             <hr class="mt-4 horizontal dark">
             {{-- Logout --}}
             <li class="nav-item ">
