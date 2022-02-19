@@ -9,7 +9,7 @@ class UsersIndex extends Component
 {
     public function render()
     {
-        $users = User::paginate(5);
+        $users = User::paginate(8);
         return view("livewire.admin.users-index", compact("users"));
     }
 }

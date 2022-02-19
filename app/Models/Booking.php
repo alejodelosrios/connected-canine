@@ -11,20 +11,26 @@ class Booking extends Model
     use HasFactory;
     use HasUUID;
 
-    const PENDING = 'pending';
-    const CANCELLED = 'cancelled';
-    const ACCEPTED = 'accepted';
+    const PENDING = "pending";
+    const CANCELLED = "cancelled";
+    const ACCEPTED = "accepted";
 
-    protected $fillable = [
-        'pet_id', 'date'
-    ];
+    protected $fillable = ["pet_id", "date"];
 
     protected $casts = [
-        'created_at' => 'datetime',
+        "created_at" => "datetime",
     ];
 
     public function services()
     {
-        return $this->belongsToMany(\App\Models\Service::class, 'booking_details');
+        return $this->belongsToMany(
+            \App\Models\Service::class,
+            "booking_details"
+        );
+    }
+
+    public function pet()
+    {
+        return $this->belongsTo(Pet::class);
     }
 }

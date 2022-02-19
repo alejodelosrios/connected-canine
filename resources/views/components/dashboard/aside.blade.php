@@ -15,7 +15,7 @@
     <div class="w-auto collapse navbar-collapse max-height-vh-100 h-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             {{-- Bookings --}}
-            <x-dashboard.nav-link route="bookings.create" title="Reservations"
+            <x-dashboard.nav-link route="bookings.create" title="Make a reservation"
                 :active="request()->is('bookings/*') || request()->is('bookings')">
                 <x-slot name="icon">
                     @if (request()->is('bookings/*') || request()->is('bookings'))
@@ -93,8 +93,19 @@
                         @endif
                     </x-slot>
                 </x-dashboard.nav-link>
-            @endrole
 
+            {{-- Bookings --}}
+            <x-dashboard.nav-link route="admin.bookings-index" title="Reservations"
+                :active="request()->is('admin/reservations')">
+                <x-slot name="icon">
+                    @if (request()->is('admin/reservations'))
+                        <img src="{{ asset('img/calendar-white.png') }}" width="20px" height="20px" alt="">
+                    @else
+                        <img src="{{ asset('img/calendar.png') }}" width="20px" height="20px" alt="">
+                    @endif
+                </x-slot>
+            </x-dashboard.nav-link>
+            @endrole
 
             <hr class="mt-4 horizontal dark">
             {{-- Logout --}}
