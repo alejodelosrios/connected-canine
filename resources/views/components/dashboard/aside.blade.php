@@ -96,9 +96,9 @@
 
             {{-- Bookings --}}
             <x-dashboard.nav-link route="admin.bookings-index" title="Reservations"
-                :active="request()->is('admin/reservations')">
+                :active="request()->is('admin/reservations') || request()->is('admin/old-reservations')">
                 <x-slot name="icon">
-                    @if (request()->is('admin/reservations'))
+                    @if (request()->is('admin/reservations') || request()->is('admin/old-reservations'))
                         <img src="{{ asset('img/calendar-white.png') }}" width="20px" height="20px" alt="">
                     @else
                         <img src="{{ asset('img/calendar.png') }}" width="20px" height="20px" alt="">

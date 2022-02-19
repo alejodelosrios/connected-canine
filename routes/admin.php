@@ -20,6 +20,9 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::get("reservations", BookingsListController::class)->name(
         "bookings-index"
     );
+    Route::get("old-reservations", BookingsListController::class)->name(
+        "old-bookings-index"
+    );
 
     Route::get("user/profile/{user}", function (User $user) {
         return view("admin.user-profile", compact("user"));
