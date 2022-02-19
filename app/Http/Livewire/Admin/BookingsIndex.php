@@ -11,8 +11,12 @@ class BookingsIndex extends Component
 
     public function render()
     {
-        $oldReservations = Booking::where("date", "<=", now())->paginate(8);
-        $newReservations = Booking::where("date", ">", now())->paginate(8);
+        $oldReservations = Booking::where("date", "<=", now())
+            ->orderBy("date", "asc")
+            ->paginate(8);
+        $newReservations = Booking::where("date", ">", now())
+            ->orderBy("date", "asc")
+            ->paginate(8);
         return view(
             "livewire.admin.bookings-index",
             compact("oldReservations", "newReservations")
