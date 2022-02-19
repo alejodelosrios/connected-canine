@@ -1,6 +1,8 @@
 <div>
-    <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
-        <h3 class="text-lg">{{ __('Reservations') }}</h3>
+    <div class="p-0 mt-3 card-header z-index-1">
+        <div class="d-flex justify-content-between w-100">
+            <h4>{{ __('Reservations') }}</h4>
+        </div>
     </div>
     <x-reservations-wrap />
 

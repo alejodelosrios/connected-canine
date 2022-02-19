@@ -1,9 +1,7 @@
 <x-app-layout>
     <div class="card">
         <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
-
-            <h3 class="text-lg">Pets</h3>
-
+            <h4>{{ __('Pets') }}</h4>
             <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="btn-inner--text mx-1 ">Add pet</span>
                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>

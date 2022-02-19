@@ -1,7 +1,7 @@
 <div>
 
     @role('Admin')
-        <div class="my-5">
+        <div class="mb-5 mt-2">
             <x-dashboard.stats />
         </div>
     @endrole
