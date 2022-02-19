@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasUUID;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -32,5 +33,11 @@ class Booking extends Model
     public function pet()
     {
         return $this->belongsTo(Pet::class);
+    }
+
+    public function getFormattedDateAttribute()
+    {
+        $formattedDate = Carbon::parse($this->date)->format("M d Y");
+        return $formattedDate;
     }
 }

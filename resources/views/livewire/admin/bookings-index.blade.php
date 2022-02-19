@@ -31,7 +31,7 @@
                             <span class=" text-xs font-weight-bold">{{ $reservation->pet->name }}</span>
                         </td>
                         <td class="align-middle text-center">
-                            <span class=" text-xs font-weight-bold">{{ $reservation->date }}</span>
+                            <span class=" text-xs font-weight-bold">{{ $reservation->formattedDate }}</span>
                         </td>
                     </tr>
 
