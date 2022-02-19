@@ -9,13 +9,16 @@
                 <x-card class="mx-auto col-md-8">
                     @if ($step == 1)
                         <h3 class="py-2">User Profile</h3>
-                        @livewire('update-profile-information-form',['user'=>$user])
+                        <livewire:update-profile-information-form :user="$user"/>
+
                     @elseif($step == 2)
                         <h3 class="py-2">Pet Profile</h3>
-                        @livewire('pet-profile-form')
+                        <livewire:pet-profile-form :pet="$pet" />
+
                     @else
                         <h3 class="py-2t">Dog‐Friendly Office Policy</h3>
-                        @include('terms', [ "terms" => $terms ])
+                        <livewire:terms-of-service/>
+
                     @endif
                 </x-card>
             </div>

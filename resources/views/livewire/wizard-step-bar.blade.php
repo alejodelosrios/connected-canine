@@ -2,7 +2,7 @@
      <div>
          @if ($step > 1)
              <a href="{{ route('wizard.profile', $step - 1) }}" class="btn btn-outline-primary text-uppercase">
-                 Previous
+                 {{ __('Previous') }}
              </a>
          @endif
      </div>
