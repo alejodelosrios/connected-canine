@@ -5,10 +5,5 @@
         </div>
     </div>
     <x-reservations-wrap />
-
-    @if (request()->is('admin/old-reservations'))
-        <x-reservations-table :reservations="$oldReservations" />
-    @else
-        <x-reservations-table :reservations="$newReservations" />
-    @endif
+    <x-reservations-table :reservations="$reservations" />
 </div>

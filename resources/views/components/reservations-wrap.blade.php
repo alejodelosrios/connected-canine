@@ -1,11 +1,11 @@
-<div class="py-2">
+<div class="py-2" x-data="{active: @entangle('active')}">
     <div class="py-2 d-flex flex-column flex-md-row flex-md-wrap">
-        <a href="{{ route('admin.bookings-index') }}"
-            class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/reservations')) active @endif">
+        <span @click="active = 1" :class="active==1 ? 'active' :''" class="mx-1 btn btn-primary btn-sm">
             New reservations
-        </a>
-        <a href="{{ route('admin.old-bookings-index') }}" class="mx-1 btn btn-primary btn-sm @if (request()->is('admin/old-reservations')) active @endif">
+        </span>
+        <span @click="active = 2 ":class="active==2 ? 'active' :''"
+            class="mx-1 btn btn-primary btn-sm">
             Old reservations
-        </a>
+        </span>
     </div>
 </div>
