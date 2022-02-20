@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Pet;
 use App\Models\Booking;
+use App\Observers\PetObserver;
 use App\Observers\BookingObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -30,5 +32,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         Booking::observe(BookingObserver::class);
+        Pet::observe(PetObserver::class);
     }
 }

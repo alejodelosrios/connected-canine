@@ -58,7 +58,7 @@ class VaccineForm extends Component
 
         $updater->save($this->state);
 
-        $this->emit('saved');
+        $this->emit("saved", ["pet_id" => $this->pet->id]);
 
         $this->emit('refresh-navigation-menu');
     }

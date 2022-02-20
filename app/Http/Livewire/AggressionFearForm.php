@@ -27,6 +27,8 @@ class AggressionFearForm extends Component
 
     public function mount(Pet $pet)
     {
+        $this->pet = $pet;
+        
         if ($pet->hasAggressionFear()) {
             $behaviors = $pet->aggressionFear()->toArray();
 
@@ -117,7 +119,7 @@ class AggressionFearForm extends Component
         //Save data
         $this->pet->behaviors()->syncWithoutDetaching($answers);
 
-        $this->emit("saved");
+        $this->emit("saved", ["pet_id" => $this->pet->id]);
 
         $this->emit("refresh-navigation-menu");
     }

@@ -21,16 +21,17 @@ class BehaviorBackgroundForm extends Component
     {
         $behaviors_values = ['', '', '', ''];
 
+        $this->pet = $pet;
+
         if ($pet->hasBehavioralBackground()) {
             $behaviors_values = $pet->behavioralBackground()->toArray();
         }
-        
+
         $this->state = array_combine($this->state, $behaviors_values);
     }
 
     public function save()
     {
-
         $this->resetErrorBag();
 
         Validator::make($this->state, [
@@ -48,7 +49,7 @@ class BehaviorBackgroundForm extends Component
             4 => ['value' => $this->state['question4']],
         ]);
 
-        $this->emit('saved');
+        $this->emit("saved", ["pet_id" => $this->pet->id]);
 
         $this->emit('refresh-navigation-menu');
     }

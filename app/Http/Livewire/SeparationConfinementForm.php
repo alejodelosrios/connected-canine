@@ -29,6 +29,7 @@ class SeparationConfinementForm extends Component
 
     public function mount(Pet $pet)
     {
+        $this->pet = $pet;
         if ($pet->hasSeparationConfinement()) {
             $behaviors = $pet->separationConfinement()->toArray();
             foreach ($behaviors as $behavior) {
@@ -88,7 +89,7 @@ class SeparationConfinementForm extends Component
                 : ' '
         ]]);
 
-        $this->emit('saved');
+        $this->emit("saved", ["pet_id" => $this->pet->id]);
 
         $this->emit('refresh-navigation-menu');
     }

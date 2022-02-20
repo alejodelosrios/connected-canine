@@ -67,6 +67,8 @@
                 @endforelse
             </tbody>
         </table>
-        {{ $users->links() }}
+        <div class="mt-4 d-flex justify-content-end">
+            {{ $users->links() }}
+        </div>
     </div>
 </div>

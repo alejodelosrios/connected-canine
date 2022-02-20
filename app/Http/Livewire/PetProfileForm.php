@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Pet;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Services\PetProfile as Updater;

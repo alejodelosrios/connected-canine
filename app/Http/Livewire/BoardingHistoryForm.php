@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Pet;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use App\Services\BoardingHistoryService as Updater;
@@ -15,7 +16,7 @@ class BoardingHistoryForm extends Component
         'save' => 'save'
     ];
 
-    public function mount($pet)
+    public function mount(Pet $pet)
     {
         $this->pet = $pet;
 
@@ -38,7 +39,7 @@ class BoardingHistoryForm extends Component
 
         $update->save($this->state);
 
-        $this->emit('saved');
+        $this->emit("saved", ["pet_id" => $this->pet->id]);
 
         $this->emit('refresh-navigation-menu');
     }
