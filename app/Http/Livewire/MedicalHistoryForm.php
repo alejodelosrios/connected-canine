@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\Validator;
+use App\Models\Pet;
 use Livewire\Component;
+use Illuminate\Support\Facades\Validator;
 
 class MedicalHistoryForm extends Component
 {
@@ -18,8 +19,9 @@ class MedicalHistoryForm extends Component
     public $state;
 
 
-    public function mount($pet)
+    public function mount(Pet $pet)
     {
+        $this->pet = $pet;
         $this->state['allergies'] = $pet->allergies;
         $this->state['medical_conditions'] = $pet->medicalConditions();
     }
@@ -40,9 +42,6 @@ class MedicalHistoryForm extends Component
         $this->pet->medical_conditions = implode(',', $this->state['medical_conditions']);
         $this->pet->save();
         $this->pet->refresh();
-
-        $this->emit('saved');
-
         $this->emit('refresh-navigation-menu');
     }
 }

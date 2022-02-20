@@ -13,6 +13,8 @@ final class Veterinarian implements UpdaterContract
     {
         $pet = Pet::find($input["pet_id"]);
 
+
+
         if (!isset($input["id"])) {
             $veterinarian["vet_clinic"] = $input["vet_clinic"];
             $veterinarian["vet_city"] = $input["vet_city"];
@@ -22,9 +24,7 @@ final class Veterinarian implements UpdaterContract
 
             $vet = $pet->veterinarian()->create($veterinarian);
         } else {
-            Validator::make($input, [
-                "id" => ["required", "exists:veterinarians,id"],
-            ])->validateWithBag("save");
+            $this->validate($input);
 
             $vet = ModelsVeterinarian::find($input["id"]);
             if ($vet) {
@@ -40,5 +40,17 @@ final class Veterinarian implements UpdaterContract
         }
         $pet->veterinarian()->associate($vet);
         $pet->save();
+    }
+
+    public function validate($input)
+    {
+        Validator::make($input, [
+            "id" => ["required", "exists:veterinarians,id"],
+            "vet_clinic" => "required|string",
+            "vet_address" => "required|string",
+            "vet_phone_number" => "required|string",
+            "vet_city" => "required|string",
+            "vet_zip_code" => "required|string",
+        ])->validateWithBag("save");
     }
 }

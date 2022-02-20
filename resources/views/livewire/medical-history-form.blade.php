@@ -41,8 +41,12 @@
     </x-slot>
 
     <x-slot name="actions">
-        <div class="d-flex align-items-baseline">
-            <button class="ml-auto btn btn-icon btn-3 btn-primary" type="button" wire:click="save">Save</button>
-        </div>
+        <x-jet-button wire:click="save">
+            <div wire:loading class="spinner-border spinner-border-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            {{ __('Save') }}
+        </x-jet-button>
     </x-slot>
 </x-jet-form-section>

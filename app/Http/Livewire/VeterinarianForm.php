@@ -6,23 +6,37 @@ use App\Models\Pet;
 use App\Models\Veterinarian;
 use Livewire\Component;
 use App\Services\Veterinarian as Updater;
+use Illuminate\Support\Facades\Validator;
 
 class VeterinarianForm extends Component
 {
-    public $state;
+    public $state = [];
     public $search;
-    public $pet;
+    public Pet $pet;
+    protected $updater;
 
+    public function __construct($id)
+    {
+        parent::__construct($id);
+        $this->updater = new Updater();
+    }
     protected $rules = [
         "state.id" => "required|exist:veterinarians,id",
+        "state.vet_clinic" => "required|string",
+        "state.vet_address" => "required|string",
+        "state.vet_phone_number" => "required|string",
+        "state.vet_city" => "required|string",
+        "state.vet_zip_code" => "required|string",
     ];
-    public function mount(Pet $pet)
+    public function mount(Pet $pet, $hasError = false)
     {
         $this->pet = $pet;
 
-        if (!$pet->veterinarian) {
-            $this->state = [];
-        } else {
+        if ($hasError) {
+            $this->updater->validate($this->state);
+        }
+
+        if ($pet->veterinarian) {
             $this->state = $pet->veterinarian->toArray();
         }
     }
@@ -31,10 +45,7 @@ class VeterinarianForm extends Component
     {
         $this->state["pet_id"] = $this->pet->id;
         $this->resetErrorBag();
-        $updater = new Updater();
-        $updater->save($this->state);
-        $this->emit("saved");
-
+        $this->updater->save($this->state);
         $this->emit("refresh-navigation-menu");
         $this->reset("search");
     }

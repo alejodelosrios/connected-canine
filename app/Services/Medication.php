@@ -39,7 +39,7 @@ final class Medication implements UpdaterContract
 
     public function delete($medication)
     {
-        $medi = ModelsMedication::find($medication);
+        $medication = ModelsMedication::find($medication);
         $medication->delete();
     }
 }
