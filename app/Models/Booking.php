@@ -6,6 +6,7 @@ use App\Traits\HasUUID;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 
 class Booking extends Model
 {
@@ -39,5 +40,29 @@ class Booking extends Model
     {
         $formattedDate = Carbon::parse($this->date)->format("M d Y");
         return $formattedDate;
+    }
+    public static function getNewReservations()
+    {
+        $reservations = Booking::where("date", ">", now())->get();
+        $owners = [];
+        foreach ($reservations as $reservation) {
+            $owners[$reservation->id]["employee"] =
+                $reservation->pet->owner->fullName;
+            $owners[$reservation->id]["pet"] = $reservation->pet->name;
+            $owners[$reservation->id]["date"] = $reservation->formattedDate;
+        }
+        return $owners;
+    }
+    public static function getOldReservations()
+    {
+        $reservations = Booking::where("date", "<=", now())->get();
+        $owners = [];
+        foreach ($reservations as $reservation) {
+            $owners[$reservation->id]["employee"] =
+                $reservation->pet->owner->fullName;
+            $owners[$reservation->id]["pet"] = $reservation->pet->name;
+            $owners[$reservation->id]["date"] = $reservation->formattedDate;
+        }
+        return $owners;
     }
 }
