@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Validator;
 use App\Services\VaccineService as Updater;
 
 class VaccineForm extends Component
@@ -29,19 +30,8 @@ class VaccineForm extends Component
 
         if (isset($pet->vaccines)) {
             $this->state = [
-                'has_rabies' => $pet->vaccines->has_rabies,
-                'has_bordetella' => $pet->vaccines->has_bordetella,
-                'has_dhhp' => $pet->vaccines->has_dhhp,
                 'proof_file' => $pet->vaccines->proof,
             ];
-
-            if (auth()->user()->hasRole('Admin')) {
-                $this->state = array_merge($this->state, [
-                    'rabies' => !isset($pet->vaccines->rabies) ? null : $pet->vaccines->rabies->format('Y-m-d'),
-                    'bordetella' => !isset($pet->vaccines->bordetella) ? null : $pet->vaccines->bordetella->format('Y-m-d'),
-                    'dhhp' => !isset($pet->vaccines->dhhp) ? null : $pet->vaccines->dhhp->format('Y-m-d')
-                ]);
-            }
         }
     }
 
@@ -53,6 +43,10 @@ class VaccineForm extends Component
     public function save()
     {
         $this->resetErrorBag();
+
+        Validator::make($this->state, [
+            'proof_file' => ['required']
+        ])->validateWithBag("save");
 
         $updater = new Updater($this->pet);
 

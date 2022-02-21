@@ -17,25 +17,6 @@
             Please upload vaccination records from your veterinarian's office, rescue group, or breeder.
         </p>
 
-        @role('Admin')
-            <div class="mb-4 row rows-col-1 rows-col-lg-3">
-                <div class="rounded col">
-                    <x-vaccines-input vaccine="rabies" :value="$state['rabies'] ?? ''"><br>Rabies<br><br></x-vaccines-input>
-                </div>
-                <div class="rounded col">
-                    <x-vaccines-input vaccine="bordetella" :value="$state['bordetella'] ?? ''"><br>Bordetella<br><br>
-                    </x-vaccines-input>
-                </div>
-                <div class="rounded col">
-                    <x-vaccines-input vaccine="dhhp" :value="$state['dhhp'] ?? ''">DHHP <br>(distemper, hepatitis,
-                        parainflienza
-                        and parvovirus)
-                    </x-vaccines-input>
-                </div>
-            </div>
-        @endrole
-
-
         @isset($state['proof_file'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
