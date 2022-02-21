@@ -47,7 +47,7 @@ class VaccineForm extends Component
 
     public function render()
     {
-        return view('livewire.vaccine-form');
+        return view('livewire.admin.vaccine-form');
     }
 
     public function save()
