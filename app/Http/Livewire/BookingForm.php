@@ -17,7 +17,7 @@ class BookingForm extends Component
     {
         $pets = Auth::user()->pets;
         if ($pets->count() === 1) {
-            $this->state['pet_id'] = $pets->first()->id;
+            $this->state["pet_id"] = $pets->first()->id;
         }
     }
 
@@ -41,7 +41,10 @@ class BookingForm extends Component
     public function render()
     {
         return view("livewire.booking-component", [
-            "pets" => Auth::user()->pets,
+            "pets" => Auth::user()
+                ->pets()
+                ->completePets()
+                ->get(),
         ]);
     }
 }

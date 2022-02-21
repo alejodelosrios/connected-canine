@@ -15,7 +15,7 @@
 
         <div class="p-2">
             <h6>{{ __('Choose your pet') }}</h6>
-            @foreach ($pets as $pet)
+            @forelse ($pets as $pet)
                 <div
                     class="mb-3 border rounded-lg px-2 pt-2 {{ $errors->has('pet_id') ? 'is-invalid border-danger' : '' }}">
                     <div class="form-check">
@@ -25,7 +25,10 @@
                         <label class="text-lg custom-control-label" for="{{ $pet->id }}">{{ $pet->name }}</label>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <p>You must complete your pet's profiles to make a reservation. Please review the Pets section and go to
+                    "Complete profile"</p>
+            @endforelse
             <x-jet-input-error for="pet_id" />
 
         </div>

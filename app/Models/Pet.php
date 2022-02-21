@@ -131,4 +131,7 @@ class Pet extends Model
         }
         return [];
     }
+    public function scopeCompletePets($query){
+        return $query->where("complete", true);
+    }
 }
