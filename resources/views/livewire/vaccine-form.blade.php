@@ -17,7 +17,7 @@
             Please upload vaccination records from your veterinarian's office, rescue group, or breeder.
         </p>
 
-        @isset($state['proof_file'])
+        @isset($state['proof'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
                     <a href="{{ route('vaccine-proof', $pet) }}" target="_blank">See document</a>
