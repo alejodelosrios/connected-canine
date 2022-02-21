@@ -2,7 +2,7 @@
 <x-card>
       <x-pet-details-wrap :pet="$pet" title="Pet Vaccines" />
 
-        <livewire:vaccine-form :pet="$pet" />
+        <livewire:admin.vaccine-form :pet="$pet" />
 
         <x-slot name="footer">
             <div class="mx-auto d-flex align-items-baseline justify-content-end col-lg-10 col-12">
