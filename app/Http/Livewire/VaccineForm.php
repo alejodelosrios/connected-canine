@@ -14,14 +14,10 @@ class VaccineForm extends Component
 
     public $pet;
 
-    public $state = [
-        'has_rabies' => false,
-        'has_bordetella' => false,
-        'has_dhhp' => false,
-    ];
+    public $state = [];
 
     protected $listeners = [
-        'save' => 'save'
+        "save" => "save",
     ];
 
     public function mount(Pet $pet)
@@ -30,14 +26,14 @@ class VaccineForm extends Component
 
         if (isset($pet->vaccines)) {
             $this->state = [
-                'proof_file' => $pet->vaccines->proof,
+                "proof" => $pet->vaccines->proof,
             ];
         }
     }
 
     public function render()
     {
-        return view('livewire.vaccine-form');
+        return view("livewire.vaccine-form");
     }
 
     public function save()
@@ -45,7 +41,7 @@ class VaccineForm extends Component
         $this->resetErrorBag();
 
         Validator::make($this->state, [
-            'proof_file' => ['required']
+            "proof" => ["required"],
         ])->validateWithBag("save");
 
         $updater = new Updater($this->pet);
@@ -54,15 +50,15 @@ class VaccineForm extends Component
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 
-        $this->emit('refresh-navigation-menu');
+        $this->emit("refresh-navigation-menu");
     }
 
     public function removeProof()
     {
         $updater = new Updater($this->pet);
-        $updater->removeProof($this->state['proof_file']);
+        $updater->removeProof($this->state["proof"]);
 
         $this->pet->refresh();
-        $this->state['proof_file'] = $this->pet->vaccines->proof;
+        $this->state["proof"] = $this->pet->vaccines->proof;
     }
 }
