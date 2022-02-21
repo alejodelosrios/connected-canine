@@ -60,8 +60,8 @@
                         {{ __('Back') }}
                     </a>
 
-                    <a href="{{ $redirecTo }}" class=" btn btn-primary">
-                        {{ __('Next') }}
+                    <a href="{{ $redirecTo }}" class=" btn btn-warning">
+                        {{ __('Submit') }}
                     </a>
                 </div>
             </x-slot>

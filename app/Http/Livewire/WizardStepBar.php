@@ -34,13 +34,10 @@ class WizardStepBar extends Component
         $this->emit("next");
     }
 
-    public function go_forward($pet_id = null)
+    public function go_forward($payload = null)
     {
-        if ((int)$this->step === (int)$this->max_steps) {
-            return redirect()->route(
-                $this->redirect_route_name,
-                \App\Models\Pet::find($pet_id)->first()
-            );
+        if ((int) $this->step === (int) $this->max_steps) {
+            return redirect()->route("pet.create", $payload["pet_id"]);
         }
 
         $this->step++;

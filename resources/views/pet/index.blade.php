@@ -13,7 +13,9 @@
                 <thead>
                     <tr>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                        <th class="d-none d-sm-block text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Color
+                        <th
+                            class="d-none d-sm-block text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                            Color
                         </th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Sex</th>
@@ -31,12 +33,11 @@
                                         @if ($pet->profile_photo_path)
                                             <img src="{{ $pet->profile_photo_url }}" class="avatar avatar-sm me-3">
                                         @else
-                                            <img src="{{ asset("img/pets.png")}}" class="avatar avatar-sm me-3">
+                                            <img src="{{ asset('img/pets.png') }}" class="avatar avatar-sm me-3">
                                         @endif
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
-                                        <a href="{{ route('pet.update', $pet) }}"
-                                            class="mb-0 text-xs font-weight-bold">{{ $pet->name }}</a>
+                                        <a class="mb-0 text-xs font-weight-bold">{{ $pet->name }}</a>
                                     </div>
                                 </div>
                             </td>
@@ -50,23 +51,32 @@
                                 <span class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
                             </td>
                             <td class="align-middle">
-                                <a href="{{ route('pet.update', $pet->id) }}"
-                                    class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
-                                    data-original-title="Edit user" data-bs-placement="top"
-                                    title="Edit pet profile" data-container="body" data-animation="true">
-                                    Edit
-                                </a>
+                                @if ($pet->complete)
+                                    <a href="{{ route('pet.update', $pet->id) }}"
+                                        class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                        data-original-title="Edit user" data-bs-placement="top" title="Edit pet profile"
+                                        data-container="body" data-animation="true">
+                                        Edit
+                                    </a>
+                                @else
+                                    <a href="{{ route('pet.create', $pet->id) }}"
+                                        class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
+                                        data-original-title="Edit user" data-bs-placement="top" title="Edit pet profile"
+                                        data-container="body" data-animation="true">
+                                        Complete profile
+                                    </a>
+                                @endif
                             </td>
                         </tr>
-                    @empty
-                        <td colspan="5" class="p-4">
-                            {{ __('You have no registered pets') }}
-                        </td>
-                    @endforelse
-                </tbody>
-            </table>
+                        @empty
+                            <td colspan="5" class="p-4">
+                                {{ __('You have no registered pets') }}
+                            </td>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
 
-</x-app-layout>
+    </x-app-layout>
