@@ -30,7 +30,7 @@
                 {{-- EMAIL INPUT --}}
                 <div class="mb-3">
                     <x-jet-input class="form-control {{ $errors->has('email') || $errors->has('domain') ? 'is-invalid' : '' }}" type="email"
-                        name="email" :value="old('email')" required placeholder="Email" aria-label="Email"
+                        name="email" :value="old('email')" required placeholder="Company Email" aria-label="Email"
                         aria-describedby="email-addon" />
                     <x-jet-input-error for="domain"></x-jet-input-error>
                     <x-jet-input-error for="email"></x-jet-input-error>

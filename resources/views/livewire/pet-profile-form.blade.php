@@ -101,6 +101,7 @@
                         wire:model.defer="state.question">
                         <option value="no">No</option>
                         <option value="yes">Yes</option>
+                        <option value="not_sure">Not sure</option>
                     </select>
                 </div>
             </div>
