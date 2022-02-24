@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Breed;
 use App\Models\Pet;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -30,8 +31,15 @@ class PetFactory extends Factory
                 ->format("Y-m-d"),
             "sex" => $this->faker->randomElement(["male", "female"]),
             "weight" => $this->faker->randomFloat(2, 100, 500),
-            "color" => $this->faker->randomElement(["brown", "white", "black"]),
+            "breed_id" => function ($atr) {
+                $breeds = Breed::all();
+                if ($breeds->count()) {
+                    return $breeds->random();
+                }
+                return Breed::factory();
+            },
             "question" => $this->faker->randomElement(["yes", "no"]),
+            "parasite_control" => $this->faker->randomElement(["yes", "no"]),
         ];
     }
 }

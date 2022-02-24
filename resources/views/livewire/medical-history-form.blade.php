@@ -38,6 +38,19 @@
                 placeholder="e.g. food allergies, grasses, pollen, mold, dust mites, cigarette smoke, feathers, chemicals, pests, medicines"></textarea>
             <x-jet-input-error for="allergies" />
 
+            <div class="my-4">
+                <x-jet-label class="mb-2" for="parasite_control"
+                    value="{{ __('Is parasite control is being done on a routine basis and your dog free of ticks and fleas? ') }}" />
+                <div class="form-group w-25">
+                    <select class="form-control {{ $errors->has('parasite_control') ? 'is-invalid' : '' }}"
+                        id="parasite_control" wire:model.defer="state.parasite_control">
+                        <option value="no">No</option>
+                        <option value="yes">Yes</option>
+                    </select>
+                    <x-jet-input-error for="parasite_control" />
+                </div>
+            </div>
+
     </x-slot>
 
     <x-slot name="actions">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMedicalHistoryFieldToPetsTable extends Migration
+class AddBreedForeingKeyToPetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,10 @@ class AddMedicalHistoryFieldToPetsTable extends Migration
     public function up()
     {
         Schema::table("pets", function (Blueprint $table) {
-            $table->string("allergies")->nullable();
-            $table->string("medical_conditions")->nullable();
-            $table->string("parasite_control", 3)->nullable();
+            $table
+                ->foreignId("breed_id")
+                ->constrained()
+                ->onDelete("cascade");
         });
     }
 
@@ -28,11 +29,7 @@ class AddMedicalHistoryFieldToPetsTable extends Migration
     public function down()
     {
         Schema::table("pets", function (Blueprint $table) {
-            $table->dropColumn([
-                "allergies",
-                "medical_conditions",
-                "parasite_control",
-            ]);
+            $table->dropForeign("breed_id");
         });
     }
 }

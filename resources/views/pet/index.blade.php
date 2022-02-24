@@ -15,7 +15,7 @@
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                         <th
                             class="d-none d-sm-block text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                            Color
+                            Breed
                         </th>
                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                             Sex</th>
@@ -42,7 +42,7 @@
                                 </div>
                             </td>
                             <td class="d-none d-sm-table-cell ">
-                                <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->color }}</p>
+                                <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->breed->name }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
                                 <span class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>

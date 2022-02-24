@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Pet;
+use App\Models\Breed;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Services\PetProfile as Updater;
@@ -49,7 +49,9 @@ class PetProfileForm extends Component
 
     public function render()
     {
-        return view("livewire.pet-profile-form");
+        return view("livewire.pet-profile-form", [
+            "breeds" => Breed::all(),
+        ]);
     }
 
     public function getPetProperty()

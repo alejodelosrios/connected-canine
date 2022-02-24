@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Pet;
 use App\Contracts\UpdaterContract;
+use App\Models\Breed;
 use Illuminate\Support\Facades\Validator;
 
 final class PetProfile implements UpdaterContract
@@ -16,12 +17,13 @@ final class PetProfile implements UpdaterContract
             "birthday" => ["required", "before:today"],
             "sex" => ["required", "string", "in:male,female"],
             "weight" => ["required", "numeric", "min:1"],
-            "color" => ["required", "string", "max:50"],
+            "breed_id" => ["required", "exists:breeds,id"],
             "question" => ["required", "string"],
             "photo" => ["nullable", "mimes:jpg,jpeg,png", "max:1024"],
         ])->validateWithBag("save");
 
         //dd($input);
+
         $pet = Pet::updateOrCreate(
             ["id" => $input["id"] ?? ""],
             [
@@ -31,7 +33,7 @@ final class PetProfile implements UpdaterContract
                 "birthday" => $input["birthday"],
                 "sex" => $input["sex"],
                 "weight" => $input["weight"],
-                "color" => $input["color"],
+                "breed_id" => $input["breed_id"],
                 "question" => $input["question"],
             ]
         );

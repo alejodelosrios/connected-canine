@@ -18,8 +18,12 @@ class Pet extends Model
         "birthday",
         "sex",
         "weight",
-        "color",
+        "breed_id",
         "question",
+        "allergies",
+        "medical_conditions",
+        "parasite_control",
+        "complete",
     ];
 
     protected $casts = [
@@ -127,11 +131,17 @@ class Pet extends Model
     public function medicalConditions(): array
     {
         if (!is_null($this->medical_conditions)) {
-            return explode(',', $this->medical_conditions);
+            return explode(",", $this->medical_conditions);
         }
         return [];
     }
-    public function scopeCompletePets($query){
+
+    public function breed()
+    {
+        return $this->belongsTo(\App\Models\Breed::class);
+    }
+    public function scopeCompletePets($query)
+    {
         return $query->where("complete", true);
     }
 }

@@ -83,12 +83,18 @@
                 <x-jet-input-error for="weight" />
             </div>
 
-            {{-- Color --}}
+            {{-- Breed --}}
             <div class="mb-3 col-12 col-md-6">
-                <x-jet-label for="color" value="{{ __('Color') }}" />
-                <x-jet-input id="color" class="{{ $errors->has('color') ? 'is-invalid' : '' }}"
-                    wire:model.defer="state.color" />
-                <x-jet-input-error for="color" />
+                <x-jet-label for="breed_id" value="{{ __('Breed') }}" />
+                <div class="form-group">
+                    <select class="form-control {{ $errors->has('breed_id') ? 'is-invalid' : '' }}" id="breed_id"
+                        wire:model.defer="state.breed_id">
+                        @foreach ( $breeds as $breed )
+                            <option value="{{ $breed->id }}">{{ $breed->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <x-jet-input-error for="breed_id" />
             </div>
 
             {{-- Question --}}
