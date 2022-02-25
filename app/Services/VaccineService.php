@@ -14,7 +14,7 @@ final class VaccineService implements UpdaterContract
     public $pet;
 
     protected $messages = [
-        'after' => 'Expiration must be in the future.',
+        "after" => "Expiration must be in the future.",
     ];
 
     public function __construct($pet)
@@ -26,11 +26,15 @@ final class VaccineService implements UpdaterContract
     {
         $input = $this->prepareToValidate($input);
 
-        $validated = Validator::make($input, $this->rules($input), $this->messages)
-            ->validateWithBag("save");
+        $validated = Validator::make(
+            $input,
+            $this->rules($input),
+            $this->messages
+        )->validateWithBag("save");
 
         if (isset($input["proof"])) {
-            $path = $input["proof"]->store("proofs");
+            //$path = $input["proof"]->store("proofs");
+            $path = $input["proof"]->store("proofs", "s3");
             $validated["proof"] = $path;
         }
 
@@ -43,9 +47,7 @@ final class VaccineService implements UpdaterContract
             Storage::delete($file_name);
         }
 
-        $this->pet->vaccines
-            ->forceFill(["proof" => null])
-            ->save();
+        $this->pet->vaccines->forceFill(["proof" => null])->save();
     }
 
     public function rules($input)
@@ -56,16 +58,20 @@ final class VaccineService implements UpdaterContract
                 "nullable",
                 "bail",
                 Rule::requiredIf(function () use ($input) {
-                    return auth()->user()->hasRole('Admin') && ($input['has_rabies'] == true);
+                    return auth()
+                        ->user()
+                        ->hasRole("Admin") && $input["has_rabies"] == true;
                 }),
-                "after:today"
+                "after:today",
             ],
             "has_bordetella" => ["required", "boolean"],
             "bordetella" => [
                 "nullable",
                 "bail",
                 Rule::requiredIf(function () use ($input) {
-                    return auth()->user()->hasRole('Admin') && ($input['has_bordetella'] == true);
+                    return auth()
+                        ->user()
+                        ->hasRole("Admin") && $input["has_bordetella"] == true;
                 }),
                 "after:today",
             ],
@@ -74,9 +80,11 @@ final class VaccineService implements UpdaterContract
                 "nullable",
                 "bail",
                 Rule::requiredIf(function () use ($input) {
-                    return auth()->user()->hasRole('Admin') && ($input['has_dhhp'] == true);
+                    return auth()
+                        ->user()
+                        ->hasRole("Admin") && $input["has_dhhp"] == true;
                 }),
-                "after:today"
+                "after:today",
             ],
             "proof" => ["nullable", "file", "mimes:png,jpg,pdf", "max:102400"],
         ];
@@ -86,9 +94,11 @@ final class VaccineService implements UpdaterContract
         $data = [];
 
         foreach (["rabies", "bordetella", "dhhp"] as $key) {
-            $data['has_' . $key] = array_key_exists('has_' . $key, $input) ? $input['has_' . $key] : false;
+            $data["has_" . $key] = array_key_exists("has_" . $key, $input)
+                ? $input["has_" . $key]
+                : false;
             $data[$key] = array_key_exists($key, $input) ? $input[$key] : null;
-            if ($data['has_' . $key] == false) {
+            if ($data["has_" . $key] == false) {
                 $data[$key] = null;
             }
         }
