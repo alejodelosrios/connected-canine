@@ -29,6 +29,9 @@ class PetProfileForm extends Component
         if (!array_key_exists("question", $this->state)) {
             $this->state["question"] = "no";
         }
+        if (!array_key_exists("breed_id", $this->state)) {
+            $this->state["breed_id"] = "1";
+        }
     }
 
     public function save()
