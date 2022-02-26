@@ -3,6 +3,7 @@
         <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         <x-card>
+            <h4 class="mb-4">Medical Background</h4>
             <livewire:behavior-background-form :pet="$pet" />
 
             <x-slot name="footer">

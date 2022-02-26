@@ -3,6 +3,7 @@
         <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         <x-card>
+            <h4>Doggy Daycare and Boarding History</h4>
             <livewire:boarding-history-form :pet="$pet" />
 
             <x-slot name="footer">

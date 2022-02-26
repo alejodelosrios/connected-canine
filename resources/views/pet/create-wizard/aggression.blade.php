@@ -3,6 +3,7 @@
         <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         <x-card>
+            <h4>Aggression & Fear</h4>
             <livewire:aggression-fear-form :pet="$pet" />
 
             <x-slot name="footer">

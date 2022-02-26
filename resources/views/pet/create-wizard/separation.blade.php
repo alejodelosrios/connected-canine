@@ -3,6 +3,7 @@
         <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         <x-card>
+            <h4 class="mb-4">Separation & Confinement</h4>
             <livewire:separation-confinement-form :pet="$pet" />
 
             <x-slot name="footer">

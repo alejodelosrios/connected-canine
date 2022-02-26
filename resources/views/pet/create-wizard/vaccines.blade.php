@@ -2,7 +2,8 @@
     <div class="p-4">
         <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
-        <x-card>
+        <x-card class="p-3">
+            <h4 class="mb-4">Vaccines</h4>
             <livewire:vaccine-form :pet="$pet" />
 
             <x-slot name="footer">

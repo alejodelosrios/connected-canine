@@ -1,6 +1,6 @@
 <div x-data>
 
-    <h4 class="mb-5">Doggy Daycare and Boarding History</h4>
+    {{--<h4 class="mb-5">Doggy Daycare and Boarding History</h4>--}}
 
     <form wire:submit.prevent="save" role="form text-left">
 
