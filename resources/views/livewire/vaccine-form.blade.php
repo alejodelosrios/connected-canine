@@ -20,7 +20,9 @@
         @isset($state['proof'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
-                    <a href="{{ route('vaccine-proof', $pet) }}" target="_blank">See document</a>
+                    @if ($pet->vaccines)
+                        <a href="{{ route('vaccine-proof', $pet) }}" target="_blank">See document</a>
+                    @endif
                 </div>
                 <div>
                     <x-jet-button class="mt-3" type="button" wire:click="removeProof">Remove file</x-jet-button>
