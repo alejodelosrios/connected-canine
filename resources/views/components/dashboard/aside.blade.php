@@ -69,9 +69,9 @@
                 </x-slot>
             </x-dashboard.nav-link>
             {{-- Office Policy --}}
-            <x-dashboard.nav-link route="terms.show" title="Office Policy" :active="request()->is('terms-of-service')">
+            <x-dashboard.nav-link route="policy" title="Office Policy" :active="request()->is('policy')">
                 <x-slot name="icon">
-                    @if (request()->is('terms-of-service'))
+                    @if (request()->is('policy'))
                         <img src="{{ asset('img/insurance-white.png') }}" width="20px" height="20px" alt="">
                     @else
                         <img src="{{ asset('img/insurance.png') }}" width="20px" height="20px" alt="">
