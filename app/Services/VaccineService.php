@@ -33,8 +33,7 @@ final class VaccineService implements UpdaterContract
         )->validateWithBag("save");
 
         if (isset($input["proof"])) {
-            //$path = $input["proof"]->store("proofs");
-            $path = $input["proof"]->store("proofs", "s3");
+            $path = $input["proof"]->store("proofs");
             $validated["proof"] = $path;
         }
 

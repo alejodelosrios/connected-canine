@@ -33,10 +33,6 @@ return [
             "root" => storage_path("app"),
         ],
 
-        "vaccines" => [
-            "driver" => "s3",
-            "root" => storage_path("app/vaccines"),
-        ],
         "public" => [
             "driver" => "local",
             "root" => storage_path("app/public"),
