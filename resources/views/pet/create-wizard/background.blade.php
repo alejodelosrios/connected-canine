@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-4">
-        <x-pet-create-wizard-steps :step="$step" />
+        <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         <x-card>
             <livewire:behavior-background-form :pet="$pet" />

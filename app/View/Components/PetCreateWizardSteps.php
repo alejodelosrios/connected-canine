@@ -7,15 +7,17 @@ use Illuminate\View\Component;
 class PetCreateWizardSteps extends Component
 {
     public $step;
+    public $pet;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($step)
+    public function __construct($step, $pet)
     {
         $this->step = $step;
+        $this->pet = $pet;
     }
 
     /**
@@ -25,6 +27,6 @@ class PetCreateWizardSteps extends Component
      */
     public function render()
     {
-        return view('components.pet-create-wizard-steps');
+        return view("components.pet-create-wizard-steps");
     }
 }

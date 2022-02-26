@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="p-4">
 
-        <x-pet-create-wizard-steps :step="$step" />
+        <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
 
         @error('veterinarian')
             @php
