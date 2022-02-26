@@ -1,4 +1,4 @@
-<div class="card p-3 mb-md-6 mb-4 d-flex flex-row align-items-start justify-content-between flex-wrap" x-data="{
+<div class="card p-3 mb-md-6 mb-4 d-flex flex-row align-items-start justify-content-center flex-wrap" x-data="{
         active: {{ $step }},
         checkClass(index) {
             return {

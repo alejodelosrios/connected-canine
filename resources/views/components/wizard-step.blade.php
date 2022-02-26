@@ -4,7 +4,7 @@
 "title"
 ])
 
-<a class="d-flex flex-column justify-content-center align-items-center" href="{{ $route }}">
+<a class="d-flex flex-column justify-content-center align-items-center mb-3" href="{{ $route }}">
     <div class="border rounded-circle d-flex justify-content-center align-items-center mb-2"
         style="height:35px; width:35px" :class="checkClass({{ $number }})">{{ $number }}</div>
 
