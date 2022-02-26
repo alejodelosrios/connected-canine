@@ -20,9 +20,7 @@
         @isset($state['proof'])
             <div class="gap-2 d-flex align-items-center">
                 <div class="p-2 border rounded flex-fill">
-                    @if ($pet->vaccines)
-                        <a href="{{env("AWS_URL") . $pet->vaccines->proof}}" target="_blank">See document</a>
-                    @endif
+                    <a href="{{ route('vaccine-proof', $pet) }}" target="_blank">See document</a>
                 </div>
                 <div>
                     <x-jet-button class="mt-3" type="button" wire:click="removeProof">Remove file</x-jet-button>
@@ -31,8 +29,8 @@
         @else
             <div class="mt-4 mb-2 ">
                 <input wire:model.defer="state.proof"
-                    class="form-control form-control-lg {{ $errors->has('proof') ? 'is-invalid' : '' }}"
-                    id="vaccine_proof" type="file">
+                    class="form-control form-control-lg {{ $errors->has('proof') ? 'is-invalid' : '' }}" id="vaccine_proof"
+                    type="file">
                 <x-jet-input-error for="proof" />
             </div>
         @endisset
