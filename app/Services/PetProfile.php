@@ -11,7 +11,7 @@ final class PetProfile implements UpdaterContract
 {
     public function save(array $input)
     {
-        //dd($input);
+        dd($input);
         Validator::make($input, [
             "name" => ["required", "string", "max:255"],
             "birthday" => ["required", "before:today"],
