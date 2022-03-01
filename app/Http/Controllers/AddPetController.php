@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pet;
 use App\Notifications\PetCreated;
+use Illuminate\Support\Facades\Auth;
 
 class AddPetController extends Controller
 {
@@ -22,6 +23,8 @@ class AddPetController extends Controller
             "step" => 1,
         ]);
     }
+
+
 
     public function vaccines(Pet $pet)
     {
@@ -107,5 +110,11 @@ class AddPetController extends Controller
             "pet" => $pet,
             "step" => 8,
         ]);
+    }
+
+    public function add()
+    {
+        $pet = Pet::create(['user_id' => Auth::id()]);
+        return redirect()->route('pet.create', $pet);
     }
 }
