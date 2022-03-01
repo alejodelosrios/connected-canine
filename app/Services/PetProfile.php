@@ -25,7 +25,7 @@ final class PetProfile implements UpdaterContract
         //dd($input);
 
         $pet = Pet::updateOrCreate(
-            ["id" => $input["id"] ?? ""],
+            ["id" => $input["id"] ?? 0],
             [
                 //dd($input["question"]),
                 "user_id" => auth()->id(),
