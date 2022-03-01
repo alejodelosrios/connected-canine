@@ -49,6 +49,10 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::view("/policy", "policy-int")->name("policy");
 
     /* create pet profile*/
+    Route::get("pets/add", [
+        AddPetController::class,
+        "add",
+    ])->name("pet.add");
     Route::get("pets/add/profile/{petId?}", [
         AddPetController::class,
         "profile",

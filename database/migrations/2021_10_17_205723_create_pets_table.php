@@ -20,20 +20,20 @@ class CreatePetsTable extends Migration
                 ->constrained()
                 ->onDelete("cascade");
 
-            //$table->unsignedBigInteger("veterinarian_id")->nullable();
-            $table->string("name");
-            $table->string("profile_photo_path", 2048)->nullable();
-            $table->timestamp("birthday");
-            $table->enum("sex", ["male", "female"]);
-            $table->decimal("weight");
-            $table->string("question");
-            $table->timestamps();
 
-            //$table
-            //->foreign("veterinarian_id")
-            //->references("id")
-            //->on("pets")
-            //->onDelete("set null");
+            $table->string("name")->nullable();
+            $table->string("profile_photo_path", 2048)->nullable();
+            $table->datetime("birthday")->nullable();
+            $table->enum("sex", ["male", "female"])->nullable();
+            $table->decimal("weight")->nullable();
+            $table->string("question")->nullable();
+            $table->string("step")->nullable();
+            $table->timestamps();
+            $table
+            ->foreignId("breed_id")
+            ->nullable()
+            ->constrained()
+            ->onDelete("cascade");
         });
     }
 
