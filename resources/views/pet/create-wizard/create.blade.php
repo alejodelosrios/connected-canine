@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-4">
-        <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
+        <x-pet-create-wizard-steps :step="$step" :pet="$pet" :petStep="$petStep" />
         <p>Your dog sounds great! Please tell us little more.</p>
         <p>
             The following buttons will guide you through questionnaire

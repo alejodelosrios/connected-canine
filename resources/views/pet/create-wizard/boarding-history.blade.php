@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="p-4">
-        <x-pet-create-wizard-steps :step="$step" :pet="$pet" />
+        <x-pet-create-wizard-steps :step="$step" :pet="$pet" :petStep="$petStep" />
 
         <x-card>
             <h4>Doggy Daycare and Boarding History</h4>

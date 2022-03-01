@@ -3,10 +3,10 @@
 namespace App\Http\Livewire;
 
 use App\Models\Pet;
-use App\Models\Veterinarian;
 use Livewire\Component;
+use App\Models\Veterinarian;
+use App\Services\UpdatePetWizardStep;
 use App\Services\Veterinarian as Updater;
-use Illuminate\Support\Facades\Validator;
 
 class VeterinarianForm extends Component
 {
@@ -43,9 +43,11 @@ class VeterinarianForm extends Component
 
     public function save()
     {
+        $this->state['step'] = 2;
         $this->state["pet_id"] = $this->pet->id;
         $this->resetErrorBag();
         $this->updater->save($this->state);
+        UpdatePetWizardStep::pushStep($this->pet, 7);
         $this->emit("refresh-navigation-menu");
         $this->reset("search");
     }

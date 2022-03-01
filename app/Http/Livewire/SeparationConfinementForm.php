@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use App\Models\Behavior;
-use Illuminate\Support\Arr;
+use App\Services\UpdatePetWizardStep;
 use Illuminate\Support\Facades\Validator;
 
 class SeparationConfinementForm extends Component
@@ -88,6 +88,8 @@ class SeparationConfinementForm extends Component
                 ? $this->state['question2']['comments']
                 : ' '
         ]]);
+
+        UpdatePetWizardStep::pushStep($this->pet, 5);
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 

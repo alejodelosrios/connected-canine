@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use App\Models\Behavior;
+use App\Services\UpdatePetWizardStep;
 use Illuminate\Support\Facades\Validator;
 
 class BehaviorBackgroundForm extends Component
@@ -48,6 +49,8 @@ class BehaviorBackgroundForm extends Component
             3 => ['value' => $this->state['question3']],
             4 => ['value' => $this->state['question4']],
         ]);
+
+        UpdatePetWizardStep::pushStep($this->pet, 3);
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 

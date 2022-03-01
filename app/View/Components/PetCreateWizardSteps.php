@@ -8,16 +8,18 @@ class PetCreateWizardSteps extends Component
 {
     public $step;
     public $pet;
+    public $petStep;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($step, $pet)
+    public function __construct($step, $pet, $petStep)
     {
         $this->step = $step;
         $this->pet = $pet;
+        $this->petStep = $petStep;
     }
 
     /**

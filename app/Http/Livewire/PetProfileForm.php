@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Breed;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Services\UpdatePetWizardStep;
 use App\Services\PetProfile as Updater;
 
 class PetProfileForm extends Component
@@ -39,12 +40,14 @@ class PetProfileForm extends Component
         $this->resetErrorBag();
 
         $updater = new Updater();
-        $this->state['step'] = 1;
+
         $pet = $updater->save(
             $this->photo
                 ? array_merge($this->state, ["photo" => $this->photo])
                 : $this->state
         );
+
+        UpdatePetWizardStep::pushStep($pet, 1);
 
         $this->emit("saved", ["pet_id" => $pet->id]);
 

@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Pet;
 use Livewire\Component;
-use Illuminate\Support\Facades\Validator;
+use App\Services\UpdatePetWizardStep;
 use App\Services\BoardingHistoryService as Updater;
 
 class BoardingHistoryForm extends Component
@@ -38,6 +38,8 @@ class BoardingHistoryForm extends Component
         $update = new Updater($this->pet);
 
         $update->save($this->state);
+
+        UpdatePetWizardStep::pushStep($this->pet, 4);
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 

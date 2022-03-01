@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Pet;
 use Livewire\Component;
 use App\Models\Behavior;
+use App\Services\UpdatePetWizardStep;
 use Illuminate\Support\Facades\Validator;
 
 class AggressionFearForm extends Component
@@ -28,7 +29,7 @@ class AggressionFearForm extends Component
     public function mount(Pet $pet)
     {
         $this->pet = $pet;
-        
+
         if ($pet->hasAggressionFear()) {
             $behaviors = $pet->aggressionFear()->toArray();
 
@@ -118,6 +119,8 @@ class AggressionFearForm extends Component
 
         //Save data
         $this->pet->behaviors()->syncWithoutDetaching($answers);
+
+        UpdatePetWizardStep::pushStep($this->pet, 6);
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 

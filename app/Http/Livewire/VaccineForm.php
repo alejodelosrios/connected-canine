@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Pet;
 use Livewire\Component;
+use App\Services\UpdatePetWizardStep;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Validator;
 use App\Services\VaccineService as Updater;
@@ -47,6 +48,8 @@ class VaccineForm extends Component
         $updater = new Updater($this->pet);
 
         $updater->save($this->state);
+
+        UpdatePetWizardStep::pushStep($this->pet, 2);
 
         $this->emit("saved", ["pet_id" => $this->pet->id]);
 
