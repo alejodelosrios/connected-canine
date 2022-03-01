@@ -144,4 +144,12 @@ class Pet extends Model
     {
         return $query->where("complete", true);
     }
+
+    public function getBreedNameAttribute()
+    {
+        if ($this->breed) {
+            return $this->breed->name;
+        }
+        return null;
+    }
 }

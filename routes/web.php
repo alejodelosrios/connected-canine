@@ -49,39 +49,35 @@ Route::middleware(["auth:sanctum", "verified"])->group(function () {
     Route::view("/policy", "policy-int")->name("policy");
 
     /* create pet profile*/
-    Route::get("pets/add", [
-        AddPetController::class,
-        "add",
-    ])->name("pet.add");
     Route::get("pets/add/profile/{petId?}", [
         AddPetController::class,
         "profile",
     ])->name("pet.create");
-    Route::get("pets/add/vaccines/{pet}", [
+    Route::get("pets/add/vaccines/{pet?}", [
         AddPetController::class,
         "vaccines",
     ])->name("pet.vaccines.create");
-    Route::get("pets/add/background/{pet}", [
+    Route::get("pets/add/background/{pet?}", [
         AddPetController::class,
         "behaviorBackground",
     ])->name("pet.background.create");
-    Route::get("pets/add/boarding-history/{pet}", [
+    Route::get("pets/add/boarding-history/{pet?}", [
         AddPetController::class,
         "behaviorBoardingHistory",
     ])->name("pet.boarding.create");
-    Route::get("pets/add/separation-confinement/{pet}", [
+    Route::get("pets/add/separation-confinement/{pet?}", [
         AddPetController::class,
         "behaviorSeparationConfinement",
     ])->name("pet.separation.create");
-    Route::get("pets/add/aggression-fear/{pet}", [
+    Route::get("pets/add/aggression-fear/{pet?}", [
         AddPetController::class,
         "behaviorAggressionFear",
     ])->name("pet.aggression.create");
-    Route::get("pets/add/vet-medical/{pet}", [
+    Route::get("pets/add/vet-medical/{pet?}", [
         AddPetController::class,
         "vetAndMedical",
     ])->name("pet.medical.create");
-    Route::get("pets/add/submit/{pet}", [
+    Route::get("pets/add/submit/{pet?}", [
         AddPetController::class,
         "submit",
     ])->name("pet.submit");

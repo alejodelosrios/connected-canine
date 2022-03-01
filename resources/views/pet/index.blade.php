@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header p-0 mx-3 mt-3 position-relative z-index-1 justify-content-between d-flex">
             <h4>{{ __('Pets') }}</h4>
-            <a href="{{ route('pet.add') }}" class="btn btn-icon btn-3 btn-primary ">
+            <a href="{{ route('pet.create') }}" class="btn btn-icon btn-3 btn-primary ">
                 <span class="btn-inner--text mx-1 ">Add pet</span>
                 <span class="btn-inner--icon"><i class="fas fa-plus-circle"></i></span>
             </a>
@@ -42,13 +42,13 @@
                                 </div>
                             </td>
                             <td class="d-none d-sm-table-cell ">
-                                <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->breed->name }}</p>
+                                <p class="text-xs font-weight-bold mb-0 text-capitalize">{{ $pet->breedName }}</p>
                             </td>
                             <td class="align-middle text-center text-sm">
                                 <span class=" text-xs font-weight-bold text-capitalize">{{ $pet->sex }}</span>
                             </td>
                             <td class="align-middle text-center">
-                                <span class=" text-xs font-weight-bold">{{ $pet->birthday->format('m-d-Y') }}</span>
+                                <span class=" text-xs font-weight-bold">{{ $pet->birthday }}</span>
                             </td>
                             <td class="align-middle">
                                 @if ($pet->complete)

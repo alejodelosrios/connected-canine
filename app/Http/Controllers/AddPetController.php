@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
-use App\Notifications\PetCreated;
-use Illuminate\Support\Facades\Auth;
 
 class AddPetController extends Controller
 {
@@ -16,6 +14,8 @@ class AddPetController extends Controller
             $this->authorize("update", $pet);
         }
 
+
+
         return view("pet.create-wizard.create", [
             "redirectBack" => "pet.index",
             "redirecTo" => "pet.vaccines.create",
@@ -24,11 +24,15 @@ class AddPetController extends Controller
         ]);
     }
 
-
-
     public function vaccines(Pet $pet)
     {
+
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
+
         $this->authorize("update", $pet);
+
         return view("pet.create-wizard.vaccines", [
             "redirectBack" => "pet.create",
             "redirecTo" => "pet.background.create",
@@ -39,6 +43,9 @@ class AddPetController extends Controller
 
     public function behaviorBackground(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         return view("pet.create-wizard.background", [
             "redirectBack" => "pet.vaccines.create",
@@ -50,6 +57,9 @@ class AddPetController extends Controller
 
     public function behaviorBoardingHistory(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         return view("pet.create-wizard.boarding-history", [
             "redirectBack" => "pet.background.create",
@@ -61,6 +71,9 @@ class AddPetController extends Controller
 
     public function behaviorSeparationConfinement(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         return view("pet.create-wizard.separation", [
             "redirectBack" => "pet.boarding.create",
@@ -72,6 +85,9 @@ class AddPetController extends Controller
 
     public function behaviorAggressionFear(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         return view("pet.create-wizard.aggression", [
             "redirectBack" => "pet.separation.create",
@@ -83,6 +99,9 @@ class AddPetController extends Controller
 
     public function vetAndMedical(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         return view("pet.create-wizard.medical", [
             "redirectBack" => route("pet.aggression.create", $pet),
@@ -95,6 +114,9 @@ class AddPetController extends Controller
 
     public function submit(Pet $pet)
     {
+        if (!$pet || !$pet->id) {
+            return redirect()->back();
+        }
         $this->authorize("update", $pet);
         if (!$pet->veterinarian) {
             return redirect()
@@ -110,11 +132,5 @@ class AddPetController extends Controller
             "pet" => $pet,
             "step" => 8,
         ]);
-    }
-
-    public function add()
-    {
-        $pet = Pet::create(['user_id' => Auth::id()]);
-        return redirect()->route('pet.create', $pet);
     }
 }

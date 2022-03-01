@@ -29,7 +29,7 @@ class PetProfileForm extends Component
         if (!array_key_exists("question", $this->state)) {
             $this->state["question"] = "no";
         }
-        if (!array_key_exists("breed_id", $this->state)) {
+        if (!array_key_exists("breed_id", $this->state) || !$this->state["breed_id"]) {
             $this->state["breed_id"] = "1";
         }
     }
@@ -39,6 +39,7 @@ class PetProfileForm extends Component
         $this->resetErrorBag();
 
         $updater = new Updater();
+        $this->state['step'] = 1;
         $pet = $updater->save(
             $this->photo
                 ? array_merge($this->state, ["photo" => $this->photo])
