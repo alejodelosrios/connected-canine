@@ -7,7 +7,6 @@ use Illuminate\Validation\Rule;
 use App\Contracts\UpdaterContract;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Filesystem\Filesystem;
 
 final class VaccineService implements UpdaterContract
 {
@@ -26,13 +25,21 @@ final class VaccineService implements UpdaterContract
     {
         $input = $this->prepareToValidate($input);
 
+
+        if (isset($input["proof"]) && !($input["proof"] instanceof \Livewire\TemporaryUploadedFile)) {
+            unset($input["proof"]);
+        }
+
         $validated = Validator::make(
             $input,
             $this->rules($input),
             $this->messages
         )->validateWithBag("save");
 
-        if (isset($input["proof"])) {
+
+
+
+        if (isset($input["proof"]) && ($input["proof"] instanceof \Livewire\TemporaryUploadedFile)) {
             $path = $input["proof"]->store("proofs");
             $validated["proof"] = $path;
         }
@@ -85,7 +92,7 @@ final class VaccineService implements UpdaterContract
                 }),
                 "after:today",
             ],
-            "proof" => ["nullable", "file", "mimes:png,jpg,pdf", "max:102400"],
+            "proof" => ["nullable", Rule::requiredIf(isset($input["proof"]) && ($input["proof"] instanceof \Livewire\TemporaryUploadedFile)), "file", "mimes:png,jpg,pdf", "max:5120"],
         ];
     }
     public function prepareToValidate($input)
