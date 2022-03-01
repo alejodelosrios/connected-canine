@@ -28,7 +28,7 @@ class Accounts extends Component
         ])->validateWithBag("save");
 
         Account::updateOrCreate(
-            ["id" => $this->state["id"] ?? ""],
+            ["id" => $this->state["id"] ?? 0],
             [
                 "name" => $this->state["name"],
                 "domain" => $this->state["domain"],
