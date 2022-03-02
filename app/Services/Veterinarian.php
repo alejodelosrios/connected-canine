@@ -13,9 +13,9 @@ final class Veterinarian implements UpdaterContract
     {
         $pet = Pet::find($input["pet_id"]);
 
-
-
+        //dd($input);
         if (!isset($input["id"])) {
+            $this->validate($input);
             $veterinarian["vet_clinic"] = $input["vet_clinic"];
             $veterinarian["vet_city"] = $input["vet_city"];
             $veterinarian["vet_address"] = $input["vet_address"];
