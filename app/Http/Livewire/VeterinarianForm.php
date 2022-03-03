@@ -12,7 +12,7 @@ class VeterinarianForm extends Component
 {
     public $state = [];
     public $search;
-    public Pet $pet;
+    public $pet;
     protected $updater;
 
     public function __construct($id)
